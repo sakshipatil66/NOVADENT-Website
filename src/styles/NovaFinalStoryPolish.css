@@ -1,0 +1,228 @@
+/* NOVADENT — final Home + About storytelling pass. Additive, responsive, content-preserving. */
+:root {
+  --nova-editorial-ink: #153640;
+  --nova-editorial-teal: #176f78;
+  --nova-editorial-line: rgba(21, 54, 64, .16);
+  --nova-editorial-ease: cubic-bezier(.2, .72, .22, 1);
+}
+
+/* HOME: cinematic video hero with readable copy and deliberate vertical rhythm. */
+.homePage.premiumHome .novaHero {
+  min-height: min(900px, 94svh);
+  min-height: clamp(680px, 92svh, 940px);
+  isolation: isolate;
+  background: #0b2830;
+}
+.homePage.premiumHome .novaHeroMedia,
+.homePage.premiumHome .novaHeroVideo { position: absolute; inset: 0; width: 100%; height: 100%; }
+.homePage.premiumHome .novaHeroVideo {
+  object-fit: cover;
+  object-position: center 48%;
+  filter: saturate(.86) contrast(1.04);
+  transform: scale(1.025);
+}
+.homePage.premiumHome .novaHeroOverlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg, rgba(5, 27, 35, .84) 0%, rgba(5, 27, 35, .60) 48%, rgba(5, 27, 35, .19) 100%);
+}
+.homePage.premiumHome .novaHeroGradient {
+  position: absolute; inset: 0;
+  background: linear-gradient(0deg, rgba(5, 24, 30, .76) 0%, transparent 32%, rgba(5, 24, 30, .12) 100%);
+  pointer-events: none;
+}
+.homePage.premiumHome .novaHeroContent {
+  width: min(1160px, 88%);
+  margin-inline: auto;
+  padding: clamp(115px, 16vh, 175px) 0 170px;
+}
+.homePage.premiumHome .novaHeroTopLabel { letter-spacing: .19em; font-size: .68rem; }
+.homePage.premiumHome .novaHeroTitle {
+  max-width: 960px;
+  font-size: clamp(3.1rem, 7.3vw, 7.2rem);
+  line-height: .98;
+  letter-spacing: -.065em;
+  text-wrap: balance;
+}
+.homePage.premiumHome .novaHeroAccent {
+  display: block;
+  margin-top: .08em;
+  color: #c4e4df;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: -.045em;
+}
+.homePage.premiumHome .novaHeroDescription { max-width: 600px; line-height: 1.85; font-size: clamp(.98rem, 1.2vw, 1.13rem); }
+.homePage.premiumHome .novaHeroPrimary,
+.homePage.premiumHome .novaHeroSecondary {
+  min-height: 54px; padding: 0 22px; border-radius: 3px;
+  transition: transform .35s var(--nova-editorial-ease), background .3s ease, border-color .3s ease, box-shadow .3s ease;
+}
+.homePage.premiumHome .novaHeroPrimary { box-shadow: 0 12px 34px rgba(0,0,0,.18); }
+.homePage.premiumHome .novaHeroPrimary:hover,
+.homePage.premiumHome .novaHeroSecondary:hover { transform: translateY(-3px); }
+.homePage.premiumHome .novaHeroInfo { border-top: 1px solid rgba(255,255,255,.22); }
+.homePage.premiumHome .heroRunningLine { overflow: hidden; border-bottom: 1px solid var(--nova-editorial-line); background: #f7faf9; }
+.homePage.premiumHome .heroRunningTrack { animation-duration: 36s; }
+
+/* HOME: editorial story sections, images and treatment/doctor cards. */
+.homePage.premiumHome .storySection { position: relative; padding-block: clamp(78px, 9vw, 142px); }
+.homePage.premiumHome .storySection:nth-of-type(even) { background: #f7faf9; }
+.homePage.premiumHome .storyContainer { width: min(1240px, 88%); margin-inline: auto; }
+.homePage.premiumHome .storySplit { gap: clamp(38px, 7vw, 110px); align-items: center; }
+.homePage.premiumHome .storyKicker,
+.homePage.premiumHome .miniLabel,
+.homePage.premiumHome .statsKicker { color: var(--nova-editorial-teal); font-size: .69rem; letter-spacing: .19em; }
+.homePage.premiumHome .storySection h2,
+.homePage.premiumHome .cinematicTreatments h2,
+.homePage.premiumHome .novaPhilosophy h2 { font-size: clamp(2.45rem, 5.1vw, 5.25rem); line-height: 1.02; letter-spacing: -.06em; text-wrap: balance; }
+.homePage.premiumHome .storySection h2 em,
+.homePage.premiumHome .cinematicTreatments h2 em,
+.homePage.premiumHome .novaPhilosophy h2 em { color: var(--nova-editorial-teal); font-family: Georgia, "Times New Roman", serif; font-weight: 400; }
+.homePage.premiumHome .storyLead { max-width: 660px; font-size: clamp(1.1rem, 1.55vw, 1.35rem); line-height: 1.7; }
+.homePage.premiumHome .storyMedia,
+.homePage.premiumHome .novaWelcomeVisual,
+.homePage.premiumHome .novaExperienceGallery,
+.homePage.premiumHome .careStoryVisual,
+.homePage.premiumHome .founderEditorialVisual { min-width: 0; }
+.homePage.premiumHome .novaWelcomeMainImage,
+.homePage.premiumHome .novaExperienceMain,
+.homePage.premiumHome .careStoryMainImage,
+.homePage.premiumHome .founderEditorialImage { border-radius: 3px; box-shadow: 0 24px 70px rgba(16, 54, 64, .12); }
+.homePage.premiumHome .novaWelcomeSecondImage,
+.homePage.premiumHome .novaExperienceSmall,
+.homePage.premiumHome .careStorySmallImage { border: 7px solid #fff; box-shadow: 0 18px 44px rgba(16,54,64,.14); }
+.homePage.premiumHome .storyMiniGrid > div,
+.homePage.premiumHome .careStoryPoint,
+.homePage.premiumHome .novaExperienceItem { border-color: var(--nova-editorial-line); }
+.homePage.premiumHome .cinematicTreatments { padding-block: clamp(78px, 9vw, 136px); }
+.homePage.premiumHome .cinematicTreatmentRow,
+.homePage.premiumHome .cinematicTreatmentFeatured,
+.homePage.premiumHome .cinematicDoctorEditorial { transition: transform .45s var(--nova-editorial-ease), box-shadow .45s ease; }
+.homePage.premiumHome .cinematicTreatmentRow:hover,
+.homePage.premiumHome .cinematicTreatmentFeatured:hover,
+.homePage.premiumHome .cinematicDoctorEditorial:hover { transform: translateY(-4px); }
+.homePage.premiumHome .cinematicTreatmentRowImage,
+.homePage.premiumHome .cinematicTreatmentFeaturedImage,
+.homePage.premiumHome .cinematicDoctorPortrait { overflow: hidden; }
+.homePage.premiumHome .cinematicTreatmentRowImage img,
+.homePage.premiumHome .cinematicTreatmentFeaturedImage img,
+.homePage.premiumHome .cinematicDoctorPortrait img { transition: transform .9s var(--nova-editorial-ease); }
+.homePage.premiumHome .cinematicTreatmentRow:hover img,
+.homePage.premiumHome .cinematicTreatmentFeatured:hover img,
+.homePage.premiumHome .cinematicDoctorEditorial:hover img { transform: scale(1.045); }
+.homePage.premiumHome [data-reveal] { transition: opacity .8s var(--nova-editorial-ease), transform .85s var(--nova-editorial-ease), filter .8s ease; }
+.homePage.premiumHome [data-reveal]:not(.is-visible) { opacity: 0; transform: translate3d(0, 26px, 0); filter: blur(3px); }
+.homePage.premiumHome [data-reveal].reveal-left:not(.is-visible) { transform: translate3d(-28px, 0, 0); }
+.homePage.premiumHome [data-reveal].reveal-right:not(.is-visible) { transform: translate3d(28px, 0, 0); }
+
+/* ABOUT: fix local hero asset path and give the story page a stronger editorial hierarchy. */
+.novaAbout .aboutHero { min-height: clamp(650px, 88svh, 900px); }
+.novaAbout .aboutHeroImage { background-image: url("/images/gallery/gallery-10.jpg") !important; background-size: cover; background-position: center 46%; }
+.novaAbout .aboutHeroOverlay { background: linear-gradient(90deg, rgba(5, 30, 38, .88) 0%, rgba(5, 30, 38, .65) 48%, rgba(5, 30, 38, .18) 100%), linear-gradient(0deg, rgba(5, 30, 38, .52), transparent 55%); }
+.novaAbout .aboutHeroContent { width: min(900px, 86%); margin-left: max(7%, calc((100% - 1240px) / 2)); padding-block: clamp(100px, 15vh, 160px) 135px; }
+.novaAbout .aboutHeroEyebrow { display: flex; align-items: center; gap: 12px; }
+.novaAbout .aboutHeroEyebrow::before { content: ""; width: 34px; height: 1px; background: #c4e4df; }
+.novaAbout .aboutHero h1 { max-width: 900px; font-size: clamp(3rem, 6.8vw, 6.6rem); line-height: .99; letter-spacing: -.065em; text-wrap: balance; }
+.novaAbout .aboutHero h1 em { display: inline-block; color: #c4e4df; }
+.novaAbout .aboutHeroDescription { max-width: 560px; font-size: clamp(1rem, 1.3vw, 1.16rem); }
+.novaAbout .aboutIntro,
+.novaAbout .aboutStory,
+.novaAbout .aboutExperienceSection,
+.novaAbout .aboutFounder,
+.novaAbout .aboutModern,
+.novaAbout .aboutPromise,
+.novaAbout .aboutValues,
+.novaAbout .aboutJourney,
+.novaAbout .aboutGallery { position: relative; }
+.novaAbout .aboutIntro { padding: clamp(78px, 9vw, 138px) max(6.5%, calc((100% - 1240px) / 2)); }
+.novaAbout .aboutIntroGrid { gap: clamp(34px, 7vw, 105px); align-items: center; }
+.novaAbout .aboutIntroImage,
+.novaAbout .aboutStoryImageMain,
+.novaAbout .aboutExperienceImage,
+.novaAbout .aboutFounderImage,
+.novaAbout .aboutModernImage { overflow: hidden; box-shadow: 0 24px 70px rgba(12, 49, 57, .12); }
+.novaAbout .aboutIntroImage img,
+.novaAbout .aboutStoryImages img,
+.novaAbout .aboutExperienceImage img,
+.novaAbout .aboutFounderImage img,
+.novaAbout .aboutModernImage img { transition: transform 1s var(--nova-editorial-ease), filter .7s ease; }
+.novaAbout .aboutIntroImage:hover img,
+.novaAbout .aboutStoryImages:hover img,
+.novaAbout .aboutExperienceSection:hover .aboutExperienceImage img,
+.novaAbout .aboutFounderImage:hover img,
+.novaAbout .aboutModernImage:hover img { transform: scale(1.055); }
+.novaAbout .aboutIntroText h2,
+.novaAbout .aboutStoryContent h2,
+.novaAbout .aboutSectionHeading { font-size: clamp(2.45rem, 4.9vw, 5rem); line-height: 1.02; letter-spacing: -.06em; text-wrap: balance; }
+.novaAbout .aboutIntroText h2 em,
+.novaAbout .aboutStoryContent h2 em { color: var(--nova-editorial-teal); font-family: Georgia, "Times New Roman", serif; font-weight: 400; }
+.novaAbout .aboutValueCard,
+.novaAbout .aboutJourneyStep,
+.novaAbout .aboutModernImageCard,
+.novaAbout .aboutGalleryItem { border: 1px solid var(--nova-editorial-line); border-radius: 4px; background: #fff; }
+.novaAbout .aboutValueCard { padding: clamp(24px, 3vw, 38px); }
+.novaAbout .aboutValueCard:hover,
+.novaAbout .aboutJourneyStep:hover,
+.novaAbout .aboutModernImageCard:hover { border-color: rgba(23,111,120,.42); box-shadow: 0 22px 55px rgba(12,49,57,.12); }
+.novaAbout .aboutGallery { background: #f7faf9; }
+.novaAbout .aboutGalleryGrid { gap: 18px; }
+.novaAbout .aboutGalleryItem { position: relative; min-height: 260px; }
+.novaAbout .aboutGalleryItem img { transition: transform .9s var(--nova-editorial-ease); }
+.novaAbout .aboutGalleryItem:hover img { transform: scale(1.055); }
+.novaAbout .aboutFinalCta { overflow: hidden; position: relative; }
+.novaAbout .aboutFinalCta::after { content: "N."; position: absolute; right: 3%; bottom: -22%; color: rgba(255,255,255,.055); font: italic 22rem/1 Georgia, serif; pointer-events: none; }
+.novaAbout .aboutButton,
+.novaAbout .aboutHeroButton,
+.novaAbout .aboutArrowLink { transition: transform .3s var(--nova-editorial-ease), box-shadow .3s ease, background .3s ease, color .3s ease; }
+.novaAbout .aboutButton:focus-visible,
+.novaAbout .aboutHeroButton:focus-visible,
+.novaAbout .aboutArrowLink:focus-visible,
+.novaAbout a:focus-visible { outline: 3px solid #58aeb0; outline-offset: 4px; }
+
+@media (max-width: 768px) {
+  .homePage.premiumHome .novaHero { min-height: 790px; min-height: 91svh; }
+  .homePage.premiumHome .novaHeroVideo { object-position: 58% center; }
+  .homePage.premiumHome .novaHeroOverlay { background: linear-gradient(90deg, rgba(5,27,35,.82), rgba(5,27,35,.52)), linear-gradient(0deg, rgba(5,24,30,.68), transparent 60%); }
+  .homePage.premiumHome .novaHeroContent { width: 88%; padding: 125px 0 225px; }
+  .homePage.premiumHome .novaHeroTitle { font-size: clamp(2.8rem, 12vw, 5rem); }
+  .homePage.premiumHome .novaHeroActions { align-items: stretch; flex-direction: column; width: min(100%, 330px); gap: 11px; }
+  .homePage.premiumHome .novaHeroPrimary,
+  .homePage.premiumHome .novaHeroSecondary { width: 100%; justify-content: space-between; }
+  .homePage.premiumHome .novaHeroInfo { display: none; }
+  .homePage.premiumHome .storySection { padding-block: 76px; }
+  .homePage.premiumHome .storyContainer { width: 88%; }
+  .homePage.premiumHome .storySplit { gap: 34px; }
+  .homePage.premiumHome .storySection h2,
+  .homePage.premiumHome .cinematicTreatments h2,
+  .homePage.premiumHome .novaPhilosophy h2 { font-size: clamp(2.35rem, 10vw, 4rem); }
+  .homePage.premiumHome .novaWelcomeSecondImage,
+  .homePage.premiumHome .novaExperienceSmall,
+  .homePage.premiumHome .careStorySmallImage { border-width: 4px; }
+  .novaAbout .aboutHero { min-height: 740px; min-height: 88svh; }
+  .novaAbout .aboutHeroContent { width: 88%; margin-left: 6%; padding: 110px 0 120px; }
+  .novaAbout .aboutHero h1 { font-size: clamp(2.8rem, 11.5vw, 4.5rem); }
+  .novaAbout .aboutHeroFooter { left: 6%; right: 6%; gap: 12px; font-size: 8px; letter-spacing: .08em; }
+  .novaAbout .aboutIntro { padding: 76px 6%; }
+  .novaAbout .aboutIntroGrid { gap: 32px; }
+  .novaAbout .aboutIntroText h2,
+  .novaAbout .aboutStoryContent h2,
+  .novaAbout .aboutSectionHeading { font-size: clamp(2.35rem, 10vw, 4rem); }
+  .novaAbout .aboutGalleryItem { min-height: 220px; }
+  .novaAbout .aboutFinalCta::after { font-size: 12rem; bottom: -8%; }
+}
+@media (hover: none) {
+  .homePage.premiumHome .cinematicTreatmentRow:hover,
+  .homePage.premiumHome .cinematicTreatmentFeatured:hover,
+  .homePage.premiumHome .cinematicDoctorEditorial:hover,
+  .novaAbout .aboutValueCard:hover,
+  .novaAbout .aboutJourneyStep:hover { transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .homePage.premiumHome *, .homePage.premiumHome *::before, .homePage.premiumHome *::after,
+  .novaAbout *, .novaAbout *::before, .novaAbout *::after {
+    animation-duration: .01ms !important; animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important; scroll-behavior: auto !important;
+  }
+  .homePage.premiumHome [data-reveal]:not(.is-visible) { opacity: 1; transform: none; filter: none; }
+}

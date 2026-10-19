@@ -1,0 +1,46 @@
+/* NOVADENT Step 28 — focused visual balance pass; hero and route structure intentionally untouched. */
+:root { --nova-reading-width: 68ch; }
+
+/* Keep long-form copy comfortable to scan without making cards feel cramped. */
+.visitPrepIntro > p,
+.servicesFAQIntro > p,
+.serviceFAQItem p,
+.visitPrepItemText small {
+  text-wrap: pretty;
+}
+.visitPrepInner { gap: clamp(28px, 5vw, 72px); }
+.visitPrepCard { box-shadow: 0 18px 48px rgba(26, 70, 72, .075); }
+.visitPrepItem { transition: background-color .18s ease; }
+.visitPrepItem:hover { background: rgba(40, 123, 126, .035); }
+.visitPrepItemText strong { line-height: 1.45; }
+.visitPrepItemText small { line-height: 1.7; }
+
+/* FAQ: clearer tap targets, focus states, and consistent accordion rhythm. */
+.servicesFAQGrid { align-items: start; gap: clamp(28px, 5vw, 72px); }
+.servicesFAQList { min-width: 0; }
+.serviceFAQItem { overflow: clip; }
+.serviceFAQItem button { min-height: 62px; text-align: left; line-height: 1.45; }
+.serviceFAQItem button:focus-visible { outline: 2px solid #287b7e; outline-offset: -3px; border-radius: 8px; }
+.serviceFAQItem p { max-width: 66ch; line-height: 1.75; }
+
+/* Premium consistency across content cards; avoids touching the home hero. */
+:where(.visitPrepCard, .serviceFAQItem, .visitPrepNote) { border-color: rgba(31, 105, 110, .16); }
+:where(.visitPrepBook, .visitPrepReset, .serviceFAQItem button) { -webkit-tap-highlight-color: transparent; }
+:where(.visitPrepBook, .visitPrepReset):focus-visible { outline: 2px solid #287b7e; outline-offset: 3px; }
+
+@media (max-width: 800px) {
+  .visitPrepInner { gap: 30px; }
+  .servicesFAQGrid { gap: 28px; }
+  .serviceFAQItem button { min-height: 58px; }
+}
+@media (max-width: 480px) {
+  .visitPrepSection { padding-top: 60px; padding-bottom: 64px; }
+  .visitPrepCard { border-radius: 16px; }
+  .visitPrepProgressHead { gap: 10px; }
+  .visitPrepProgressHead strong { font-size: .98rem; }
+  .visitPrepPercent { font-size: 1.1rem; }
+  .serviceFAQItem button { padding-inline: 14px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .visitPrepItem { transition: none; }
+}

@@ -1,0 +1,248 @@
+/* NOVADENT — cinematic polish and responsive interaction layer.
+   Kept separate from the legacy stylesheet so existing page styles remain intact. */
+:root {
+  --nova-motion-ease: cubic-bezier(.22, .7, .18, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 84px;
+}
+
+body {
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.homePage.premiumHome section[data-reveal] {
+  transition: opacity 800ms var(--nova-motion-ease),
+              transform 800ms var(--nova-motion-ease),
+              filter 800ms var(--nova-motion-ease);
+}
+
+.homePage.premiumHome section[data-reveal]:not(.is-visible) {
+  opacity: .001;
+  transform: translate3d(0, 26px, 0);
+  filter: blur(3px);
+}
+
+.homePage.premiumHome section[data-reveal].is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  filter: blur(0);
+}
+
+.novaHero {
+  min-height: min(900px, 100svh);
+  min-height: max(690px, min(900px, 100svh));
+}
+
+.novaHeroMedia,
+.novaHeroVideo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.novaHeroVideo {
+  display: block;
+  object-fit: cover;
+  object-position: center 44%;
+}
+
+.novaHeroContent {
+  padding-top: clamp(100px, 15vh, 150px);
+  padding-bottom: clamp(150px, 19vh, 205px);
+}
+
+.novaHeroTitle {
+  text-wrap: balance;
+}
+
+.novaHeroDescription {
+  text-wrap: pretty;
+}
+
+.novaHeroPrimary:focus-visible,
+.novaHeroSecondary:focus-visible,
+.novaHeroIndicators button:focus-visible,
+.novaHeroMakeAppointment:focus-visible,
+.homePage.premiumHome a:focus-visible,
+.homePage.premiumHome button:focus-visible {
+  outline: 3px solid #70d7ee;
+  outline-offset: 4px;
+}
+
+.novaHeroIndicators button {
+  cursor: pointer;
+  min-width: 28px;
+  min-height: 28px;
+}
+
+.novaHeroInfo a {
+  text-underline-offset: 4px;
+}
+
+.homePage.premiumHome img {
+  max-width: 100%;
+}
+
+.homePage.premiumHome a,
+.homePage.premiumHome button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (max-width: 900px) {
+  .novaHero {
+    min-height: 760px;
+    min-height: max(760px, 100svh);
+  }
+
+  .novaHeroContent {
+    width: min(720px, calc(100% - 40px));
+    min-height: 100svh;
+    padding-top: 115px;
+    padding-bottom: 215px;
+  }
+
+  .novaHeroSideLabel {
+    display: none;
+  }
+
+  .novaHeroInfo {
+    left: 20px;
+    right: 20px;
+    bottom: 26px;
+    gap: 14px;
+  }
+}
+
+@media (max-width: 600px) {
+  html {
+    scroll-padding-top: 70px;
+  }
+
+  .novaHero {
+    min-height: 780px;
+    min-height: max(780px, 100svh);
+  }
+
+  .novaHeroVideo {
+    object-position: 57% center;
+  }
+
+  .novaHeroContent {
+    width: calc(100% - 36px);
+    min-height: 100svh;
+    justify-content: center;
+    padding: 108px 0 260px;
+  }
+
+  .novaHeroTopLabel {
+    top: 84px;
+    left: 18px;
+    right: 18px;
+    justify-content: center;
+    font-size: 9px;
+    letter-spacing: .13em;
+  }
+
+  .novaHeroTitle {
+    font-size: clamp(38px, 10.5vw, 56px) !important;
+    line-height: 1.04 !important;
+  }
+
+  .novaHeroDescription {
+    max-width: 34ch;
+    margin-inline: auto;
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .novaHeroActions {
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 24px;
+  }
+
+  .novaHeroPrimary,
+  .novaHeroSecondary {
+    width: min(100%, 320px);
+    min-height: 48px;
+  }
+
+  .novaHeroInfo {
+    left: 18px;
+    right: 18px;
+    bottom: 48px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 18px;
+  }
+
+  .novaHeroInfoItem {
+    min-width: 0;
+  }
+
+  .novaHeroInfoItem small {
+    font-size: 8px;
+    letter-spacing: .12em;
+  }
+
+  .novaHeroInfoItem strong,
+  .novaHeroInfoItem a {
+    font-size: 11px;
+    line-height: 1.45;
+    overflow-wrap: anywhere;
+  }
+
+  .novaHeroInfoItem > span {
+    font-size: 10px;
+  }
+
+  .novaHeroMakeAppointment {
+    grid-column: 1 / -1;
+    justify-content: center;
+    min-height: 42px;
+  }
+
+  .novaHeroIndicators {
+    bottom: 15px;
+  }
+
+  .novaHeroScroll {
+    display: none;
+  }
+
+  .homePage.premiumHome .storyContainer {
+    width: min(100% - 36px, 1180px);
+  }
+
+  .homePage.premiumHome h2 {
+    text-wrap: balance;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .homePage.premiumHome section[data-reveal]:not(.is-visible) {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}

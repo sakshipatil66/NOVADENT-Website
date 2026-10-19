@@ -1,0 +1,164 @@
+/* NOVADENT — cinematic storytelling polish (Step 2)
+   Additive styles only: preserves the existing page structure and content. */
+
+:root {
+  --nova-ink: #142d3a;
+  --nova-muted: #63737b;
+  --nova-accent: #1b7880;
+  --nova-line: rgba(20, 45, 58, .13);
+  --nova-ease: cubic-bezier(.22, 1, .36, 1);
+}
+
+html { scroll-padding-top: 92px; }
+.homePage.premiumHome { overflow: clip; }
+.homePage.premiumHome section { isolation: isolate; }
+
+/* Reveal states are activated by the existing IntersectionObserver in Home.jsx. */
+.homePage.premiumHome [data-reveal] {
+  transition:
+    opacity .9s var(--nova-ease),
+    transform .95s var(--nova-ease),
+    filter .9s var(--nova-ease);
+  transition-delay: var(--nova-reveal-delay, 0ms);
+}
+.homePage.premiumHome [data-reveal]:not(.is-visible) {
+  opacity: 0;
+  transform: translate3d(0, 30px, 0);
+  filter: blur(5px);
+}
+.homePage.premiumHome [data-reveal].reveal-left:not(.is-visible) { transform: translate3d(-32px, 12px, 0); }
+.homePage.premiumHome [data-reveal].reveal-right:not(.is-visible) { transform: translate3d(32px, 12px, 0); }
+.homePage.premiumHome [data-reveal].is-visible { opacity: 1; transform: translate3d(0, 0, 0); filter: blur(0); }
+
+/* Elegant editorial image treatment. */
+.homePage.premiumHome .novaWelcomeMainImage,
+.homePage.premiumHome .novaWelcomeSecondImage,
+.homePage.premiumHome .novaExperienceMain,
+.homePage.premiumHome .novaExperienceFloating,
+.homePage.premiumHome .novaExperienceSmall,
+.homePage.premiumHome .careStoryMainImage,
+.homePage.premiumHome .careStorySmallImage,
+.homePage.premiumHome .founderEditorialImage,
+.homePage.premiumHome .cinematicTreatments .serviceCard,
+.homePage.premiumHome .cinematicDoctors .doctorCard {
+  overflow: hidden;
+  isolation: isolate;
+}
+.homePage.premiumHome .novaWelcomeMainImage img,
+.homePage.premiumHome .novaWelcomeSecondImage img,
+.homePage.premiumHome .novaExperienceMain img,
+.homePage.premiumHome .novaExperienceFloating img,
+.homePage.premiumHome .novaExperienceSmall img,
+.homePage.premiumHome .careStoryMainImage img,
+.homePage.premiumHome .careStorySmallImage img,
+.homePage.premiumHome .founderEditorialImage img,
+.homePage.premiumHome .cinematicTreatments img,
+.homePage.premiumHome .cinematicDoctors img,
+.homePage.premiumHome .cinematicReviews img {
+  transition: transform 1.1s var(--nova-ease), filter .8s ease;
+  will-change: transform;
+}
+.homePage.premiumHome .novaWelcomeVisual:hover .novaWelcomeMainImage img,
+.homePage.premiumHome .novaExperienceGallery:hover .novaExperienceMain img,
+.homePage.premiumHome .careStoryVisual:hover .careStoryMainImage img,
+.homePage.premiumHome .founderEditorialVisual:hover .founderEditorialImage img,
+.homePage.premiumHome .cinematicTreatments a:hover img,
+.homePage.premiumHome .cinematicDoctors a:hover img {
+  transform: scale(1.045);
+}
+.homePage.premiumHome .novaWelcomeMainImage::after,
+.homePage.premiumHome .novaExperienceMain::after,
+.homePage.premiumHome .careStoryMainImage::after,
+.homePage.premiumHome .founderEditorialImage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(180deg, transparent 52%, rgba(9, 28, 37, .24));
+  opacity: .72;
+  transition: opacity .5s ease;
+}
+.homePage.premiumHome .novaWelcomeVisual:hover .novaWelcomeMainImage::after,
+.homePage.premiumHome .novaExperienceGallery:hover .novaExperienceMain::after,
+.homePage.premiumHome .careStoryVisual:hover .careStoryMainImage::after,
+.homePage.premiumHome .founderEditorialVisual:hover .founderEditorialImage::after { opacity: .42; }
+
+/* Stronger typographic rhythm and cleaner section pacing. */
+.homePage.premiumHome .storyKicker,
+.homePage.premiumHome .miniLabel,
+.homePage.premiumHome .statsKicker {
+  letter-spacing: .17em;
+  text-transform: uppercase;
+}
+.homePage.premiumHome .storyLead { text-wrap: pretty; }
+.homePage.premiumHome .storyButton,
+.homePage.premiumHome .novaExperienceLink,
+.homePage.premiumHome .careStoryLink,
+.homePage.premiumHome .cinematicAppointmentActions a {
+  transition: color .3s ease, background-color .3s ease, border-color .3s ease,
+    transform .35s var(--nova-ease), box-shadow .35s ease;
+}
+.homePage.premiumHome .storyButton:hover,
+.homePage.premiumHome .novaExperienceLink:hover,
+.homePage.premiumHome .careStoryLink:hover { transform: translateY(-3px); }
+.homePage.premiumHome a:focus-visible,
+.homePage.premiumHome button:focus-visible,
+.homePage.premiumHome input:focus-visible,
+.homePage.premiumHome select:focus-visible,
+.homePage.premiumHome textarea:focus-visible {
+  outline: 3px solid rgba(27, 120, 128, .65);
+  outline-offset: 4px;
+}
+
+/* The vertical story navigation stays discreet and usable on wide screens. */
+@media (min-width: 1100px) {
+  .homePage.premiumHome .novaStoryProgress { z-index: 30; }
+  .homePage.premiumHome .novaStoryProgressItems button { transition: opacity .25s ease, transform .3s var(--nova-ease); }
+  .homePage.premiumHome .novaStoryProgressItems button:hover { transform: translateX(3px); }
+}
+
+/* Floating, ambient motion kept subtle so it does not compete with copy. */
+@keyframes novaAmbientFloat {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -8px, 0); }
+}
+.homePage.premiumHome .novaExperienceFloating { animation: novaAmbientFloat 7s ease-in-out infinite; }
+.homePage.premiumHome .novaPhilosophyGlow { animation: novaAmbientFloat 9s ease-in-out infinite; }
+.homePage.premiumHome .novaPhilosophyGlow.glowTwo { animation-delay: -4s; }
+
+/* Touch-first responsive behavior. */
+@media (hover: none) {
+  .homePage.premiumHome .novaExperienceFloating,
+  .homePage.premiumHome .novaPhilosophyGlow { animation: none; }
+  .homePage.premiumHome .novaWelcomeVisual:hover .novaWelcomeMainImage img,
+  .homePage.premiumHome .novaExperienceGallery:hover .novaExperienceMain img,
+  .homePage.premiumHome .careStoryVisual:hover .careStoryMainImage img,
+  .homePage.premiumHome .founderEditorialVisual:hover .founderEditorialImage img,
+  .homePage.premiumHome .cinematicTreatments a:hover img,
+  .homePage.premiumHome .cinematicDoctors a:hover img { transform: none; }
+}
+@media (max-width: 767px) {
+  html { scroll-padding-top: 72px; }
+  .homePage.premiumHome [data-reveal]:not(.is-visible),
+  .homePage.premiumHome [data-reveal].reveal-left:not(.is-visible),
+  .homePage.premiumHome [data-reveal].reveal-right:not(.is-visible) {
+    transform: translate3d(0, 18px, 0);
+    filter: blur(2px);
+  }
+  .homePage.premiumHome .storyLead { line-height: 1.65; }
+  .homePage.premiumHome .novaStoryProgress { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .homePage.premiumHome [data-reveal],
+  .homePage.premiumHome .novaExperienceFloating,
+  .homePage.premiumHome .novaPhilosophyGlow,
+  .homePage.premiumHome img,
+  .homePage.premiumHome a,
+  .homePage.premiumHome button {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+  .homePage.premiumHome [data-reveal]:not(.is-visible) { opacity: 1; transform: none; filter: none; }
+}

@@ -1,0 +1,2116 @@
+/* NOVADENT About — focused contrast/layout polish */
+.novaAbout .aboutFinalValues.aboutValuesCinematic,
+.novaAbout .aboutFinalValues {
+  background: linear-gradient(135deg, #f7f3ea 0%, #eef3ef 52%, #e5eee9 100%) !important;
+  color: #17342f !important;
+  position: relative;
+  overflow: hidden;
+}
+.novaAbout .aboutFinalValues::before {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  right: -140px;
+  top: -180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(190,133,91,.12), transparent 68%);
+  pointer-events: none;
+}
+.novaAbout .aboutValuesIntro,
+.novaAbout .aboutValuesCinematicGrid { position: relative; z-index: 1; }
+.novaAbout .aboutFinalValues .aboutEyebrow,
+.novaAbout .aboutFinalValues .aboutValuesIntro h2 { color: #17342f !important; }
+.novaAbout .aboutFinalValues .aboutValuesIntro h2 span { color: #9a6043 !important; }
+.novaAbout .aboutFinalValues .aboutValuesIntro p { color: #526660 !important; }
+
+.novaAbout .aboutValueCinematicCard {
+  min-height: 270px !important;
+  background: rgba(255,255,255,.88) !important;
+  border: 1px solid #d7e0da !important;
+  color: #17342f !important;
+  box-shadow: 0 18px 45px rgba(31,55,48,.08) !important;
+  backdrop-filter: blur(10px);
+}
+.novaAbout .aboutValueCinematicCard:nth-child(2) { background: #f0e7dc !important; border-color:#dfcdbb !important; }
+.novaAbout .aboutValueCinematicCard:nth-child(3) { background: #e7f0eb !important; border-color:#cbded3 !important; }
+.novaAbout .aboutValueCinematicCard .aboutValueNumber { color: #7b8b84 !important; }
+.novaAbout .aboutValueCinematicCard svg { color: #9a6043 !important; }
+.novaAbout .aboutValueCinematicCard h3 { color: #17342f !important; }
+.novaAbout .aboutValueCinematicCard p { color: #536660 !important; }
+.novaAbout .aboutValueCinematicCard > svg:last-child { color: #6e8179 !important; }
+.novaAbout .aboutValueCinematicCard:hover { border-color:#b98a68 !important; background:#fffdf8 !important; transform:translateY(-10px) !important; }
+
+.novaAbout .aboutFinalTeam.aboutTeamCinematic {
+  background: #f2eee6 !important;
+  color: #18352f !important;
+}
+.novaAbout .aboutFinalTeam .aboutCinematicHeading.light h2,
+.novaAbout .aboutFinalTeam .aboutCinematicHeading.light .aboutEyebrow { color:#18352f !important; }
+.novaAbout .aboutFinalTeam .aboutCinematicHeading.light h2 span { color:#9a6043 !important; }
+.novaAbout .aboutFinalTeam .aboutButtonOutline {
+  background:#18352f !important;
+  color:#fffaf2 !important;
+  border-color:#18352f !important;
+}
+.novaAbout .aboutFinalTeam .aboutButtonOutline:hover { background:#9a6043 !important; border-color:#9a6043 !important; color:#fff !important; }
+.novaAbout .aboutTeamFilm { grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px; }
+.novaAbout .aboutTeamFilmCard {
+  min-height:460px !important;
+  border:1px solid rgba(24,53,47,.10) !important;
+  background:#18352f !important;
+  box-shadow:0 20px 50px rgba(24,53,47,.13) !important;
+}
+.novaAbout .aboutTeamFilmCard::after { background:linear-gradient(0deg,rgba(9,26,22,.96),rgba(9,26,22,.08) 68%) !important; }
+.novaAbout .aboutTeamFilmCard span { color:#e2b894 !important; }
+.novaAbout .aboutTeamFilmCard h3 { color:#fff !important; }
+.novaAbout .aboutTeamFilmCard p { color:#d9e2de !important; }
+.novaAbout .aboutTeamFilmCard > svg { color:#fff !important; }
+.novaAbout .aboutTeamFilmCard:hover { border-color:#d6a47d !important; transform:translateY(-10px) !important; }
+
+/* Closing CTA gets its own identity; it no longer repeats the footer palette. */
+.novaAbout .aboutFinalClosing.aboutClosing {
+  min-height:520px !important;
+  background:#efe5d7 !important;
+  color:#18352f !important;
+  position:relative;
+  isolation:isolate;
+}
+.novaAbout .aboutFinalClosing .aboutClosingImage,
+.novaAbout .aboutFinalClosing .aboutClosingOverlay { opacity:.18 !important; }
+.novaAbout .aboutFinalClosing .aboutClosingOverlay { background:linear-gradient(90deg,#efe5d7 0%,rgba(239,229,215,.92) 55%,rgba(239,229,215,.72) 100%) !important; }
+.novaAbout .aboutFinalClosing .aboutClosingContent { position:relative; z-index:2; max-width:820px !important; margin:auto !important; text-align:center !important; }
+.novaAbout .aboutFinalClosing .aboutEyebrow { color:#9a6043 !important; }
+.novaAbout .aboutFinalClosing h2 { color:#18352f !important; }
+.novaAbout .aboutFinalClosing h2 span { color:#9a6043 !important; }
+.novaAbout .aboutFinalClosing p { color:#52635e !important; max-width:620px !important; margin:0 auto 24px !important; }
+.novaAbout .aboutFinalClosing .aboutButtonLight {
+  background:#18352f !important;
+  color:#fffaf2 !important;
+  border:1px solid #18352f !important;
+}
+.novaAbout .aboutFinalClosing .aboutButtonLight:hover { background:#9a6043 !important; border-color:#9a6043 !important; color:#fff !important; }
+.novaAbout .aboutFinalClosing .aboutTextLinkLight { color:#18352f !important; border-color:rgba(24,53,47,.3) !important; }
+.novaAbout .aboutFinalClosing .aboutTextLinkLight:hover { color:#9a6043 !important; }
+
+@media(max-width:900px){
+  .novaAbout .aboutTeamFilm { grid-template-columns:1fr; }
+  .novaAbout .aboutTeamFilmCard { min-height:390px !important; }
+}
+@media(max-width:640px){
+  .novaAbout .aboutFinalValues,
+  .novaAbout .aboutFinalTeam,
+  .novaAbout .aboutFinalClosing { padding-top:58px !important; padding-bottom:58px !important; }
+  .novaAbout .aboutValueCinematicCard { min-height:225px !important; padding:27px !important; }
+  .novaAbout .aboutTeamFilmCard { min-height:330px !important; }
+  .novaAbout .aboutFinalClosing { min-height:430px !important; }
+}
+
+/* Final readability + CTA composition pass */
+.novaAbout .aboutFinalValues.aboutValuesCinematic,
+.novaAbout .aboutFinalValues {
+  background: linear-gradient(135deg, #f3eee5 0%, #e8e4da 48%, #dfe8e1 100%) !important;
+  color: #142d29 !important;
+}
+.novaAbout .aboutFinalValues .aboutValuesIntro h2,
+.novaAbout .aboutFinalValues .aboutValuesIntro h2 span,
+.novaAbout .aboutFinalValues .aboutValuesIntro p,
+.novaAbout .aboutFinalValues .aboutEyebrow {
+  text-shadow: none !important;
+}
+.novaAbout .aboutFinalValues .aboutValuesIntro h2 { color:#142d29 !important; }
+.novaAbout .aboutFinalValues .aboutValuesIntro h2 span { color:#a55f3f !important; }
+.novaAbout .aboutFinalValues .aboutValuesIntro p { color:#405650 !important; }
+.novaAbout .aboutFinalValues .aboutEyebrow { color:#7f4c36 !important; }
+.novaAbout .aboutValueCinematicCard,
+.novaAbout .aboutValueCinematicCard:nth-child(2),
+.novaAbout .aboutValueCinematicCard:nth-child(3) {
+  color:#142d29 !important;
+  background:#fffdf8 !important;
+  border:1px solid #d2d8d0 !important;
+  box-shadow:0 16px 38px rgba(29,45,40,.10) !important;
+}
+.novaAbout .aboutValueCinematicCard:nth-child(2) { background:#f5eadf !important; border-color:#dec9b8 !important; }
+.novaAbout .aboutValueCinematicCard:nth-child(3) { background:#e5eee8 !important; border-color:#c4d7cd !important; }
+.novaAbout .aboutValueCinematicCard .aboutValueNumber { color:#7a8882 !important; }
+.novaAbout .aboutValueCinematicCard h3 { color:#142d29 !important; }
+.novaAbout .aboutValueCinematicCard p { color:#405650 !important; }
+.novaAbout .aboutValueCinematicCard svg { color:#a55f3f !important; }
+.novaAbout .aboutValueCinematicCard > svg:last-child { color:#63766f !important; }
+.novaAbout .aboutValueCinematicCard:hover { box-shadow:0 22px 48px rgba(29,45,40,.16) !important; }
+
+/* Team: dark editorial cards with high-contrast copy */
+.novaAbout .aboutFinalTeam.aboutTeamCinematic {
+  background:linear-gradient(180deg,#18352f 0%,#102b27 100%) !important;
+  color:#f7f1e8 !important;
+}
+.novaAbout .aboutFinalTeam .aboutCinematicHeading.light h2 { color:#f7f1e8 !important; }
+.novaAbout .aboutFinalTeam .aboutCinematicHeading.light h2 span { color:#d9a17d !important; }
+.novaAbout .aboutFinalTeam .aboutCinematicHeading.light .aboutEyebrow { color:#d9a17d !important; }
+.novaAbout .aboutFinalTeam .aboutTeamFilmCard { background:#0d211f !important; border-color:rgba(239,226,211,.16) !important; }
+.novaAbout .aboutFinalTeam .aboutTeamFilmCard::after { background:linear-gradient(0deg,rgba(7,20,18,.98),rgba(7,20,18,.05) 70%) !important; }
+.novaAbout .aboutFinalTeam .aboutTeamFilmCard h3 { color:#fffaf3 !important; }
+.novaAbout .aboutFinalTeam .aboutTeamFilmCard p { color:#dce5e1 !important; }
+.novaAbout .aboutFinalTeam .aboutTeamFilmCard span { color:#e0ae89 !important; }
+
+/* CTA: warm editorial section, clearly different from the footer */
+.novaAbout .aboutFinalClosing.aboutClosing {
+  min-height:500px !important;
+  background:linear-gradient(120deg,#d6a07e 0%,#c88762 48%,#b87555 100%) !important;
+  color:#172e2a !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+}
+.novaAbout .aboutFinalClosing .aboutClosingImage { opacity:.10 !important; }
+.novaAbout .aboutFinalClosing .aboutClosingOverlay {
+  opacity:1 !important;
+  background:linear-gradient(90deg,rgba(214,160,126,.96),rgba(200,135,98,.82),rgba(184,117,85,.90)) !important;
+}
+.novaAbout .aboutFinalClosing .aboutClosingContent {
+  width:min(100%,900px) !important;
+  padding:72px 28px !important;
+  text-align:center !important;
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:center !important;
+  justify-content:center !important;
+}
+.novaAbout .aboutFinalClosing .aboutEyebrow { color:#51352a !important; }
+.novaAbout .aboutFinalClosing h2 { color:#152c28 !important; max-width:760px !important; }
+.novaAbout .aboutFinalClosing h2 span { color:#fff8ef !important; }
+.novaAbout .aboutFinalClosing p { color:#3d302b !important; max-width:620px !important; line-height:1.7 !important; }
+.novaAbout .aboutFinalClosing .aboutHeroActions {
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:16px !important;
+  flex-wrap:wrap !important;
+  margin-top:10px !important;
+}
+.novaAbout .aboutFinalClosing .aboutButtonLight {
+  min-height:52px !important;
+  padding:0 22px !important;
+  border-radius:999px !important;
+  background:#172e2a !important;
+  color:#fffaf2 !important;
+  border:1px solid #172e2a !important;
+  box-shadow:0 12px 28px rgba(45,31,25,.18) !important;
+}
+.novaAbout .aboutFinalClosing .aboutButtonLight:hover { background:#fffaf2 !important; color:#172e2a !important; border-color:#fffaf2 !important; }
+.novaAbout .aboutFinalClosing .aboutTextLinkLight {
+  min-height:52px !important;
+  padding:0 20px !important;
+  border:1px solid rgba(23,46,42,.42) !important;
+  border-radius:999px !important;
+  color:#172e2a !important;
+  background:rgba(255,250,242,.16) !important;
+}
+.novaAbout .aboutFinalClosing .aboutTextLinkLight:hover { color:#fffaf2 !important; border-color:#fffaf2 !important; background:rgba(23,46,42,.28) !important; }
+
+@media(max-width:640px){
+  .novaAbout .aboutFinalClosing .aboutClosingContent { padding:58px 20px !important; }
+  .novaAbout .aboutFinalClosing .aboutHeroActions { width:100% !important; flex-direction:column !important; }
+  .novaAbout .aboutFinalClosing .aboutButtonLight,
+  .novaAbout .aboutFinalClosing .aboutTextLinkLight { width:100% !important; justify-content:center !important; }
+}
+
+/* ===== About final cinematic motion + contrast pass ===== */
+.novaAbout .aboutFinalIntro,
+.novaAbout .aboutFinalVideo,
+.novaAbout .aboutFinalValues,
+.novaAbout .aboutFinalClinic,
+.novaAbout .aboutFinalTeam,
+.novaAbout .aboutFinalClosing {
+  position: relative;
+  isolation: isolate;
+}
+
+/* Strong readable editorial palette */
+.novaAbout .aboutFinalIntro { background:#f6f2ea !important; color:#17342f !important; }
+.novaAbout .aboutFinalIntro .aboutCinematicHeading h2,
+.novaAbout .aboutFinalIntro .aboutCinematicHeading h2 span { color:#17342f !important; }
+.novaAbout .aboutFinalIntro .aboutCinematicHeading h2 span { color:#a55f3f !important; }
+.novaAbout .aboutFinalIntro .aboutCinematicHeading > p { color:#405650 !important; }
+.novaAbout .aboutFinalIntro .aboutEyebrow { color:#7c503d !important; }
+.novaAbout .aboutFinalChapter h3 { color:#17342f !important; }
+.novaAbout .aboutFinalChapter p { color:#4a5e58 !important; }
+.novaAbout .aboutFinalChapter small { color:#a55f3f !important; }
+
+/* Visible scroll reveals */
+@keyframes novaAboutRevealUp {
+  from { opacity:0; transform:translate3d(0,42px,0); filter:blur(5px); }
+  to { opacity:1; transform:translate3d(0,0,0); filter:blur(0); }
+}
+@keyframes novaAboutRevealLeft {
+  from { opacity:0; transform:translate3d(-52px,24px,0); filter:blur(5px); }
+  to { opacity:1; transform:translate3d(0,0,0); filter:blur(0); }
+}
+@keyframes novaAboutRevealRight {
+  from { opacity:0; transform:translate3d(52px,24px,0); filter:blur(5px); }
+  to { opacity:1; transform:translate3d(0,0,0); filter:blur(0); }
+}
+@keyframes novaAboutImageZoom {
+  from { transform:scale(1.08); }
+  to { transform:scale(1); }
+}
+@keyframes novaAboutFloat {
+  0%,100% { transform:translateY(0); }
+  50% { transform:translateY(-7px); }
+}
+@keyframes novaAboutShine {
+  0% { transform:translateX(-130%); }
+  100% { transform:translateX(130%); }
+}
+
+.novaAbout .aboutFinalHeroCopy,
+.novaAbout .aboutFinalHeroCollage { animation:novaAboutRevealUp .9s cubic-bezier(.2,.75,.25,1) both; }
+.novaAbout .aboutFinalHeroCollage { animation-delay:.14s; }
+.novaAbout .aboutFinalHeroCopy h1 { animation:novaAboutRevealLeft .85s .08s cubic-bezier(.2,.75,.25,1) both; }
+.novaAbout .aboutFinalHeroCopy p { animation:novaAboutRevealLeft .85s .2s cubic-bezier(.2,.75,.25,1) both; }
+.novaAbout .aboutHeroActions { animation:novaAboutRevealUp .75s .3s cubic-bezier(.2,.75,.25,1) both; }
+
+.novaAbout .aboutFinalChapter { opacity:0; animation:novaAboutRevealUp .8s cubic-bezier(.2,.75,.25,1) forwards; }
+.novaAbout .aboutFinalChapter:nth-child(1){animation-delay:.05s}
+.novaAbout .aboutFinalChapter:nth-child(2){animation-delay:.16s}
+.novaAbout .aboutFinalChapter:nth-child(3){animation-delay:.27s}
+.novaAbout .aboutFinalChapterImage img { transition:transform .8s cubic-bezier(.2,.7,.2,1), filter .6s ease; }
+.novaAbout .aboutFinalChapter:hover .aboutFinalChapterImage img { transform:scale(1.055); filter:saturate(1.06); }
+
+.novaAbout .aboutFinalVideoFrame { animation:novaAboutRevealLeft .9s .08s both; }
+.novaAbout .aboutFinalVideoCopy { animation:novaAboutRevealRight .9s .18s both; }
+.novaAbout .aboutFinalVideoFrame video { transition:transform .9s ease, filter .6s ease; }
+.novaAbout .aboutFinalVideoFrame:hover video { transform:scale(1.025); filter:saturate(1.05); }
+
+.novaAbout .aboutValuesIntro { animation:novaAboutRevealLeft .85s both; }
+.novaAbout .aboutValueCinematicCard { opacity:0; animation:novaAboutRevealUp .75s cubic-bezier(.2,.75,.25,1) forwards; transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease !important; }
+.novaAbout .aboutValueCinematicCard:nth-child(1){animation-delay:.08s}
+.novaAbout .aboutValueCinematicCard:nth-child(2){animation-delay:.2s}
+.novaAbout .aboutValueCinematicCard:nth-child(3){animation-delay:.32s}
+.novaAbout .aboutValueCinematicCard:hover { transform:translateY(-12px) scale(1.012) !important; }
+
+.novaAbout .aboutFinalClinicGrid > div:first-child { animation:novaAboutRevealLeft .9s both; }
+.novaAbout .aboutFinalClinicImages { animation:novaAboutRevealRight .9s .15s both; }
+.novaAbout .aboutFinalClinicImages img { transition:transform .8s cubic-bezier(.2,.7,.2,1); }
+.novaAbout .aboutFinalClinicImages:hover img.large { transform:scale(1.035) translateY(-5px); }
+.novaAbout .aboutFinalClinicImages:hover img.small { transform:translate(-4px,-8px) scale(1.03); }
+
+.novaAbout .aboutFinalTeam .aboutCinematicHeading { animation:novaAboutRevealUp .8s both; }
+.novaAbout .aboutTeamFilmCard { opacity:0; animation:novaAboutRevealUp .8s cubic-bezier(.2,.75,.25,1) forwards; transition:transform .4s ease, box-shadow .4s ease, border-color .35s ease !important; }
+.novaAbout .aboutTeamFilmCard:nth-child(1){animation-delay:.08s}
+.novaAbout .aboutTeamFilmCard:nth-child(2){animation-delay:.2s}
+.novaAbout .aboutTeamFilmCard:nth-child(3){animation-delay:.32s}
+.novaAbout .aboutTeamFilmCard img { transition:transform 1s cubic-bezier(.2,.7,.2,1), filter .6s ease; }
+.novaAbout .aboutTeamFilmCard:hover { transform:translateY(-12px) !important; box-shadow:0 28px 60px rgba(0,0,0,.24) !important; }
+.novaAbout .aboutTeamFilmCard:hover img { transform:scale(1.06); filter:saturate(1.08); }
+
+/* CTA: clean centered hierarchy + high contrast */
+.novaAbout .aboutFinalClosing.aboutClosing {
+  min-height:520px !important;
+  background:linear-gradient(135deg,#ead8c8 0%,#d9b49a 52%,#c58b68 100%) !important;
+}
+.novaAbout .aboutFinalClosing .aboutClosingContent { gap:0 !important; }
+.novaAbout .aboutFinalClosing h2 { font-size:clamp(2.4rem,5vw,4.7rem) !important; line-height:1.02 !important; letter-spacing:-.035em !important; }
+.novaAbout .aboutFinalClosing h2 span { color:#fffaf2 !important; background:#17342f !important; padding:.05em .16em .08em !important; border-radius:.12em !important; box-decoration-break:clone; -webkit-box-decoration-break:clone; }
+.novaAbout .aboutFinalClosing p { color:#2d413b !important; font-weight:500 !important; }
+.novaAbout .aboutFinalClosing .aboutHeroActions { margin-top:18px !important; }
+.novaAbout .aboutFinalClosing .aboutButtonLight,
+.novaAbout .aboutFinalClosing .aboutTextLinkLight { position:relative; overflow:hidden; transition:transform .3s ease, background .3s ease, color .3s ease, border-color .3s ease !important; }
+.novaAbout .aboutFinalClosing .aboutButtonLight::after,
+.novaAbout .aboutFinalClosing .aboutTextLinkLight::after,
+.novaAbout .aboutFinalTeam .aboutButtonOutline::after {
+  content:""; position:absolute; inset:0; width:45%; transform:translateX(-150%) skewX(-18deg);
+  background:rgba(255,255,255,.22); pointer-events:none;
+}
+.novaAbout .aboutFinalClosing .aboutButtonLight:hover::after,
+.novaAbout .aboutFinalClosing .aboutTextLinkLight:hover::after,
+.novaAbout .aboutFinalTeam .aboutButtonOutline:hover::after { animation:novaAboutShine .65s ease; }
+.novaAbout .aboutFinalClosing .aboutButtonLight:hover,
+.novaAbout .aboutFinalClosing .aboutTextLinkLight:hover { transform:translateY(-3px); }
+
+.novaAbout .aboutFinalTeam .aboutButtonOutline { position:relative; overflow:hidden; }
+.novaAbout .aboutFinalTeam .aboutButtonOutline:hover { transform:translateY(-3px); }
+
+@media (prefers-reduced-motion:reduce){
+  .novaAbout *, .novaAbout *::before, .novaAbout *::after { animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; }
+}
+
+@media(max-width:640px){
+  .novaAbout .aboutFinalClosing.aboutClosing { min-height:480px !important; }
+  .novaAbout .aboutFinalClosing h2 { font-size:clamp(2.15rem,11vw,3.25rem) !important; }
+  .novaAbout .aboutFinalClosing .aboutHeroActions { gap:11px !important; margin-top:14px !important; }
+}
+
+/* ===== FINAL ABOUT VISIBILITY OVERRIDE — high contrast + real scroll reveal ===== */
+.novaAbout .aboutFinalIntro,
+.novaAbout .aboutFinalClinic { background:#f4efe6 !important; color:#17342f !important; }
+.novaAbout .aboutFinalIntro .aboutEyebrow,
+.novaAbout .aboutFinalClinic .aboutEyebrow { color:#8d553c !important; }
+.novaAbout .aboutFinalIntro h2,
+.novaAbout .aboutFinalIntro h2 span,
+.novaAbout .aboutFinalClinic h2,
+.novaAbout .aboutFinalClinic h2 span { color:#17342f !important; }
+.novaAbout .aboutFinalIntro h2 span,
+.novaAbout .aboutFinalClinic h2 span { color:#a85e3d !important; }
+.novaAbout .aboutFinalIntro p,
+.novaAbout .aboutFinalClinic p,
+.novaAbout .aboutFinalChapter p { color:#405650 !important; }
+
+.novaAbout .aboutFinalValues { background:linear-gradient(135deg,#e8eee7 0%,#f5efe6 55%,#e5d8cb 100%) !important; }
+.novaAbout .aboutFinalValues .aboutValuesIntro .aboutEyebrow { color:#8d553c !important; }
+.novaAbout .aboutFinalValues .aboutValuesIntro h2,
+.novaAbout .aboutFinalValues .aboutValuesIntro h2 span { color:#17342f !important; }
+.novaAbout .aboutFinalValues .aboutValuesIntro h2 span { color:#a85e3d !important; }
+.novaAbout .aboutFinalValues .aboutValuesIntro p { color:#405650 !important; }
+.novaAbout .aboutValueCinematicCard { color:#17342f !important; min-height:250px !important; border:1px solid rgba(23,52,47,.13) !important; }
+.novaAbout .aboutValueCinematicCard:nth-child(1){ background:#fffdf9 !important; }
+.novaAbout .aboutValueCinematicCard:nth-child(2){ background:#e9f0e9 !important; }
+.novaAbout .aboutValueCinematicCard:nth-child(3){ background:#eadfd5 !important; }
+.novaAbout .aboutValueCinematicCard h3 { color:#17342f !important; }
+.novaAbout .aboutValueCinematicCard p { color:#486059 !important; }
+.novaAbout .aboutValueCinematicCard svg { color:#a85e3d !important; }
+.novaAbout .aboutValueNumber { color:#8d553c !important; }
+
+.novaAbout .aboutFinalTeam { background:#102b2a !important; color:#fffaf2 !important; }
+.novaAbout .aboutFinalTeam .aboutCinematicHeading h2,
+.novaAbout .aboutFinalTeam .aboutCinematicHeading h2 span { color:#fffaf2 !important; }
+.novaAbout .aboutFinalTeam .aboutCinematicHeading h2 span { color:#d9a27f !important; }
+.novaAbout .aboutFinalTeam .aboutTeamFilmCard { background:#183936 !important; border:1px solid rgba(255,250,242,.14) !important; }
+.novaAbout .aboutFinalTeam .aboutTeamFilmCard h3 { color:#fffaf2 !important; }
+.novaAbout .aboutFinalTeam .aboutTeamFilmCard p { color:#d8e2dd !important; }
+.novaAbout .aboutFinalTeam .aboutTeamFilmCard > span,
+.novaAbout .aboutFinalTeam .aboutTeamFilmCard > div > span { color:#d9a27f !important; }
+.novaAbout .aboutFinalTeam .aboutTeamFilmCard > svg { color:#fffaf2 !important; }
+
+.novaAbout .aboutFinalClosing { background:linear-gradient(135deg,#f0e2d4 0%,#e2c5af 48%,#d2a083 100%) !important; color:#17342f !important; }
+.novaAbout .aboutFinalClosing .aboutClosingOverlay { background:linear-gradient(135deg,rgba(247,238,227,.93),rgba(225,196,171,.84)) !important; }
+.novaAbout .aboutFinalClosing .aboutEyebrow { color:#80513e !important; }
+.novaAbout .aboutFinalClosing h2 { color:#17342f !important; }
+.novaAbout .aboutFinalClosing h2 span { color:#fffaf2 !important; background:#17342f !important; }
+.novaAbout .aboutFinalClosing p { color:#3d514b !important; }
+.novaAbout .aboutFinalClosing .aboutHeroActions { gap:14px !important; margin-top:24px !important; }
+.novaAbout .aboutFinalClosing .aboutButtonLight { background:#17342f !important; color:#fffaf2 !important; border:1px solid #17342f !important; box-shadow:0 12px 28px rgba(23,52,47,.18) !important; }
+.novaAbout .aboutFinalClosing .aboutTextLinkLight { background:rgba(255,250,242,.7) !important; color:#17342f !important; border:1px solid rgba(23,52,47,.35) !important; }
+.novaAbout .aboutFinalClosing .aboutButtonLight:hover { background:#a85e3d !important; color:#fffaf2 !important; border-color:#a85e3d !important; }
+.novaAbout .aboutFinalClosing .aboutTextLinkLight:hover { background:#17342f !important; color:#fffaf2 !important; border-color:#17342f !important; }
+
+/* Real scroll-triggered animations. Hidden only until the section enters the viewport. */
+.novaAbout [data-about-reveal]{ opacity:0 !important; transform:translate3d(0,42px,0) !important; filter:blur(7px) !important; transition:opacity .8s cubic-bezier(.2,.75,.25,1),transform .8s cubic-bezier(.2,.75,.25,1),filter .8s ease !important; }
+.novaAbout [data-about-reveal="left"]{ transform:translate3d(-64px,28px,0) !important; }
+.novaAbout [data-about-reveal="right"]{ transform:translate3d(64px,28px,0) !important; }
+.novaAbout [data-about-reveal="scale"]{ transform:scale(.92) translateY(24px) !important; }
+.novaAbout [data-about-reveal].is-visible{ opacity:1 !important; transform:none !important; filter:none !important; }
+.novaAbout .aboutFinalChapter:nth-child(2),.novaAbout .aboutValueCinematicCard:nth-child(2),.novaAbout .aboutTeamFilmCard:nth-child(2){ transition-delay:.12s !important; }
+.novaAbout .aboutFinalChapter:nth-child(3),.novaAbout .aboutValueCinematicCard:nth-child(3),.novaAbout .aboutTeamFilmCard:nth-child(3){ transition-delay:.24s !important; }
+.novaAbout .aboutFinalChapterImage img,.novaAbout .aboutTeamFilmCard img,.novaAbout .aboutFinalClinicImages img{ transition:transform .9s cubic-bezier(.2,.7,.2,1),filter .6s ease !important; }
+.novaAbout .aboutFinalChapter:hover .aboutFinalChapterImage img,.novaAbout .aboutTeamFilmCard:hover img{ transform:scale(1.07) !important; filter:saturate(1.08) contrast(1.03) !important; }
+.novaAbout .aboutValueCinematicCard:hover{ transform:translateY(-10px) scale(1.015) !important; box-shadow:0 24px 50px rgba(23,52,47,.15) !important; }
+.novaAbout .aboutFinalClosing .aboutButtonLight,.novaAbout .aboutFinalClosing .aboutTextLinkLight{ transition:transform .28s ease,background .28s ease,color .28s ease,box-shadow .28s ease !important; }
+.novaAbout .aboutFinalClosing .aboutButtonLight:hover,.novaAbout .aboutFinalClosing .aboutTextLinkLight:hover{ transform:translateY(-4px) !important; }
+@media(max-width:640px){
+ .novaAbout .aboutFinalClosing .aboutHeroActions{ flex-direction:column !important; width:100% !important; }
+ .novaAbout .aboutFinalClosing .aboutButtonLight,.novaAbout .aboutFinalClosing .aboutTextLinkLight{ width:100% !important; justify-content:center !important; }
+}
+
+/* ===== FINAL HOME-PALETTE MATCH + MAX CONTRAST ===== */
+.novaAbout .aboutFinalValues.aboutValuesCinematic,
+.novaAbout .aboutFinalValues {
+  background: linear-gradient(112deg, #153d36 0%, #1b4a40 58%, #102f2b 100%) !important;
+  color: #ffffff !important;
+}
+.novaAbout .aboutFinalValues::before {
+  background: radial-gradient(circle, rgba(154,240,232,.18), transparent 68%) !important;
+}
+.novaAbout .aboutFinalValues .aboutEyebrow,
+.novaAbout .aboutFinalValues .aboutValuesIntro h2,
+.novaAbout .aboutFinalValues .aboutValuesIntro p {
+  color: #ffffff !important;
+}
+.novaAbout .aboutFinalValues .aboutValuesIntro h2 span { color: #9af0e8 !important; }
+.novaAbout .aboutFinalValues .aboutValuesIntro p { color: #d8eeeb !important; }
+.novaAbout .aboutFinalValues .aboutEyebrow { color: #9af0e8 !important; }
+
+/* Philosophy cards intentionally use light surfaces so the copy never merges with the section. */
+.novaAbout .aboutValueCinematicCard,
+.novaAbout .aboutValueCinematicCard:nth-child(2),
+.novaAbout .aboutValueCinematicCard:nth-child(3) {
+  color: #102c3e !important;
+  background: #ffffff !important;
+  border: 1px solid rgba(154,240,232,.48) !important;
+  box-shadow: 0 20px 55px rgba(4,27,48,.22) !important;
+}
+.novaAbout .aboutValueCinematicCard:nth-child(2) {
+  background: #eaf8f6 !important;
+  border-color: #9af0e8 !important;
+}
+.novaAbout .aboutValueCinematicCard:nth-child(3) {
+  background: #dcefea !important;
+  border-color: #8bd8cd !important;
+}
+.novaAbout .aboutValueCinematicCard .aboutValueNumber { color: #176c70 !important; }
+.novaAbout .aboutValueCinematicCard svg { color: #168b91 !important; }
+.novaAbout .aboutValueCinematicCard h3 { color: #102c3e !important; }
+.novaAbout .aboutValueCinematicCard p { color: #385762 !important; }
+.novaAbout .aboutValueCinematicCard > svg:last-child { color: #176c70 !important; }
+.novaAbout .aboutValueCinematicCard:hover {
+  background: #f7fffe !important;
+  border-color: #63d0c8 !important;
+  box-shadow: 0 26px 65px rgba(4,27,48,.28) !important;
+  transform: translateY(-12px) !important;
+}
+
+/* CTA uses the same NOVADENT home family, but remains a distinct darker treatment. */
+.novaAbout .aboutFinalClosing.aboutClosing {
+  min-height: 500px !important;
+  background: linear-gradient(120deg, #102f2b 0%, #153d36 52%, #1b4a40 100%) !important;
+  color: #ffffff !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+.novaAbout .aboutFinalClosing .aboutClosingImage { opacity: .16 !important; }
+.novaAbout .aboutFinalClosing .aboutClosingOverlay {
+  opacity: 1 !important;
+  background: linear-gradient(90deg, rgba(16,47,43,.94), rgba(21,61,54,.82), rgba(27,74,64,.92)) !important;
+}
+.novaAbout .aboutFinalClosing .aboutClosingContent {
+  width: min(100%, 900px) !important;
+  padding: 76px 28px !important;
+  text-align: center !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+.novaAbout .aboutFinalClosing .aboutEyebrow { color: #9af0e8 !important; }
+.novaAbout .aboutFinalClosing h2 { color: #ffffff !important; max-width: 760px !important; }
+.novaAbout .aboutFinalClosing h2 span { color: #9af0e8 !important; }
+.novaAbout .aboutFinalClosing p { color: #d8eeeb !important; max-width: 620px !important; }
+.novaAbout .aboutFinalClosing .aboutButtonLight {
+  background: #9af0e8 !important;
+  color: #06202d !important;
+  border: 1px solid #9af0e8 !important;
+  box-shadow: 0 14px 36px rgba(0,0,0,.20) !important;
+}
+.novaAbout .aboutFinalClosing .aboutButtonLight:hover {
+  background: #ffffff !important;
+  color: #102c3e !important;
+  border-color: #ffffff !important;
+  transform: translateY(-4px) !important;
+}
+.novaAbout .aboutFinalClosing .aboutTextLinkLight {
+  color: #ffffff !important;
+  border-color: rgba(255,255,255,.42) !important;
+}
+.novaAbout .aboutFinalClosing .aboutTextLinkLight:hover {
+  color: #9af0e8 !important;
+  border-color: #9af0e8 !important;
+}
+
+/* Make the existing About scroll reveals visibly noticeable. */
+.novaAbout [data-about-reveal] {
+  opacity: 0;
+  transition: opacity .8s ease, transform .9s cubic-bezier(.22,.61,.36,1), filter .9s ease !important;
+  will-change: opacity, transform, filter;
+}
+.novaAbout [data-about-reveal="left"] { transform: translateX(-70px); filter: blur(7px); }
+.novaAbout [data-about-reveal="right"] { transform: translateX(70px); filter: blur(7px); }
+.novaAbout [data-about-reveal="scale"] { transform: translateY(45px) scale(.94); filter: blur(6px); }
+.novaAbout [data-about-reveal].is-visible { opacity: 1 !important; transform: none !important; filter: none !important; }
+.novaAbout .aboutValueCinematicCard { transition: transform .45s ease, box-shadow .45s ease, border-color .35s ease, background .35s ease !important; }
+.novaAbout .aboutValueCinematicCard:nth-child(1),
+.novaAbout .aboutValueCinematicCard:nth-child(2),
+.novaAbout .aboutValueCinematicCard:nth-child(3) { animation: none; }
+.novaAbout .aboutTeamFilmCard { transition: transform .45s cubic-bezier(.22,.61,.36,1), box-shadow .45s ease, border-color .35s ease !important; }
+.novaAbout .aboutTeamFilmCard img { transition: transform .8s cubic-bezier(.22,.61,.36,1) !important; }
+.novaAbout .aboutTeamFilmCard:hover img { transform: scale(1.07) !important; }
+@media (prefers-reduced-motion: reduce) {
+  .novaAbout [data-about-reveal] { opacity: 1 !important; transform: none !important; filter: none !important; transition: none !important; }
+}
+
+/* ===== EXTRA CARD / BACKGROUND SEPARATION ===== */
+.novaAbout .aboutFinalValues.aboutValuesCinematic {
+  position: relative !important;
+  background: linear-gradient(135deg, #0b2529 0%, #123f3b 48%, #0a2928 100%) !important;
+  overflow: hidden !important;
+}
+.novaAbout .aboutFinalValues.aboutValuesCinematic::after {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+  background: linear-gradient(120deg, rgba(154,240,232,.08), transparent 42%, rgba(0,0,0,.16)) !important;
+}
+.novaAbout .aboutFinalValues .aboutValuesGrid {
+  position: relative !important;
+  z-index: 2 !important;
+  gap: 24px !important;
+}
+.novaAbout .aboutFinalValues .aboutValueCinematicCard {
+  position: relative !important;
+  overflow: hidden !important;
+  min-height: 250px !important;
+  border-radius: 24px !important;
+  background: linear-gradient(145deg, #ffffff 0%, #edf9f7 100%) !important;
+  border: 1px solid rgba(154,240,232,.75) !important;
+  box-shadow: 0 22px 55px rgba(0,0,0,.24), inset 0 1px 0 rgba(255,255,255,.95) !important;
+}
+.novaAbout .aboutFinalValues .aboutValueCinematicCard:nth-child(2) {
+  background: linear-gradient(145deg, #d9f5f1 0%, #bfe8e1 100%) !important;
+  border-color: #7dd9d0 !important;
+}
+.novaAbout .aboutFinalValues .aboutValueCinematicCard:nth-child(3) {
+  background: linear-gradient(145deg, #e7f1ff 0%, #cddff0 100%) !important;
+  border-color: #8cb7d5 !important;
+}
+.novaAbout .aboutFinalValues .aboutValueCinematicCard::before {
+  content: '' !important;
+  position: absolute !important;
+  width: 130px !important;
+  height: 130px !important;
+  right: -45px !important;
+  top: -50px !important;
+  border-radius: 50% !important;
+  background: rgba(24,183,174,.12) !important;
+  pointer-events: none !important;
+}
+.novaAbout .aboutFinalValues .aboutValueCinematicCard h3,
+.novaAbout .aboutFinalValues .aboutValueCinematicCard p,
+.novaAbout .aboutFinalValues .aboutValueCinematicCard .aboutValueNumber,
+.novaAbout .aboutFinalValues .aboutValueCinematicCard svg {
+  position: relative !important;
+  z-index: 2 !important;
+}
+.novaAbout .aboutFinalValues .aboutValueCinematicCard:hover {
+  transform: translateY(-14px) scale(1.015) !important;
+  box-shadow: 0 30px 70px rgba(0,0,0,.30) !important;
+}
+.novaAbout .aboutFinalValues .aboutValueCinematicCard:nth-child(1):hover { border-color: #18b7ae !important; }
+.novaAbout .aboutFinalValues .aboutValueCinematicCard:nth-child(2):hover { border-color: #3dbfb5 !important; }
+.novaAbout .aboutFinalValues .aboutValueCinematicCard:nth-child(3):hover { border-color: #6d9fc5 !important; }
+
+/* CTA: stronger separation from the previous section */
+.novaAbout .aboutFinalClosing.aboutClosing {
+  margin-top: 0 !important;
+  border-top: 1px solid rgba(154,240,232,.18) !important;
+  background: radial-gradient(circle at 50% 20%, rgba(24,183,174,.22), transparent 38%), linear-gradient(135deg, #061b24 0%, #0c3031 48%, #153d36 100%) !important;
+}
+.novaAbout .aboutFinalClosing .aboutClosingOverlay {
+  background: linear-gradient(90deg, rgba(6,27,36,.92), rgba(12,48,49,.76), rgba(21,61,54,.90)) !important;
+}
+.novaAbout .aboutFinalClosing .aboutButtonLight {
+  background: linear-gradient(135deg, #9af0e8, #63d0c8) !important;
+  color: #06202d !important;
+  font-weight: 700 !important;
+}
+
+/* ===== FINAL CARD + CTA CONTRAST FIX ===== */
+.novaAbout .aboutFinalValues .aboutValueCinematicCard,
+.novaAbout .aboutFinalValues .aboutValueCinematicCard:nth-child(1),
+.novaAbout .aboutFinalValues .aboutValueCinematicCard:nth-child(2),
+.novaAbout .aboutFinalValues .aboutValueCinematicCard:nth-child(3) {
+  color: #102c3e !important;
+  background: #ffffff !important;
+  border: 2px solid rgba(154,240,232,.72) !important;
+  box-shadow: 0 20px 55px rgba(0,20,30,.24) !important;
+}
+.novaAbout .aboutFinalValues .aboutValueCinematicCard:nth-child(2) {
+  background: #e8f8f5 !important;
+  border-color: #72d7cd !important;
+}
+.novaAbout .aboutFinalValues .aboutValueCinematicCard:nth-child(3) {
+  background: #e7f0fa !important;
+  border-color: #8db8d7 !important;
+}
+.novaAbout .aboutFinalValues .aboutValueCinematicCard h3,
+.novaAbout .aboutFinalValues .aboutValueCinematicCard:hover h3 {
+  color: #102c3e !important;
+}
+.novaAbout .aboutFinalValues .aboutValueCinematicCard p,
+.novaAbout .aboutFinalValues .aboutValueCinematicCard:hover p {
+  color: #385762 !important;
+}
+.novaAbout .aboutFinalValues .aboutValueCinematicCard .aboutValueNumber,
+.novaAbout .aboutFinalValues .aboutValueCinematicCard:hover .aboutValueNumber {
+  color: #176c70 !important;
+}
+.novaAbout .aboutFinalValues .aboutValueCinematicCard svg,
+.novaAbout .aboutFinalValues .aboutValueCinematicCard:hover svg,
+.novaAbout .aboutFinalValues .aboutValueCinematicCard > svg:last-child,
+.novaAbout .aboutFinalValues .aboutValueCinematicCard:hover > svg:last-child {
+  color: #168b91 !important;
+  opacity: 1 !important;
+}
+.novaAbout .aboutFinalValues .aboutValueCinematicCard:hover,
+.novaAbout .aboutFinalValues .aboutValueCinematicCard:nth-child(2):hover,
+.novaAbout .aboutFinalValues .aboutValueCinematicCard:nth-child(3):hover {
+  background: #ffffff !important;
+  color: #102c3e !important;
+  border-color: #18b7ae !important;
+  transform: translateY(-14px) scale(1.015) !important;
+  box-shadow: 0 30px 70px rgba(0,0,0,.30) !important;
+}
+.novaAbout .aboutFinalValues .aboutValueCinematicCard:nth-child(2):hover { border-color: #18b7ae !important; }
+.novaAbout .aboutFinalValues .aboutValueCinematicCard:nth-child(3):hover { border-color: #5aa4ce !important; }
+
+/* CTA buttons are deliberately different from the dark section background. */
+.novaAbout .aboutFinalClosing .aboutButtonLight {
+  background: #ffffff !important;
+  color: #102c3e !important;
+  border: 2px solid #ffffff !important;
+  box-shadow: 0 14px 34px rgba(0,0,0,.24) !important;
+  font-weight: 800 !important;
+}
+.novaAbout .aboutFinalClosing .aboutButtonLight:hover,
+.novaAbout .aboutFinalClosing .aboutButtonLight:focus-visible {
+  background: #9af0e8 !important;
+  color: #06202d !important;
+  border-color: #9af0e8 !important;
+  transform: translateY(-4px) !important;
+}
+.novaAbout .aboutFinalClosing .aboutTextLinkLight {
+  background: transparent !important;
+  color: #ffffff !important;
+  border: 2px solid rgba(154,240,232,.72) !important;
+}
+.novaAbout .aboutFinalClosing .aboutTextLinkLight:hover,
+.novaAbout .aboutFinalClosing .aboutTextLinkLight:focus-visible {
+  background: rgba(154,240,232,.14) !important;
+  color: #9af0e8 !important;
+  border-color: #9af0e8 !important;
+}
+
+/* ===== FINAL CTA POLISH ===== */
+.novaAbout .aboutFinalClosing.aboutClosing {
+  min-height: 520px !important;
+  position: relative !important;
+  overflow: hidden !important;
+  background: linear-gradient(120deg, #102f2b 0%, #153d36 52%, #1b4a40 100%) !important;
+  border-top: 1px solid rgba(154,240,232,.22) !important;
+}
+
+.novaAbout .aboutFinalClosing .aboutClosingImage {
+  opacity: .10 !important;
+  filter: saturate(.75) !important;
+}
+
+.novaAbout .aboutFinalClosing .aboutClosingOverlay {
+  background:
+    radial-gradient(circle at 50% 25%, rgba(154,240,232,.16), transparent 42%),
+    linear-gradient(90deg, rgba(16,47,43,.94), rgba(21,61,54,.88), rgba(27,74,64,.94)) !important;
+}
+
+.novaAbout .aboutFinalClosing .aboutClosingContent {
+  position: relative !important;
+  z-index: 3 !important;
+  max-width: 920px !important;
+  padding: 82px 28px !important;
+  text-align: center !important;
+}
+
+.novaAbout .aboutFinalClosing .aboutEyebrow {
+  color: #9af0e8 !important;
+}
+
+.novaAbout .aboutFinalClosing h2 {
+  color: #ffffff !important;
+  text-shadow: 0 3px 18px rgba(0,0,0,.18) !important;
+}
+
+.novaAbout .aboutFinalClosing h2 span {
+  color: #9af0e8 !important;
+}
+
+.novaAbout .aboutFinalClosing p {
+  color: #e1f2ef !important;
+}
+
+/* Main CTA: clearly separated from the green background */
+.novaAbout .aboutFinalClosing .aboutHeroActions {
+  gap: 16px !important;
+  margin-top: 30px !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.novaAbout .aboutFinalClosing .aboutButtonLight {
+  background: #ffffff !important;
+  color: #102c3e !important;
+  border: 2px solid #ffffff !important;
+  box-shadow: 0 12px 30px rgba(0,0,0,.22) !important;
+  font-weight: 800 !important;
+  text-shadow: none !important;
+}
+
+.novaAbout .aboutFinalClosing .aboutButtonLight:hover,
+.novaAbout .aboutFinalClosing .aboutButtonLight:focus-visible,
+.novaAbout .aboutFinalClosing .aboutButtonLight:active {
+  background: #9af0e8 !important;
+  color: #102c3e !important;
+  border-color: #9af0e8 !important;
+  box-shadow: 0 16px 36px rgba(0,0,0,.26) !important;
+  transform: translateY(-4px) !important;
+}
+
+.novaAbout .aboutFinalClosing .aboutButtonLight svg {
+  color: #168b91 !important;
+  flex-shrink: 0 !important;
+}
+
+/* Secondary CTA stays visibly separate and readable */
+.novaAbout .aboutFinalClosing .aboutTextLinkLight {
+  background: rgba(255,255,255,.06) !important;
+  color: #ffffff !important;
+  border: 2px solid rgba(255,255,255,.72) !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+
+.novaAbout .aboutFinalClosing .aboutTextLinkLight:hover,
+.novaAbout .aboutFinalClosing .aboutTextLinkLight:focus-visible,
+.novaAbout .aboutFinalClosing .aboutTextLinkLight:active {
+  background: rgba(154,240,232,.16) !important;
+  color: #9af0e8 !important;
+  border-color: #9af0e8 !important;
+  transform: translateY(-4px) !important;
+}
+
+.novaAbout .aboutFinalClosing .aboutTextLinkLight svg {
+  color: currentColor !important;
+}
+
+@media (max-width: 640px) {
+  .novaAbout .aboutFinalClosing.aboutClosing { min-height: 480px !important; }
+  .novaAbout .aboutFinalClosing .aboutClosingContent { padding: 68px 20px !important; }
+  .novaAbout .aboutFinalClosing .aboutHeroActions {
+    width: 100% !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+  .novaAbout .aboutFinalClosing .aboutButtonLight,
+  .novaAbout .aboutFinalClosing .aboutTextLinkLight {
+    width: min(100%, 300px) !important;
+    justify-content: center !important;
+  }
+}
+
+/* ===== CTA DEFINITIVE VISUAL RESET ===== */
+.novaAbout .aboutFinalClosing.aboutClosing {
+  min-height: 540px !important;
+  background: #071f2f !important;
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+  isolation: isolate !important;
+}
+.novaAbout .aboutFinalClosing .aboutClosingImage {
+  opacity: .08 !important;
+  filter: grayscale(.2) saturate(.7) !important;
+}
+.novaAbout .aboutFinalClosing .aboutClosingOverlay {
+  opacity: 1 !important;
+  background: linear-gradient(135deg, rgba(7,31,47,.98) 0%, rgba(10,52,57,.96) 55%, rgba(21,61,54,.96) 100%) !important;
+}
+.novaAbout .aboutFinalClosing .aboutClosingContent {
+  max-width: 860px !important;
+  padding: 92px 28px !important;
+}
+.novaAbout .aboutFinalClosing .aboutEyebrow {
+  color: #9af0e8 !important;
+  letter-spacing: .18em !important;
+}
+.novaAbout .aboutFinalClosing h2 {
+  color: #ffffff !important;
+  font-size: clamp(38px, 5vw, 64px) !important;
+  line-height: 1.05 !important;
+}
+.novaAbout .aboutFinalClosing h2 span { color: #9af0e8 !important; }
+.novaAbout .aboutFinalClosing p {
+  color: #d8eeeb !important;
+  font-size: 16px !important;
+  line-height: 1.75 !important;
+}
+.novaAbout .aboutFinalClosing .aboutHeroActions {
+  display: flex !important;
+  gap: 14px !important;
+  margin-top: 30px !important;
+}
+.novaAbout .aboutFinalClosing .aboutButtonLight {
+  background: #ffffff !important;
+  color: #071f2f !important;
+  border: 2px solid #ffffff !important;
+  border-radius: 999px !important;
+  padding: 14px 24px !important;
+  box-shadow: 0 12px 30px rgba(0,0,0,.28) !important;
+  font-weight: 800 !important;
+}
+.novaAbout .aboutFinalClosing .aboutButtonLight:hover,
+.novaAbout .aboutFinalClosing .aboutButtonLight:focus-visible,
+.novaAbout .aboutFinalClosing .aboutButtonLight:active {
+  background: #9af0e8 !important;
+  color: #071f2f !important;
+  border-color: #9af0e8 !important;
+  transform: translateY(-3px) !important;
+}
+.novaAbout .aboutFinalClosing .aboutButtonLight svg { color: #168b91 !important; }
+.novaAbout .aboutFinalClosing .aboutTextLinkLight {
+  background: transparent !important;
+  color: #ffffff !important;
+  border: 2px solid rgba(154,240,232,.8) !important;
+  border-radius: 999px !important;
+  padding: 14px 24px !important;
+  box-shadow: none !important;
+}
+.novaAbout .aboutFinalClosing .aboutTextLinkLight:hover,
+.novaAbout .aboutFinalClosing .aboutTextLinkLight:focus-visible,
+.novaAbout .aboutFinalClosing .aboutTextLinkLight:active {
+  background: rgba(154,240,232,.14) !important;
+  color: #9af0e8 !important;
+  border-color: #9af0e8 !important;
+  transform: translateY(-3px) !important;
+}
+@media (max-width: 640px) {
+  .novaAbout .aboutFinalClosing.aboutClosing { min-height: 500px !important; }
+  .novaAbout .aboutFinalClosing .aboutClosingContent { padding: 70px 20px !important; }
+  .novaAbout .aboutFinalClosing .aboutHeroActions { flex-direction: column !important; }
+  .novaAbout .aboutFinalClosing .aboutButtonLight,
+  .novaAbout .aboutFinalClosing .aboutTextLinkLight { width: min(100%, 310px) !important; justify-content: center !important; }
+}
+
+/* ===== FINAL CTA BOX + ANIMATED BACKGROUND ===== */
+.novaAbout .aboutFinalClosing.aboutClosing {
+  min-height: 500px !important;
+  padding: 64px 24px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: #071f2f !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+.novaAbout .aboutFinalClosing::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: -20% !important;
+  z-index: 0 !important;
+  background:
+    radial-gradient(circle at 18% 28%, rgba(154,240,232,.22), transparent 28%),
+    radial-gradient(circle at 82% 72%, rgba(99,208,200,.18), transparent 30%),
+    linear-gradient(120deg, #071f2f 0%, #103d43 38%, #153d36 68%, #071f2f 100%) !important;
+  background-size: 140% 140% !important;
+  animation: novaCtaFlow 12s ease-in-out infinite alternate !important;
+}
+.novaAbout .aboutFinalClosing .aboutClosingImage,
+.novaAbout .aboutFinalClosing .aboutClosingOverlay {
+  z-index: 1 !important;
+}
+.novaAbout .aboutFinalClosing .aboutClosingOverlay {
+  background: rgba(5,24,37,.30) !important;
+}
+.novaAbout .aboutFinalClosing .aboutClosingContent {
+  position: relative !important;
+  z-index: 3 !important;
+  width: min(100%, 820px) !important;
+  max-width: 820px !important;
+  padding: 54px 58px !important;
+  margin: 0 auto !important;
+  border: 1px solid rgba(154,240,232,.30) !important;
+  border-radius: 28px !important;
+  background: linear-gradient(145deg, rgba(9,39,51,.94), rgba(16,58,61,.88)) !important;
+  box-shadow: 0 28px 80px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.08) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+}
+.novaAbout .aboutFinalClosing .aboutClosingContent h2 {
+  margin: 14px auto 16px !important;
+  max-width: 680px !important;
+  font-size: clamp(32px, 4.2vw, 52px) !important;
+  line-height: 1.1 !important;
+  letter-spacing: -.025em !important;
+  white-space: normal !important;
+  overflow-wrap: normal !important;
+}
+.novaAbout .aboutFinalClosing .aboutClosingContent p {
+  max-width: 570px !important;
+  margin: 0 auto !important;
+  font-size: 15px !important;
+  line-height: 1.65 !important;
+}
+.novaAbout .aboutFinalClosing .aboutHeroActions {
+  width: 100% !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 12px !important;
+  margin-top: 26px !important;
+}
+.novaAbout .aboutFinalClosing .aboutButtonLight,
+.novaAbout .aboutFinalClosing .aboutTextLinkLight {
+  min-height: 48px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  padding: 12px 22px !important;
+  border-radius: 999px !important;
+  line-height: 1.15 !important;
+  white-space: nowrap !important;
+  box-sizing: border-box !important;
+}
+.novaAbout .aboutFinalClosing .aboutButtonLight {
+  background: #ffffff !important;
+  color: #071f2f !important;
+  border: 1px solid #ffffff !important;
+  box-shadow: 0 10px 26px rgba(0,0,0,.24) !important;
+}
+.novaAbout .aboutFinalClosing .aboutTextLinkLight {
+  background: rgba(154,240,232,.08) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(154,240,232,.78) !important;
+}
+@keyframes novaCtaFlow {
+  0% { transform: translate3d(-2%, -1%, 0) scale(1); background-position: 0% 50%; }
+  50% { transform: translate3d(2%, 1%, 0) scale(1.04); background-position: 70% 30%; }
+  100% { transform: translate3d(-1%, 2%, 0) scale(1.02); background-position: 100% 70%; }
+}
+
+/* ===== ABOUT PAGE TYPOGRAPHY: COMPACT + CLEAN ===== */
+.novaAbout .aboutFinalHeroCopy h1 {
+  font-size: clamp(36px, 5vw, 62px) !important;
+  line-height: 1.08 !important;
+}
+.novaAbout .aboutCinematicHeading h2,
+.novaAbout .aboutFinalClinic h2,
+.novaAbout .aboutFinalTeam .aboutCinematicHeading h2 {
+  font-size: clamp(28px, 3.4vw, 46px) !important;
+  line-height: 1.12 !important;
+}
+.novaAbout .aboutFinalVideo h2,
+.novaAbout .aboutFinalValues h2 {
+  font-size: clamp(28px, 3.2vw, 44px) !important;
+  line-height: 1.14 !important;
+}
+.novaAbout .aboutFinalChapter h3,
+.novaAbout .aboutTeamFilmCard h3,
+.novaAbout .aboutValueCinematicCard h3 {
+  font-size: clamp(18px, 1.6vw, 24px) !important;
+  line-height: 1.2 !important;
+}
+@media (max-width: 700px) {
+  .novaAbout .aboutFinalClosing.aboutClosing { padding: 40px 16px !important; min-height: 470px !important; }
+  .novaAbout .aboutFinalClosing .aboutClosingContent { padding: 38px 22px !important; border-radius: 22px !important; }
+  .novaAbout .aboutFinalClosing .aboutClosingContent h2 { font-size: clamp(29px, 8vw, 40px) !important; }
+  .novaAbout .aboutFinalClosing .aboutHeroActions { flex-direction: column !important; }
+  .novaAbout .aboutFinalClosing .aboutButtonLight,
+  .novaAbout .aboutFinalClosing .aboutTextLinkLight { width: min(100%, 290px) !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .novaAbout .aboutFinalClosing::before { animation: none !important; }
+}
+
+
+/* ===== FINAL ABOUT STORY POLISH ===== */
+/* Keep the CTA box away from the heading above and make the whole block feel intentional. */
+.novaAbout .aboutFinalClosing.aboutClosing {
+  margin-top: 0 !important;
+  padding: 78px 24px !important;
+  background: linear-gradient(135deg, #071f2f 0%, #0d3540 48%, #123f39 100%) !important;
+}
+.novaAbout .aboutFinalClosing .aboutClosingContent {
+  margin: 8px auto 0 !important;
+  padding: 48px 52px !important;
+  max-width: 780px !important;
+  border-radius: 26px !important;
+  background: linear-gradient(145deg, rgba(12,42,53,.97), rgba(18,67,65,.94)) !important;
+  border: 1px solid rgba(154,240,232,.34) !important;
+  box-shadow: 0 26px 70px rgba(0,0,0,.32), inset 0 1px 0 rgba(255,255,255,.07) !important;
+}
+.novaAbout .aboutFinalClosing .aboutClosingContent h2 {
+  margin: 12px auto 14px !important;
+  max-width: 610px !important;
+  font-size: clamp(30px, 3.6vw, 46px) !important;
+  line-height: 1.12 !important;
+}
+.novaAbout .aboutFinalClosing .aboutClosingContent p {
+  max-width: 540px !important;
+  line-height: 1.6 !important;
+}
+.novaAbout .aboutFinalClosing .aboutHeroActions {
+  margin-top: 24px !important;
+  gap: 14px !important;
+}
+
+/* Video + copy: one composed story card on a clearly different surface. */
+.novaAbout .aboutFinalVideo {
+  background: linear-gradient(135deg, #eef8f6 0%, #dcefea 100%) !important;
+  padding: 86px 0 !important;
+}
+.novaAbout .aboutFinalVideoGrid {
+  max-width: 1160px !important;
+  padding: 28px !important;
+  border-radius: 30px !important;
+  background: linear-gradient(135deg, #123b3d 0%, #19524e 100%) !important;
+  border: 1px solid rgba(99,208,200,.38) !important;
+  box-shadow: 0 28px 70px rgba(6,32,45,.20) !important;
+  gap: 30px !important;
+}
+.novaAbout .aboutFinalVideoFrame,
+.novaAbout .aboutFinalVideoCopy {
+  border-radius: 22px !important;
+  overflow: hidden !important;
+}
+.novaAbout .aboutFinalVideoFrame {
+  min-height: 430px !important;
+  background: #092d35 !important;
+  box-shadow: 0 18px 45px rgba(0,0,0,.22) !important;
+}
+.novaAbout .aboutFinalVideoCopy {
+  align-self: stretch !important;
+  padding: 42px 38px !important;
+  background: linear-gradient(145deg, #e9f8f5 0%, #d7ece7 100%) !important;
+  color: #123544 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+}
+.novaAbout .aboutFinalVideoCopy h2 { color:#123544 !important; max-width:420px !important; }
+.novaAbout .aboutFinalVideoCopy h2 em { color:#168b91 !important; }
+.novaAbout .aboutFinalVideoCopy p { color:#45616b !important; max-width:430px !important; }
+.novaAbout .aboutFinalVideoCopy .aboutEyebrowLight { color:#168b91 !important; }
+.novaAbout .aboutFinalVideoCopy .aboutEyebrowLight i { background:#63d0c8 !important; }
+.novaAbout .aboutFinalVideoCopy .aboutButtonOutline {
+  color:#123544 !important;
+  border-color:#168b91 !important;
+  background:#ffffff !important;
+  width:max-content !important;
+  margin-top:8px !important;
+}
+.novaAbout .aboutFinalVideoCopy .aboutButtonOutline:hover {
+  background:#168b91 !important;
+  color:#ffffff !important;
+}
+
+/* People behind the care: separate card surface so cards don't blend into the section. */
+.novaAbout .aboutFinalTeam {
+  background: linear-gradient(135deg, #0b2638 0%, #123d48 52%, #164b47 100%) !important;
+  padding: 86px 0 !important;
+}
+.novaAbout .aboutFinalTeam .aboutCinematicHeading { margin-bottom: 34px !important; }
+.novaAbout .aboutFinalTeam .aboutCinematicHeading h2 { max-width: 560px !important; }
+.novaAbout .aboutTeamFilm { gap: 22px !important; }
+.novaAbout .aboutTeamFilmCard {
+  min-height: 470px !important;
+  background: linear-gradient(160deg, #f1fbf8 0%, #d8ece8 100%) !important;
+  color: #123544 !important;
+  border: 1px solid rgba(154,240,232,.42) !important;
+  box-shadow: 0 20px 52px rgba(0,0,0,.24) !important;
+  padding: 24px !important;
+}
+.novaAbout .aboutTeamFilmCard::after {
+  background: linear-gradient(0deg, rgba(4,27,40,.90), rgba(4,27,40,.06) 62%, transparent 100%) !important;
+}
+.novaAbout .aboutTeamFilmCard img { opacity:.88 !important; }
+.novaAbout .aboutTeamFilmCard span { color:#9af0e8 !important; }
+.novaAbout .aboutTeamFilmCard h3 { color:#ffffff !important; font-size:clamp(19px,1.7vw,24px) !important; }
+.novaAbout .aboutTeamFilmCard p { color:rgba(255,255,255,.82) !important; }
+.novaAbout .aboutTeamFilmCard > svg { color:#9af0e8 !important; }
+.novaAbout .aboutTeamFilmCard:hover {
+  transform: translateY(-8px) !important;
+  border-color:#63d0c8 !important;
+  box-shadow:0 28px 62px rgba(0,0,0,.30) !important;
+}
+
+/* Hero: force a clean two-line headline without wrapping into three lines. */
+.novaAbout .aboutFinalHeroCopy h1 {
+  max-width: 700px !important;
+  font-size: clamp(34px, 4.7vw, 58px) !important;
+  line-height: 1.08 !important;
+}
+.novaAbout .aboutFinalHeroCopy h1 br { display:block !important; }
+
+/* Overall About typography: slightly smaller, tighter and easier to scan. */
+.novaAbout .aboutCinematicHeading h2,
+.novaAbout .aboutFinalClinic h2,
+.novaAbout .aboutFinalTeam .aboutCinematicHeading h2,
+.novaAbout .aboutFinalVideo h2,
+.novaAbout .aboutFinalValues h2 {
+  font-size: clamp(26px, 3vw, 40px) !important;
+  line-height: 1.14 !important;
+}
+.novaAbout .aboutFinalChapter h3,
+.novaAbout .aboutValueCinematicCard h3 { font-size:clamp(17px,1.45vw,22px) !important; }
+
+@media (max-width: 900px) {
+  .novaAbout .aboutFinalVideoGrid { grid-template-columns:1fr !important; }
+  .novaAbout .aboutFinalVideoFrame { min-height:360px !important; }
+}
+@media (max-width: 700px) {
+  .novaAbout .aboutFinalClosing { padding:58px 16px !important; }
+  .novaAbout .aboutFinalClosing .aboutClosingContent { padding:38px 22px !important; margin-top:4px !important; }
+  .novaAbout .aboutFinalVideo { padding:56px 0 !important; }
+  .novaAbout .aboutFinalVideoGrid { margin:0 16px !important; padding:16px !important; border-radius:22px !important; }
+  .novaAbout .aboutFinalVideoCopy { padding:30px 24px !important; }
+  .novaAbout .aboutFinalTeam { padding:60px 0 !important; }
+  .novaAbout .aboutTeamFilmCard { min-height:420px !important; }
+  .novaAbout .aboutFinalHeroCopy h1 { font-size:clamp(32px,9vw,44px) !important; }
+}
+
+/* ===== FINAL CLEAN STORY LAYOUT ===== */
+/* Hero: intentional two-line headline and no oversized wrapping. */
+.novaAbout .aboutFinalHeroCopy h1 {
+  max-width: 620px !important;
+  font-size: clamp(32px, 4.1vw, 54px) !important;
+  line-height: 1.08 !important;
+  letter-spacing: -.025em !important;
+}
+
+/* Video: one clean story card, with image and copy living inside the same surface. */
+.novaAbout .aboutFinalVideo {
+  padding: 76px 0 !important;
+  background: linear-gradient(135deg, #e8f5f2 0%, #d5ebe7 48%, #c7e2de 100%) !important;
+}
+.novaAbout .aboutFinalVideoGrid {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.12fr) minmax(340px, .88fr) !important;
+  align-items: stretch !important;
+  gap: 0 !important;
+  padding: 12px !important;
+  overflow: hidden !important;
+  border-radius: 30px !important;
+  background: #0b3035 !important;
+  border: 1px solid rgba(99,208,200,.48) !important;
+  box-shadow: 0 30px 80px rgba(7,38,48,.22) !important;
+}
+.novaAbout .aboutFinalVideoFrame {
+  min-height: 470px !important;
+  height: 100% !important;
+  border-radius: 22px 0 0 22px !important;
+  background: #08262d !important;
+  box-shadow: none !important;
+}
+.novaAbout .aboutFinalVideoCopy {
+  min-height: 470px !important;
+  padding: 54px 46px !important;
+  border-radius: 0 22px 22px 0 !important;
+  background: linear-gradient(145deg, #f5fbfa 0%, #dff1ed 100%) !important;
+  color: #123544 !important;
+  justify-content: center !important;
+}
+.novaAbout .aboutFinalVideoCopy h2 {
+  font-size: clamp(27px, 2.8vw, 38px) !important;
+  line-height: 1.12 !important;
+  margin: 12px 0 14px !important;
+}
+.novaAbout .aboutFinalVideoCopy p { margin-bottom: 8px !important; }
+
+/* Team: remove the full-card dark overlay that made the light card treatment look broken.
+   Image stays on top; the lower content is a solid, readable panel. */
+.novaAbout .aboutFinalTeam {
+  padding: 78px 0 88px !important;
+  background: linear-gradient(135deg, #0b2638 0%, #123d48 52%, #164b47 100%) !important;
+}
+.novaAbout .aboutTeamFilm {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 22px !important;
+}
+.novaAbout .aboutTeamFilmCard {
+  min-height: 0 !important;
+  height: 500px !important;
+  padding: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  justify-content: flex-end !important;
+  overflow: hidden !important;
+  border-radius: 24px !important;
+  background: #f2faf8 !important;
+  color: #123544 !important;
+  border: 1px solid rgba(154,240,232,.5) !important;
+  box-shadow: 0 22px 55px rgba(0,0,0,.24) !important;
+}
+.novaAbout .aboutTeamFilmCard::after { display:none !important; }
+.novaAbout .aboutTeamFilmCard img {
+  position:relative !important;
+  inset:auto !important;
+  z-index:1 !important;
+  width:100% !important;
+  height:340px !important;
+  flex:0 0 340px !important;
+  object-fit:cover !important;
+  opacity:1 !important;
+  filter:saturate(.92) contrast(1.02) !important;
+}
+.novaAbout .aboutTeamFilmCard > div {
+  position:relative !important;
+  z-index:2 !important;
+  transform:none !important;
+  min-height:160px !important;
+  padding:20px 22px 18px !important;
+  background:linear-gradient(145deg,#ffffff 0%,#e7f5f1 100%) !important;
+}
+.novaAbout .aboutTeamFilmCard span {
+  color:#168b91 !important;
+  font-size:9px !important;
+  letter-spacing:1.8px !important;
+}
+.novaAbout .aboutTeamFilmCard h3 {
+  margin:8px 0 4px !important;
+  color:#123544 !important;
+  font-size:clamp(18px,1.45vw,22px) !important;
+  line-height:1.18 !important;
+}
+.novaAbout .aboutTeamFilmCard p {
+  color:#526a72 !important;
+  font-size:12px !important;
+  line-height:1.5 !important;
+}
+.novaAbout .aboutTeamFilmCard > svg {
+  z-index:3 !important;
+  top:auto !important;
+  right:18px !important;
+  bottom:20px !important;
+  color:#168b91 !important;
+  opacity:1 !important;
+}
+.novaAbout .aboutTeamFilmCard:hover {
+  transform:translateY(-8px) !important;
+  border-color:#63d0c8 !important;
+  box-shadow:0 30px 65px rgba(0,0,0,.30) !important;
+}
+.novaAbout .aboutTeamFilmCard:hover img { transform:scale(1.035) !important; }
+
+/* CTA: keep the box completely contained inside the section so it never crosses the section above. */
+.novaAbout .aboutFinalClosing.aboutClosing {
+  position:relative !important;
+  min-height:0 !important;
+  padding:92px 24px !important;
+  overflow:hidden !important;
+  background:linear-gradient(135deg,#071f2f 0%,#0c3942 50%,#123f39 100%) !important;
+}
+.novaAbout .aboutFinalClosing .aboutClosingOverlay { opacity:.28 !important; }
+.novaAbout .aboutFinalClosing .aboutClosingContent {
+  position:relative !important;
+  z-index:3 !important;
+  width:min(100%,860px) !important;
+  max-width:860px !important;
+  margin:0 auto !important;
+  padding:58px 58px !important;
+  border-radius:28px !important;
+  background:linear-gradient(145deg,rgba(20,65,68,.98),rgba(12,45,55,.98)) !important;
+  border:1px solid rgba(154,240,232,.34) !important;
+  box-shadow:0 30px 75px rgba(0,0,0,.30), inset 0 1px 0 rgba(255,255,255,.08) !important;
+  text-align:center !important;
+}
+.novaAbout .aboutFinalClosing .aboutEyebrow { color:#9af0e8 !important; }
+.novaAbout .aboutFinalClosing h2 {
+  margin:12px auto 14px !important;
+  max-width:680px !important;
+  color:#ffffff !important;
+  font-size:clamp(30px,3.7vw,46px) !important;
+  line-height:1.1 !important;
+  letter-spacing:-.02em !important;
+}
+.novaAbout .aboutFinalClosing h2 span {
+  color:#9af0e8 !important;
+  background:none !important;
+  padding:0 !important;
+}
+.novaAbout .aboutFinalClosing p {
+  max-width:570px !important;
+  margin:0 auto !important;
+  color:#d8eeeb !important;
+  line-height:1.6 !important;
+}
+.novaAbout .aboutFinalClosing .aboutHeroActions {
+  justify-content:center !important;
+  align-items:center !important;
+  flex-wrap:wrap !important;
+  margin-top:26px !important;
+  gap:14px !important;
+}
+.novaAbout .aboutFinalClosing .aboutButtonLight {
+  background:#ffffff !important;
+  color:#123544 !important;
+  border:1px solid #ffffff !important;
+  box-shadow:0 12px 30px rgba(0,0,0,.18) !important;
+}
+.novaAbout .aboutFinalClosing .aboutButtonLight:hover,
+.novaAbout .aboutFinalClosing .aboutButtonLight:focus-visible {
+  background:#9af0e8 !important;
+  color:#123544 !important;
+  border-color:#9af0e8 !important;
+}
+.novaAbout .aboutFinalClosing .aboutTextLinkLight {
+  background:transparent !important;
+  color:#ffffff !important;
+  border:1px solid rgba(255,255,255,.38) !important;
+}
+.novaAbout .aboutFinalClosing .aboutTextLinkLight:hover,
+.novaAbout .aboutFinalClosing .aboutTextLinkLight:focus-visible {
+  background:rgba(154,240,232,.12) !important;
+  color:#9af0e8 !important;
+  border-color:#9af0e8 !important;
+}
+
+@media (max-width:900px) {
+  .novaAbout .aboutFinalVideoGrid { grid-template-columns:1fr !important; }
+  .novaAbout .aboutFinalVideoFrame { min-height:390px !important; height:390px !important; border-radius:22px 22px 0 0 !important; }
+  .novaAbout .aboutFinalVideoCopy { min-height:0 !important; border-radius:0 0 22px 22px !important; }
+  .novaAbout .aboutTeamFilm { grid-template-columns:1fr !important; }
+  .novaAbout .aboutTeamFilmCard { height:470px !important; }
+  .novaAbout .aboutTeamFilmCard img { height:315px !important; flex-basis:315px !important; }
+}
+@media (max-width:700px) {
+  .novaAbout .aboutFinalHeroCopy h1 { font-size:clamp(30px,8.5vw,42px) !important; }
+  .novaAbout .aboutFinalVideo { padding:54px 0 !important; }
+  .novaAbout .aboutFinalVideoGrid { margin:0 16px !important; padding:10px !important; border-radius:24px !important; }
+  .novaAbout .aboutFinalVideoFrame { min-height:300px !important; height:300px !important; }
+  .novaAbout .aboutFinalVideoCopy { padding:34px 26px !important; }
+  .novaAbout .aboutFinalTeam { padding:58px 0 66px !important; }
+  .novaAbout .aboutFinalTeam .aboutCinematicHeading { margin-bottom:24px !important; }
+  .novaAbout .aboutFinalClosing.aboutClosing { padding:64px 16px !important; }
+  .novaAbout .aboutFinalClosing .aboutClosingContent { padding:40px 24px !important; border-radius:22px !important; }
+  .novaAbout .aboutFinalClosing .aboutHeroActions { flex-direction:column !important; width:100% !important; }
+  .novaAbout .aboutFinalClosing .aboutButtonLight,
+  .novaAbout .aboutFinalClosing .aboutTextLinkLight { width:min(100%,300px) !important; justify-content:center !important; }
+}
+
+/* ===== FINAL USER REQUEST: VIDEO / TEAM / CTA CONTRAST ===== */
+/* Video section: distinct outer background + high contrast story card */
+.novaAbout .aboutFinalVideo {
+  background: linear-gradient(135deg,#f4efe6 0%,#e8eee9 50%,#dcebe7 100%) !important;
+  padding: 78px 0 !important;
+}
+.novaAbout .aboutFinalVideoGrid {
+  background: linear-gradient(135deg,#102c3e 0%,#16454a 52%,#1b5750 100%) !important;
+  border: 1px solid rgba(154,240,232,.42) !important;
+  box-shadow: 0 30px 80px rgba(16,44,62,.24) !important;
+}
+.novaAbout .aboutFinalVideoFrame {
+  background:#09232f !important;
+}
+.novaAbout .aboutFinalVideoCopy {
+  background: linear-gradient(145deg,#fffaf2 0%,#f0e5d7 100%) !important;
+  color:#18352f !important;
+  border-left:1px solid rgba(24,53,47,.10) !important;
+}
+.novaAbout .aboutFinalVideoCopy h2 { color:#18352f !important; }
+.novaAbout .aboutFinalVideoCopy h2 em { color:#a55f3f !important; }
+.novaAbout .aboutFinalVideoCopy p { color:#465b56 !important; }
+.novaAbout .aboutFinalVideoCopy .aboutEyebrowLight { color:#8d543b !important; }
+.novaAbout .aboutFinalVideoCopy .aboutEyebrowLight i { background:#c88762 !important; }
+.novaAbout .aboutFinalVideoCopy .aboutButtonOutline {
+  background:#18352f !important;
+  color:#fffaf2 !important;
+  border-color:#18352f !important;
+}
+.novaAbout .aboutFinalVideoCopy .aboutButtonOutline:hover {
+  background:#a55f3f !important;
+  color:#fffaf2 !important;
+  border-color:#a55f3f !important;
+}
+
+/* People behind the care: separate section and clearly readable cards */
+.novaAbout .aboutFinalTeam {
+  background:linear-gradient(135deg,#f0e9de 0%,#e4eee9 55%,#d8e8e3 100%) !important;
+  color:#18352f !important;
+  padding:78px 0 88px !important;
+}
+.novaAbout .aboutFinalTeam .aboutCinematicHeading.light h2 { color:#18352f !important; }
+.novaAbout .aboutFinalTeam .aboutCinematicHeading.light h2 span { color:#a55f3f !important; }
+.novaAbout .aboutFinalTeam .aboutCinematicHeading.light .aboutEyebrow { color:#8d543b !important; }
+.novaAbout .aboutFinalTeam .aboutButtonOutline {
+  background:#18352f !important;
+  color:#fffaf2 !important;
+  border-color:#18352f !important;
+}
+.novaAbout .aboutFinalTeam .aboutButtonOutline:hover {
+  background:#a55f3f !important;
+  border-color:#a55f3f !important;
+  color:#fffaf2 !important;
+}
+.novaAbout .aboutFinalTeam .aboutTeamFilmCard {
+  background:#fffaf3 !important;
+  color:#18352f !important;
+  border:1px solid #d6cfc3 !important;
+  box-shadow:0 20px 48px rgba(24,53,47,.14) !important;
+}
+.novaAbout .aboutFinalTeam .aboutTeamFilmCard > div {
+  background:linear-gradient(145deg,#fffdf8 0%,#edf5f1 100%) !important;
+  color:#18352f !important;
+}
+.novaAbout .aboutFinalTeam .aboutTeamFilmCard span { color:#9a6043 !important; }
+.novaAbout .aboutFinalTeam .aboutTeamFilmCard h3 { color:#18352f !important; }
+.novaAbout .aboutFinalTeam .aboutTeamFilmCard p { color:#4c625c !important; }
+.novaAbout .aboutFinalTeam .aboutTeamFilmCard > svg { color:#168b91 !important; }
+.novaAbout .aboutFinalTeam .aboutTeamFilmCard:hover {
+  border-color:#9a6043 !important;
+  box-shadow:0 28px 60px rgba(24,53,47,.20) !important;
+}
+
+/* CTA: new animated background + contained inner box, no overlap */
+.novaAbout .aboutFinalClosing.aboutClosing {
+  min-height:540px !important;
+  margin-top:0 !important;
+  padding:58px 24px !important;
+  background:linear-gradient(120deg,#0b2638,#16454a,#18352f,#0b2638) !important;
+  background-size:300% 300% !important;
+  animation:novaCtaGradient 12s ease infinite !important;
+  overflow:hidden !important;
+}
+@keyframes novaCtaGradient {
+  0%,100% { background-position:0% 50%; }
+  50% { background-position:100% 50%; }
+}
+.novaAbout .aboutFinalClosing .aboutClosingImage { opacity:.08 !important; }
+.novaAbout .aboutFinalClosing .aboutClosingOverlay {
+  opacity:1 !important;
+  background:linear-gradient(120deg,rgba(11,38,56,.58),rgba(22,69,74,.34),rgba(24,53,47,.60)) !important;
+}
+.novaAbout .aboutFinalClosing .aboutClosingContent {
+  position:relative !important;
+  z-index:3 !important;
+  width:min(100%,880px) !important;
+  max-width:880px !important;
+  margin:0 auto !important;
+  padding:58px 54px !important;
+  border-radius:30px !important;
+  background:rgba(255,250,242,.97) !important;
+  border:1px solid rgba(154,240,232,.45) !important;
+  box-shadow:0 30px 80px rgba(0,0,0,.24) !important;
+  text-align:center !important;
+  color:#18352f !important;
+}
+.novaAbout .aboutFinalClosing .aboutEyebrow { color:#8d543b !important; }
+.novaAbout .aboutFinalClosing h2 { color:#18352f !important; max-width:700px !important; }
+.novaAbout .aboutFinalClosing h2 span { color:#a55f3f !important; }
+.novaAbout .aboutFinalClosing p { color:#4c625c !important; max-width:610px !important; }
+.novaAbout .aboutFinalClosing .aboutButtonLight {
+  background:#18352f !important;
+  color:#fffaf2 !important;
+  border:1px solid #18352f !important;
+}
+.novaAbout .aboutFinalClosing .aboutButtonLight:hover,
+.novaAbout .aboutFinalClosing .aboutButtonLight:focus-visible {
+  background:#a55f3f !important;
+  color:#fffaf2 !important;
+  border-color:#a55f3f !important;
+}
+.novaAbout .aboutFinalClosing .aboutTextLinkLight {
+  background:#e3f1ed !important;
+  color:#18352f !important;
+  border:1px solid #9fcfc5 !important;
+}
+.novaAbout .aboutFinalClosing .aboutTextLinkLight:hover,
+.novaAbout .aboutFinalClosing .aboutTextLinkLight:focus-visible {
+  background:#18352f !important;
+  color:#fffaf2 !important;
+  border-color:#18352f !important;
+}
+@media(max-width:700px){
+  .novaAbout .aboutFinalClosing.aboutClosing { padding:44px 16px !important; min-height:500px !important; }
+  .novaAbout .aboutFinalClosing .aboutClosingContent { padding:42px 24px !important; border-radius:24px !important; }
+  .novaAbout .aboutFinalVideoCopy { border-left:0 !important; }
+}
+
+/* ===== FINAL ABOUT POLISH — COMPACT TYPE + DISTINCT STORY PALETTE ===== */
+/* Hero: compact, premium two-line heading */
+.novaAbout .aboutFinalHeroCopy h1 {
+  max-width: 720px !important;
+  font-size: clamp(42px, 5.2vw, 72px) !important;
+  line-height: 1.02 !important;
+  letter-spacing: -2px !important;
+  margin: 18px 0 16px !important;
+}
+.novaAbout .aboutFinalHeroCopy h1 em { display:block !important; }
+.novaAbout .aboutFinalHeroCopy p { font-size:15px !important; line-height:1.7 !important; max-width:560px !important; }
+
+/* Reduce About heading scale without making the page feel flat */
+.novaAbout .aboutCinematicHeading h2,
+.novaAbout .aboutManifestoCopy h2,
+.novaAbout .aboutFinalClinic h2 {
+  font-size: clamp(30px, 4vw, 52px) !important;
+  line-height: 1.06 !important;
+  letter-spacing: -1.2px !important;
+}
+.novaAbout .aboutValuesIntro h2 {
+  font-size: clamp(32px, 4.2vw, 54px) !important;
+  line-height: 1.05 !important;
+}
+.novaAbout .aboutChapterCopy h3 { font-size: clamp(26px, 3vw, 40px) !important; }
+
+/* Video story: clean card pairing — dark media + warm content, no same-color text */
+.novaAbout .aboutFinalVideo {
+  background: linear-gradient(135deg,#edf4f1 0%,#dfece8 52%,#f3eadf 100%) !important;
+  padding: 76px 0 !important;
+}
+.novaAbout .aboutFinalVideoGrid {
+  background:#ffffff !important;
+  padding:0 !important;
+  border:1px solid #d5e3df !important;
+  border-radius:30px !important;
+  overflow:hidden !important;
+  box-shadow:0 28px 70px rgba(18,53,48,.14) !important;
+  gap:0 !important;
+}
+.novaAbout .aboutFinalVideoFrame {
+  min-height:520px !important;
+  background:#102f36 !important;
+  border-radius:0 !important;
+  overflow:hidden !important;
+}
+.novaAbout .aboutFinalVideoFrame video { filter:saturate(.92) contrast(1.04) !important; }
+.novaAbout .aboutFinalVideoCopy {
+  min-height:520px !important;
+  display:flex !important;
+  flex-direction:column !important;
+  justify-content:center !important;
+  padding:56px !important;
+  background:linear-gradient(145deg,#fffaf1 0%,#f1e5d7 100%) !important;
+  color:#233b36 !important;
+  border:0 !important;
+}
+.novaAbout .aboutFinalVideoCopy h2 {
+  margin:14px 0 14px !important;
+  color:#233b36 !important;
+  font-size:clamp(28px,3.2vw,44px) !important;
+  line-height:1.08 !important;
+}
+.novaAbout .aboutFinalVideoCopy h2 em { color:#9a6043 !important; }
+.novaAbout .aboutFinalVideoCopy p { color:#53645f !important; max-width:480px !important; line-height:1.7 !important; }
+.novaAbout .aboutFinalVideoCopy .aboutButtonOutline {
+  align-self:flex-start !important;
+  margin-top:20px !important;
+  background:#233b36 !important;
+  color:#fffaf1 !important;
+  border-color:#233b36 !important;
+}
+.novaAbout .aboutFinalVideoCopy .aboutButtonOutline:hover {
+  background:#9a6043 !important;
+  border-color:#9a6043 !important;
+  color:#fffaf1 !important;
+}
+
+/* People section: remove blue look; use warm neutral + green accents */
+.novaAbout .aboutFinalTeam {
+  background:linear-gradient(135deg,#f4eee5 0%,#e8eee9 58%,#dfe9e4 100%) !important;
+  color:#233b36 !important;
+  padding:76px 0 84px !important;
+}
+.novaAbout .aboutFinalTeam .aboutCinematicHeading.light h2,
+.novaAbout .aboutFinalTeam .aboutCinematicHeading.light h2 span {
+  color:#233b36 !important;
+}
+.novaAbout .aboutFinalTeam .aboutCinematicHeading.light h2 span { color:#9a6043 !important; }
+.novaAbout .aboutFinalTeam .aboutCinematicHeading.light .aboutEyebrow { color:#8b573f !important; }
+.novaAbout .aboutFinalTeam .aboutButtonOutline {
+  background:#233b36 !important;
+  color:#fffaf1 !important;
+  border-color:#233b36 !important;
+}
+.novaAbout .aboutFinalTeam .aboutButtonOutline:hover { background:#9a6043 !important; border-color:#9a6043 !important; }
+
+/* Doctor cards: image + clearly separated text panel */
+.novaAbout .aboutFinalTeam .aboutTeamFilmCard {
+  min-height:500px !important;
+  padding:0 !important;
+  display:flex !important;
+  flex-direction:column !important;
+  justify-content:flex-end !important;
+  background:#fdf9f2 !important;
+  border:1px solid #d9d0c4 !important;
+  border-radius:24px !important;
+  overflow:hidden !important;
+  color:#233b36 !important;
+}
+.novaAbout .aboutFinalTeam .aboutTeamFilmCard img {
+  position:relative !important;
+  inset:auto !important;
+  width:100% !important;
+  height:330px !important;
+  flex:0 0 330px !important;
+  object-fit:cover !important;
+  opacity:1 !important;
+  z-index:0 !important;
+  filter:saturate(.88) !important;
+  transform:none !important;
+}
+.novaAbout .aboutFinalTeam .aboutTeamFilmCard::after { display:none !important; }
+.novaAbout .aboutFinalTeam .aboutTeamFilmCard > div {
+  position:relative !important;
+  z-index:1 !important;
+  width:100% !important;
+  min-height:170px !important;
+  padding:24px 25px 26px !important;
+  transform:none !important;
+  background:linear-gradient(145deg,#fffaf2 0%,#edf3ef 100%) !important;
+  color:#233b36 !important;
+  box-sizing:border-box !important;
+}
+.novaAbout .aboutFinalTeam .aboutTeamFilmCard span { color:#9a6043 !important; }
+.novaAbout .aboutFinalTeam .aboutTeamFilmCard h3 {
+  margin:8px 0 5px !important;
+  color:#233b36 !important;
+  font-size:23px !important;
+  line-height:1.15 !important;
+}
+.novaAbout .aboutFinalTeam .aboutTeamFilmCard p { color:#52645e !important; font-size:12px !important; }
+.novaAbout .aboutFinalTeam .aboutTeamFilmCard > svg {
+  top:18px !important;
+  right:18px !important;
+  z-index:2 !important;
+  color:#fffaf2 !important;
+  background:#233b36 !important;
+  border-radius:50% !important;
+  padding:8px !important;
+  width:34px !important;
+  height:34px !important;
+  box-sizing:border-box !important;
+  opacity:1 !important;
+}
+.novaAbout .aboutFinalTeam .aboutTeamFilmCard:hover { border-color:#b98463 !important; transform:translateY(-8px) !important; }
+.novaAbout .aboutFinalTeam .aboutTeamFilmCard:hover img { transform:scale(1.025) !important; }
+
+/* CTA: keep the existing warm inner box; change only the background behind it */
+.novaAbout .aboutFinalClosing.aboutClosing {
+  min-height:540px !important;
+  padding:58px 24px !important;
+  background:linear-gradient(120deg,#071f2d 0%,#0e3c43 38%,#24534c 68%,#071f2d 100%) !important;
+  background-size:300% 300% !important;
+  animation:novaCtaGradient 12s ease infinite !important;
+}
+.novaAbout .aboutFinalClosing .aboutClosingOverlay {
+  background:radial-gradient(circle at 20% 30%,rgba(154,240,232,.18),transparent 34%),radial-gradient(circle at 80% 70%,rgba(255,201,157,.14),transparent 32%) !important;
+}
+.novaAbout .aboutFinalClosing .aboutClosingContent {
+  background:linear-gradient(145deg,#fffaf2 0%,#f1e5d7 100%) !important;
+  border:1px solid rgba(255,255,255,.72) !important;
+  box-shadow:0 30px 80px rgba(0,0,0,.24) !important;
+}
+.novaAbout .aboutFinalClosing .aboutEyebrow { color:#8b573f !important; }
+.novaAbout .aboutFinalClosing h2 { color:#233b36 !important; font-size:clamp(28px,3.5vw,44px) !important; }
+.novaAbout .aboutFinalClosing h2 span { color:#9a6043 !important; }
+.novaAbout .aboutFinalClosing p { color:#53645f !important; }
+
+@media(max-width:900px){
+  .novaAbout .aboutFinalVideoFrame,
+  .novaAbout .aboutFinalVideoCopy { min-height:0 !important; }
+  .novaAbout .aboutFinalVideoFrame { height:390px !important; }
+  .novaAbout .aboutFinalTeam .aboutTeamFilmCard { min-height:0 !important; }
+  .novaAbout .aboutFinalTeam .aboutTeamFilmCard img { height:310px !important; flex-basis:310px !important; }
+}
+@media(max-width:700px){
+  .novaAbout .aboutFinalHeroCopy h1 { font-size:clamp(34px,9vw,48px) !important; line-height:1.03 !important; }
+  .novaAbout .aboutCinematicHeading h2,
+  .novaAbout .aboutManifestoCopy h2,
+  .novaAbout .aboutFinalClinic h2 { font-size:32px !important; }
+  .novaAbout .aboutValuesIntro h2 { font-size:34px !important; }
+  .novaAbout .aboutFinalVideoGrid { margin:0 16px !important; border-radius:22px !important; }
+  .novaAbout .aboutFinalVideoFrame { height:300px !important; }
+  .novaAbout .aboutFinalVideoCopy { padding:34px 26px !important; }
+  .novaAbout .aboutFinalTeam .aboutTeamFilmCard img { height:285px !important; flex-basis:285px !important; }
+  .novaAbout .aboutFinalTeam .aboutTeamFilmCard > div { min-height:150px !important; padding:22px !important; }
+}
+
+/* =========================================================
+   NOVADENT ABOUT — FINAL VISUAL HARMONY PASS
+   Clear text/visual pairing, distinct section palettes,
+   stronger card hierarchy and less flat-looking content.
+   ========================================================= */
+
+.novaAbout {
+  --about-ink:#173a36;
+  --about-deep:#082c32;
+  --about-teal:#1d756f;
+  --about-mint:#9be6dc;
+  --about-cream:#f7f0e5;
+  --about-paper:#fffdf8;
+  --about-sage:#e7f0eb;
+  --about-clay:#a96342;
+  --about-muted:#586b65;
+}
+
+/* ---------- HERO: dark cinematic stage + readable text ---------- */
+.novaAbout .aboutFinalHero {
+  background:
+    radial-gradient(circle at 78% 22%, rgba(125,229,216,.16), transparent 25%),
+    linear-gradient(118deg,#061d2b 0%,#0a3540 52%,#0c4948 100%) !important;
+  min-height:720px !important;
+}
+.novaAbout .aboutFinalHero::after {
+  content:"";
+  position:absolute;
+  inset:auto 0 0;
+  height:130px;
+  background:linear-gradient(to bottom,transparent,rgba(4,24,30,.32));
+  pointer-events:none;
+}
+.novaAbout .aboutFinalHeroCopy { text-align:left !important; margin:0 !important; }
+.novaAbout .aboutFinalHeroCopy h1 { color:#fff !important; text-shadow:0 16px 40px rgba(0,0,0,.24) !important; }
+.novaAbout .aboutFinalHeroCopy h1 em { color:#a7eee5 !important; }
+.novaAbout .aboutFinalHeroCopy p { color:#dcebea !important; }
+.novaAbout .aboutFinalHeroCopy .aboutEyebrow { color:#a7eee5 !important; }
+.novaAbout .aboutFinalHeroCollage { filter:drop-shadow(0 30px 60px rgba(0,0,0,.18)); }
+.novaAbout .aboutCollageMain { border:1px solid rgba(255,255,255,.12); }
+.novaAbout .aboutCollageSmall { border-color:#103842 !important; }
+.novaAbout .aboutCollageTag { background:#fffaf1 !important; color:#173a36 !important; }
+.novaAbout .aboutCollageTag b { color:#a96342 !important; }
+
+/* ---------- APPROACH: each story has image + text, alternating rhythm ---------- */
+.novaAbout .aboutFinalIntro {
+  background:linear-gradient(180deg,#f8f1e6 0%,#f3eee5 100%) !important;
+  padding:92px 0 104px !important;
+}
+.novaAbout .aboutFinalIntro .aboutCinematicHeading {
+  gap:56px !important;
+  margin-bottom:48px !important;
+}
+.novaAbout .aboutFinalIntro .aboutCinematicHeading > div {
+  position:relative;
+  padding-left:24px;
+}
+.novaAbout .aboutFinalIntro .aboutCinematicHeading > div::before {
+  content:"";
+  position:absolute;
+  left:0;
+  top:5px;
+  bottom:5px;
+  width:3px;
+  border-radius:99px;
+  background:linear-gradient(#a96342,#d4a483);
+}
+.novaAbout .aboutFinalIntro .aboutCinematicHeading h2 { color:#173a36 !important; }
+.novaAbout .aboutFinalIntro .aboutCinematicHeading h2 span { color:#a96342 !important; }
+.novaAbout .aboutFinalIntro .aboutCinematicHeading > p {
+  color:#536762 !important;
+  font-size:15px !important;
+}
+.novaAbout .aboutFinalChapters { gap:20px !important; }
+.novaAbout .aboutFinalChapter {
+  grid-template-columns:minmax(280px,.88fr) minmax(0,1fr) !important;
+  min-height:330px !important;
+  padding:14px !important;
+  border-radius:28px !important;
+  background:#fffdf8 !important;
+  border:1px solid rgba(23,58,54,.11) !important;
+  box-shadow:0 18px 50px rgba(37,57,50,.09) !important;
+  overflow:hidden !important;
+}
+.novaAbout .aboutFinalChapter:nth-child(2) { background:#eaf2ed !important; }
+.novaAbout .aboutFinalChapter:nth-child(3) { background:#f0e5d9 !important; }
+.novaAbout .aboutFinalChapterImage {
+  min-height:300px !important;
+  height:100% !important;
+  border-radius:21px !important;
+  overflow:hidden !important;
+  background:#dbe7e2;
+}
+.novaAbout .aboutFinalChapterImage::after {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,transparent 45%,rgba(4,25,28,.22));
+  pointer-events:none;
+}
+.novaAbout .aboutFinalChapterImage span {
+  z-index:2;
+  background:#173a36 !important;
+  border:0 !important;
+  box-shadow:0 8px 20px rgba(0,0,0,.18);
+}
+.novaAbout .aboutFinalChapter > div:last-child {
+  padding:34px 40px !important;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.novaAbout .aboutFinalChapter small { color:#a96342 !important; }
+.novaAbout .aboutFinalChapter h3 {
+  color:#173a36 !important;
+  font-size:clamp(26px,2.9vw,40px) !important;
+}
+.novaAbout .aboutFinalChapter p { color:#50645e !important; line-height:1.72 !important; }
+.novaAbout .aboutFinalChapter:nth-child(2) .aboutFinalChapterImage { order:2; }
+.novaAbout .aboutFinalChapter:nth-child(2) > div:last-child { order:1; }
+.novaAbout .aboutFinalChapter:nth-child(3) .aboutFinalChapterImage { order:1; }
+.novaAbout .aboutFinalChapter:nth-child(3) > div:last-child { order:2; }
+.novaAbout .aboutChapterLine { background:#d9e2dd !important; margin-top:24px !important; }
+.novaAbout .aboutChapterLine i { background:linear-gradient(90deg,#a96342,#d9a985) !important; }
+
+/* ---------- VIDEO: dark cinematic frame + warm content panel ---------- */
+.novaAbout .aboutFinalVideo {
+  background:
+    radial-gradient(circle at 12% 20%,rgba(155,230,220,.11),transparent 24%),
+    linear-gradient(135deg,#061e2c 0%,#0a3942 58%,#082d35 100%) !important;
+  padding:92px 0 !important;
+}
+.novaAbout .aboutFinalVideoGrid {
+  grid-template-columns:1.12fr .88fr !important;
+  background:#fffaf1 !important;
+  border:1px solid rgba(255,255,255,.18) !important;
+  box-shadow:0 34px 90px rgba(0,0,0,.26) !important;
+}
+.novaAbout .aboutFinalVideoFrame {
+  min-height:500px !important;
+  background:#061b27 !important;
+}
+.novaAbout .aboutFinalVideoFrame::after {
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:linear-gradient(180deg,rgba(0,0,0,.04),rgba(0,18,25,.34));
+}
+.novaAbout .aboutVideoPlayButton {
+  z-index:3;
+  width:64px !important;
+  height:64px !important;
+  border:1px solid rgba(255,255,255,.6) !important;
+  background:rgba(8,44,50,.78) !important;
+  color:#fffaf1 !important;
+  box-shadow:0 14px 35px rgba(0,0,0,.25) !important;
+}
+.novaAbout .aboutFinalVideoFrame > div:last-child {
+  z-index:3;
+  background:rgba(5,28,34,.82) !important;
+  color:#f5fffc !important;
+  border:1px solid rgba(255,255,255,.13) !important;
+}
+.novaAbout .aboutFinalVideoCopy {
+  min-height:500px !important;
+  padding:54px 52px !important;
+  background:linear-gradient(145deg,#fffaf1 0%,#f0e2d2 100%) !important;
+}
+.novaAbout .aboutFinalVideoCopy .aboutEyebrow { color:#9a6043 !important; }
+.novaAbout .aboutFinalVideoCopy h2 { color:#173a36 !important; }
+.novaAbout .aboutFinalVideoCopy h2 em { color:#a96342 !important; }
+.novaAbout .aboutFinalVideoCopy p { color:#536761 !important; }
+.novaAbout .aboutFinalVideoCopy .aboutButtonOutline {
+  background:#173a36 !important;
+  color:#fffaf1 !important;
+  border-color:#173a36 !important;
+}
+.novaAbout .aboutFinalVideoCopy .aboutButtonOutline:hover {
+  background:#a96342 !important;
+  border-color:#a96342 !important;
+}
+
+/* ---------- PHILOSOPHY: dark stage, three different light cards ---------- */
+.novaAbout .aboutFinalValues {
+  background:
+    radial-gradient(circle at 82% 15%,rgba(155,230,220,.14),transparent 25%),
+    linear-gradient(135deg,#08272d 0%,#0d4642 55%,#082c31 100%) !important;
+  padding:96px 0 !important;
+}
+.novaAbout .aboutFinalValues .aboutValuesIntro { max-width:760px !important; }
+.novaAbout .aboutFinalValues .aboutValuesIntro .aboutEyebrow { color:#9be6dc !important; }
+.novaAbout .aboutFinalValues .aboutValuesIntro h2,
+.novaAbout .aboutFinalValues .aboutValuesIntro h2 span { color:#fffaf1 !important; }
+.novaAbout .aboutFinalValues .aboutValuesIntro h2 span { color:#a8eee5 !important; }
+.novaAbout .aboutFinalValues .aboutValuesIntro p { color:#cfe2df !important; }
+.novaAbout .aboutValuesCinematicGrid { gap:18px !important; }
+.novaAbout .aboutValueCinematicCard {
+  min-height:280px !important;
+  padding:30px !important;
+  border-radius:25px !important;
+  color:#173a36 !important;
+  box-shadow:0 24px 55px rgba(0,0,0,.22) !important;
+}
+.novaAbout .aboutValueCinematicCard:nth-child(1) { background:linear-gradient(145deg,#fffdf8,#eef6f1) !important; }
+.novaAbout .aboutValueCinematicCard:nth-child(2) { background:linear-gradient(145deg,#e1f4ef,#c8e9e1) !important; }
+.novaAbout .aboutValueCinematicCard:nth-child(3) { background:linear-gradient(145deg,#f4e8dc,#ead6c6) !important; }
+.novaAbout .aboutValueCinematicCard .aboutValueNumber { color:#9a6043 !important; }
+.novaAbout .aboutValueCinematicCard svg { color:#1d756f !important; }
+.novaAbout .aboutValueCinematicCard h3 { color:#173a36 !important; }
+.novaAbout .aboutValueCinematicCard p { color:#50645e !important; }
+.novaAbout .aboutValueCinematicCard > svg:last-child { color:#9a6043 !important; }
+
+/* ---------- CLINIC: airy sage section + image-led composition ---------- */
+.novaAbout .aboutFinalClinic {
+  background:linear-gradient(180deg,#f5f8f4 0%,#e8f0eb 100%) !important;
+  padding:94px 0 !important;
+}
+.novaAbout .aboutFinalClinicGrid { gap:72px !important; }
+.novaAbout .aboutFinalClinicGrid > div:first-child {
+  position:relative;
+  padding:42px 0 42px 34px;
+}
+.novaAbout .aboutFinalClinicGrid > div:first-child::before {
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:4px;
+  border-radius:99px;
+  background:linear-gradient(#1d756f,#a96342);
+}
+.novaAbout .aboutFinalClinic .aboutEyebrow { color:#1d756f !important; }
+.novaAbout .aboutFinalClinic h2 { color:#173a36 !important; }
+.novaAbout .aboutFinalClinic h2 span { color:#a96342 !important; }
+.novaAbout .aboutFinalClinic p { color:#50645e !important; }
+.novaAbout .aboutFinalClinic .aboutButtonDark {
+  background:#173a36 !important;
+  color:#fffaf1 !important;
+  border-color:#173a36 !important;
+}
+.novaAbout .aboutFinalClinic .aboutButtonDark:hover { background:#1d756f !important; border-color:#1d756f !important; }
+.novaAbout .aboutFinalClinicImages { min-height:500px !important; }
+.novaAbout .aboutFinalClinicImages .large {
+  border:10px solid #f5f8f4 !important;
+  box-shadow:0 28px 65px rgba(23,58,54,.18) !important;
+}
+.novaAbout .aboutFinalClinicImages .small {
+  border-color:#e8f0eb !important;
+  box-shadow:0 20px 40px rgba(23,58,54,.18) !important;
+}
+
+/* ---------- TEAM: warm editorial background + separate doctor panels ---------- */
+.novaAbout .aboutFinalTeam {
+  background:linear-gradient(135deg,#f3ede3 0%,#e7efea 100%) !important;
+  color:#173a36 !important;
+  padding:92px 0 102px !important;
+}
+.novaAbout .aboutFinalTeam .aboutCinematicHeading.light h2 { color:#173a36 !important; }
+.novaAbout .aboutFinalTeam .aboutCinematicHeading.light h2 span { color:#a96342 !important; }
+.novaAbout .aboutFinalTeam .aboutCinematicHeading.light .aboutEyebrow { color:#8f5b43 !important; }
+.novaAbout .aboutFinalTeam .aboutButtonOutline {
+  background:#173a36 !important;
+  color:#fffaf1 !important;
+  border-color:#173a36 !important;
+}
+.novaAbout .aboutFinalTeam .aboutButtonOutline:hover { background:#a96342 !important; border-color:#a96342 !important; }
+.novaAbout .aboutTeamFilm { gap:20px !important; }
+.novaAbout .aboutFinalTeam .aboutTeamFilmCard {
+  min-height:520px !important;
+  background:#fffaf1 !important;
+  border:1px solid rgba(23,58,54,.13) !important;
+  box-shadow:0 20px 55px rgba(33,57,49,.11) !important;
+}
+.novaAbout .aboutFinalTeam .aboutTeamFilmCard img {
+  height:345px !important;
+  flex-basis:345px !important;
+  filter:saturate(.9) contrast(1.02) !important;
+}
+.novaAbout .aboutFinalTeam .aboutTeamFilmCard > div {
+  min-height:175px !important;
+  padding:25px 26px !important;
+  background:linear-gradient(145deg,#fffaf1 0%,#edf3ef 100%) !important;
+}
+.novaAbout .aboutFinalTeam .aboutTeamFilmCard > div > span { color:#a96342 !important; }
+.novaAbout .aboutFinalTeam .aboutTeamFilmCard h3 { color:#173a36 !important; }
+.novaAbout .aboutFinalTeam .aboutTeamFilmCard p { color:#536761 !important; }
+.novaAbout .aboutFinalTeam .aboutTeamFilmCard > svg {
+  color:#fffaf1 !important;
+  background:#173a36 !important;
+}
+
+/* ---------- CTA: dark outer stage, cream inner visual box ---------- */
+.novaAbout .aboutFinalClosing {
+  min-height:560px !important;
+  padding:76px 24px !important;
+  background:
+    radial-gradient(circle at 18% 24%,rgba(155,230,220,.18),transparent 23%),
+    radial-gradient(circle at 82% 76%,rgba(221,169,130,.13),transparent 25%),
+    linear-gradient(120deg,#061e2a 0%,#0b3a42 48%,#123f3b 100%) !important;
+}
+.novaAbout .aboutFinalClosing .aboutClosingOverlay { background:transparent !important; }
+.novaAbout .aboutFinalClosing .aboutClosingContent {
+  width:min(100%,860px) !important;
+  padding:62px 54px !important;
+  border-radius:30px !important;
+  background:linear-gradient(145deg,#fffaf1 0%,#f0e1d2 100%) !important;
+  border:1px solid rgba(255,255,255,.72) !important;
+  box-shadow:0 34px 85px rgba(0,0,0,.27) !important;
+}
+.novaAbout .aboutFinalClosing .aboutEyebrow { color:#9a6043 !important; }
+.novaAbout .aboutFinalClosing h2 { color:#173a36 !important; }
+.novaAbout .aboutFinalClosing h2 span {
+  color:#fffaf1 !important;
+  background:#173a36 !important;
+}
+.novaAbout .aboutFinalClosing p { color:#536761 !important; }
+.novaAbout .aboutFinalClosing .aboutButtonLight {
+  background:#173a36 !important;
+  color:#fffaf1 !important;
+  border-color:#173a36 !important;
+}
+.novaAbout .aboutFinalClosing .aboutButtonLight:hover { background:#a96342 !important; border-color:#a96342 !important; }
+.novaAbout .aboutFinalClosing .aboutTextLinkLight {
+  background:rgba(255,255,255,.55) !important;
+  color:#173a36 !important;
+  border:1px solid rgba(23,58,54,.25) !important;
+}
+.novaAbout .aboutFinalClosing .aboutTextLinkLight:hover {
+  background:#173a36 !important;
+  color:#fffaf1 !important;
+  border-color:#173a36 !important;
+}
+
+/* ---------- consistent section pacing + divider details ---------- */
+.novaAbout > section:not(.aboutFinalHero) { overflow:hidden; }
+.novaAbout > section:not(.aboutFinalHero)::before {
+  content:"";
+  position:absolute;
+  top:0;
+  left:50%;
+  width:min(1180px,calc(100% - 48px));
+  height:1px;
+  transform:translateX(-50%);
+  background:linear-gradient(90deg,transparent,rgba(23,58,54,.13),transparent);
+  pointer-events:none;
+}
+.novaAbout .aboutEyebrow { letter-spacing:2.4px !important; font-size:10px !important; }
+.novaAbout .aboutButton,
+.novaAbout .aboutTextLink { border-radius:999px !important; }
+
+@media(max-width:900px){
+  .novaAbout .aboutFinalHeroCopy { text-align:center !important; margin:auto !important; }
+  .novaAbout .aboutFinalHeroCopy .aboutHeroActions { justify-content:center !important; }
+  .novaAbout .aboutFinalChapter { grid-template-columns:1fr !important; }
+  .novaAbout .aboutFinalChapter:nth-child(2) .aboutFinalChapterImage,
+  .novaAbout .aboutFinalChapter:nth-child(2) > div:last-child,
+  .novaAbout .aboutFinalChapter:nth-child(3) .aboutFinalChapterImage,
+  .novaAbout .aboutFinalChapter:nth-child(3) > div:last-child { order:initial !important; }
+  .novaAbout .aboutFinalChapterImage { min-height:280px !important; height:280px !important; }
+  .novaAbout .aboutFinalChapter > div:last-child { padding:28px 30px 32px !important; }
+  .novaAbout .aboutFinalVideoGrid { grid-template-columns:1fr !important; }
+  .novaAbout .aboutFinalVideoFrame,
+  .novaAbout .aboutFinalVideoCopy { min-height:0 !important; }
+  .novaAbout .aboutFinalVideoFrame { height:390px !important; }
+  .novaAbout .aboutFinalVideoCopy { padding:42px 38px !important; }
+  .novaAbout .aboutFinalClinicGrid { gap:48px !important; }
+  .novaAbout .aboutFinalClinicGrid > div:first-child { padding-left:26px !important; }
+}
+
+@media(max-width:640px){
+  .novaAbout .aboutFinalHero { min-height:0 !important; }
+  .novaAbout .aboutFinalHeroGrid { padding:108px 18px 68px !important; }
+  .novaAbout .aboutFinalHeroCopy h1 { font-size:38px !important; line-height:1.02 !important; }
+  .novaAbout .aboutFinalHeroCopy p { font-size:13.5px !important; line-height:1.7 !important; }
+  .novaAbout .aboutFinalHeroCollage { height:300px !important; }
+  .novaAbout .aboutFinalIntro,
+  .novaAbout .aboutFinalVideo,
+  .novaAbout .aboutFinalValues,
+  .novaAbout .aboutFinalClinic,
+  .novaAbout .aboutFinalTeam { padding-top:68px !important; padding-bottom:74px !important; }
+  .novaAbout .aboutFinalIntro .aboutCinematicHeading { margin-bottom:34px !important; gap:22px !important; }
+  .novaAbout .aboutFinalIntro .aboutCinematicHeading > div { padding-left:18px !important; }
+  .novaAbout .aboutFinalChapter { padding:9px !important; border-radius:22px !important; }
+  .novaAbout .aboutFinalChapterImage { min-height:225px !important; height:225px !important; border-radius:17px !important; }
+  .novaAbout .aboutFinalChapter > div:last-child { padding:24px 20px 25px !important; }
+  .novaAbout .aboutFinalChapter h3 { font-size:27px !important; }
+  .novaAbout .aboutFinalVideoGrid { margin:0 16px !important; border-radius:22px !important; }
+  .novaAbout .aboutFinalVideoFrame { height:280px !important; }
+  .novaAbout .aboutFinalVideoCopy { padding:32px 24px !important; }
+  .novaAbout .aboutFinalVideoCopy h2 { font-size:31px !important; }
+  .novaAbout .aboutValueCinematicCard { min-height:235px !important; padding:25px !important; }
+  .novaAbout .aboutFinalClinicGrid > div:first-child { padding:26px 0 26px 20px !important; }
+  .novaAbout .aboutFinalClinicImages { min-height:330px !important; height:330px !important; }
+  .novaAbout .aboutFinalTeam .aboutTeamFilmCard { min-height:0 !important; }
+  .novaAbout .aboutFinalTeam .aboutTeamFilmCard img { height:275px !important; flex-basis:275px !important; }
+  .novaAbout .aboutFinalTeam .aboutTeamFilmCard > div { min-height:145px !important; padding:21px !important; }
+  .novaAbout .aboutFinalClosing { min-height:0 !important; padding:50px 16px !important; }
+  .novaAbout .aboutFinalClosing .aboutClosingContent { padding:38px 22px !important; border-radius:23px !important; }
+}

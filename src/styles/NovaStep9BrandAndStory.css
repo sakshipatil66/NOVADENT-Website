@@ -1,0 +1,61 @@
+/* Step 9 — consistent brand, clearer hierarchy and cinematic section rhythm */
+:root{--nova-brand:#173f36;--nova-brand-deep:#102f2b;--nova-sage:#5f907b;--nova-mist:#eef5f0;--nova-paper:#fbfcfb;--nova-copy:#425b52;--nova-line:#d7e5dc}
+/* Actual NOVADENT vector mark; keep it crisp at every viewport. */
+.novaBrand{gap:12px!important}.novaBrand .novaLogo{width:54px!important;height:54px!important;display:grid;place-items:center;overflow:hidden;background:transparent!important}.novaNavbarLogoImage{display:block;width:100%;height:100%;object-fit:contain}.novaBrandText strong{letter-spacing:.12em;color:var(--nova-brand)}.novaBrandText span{letter-spacing:.24em;color:var(--nova-sage)}
+.novaIntroMark img{width:clamp(220px,30vw,370px)!important;max-height:none!important;filter:brightness(0) invert(1);object-fit:contain;animation:novaBrandPop .85s cubic-bezier(.2,.8,.2,1) both}
+@keyframes novaBrandPop{0%{opacity:0;transform:scale(.78) translateY(12px);filter:brightness(0) invert(1) blur(7px)}70%{opacity:1;transform:scale(1.035) translateY(0);filter:brightness(0) invert(1) blur(0)}100%{opacity:1;transform:scale(1);filter:brightness(0) invert(1)}}
+/* Shared page typography: restrained sizes, readable line length and balanced wraps. */
+.homePage.premiumHome h1,.homePage.premiumHome h2,.novaAbout h1,.novaAbout h2{ text-wrap:balance }
+.homePage.premiumHome .founderHeading h2,.homePage.premiumHome .cinematicAppointmentCopy h2,.novaAbout .aboutIntroText h2,.novaAbout .aboutStoryContent h2,.novaAbout .aboutFounderContent h2{max-width:16ch;line-height:1.08;letter-spacing:-.04em}
+.homePage.premiumHome .founderHeading h2{font-size:clamp(34px,4.1vw,58px)}
+.homePage.premiumHome .founderEditorialContent,.novaAbout .aboutFounderContent{max-width:650px}
+/* CTA: keep the message and image visually distinct, never let image labels sit over the headline. */
+.homePage.premiumHome .cinematicAppointment{background:linear-gradient(115deg,#102f2b 0%,#17483d 62%,#235947 100%);border-block:1px solid rgba(213,238,224,.28)}
+.homePage.premiumHome .cinematicAppointment::before{content:"";position:absolute;inset:16px;z-index:0;border:1px solid rgba(220,241,230,.22);pointer-events:none}
+.homePage.premiumHome .cinematicAppointmentCopy{position:relative;z-index:3;max-width:min(650px,62%);padding-right:clamp(18px,4vw,64px)}
+.homePage.premiumHome .cinematicAppointmentCopy h2{color:#fff!important;font-size:clamp(34px,4.25vw,58px);line-height:1.08;margin-block:16px 20px;text-shadow:0 2px 20px rgba(0,0,0,.2)}
+.homePage.premiumHome .cinematicAppointmentCopy h2 em{color:#c7e9d7;font-style:normal}
+.homePage.premiumHome .cinematicAppointmentCopy p{color:#e3f0e9!important;max-width:45ch}
+.homePage.premiumHome .cinematicAppointmentSmile{right:clamp(28px,7vw,120px);width:clamp(190px,24vw,310px);border:5px solid rgba(238,248,242,.88);box-shadow:0 22px 65px rgba(0,0,0,.32)}
+.homePage.premiumHome .cinematicAppointmentSmile::after{background:linear-gradient(180deg,rgba(16,47,43,.03) 35%,rgba(16,47,43,.62) 100%)}
+.homePage.premiumHome .cinematicAppointmentSmile span{bottom:17px;font-size:8px;letter-spacing:.16em;white-space:normal;text-align:center}
+.homePage.premiumHome .cinematicAppointmentActions{position:relative;z-index:4;gap:18px;align-items:center}
+.homePage.premiumHome .cinematicAppointment .lightStoryButton{background:#fff!important;color:#173f36!important;border:1px solid #fff!important;box-shadow:0 10px 28px rgba(0,0,0,.14)}
+.homePage.premiumHome .cinematicAppointment .lightStoryButton:hover{background:#cce9d9!important;color:#102f2b!important;border-color:#cce9d9!important}
+.homePage.premiumHome .cinematicAppointment .textLightLink{color:#f0faf4!important;text-decoration-color:rgba(240,250,244,.45)}
+/* Distinct, subtle scene boundaries across the homepage. */
+.homePage.premiumHome .storySection,.homePage.premiumHome .founderStory,.homePage.premiumHome .differenceSection{position:relative}
+.homePage.premiumHome .storySection:not(.heroSection)::after,.novaAbout .sectionPadding::after{content:"";display:block;position:absolute;bottom:0;left:max(6%,calc((100% - 1240px)/2));right:max(6%,calc((100% - 1240px)/2));height:1px;background:linear-gradient(90deg,transparent,#d6e5dc 18%,#d6e5dc 82%,transparent);pointer-events:none}
+/* About hero: soft background blur plus a strong readable overlay. */
+.novaAbout .aboutHeroImage{filter:blur(2px) saturate(.82);transform:scale(1.045);will-change:transform}
+.novaAbout .aboutHeroOverlay{background:linear-gradient(90deg,rgba(12,43,36,.91) 0%,rgba(12,43,36,.78) 45%,rgba(12,43,36,.38) 100%),linear-gradient(0deg,rgba(12,43,36,.5),transparent 58%)}
+.novaAbout .aboutHeroContent{max-width:760px}
+.novaAbout .aboutHeroContent h1{font-size:clamp(44px,6vw,76px);max-width:12.5ch;line-height:1.03;color:#fff!important}
+.novaAbout .aboutHeroContent h1 em{color:#c9ead8!important}
+.novaAbout .aboutHeroDescription{max-width:48ch;color:#f0f7f3!important;font-size:clamp(15px,1.2vw,18px);line-height:1.8}
+.novaAbout .aboutHeroButton{background:#fff!important;color:#173f36!important;border:1px solid #fff!important;box-shadow:0 12px 30px rgba(0,0,0,.18);transition:transform .3s ease,background .3s ease,color .3s ease}
+.novaAbout .aboutHeroButton:hover{background:#c9ead8!important;color:#102f2b!important;transform:translateY(-3px)}
+/* About storytelling palette now matches the homepage. */
+.novaAbout{--about-green:#173f36;--about-green-dark:#102f2b;--about-green-light:#e7f1eb;--about-cream:#f7faf8;--about-ink:#173f36;--about-muted:#536b61;--about-border:#d7e5dc;color:#173f36}
+.novaAbout .aboutIntro,.novaAbout .aboutStory,.novaAbout .aboutFounder{background:#fff}
+.novaAbout .aboutValues{background:linear-gradient(180deg,#f2f7f3,#eaf3ed)!important}
+.novaAbout .aboutIntroText h2,.novaAbout .aboutStoryContent h2,.novaAbout .aboutFounderContent h2{color:#173f36!important;font-size:clamp(36px,4.8vw,62px);line-height:1.08}
+.novaAbout .aboutIntroText h2 em,.novaAbout .aboutStoryContent h2 span,.novaAbout .aboutFounderContent h2 span{color:#5b927b!important}
+.novaAbout .aboutIntroText p,.novaAbout .aboutBodyText,.novaAbout .aboutSectionDescription,.novaAbout .aboutValueCard p{color:#4a6258!important;font-size:clamp(14px,1.08vw,16px);line-height:1.85}
+.novaAbout .aboutEyebrow,.novaAbout .aboutIntroLabel{color:#4e806b!important;letter-spacing:.17em}
+.novaAbout .aboutValueCard{background:linear-gradient(145deg,#fff,#f5faf6)!important;border:1px solid #d4e4da!important;border-radius:12px!important;padding:clamp(24px,3vw,38px)!important;box-shadow:0 12px 32px rgba(23,63,54,.07)!important}
+.novaAbout .aboutValueCard h3{color:#173f36!important;font-size:clamp(19px,1.6vw,23px);line-height:1.25;text-wrap:balance}
+.novaAbout .aboutStoryImageMain,.novaAbout .aboutStoryImageSmall,.novaAbout .aboutFounderImage,.novaAbout .aboutIntroImage{border-radius:10px;overflow:hidden}
+.novaAbout .aboutStoryImageMain img,.novaAbout .aboutStoryImageSmall img,.novaAbout .aboutFounderImage img,.novaAbout .aboutIntroImage img{transition:transform .9s cubic-bezier(.2,.7,.2,1),filter .6s ease}
+.novaAbout .aboutStoryImageMain:hover img,.novaAbout .aboutStoryImageSmall:hover img,.novaAbout .aboutFounderImage:hover img,.novaAbout .aboutIntroImage:hover img{transform:scale(1.045);filter:saturate(1.05)}
+.novaAbout .aboutStory,.novaAbout .aboutValues,.novaAbout .aboutFounder,.novaAbout .aboutGallery{position:relative}
+.novaAbout .aboutStory::after,.novaAbout .aboutValues::after,.novaAbout .aboutFounder::after{content:"";position:absolute;bottom:0;left:7%;right:7%;height:1px;background:linear-gradient(90deg,transparent,#cddfd3 15%,#cddfd3 85%,transparent)}
+/* Every reveal begins clearly off its final position, then settles into place. */
+.novaAbout .about-motion-target{opacity:0;filter:blur(5px);transform:translateY(30px);transition:opacity .8s ease,transform .9s cubic-bezier(.2,.7,.2,1),filter .8s ease}
+.novaAbout .about-motion-target.about-is-visible{opacity:1;filter:blur(0);transform:translateY(0)}
+.novaAbout .aboutValueCard.about-motion-target:nth-child(odd){transform:translateX(-24px)}
+.novaAbout .aboutValueCard.about-motion-target:nth-child(even){transform:translateX(24px)}
+.novaAbout .aboutValueCard.about-motion-target.about-is-visible{transform:translateX(0)}
+@media(max-width:900px){.homePage.premiumHome .cinematicAppointmentCopy{max-width:68%;padding-right:20px}.homePage.premiumHome .cinematicAppointmentSmile{right:22px;width:220px}.novaAbout .aboutHeroImage{filter:blur(1.5px) saturate(.85)}}
+@media(max-width:640px){.novaBrand .novaLogo{width:44px!important;height:44px!important}.novaBrandText strong{font-size:14px}.novaIntroMark img{width:min(78vw,290px)!important}.homePage.premiumHome .cinematicAppointment{padding-block:68px}.homePage.premiumHome .cinematicAppointmentCopy{max-width:100%;padding-right:0}.homePage.premiumHome .cinematicAppointmentCopy h2{max-width:13ch;font-size:clamp(32px,9vw,44px)}.homePage.premiumHome .cinematicAppointmentSmile{right:-42px;bottom:-40px;top:auto;width:160px;opacity:.16}.homePage.premiumHome .cinematicAppointmentActions{align-items:flex-start;flex-direction:column}.novaAbout .aboutHeroContent h1{font-size:clamp(40px,10vw,58px);max-width:11ch}.novaAbout .aboutHeroImage{filter:blur(1px) saturate(.82)}.novaAbout .aboutIntroText h2,.novaAbout .aboutStoryContent h2,.novaAbout .aboutFounderContent h2{font-size:clamp(34px,9vw,46px)}.novaAbout .aboutValueCard.about-motion-target:nth-child(n){transform:translateY(20px)}.novaAbout .aboutValueCard.about-motion-target.about-is-visible{transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.novaIntroMark img,.novaAbout .aboutHeroImage{animation:none!important}.homePage.premiumHome [data-reveal],.novaAbout .about-motion-target,.novaAbout .aboutValueCard{transition:none!important;transform:none!important;filter:none!important;opacity:1!important;scroll-behavior:auto!important}}

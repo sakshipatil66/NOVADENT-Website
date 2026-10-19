@@ -1,0 +1,153 @@
+/* Step 22: final high-priority refinements for NOVADENT's navy / white / aqua system. */
+:root {
+  --nova22-navy: #092c4b;
+  --nova22-deep: #061f36;
+  --nova22-blue: #247d9e;
+  --nova22-aqua: #8fe2e5;
+  --nova22-mist: #eef7fb;
+  --nova22-muted: #536d80;
+}
+
+/* About hero: force the intended two-tone title even when older theme rules load later. */
+html body #root main.novaAbout section.aboutHero .aboutHeroContent h1.aboutHeroTitle {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+  background: transparent !important;
+  filter: none !important;
+}
+html body #root main.novaAbout section.aboutHero .aboutHeroContent h1.aboutHeroTitle > .aboutHeroTitlePrimary {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+  background: none !important;
+  font-style: normal !important;
+}
+html body #root main.novaAbout section.aboutHero .aboutHeroContent h1.aboutHeroTitle > .aboutHeroTitleAccent {
+  color: var(--nova22-aqua) !important;
+  -webkit-text-fill-color: var(--nova22-aqua) !important;
+  background: none !important;
+  font-style: italic !important;
+}
+html body #root main.novaAbout section.aboutHero .aboutHeroEyebrow,
+html body #root main.novaAbout section.aboutHero .aboutHeroFooter,
+html body #root main.novaAbout section.aboutHero .aboutHeroFooter span {
+  color: #dff9fb !important;
+  -webkit-text-fill-color: #dff9fb !important;
+}
+html body #root main.novaAbout section.aboutHero .aboutHeroDescription {
+  color: rgba(255,255,255,.96) !important;
+  -webkit-text-fill-color: rgba(255,255,255,.96) !important;
+}
+html body #root main.novaAbout section.aboutHero .aboutHeroOverlay {
+  background: linear-gradient(100deg, rgba(5,24,44,.93) 0%, rgba(7,39,65,.79) 53%, rgba(11,65,89,.46) 100%), linear-gradient(0deg, rgba(4,24,43,.48), transparent 72%) !important;
+}
+
+/* Intentional content density: avoid oversized empty areas without squeezing the design. */
+.novaAbout .aboutIntro,
+.novaAbout .aboutStory,
+.novaAbout .aboutValues,
+.novaAbout .aboutFounder,
+.novaAbout .aboutModern,
+.novaAbout .aboutJourney,
+.novaAbout .aboutGallery,
+.novaAbout .aboutPromise {
+  position: relative;
+  scroll-margin-top: 100px;
+}
+.novaAbout .aboutIntro,
+.novaAbout .aboutStory,
+.novaAbout .aboutValues,
+.novaAbout .aboutFounder,
+.novaAbout .aboutModern,
+.novaAbout .aboutJourney,
+.novaAbout .aboutGallery,
+.novaAbout .aboutPromise {
+  border-bottom: 1px solid rgba(36,125,158,.13);
+}
+.novaAbout .aboutIntroLabel { color: var(--nova22-blue) !important; }
+.novaAbout .aboutIntroHighlights > div,
+.novaAbout .aboutValueCard,
+.novaAbout .aboutGalleryItem {
+  box-shadow: 0 12px 34px rgba(9,44,75,.055);
+  transition: transform .32s ease, box-shadow .32s ease, border-color .32s ease;
+}
+.novaAbout .aboutIntroHighlights > div:hover,
+.novaAbout .aboutValueCard:hover,
+.novaAbout .aboutGalleryItem:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 46px rgba(9,44,75,.11);
+}
+.novaAbout .aboutValues {
+  background: linear-gradient(140deg, #f0f7fb 0%, #e8f3f8 52%, #f9fcfe 100%) !important;
+}
+.novaAbout .aboutSectionHeading h2,
+.novaAbout .aboutStoryContent h2,
+.novaAbout .aboutModernText h2 {
+  text-wrap: balance;
+}
+.novaAbout .aboutSectionDescription,
+.novaAbout .aboutBodyText,
+.novaAbout .aboutBodyLarge {
+  line-height: 1.85 !important;
+}
+.novaAbout .aboutExperienceSection {
+  min-height: clamp(450px, 52vw, 650px) !important;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+  align-items: stretch !important;
+}
+.novaAbout .aboutExperienceImage,
+.novaAbout .aboutExperienceContent {
+  min-width: 0;
+  min-height: 100%;
+}
+.novaAbout .aboutExperienceImage img,
+.novaAbout .aboutExperienceImage picture,
+.novaAbout .aboutExperienceImage video {
+  width: 100%; height: 100%; object-fit: cover;
+}
+.novaAbout .aboutFinalCtaText h2,
+.novaAbout .aboutPromiseHeading { text-wrap: balance; }
+.novaAbout .aboutButton,
+.novaAbout .aboutArrowLink {
+  transition: transform .28s ease, box-shadow .28s ease, background .28s ease;
+}
+.novaAbout .aboutButton:hover,
+.novaAbout .aboutArrowLink:hover { transform: translateY(-2px); }
+
+/* Global brand finish: clear wordmark and calm navigation interactions. */
+.novaNavbar .novaBrandText { line-height: 1.08; }
+.novaNavbar .novaLogo,
+.novaNavbar .novaNavbarLogoImage { flex-shrink: 0; }
+.novaNavbar .novaNavLinks a,
+.novaNavbar .novaDesktopCTA,
+.novaNavbar .novaMobileAppointment {
+  transition: color .25s ease, background .25s ease, transform .25s ease, box-shadow .25s ease;
+}
+.novaNavbar .novaNavLinks a:focus-visible,
+.novaNavbar a:focus-visible,
+.novaNavbar button:focus-visible,
+.novaAbout a:focus-visible,
+.novaAbout button:focus-visible {
+  outline: 3px solid var(--nova22-aqua) !important;
+  outline-offset: 4px !important;
+}
+
+@media (max-width: 900px) {
+  .novaAbout .aboutExperienceSection { grid-template-columns: 1fr !important; min-height: 0 !important; }
+  .novaAbout .aboutExperienceImage { min-height: 330px !important; }
+  .novaAbout .aboutExperienceContent { min-height: auto !important; }
+}
+@media (max-width: 640px) {
+  .novaAbout .aboutHero { min-height: 610px !important; }
+  .novaAbout .aboutHeroContent h1.aboutHeroTitle {
+    font-size: clamp(2.55rem, 11vw, 4rem) !important;
+    line-height: 1.02 !important;
+    letter-spacing: -.045em !important;
+  }
+  .novaAbout .aboutHeroTrustPoints { gap: 9px 14px !important; font-size: 10px !important; }
+  .novaAbout .aboutIntroHighlights { grid-template-columns: 1fr !important; }
+  .novaAbout .aboutGalleryGrid { gap: 18px !important; }
+  .novaAbout .aboutExperienceImage { min-height: 280px !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .novaAbout *, .novaNavbar * { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+}

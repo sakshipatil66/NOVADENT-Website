@@ -1,0 +1,28 @@
+/* Final override: keep all About page content visible even if legacy reveal/animation CSS conflicts. */
+.novaAbout,
+.novaAbout * {
+  visibility: visible !important;
+}
+.novaAbout [data-about-reveal],
+.novaAbout [data-about-reveal] *,
+.novaAbout .aboutFinalChapter,
+.novaAbout .aboutValueCinematicCard,
+.novaAbout .aboutTeamFilmCard,
+.novaAbout .aboutValuesIntro,
+.novaAbout .aboutFinalClinicGrid > div,
+.novaAbout .aboutFinalClinicImages,
+.novaAbout .aboutFinalVideoFrame,
+.novaAbout .aboutFinalVideoCopy,
+.novaAbout .aboutFinalHeroCopy h1,
+.novaAbout .aboutFinalHeroCopy p,
+.novaAbout .aboutFinalHeroCollage,
+.novaAbout .aboutHeroActions {
+  opacity: 1 !important;
+  filter: none !important;
+  transform: none !important;
+  animation: none !important;
+}
+.novaAbout video,
+.novaAbout img {
+  filter: none !important;
+}

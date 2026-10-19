@@ -1,0 +1,745 @@
+/* NOVADENT ABOUT — visual rework for video, doctors and CTA */
+
+/* VIDEO: immersive editorial split, not a generic two-box section */
+.novaAbout .aboutVideoReworked {
+  position:relative !important;
+  min-height:760px !important;
+  padding:110px 0 !important;
+  overflow:hidden !important;
+  background:#071d27 !important;
+  isolation:isolate;
+}
+.novaAbout .aboutVideoBackdrop {
+  position:absolute !important;
+  inset:0 !important;
+  z-index:-2 !important;
+  background:
+    radial-gradient(circle at 78% 28%, rgba(87,205,194,.18), transparent 32%),
+    linear-gradient(115deg,#061923 0%,#082b33 48%,#123d3a 100%) !important;
+}
+.novaAbout .aboutVideoBackdrop::after {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg,rgba(4,19,27,.18),rgba(4,19,27,.42));
+}
+.novaAbout .aboutVideoGlow {
+  position:absolute;
+  width:520px;
+  height:520px;
+  right:-180px;
+  bottom:-240px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(209,174,130,.20),transparent 68%);
+}
+.novaAbout .aboutVideoReworked .aboutFinalVideoGrid {
+  position:relative;
+  z-index:2;
+  display:grid !important;
+  grid-template-columns:minmax(0,1.35fr) minmax(330px,.72fr) !important;
+  gap:0 !important;
+  align-items:stretch !important;
+}
+.novaAbout .aboutVideoReworked .aboutFinalVideoFrame {
+  min-height:560px !important;
+  border-radius:34px 0 0 34px !important;
+  overflow:hidden !important;
+  position:relative !important;
+  background:#020c12 !important;
+  box-shadow:0 35px 90px rgba(0,0,0,.35) !important;
+  border:1px solid rgba(255,255,255,.12) !important;
+  border-right:0 !important;
+}
+.novaAbout .aboutVideoReworked .aboutFinalVideoFrame video {
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+  display:block !important;
+  filter:saturate(.92) contrast(1.08) !important;
+}
+.novaAbout .aboutVideoFrameShade {
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,rgba(2,12,18,.02) 35%,rgba(2,12,18,.70) 100%);
+  pointer-events:none;
+}
+.novaAbout .aboutVideoReworked .aboutVideoPlayButton {
+  position:absolute !important;
+  left:34px !important;
+  top:34px !important;
+  width:68px !important;
+  height:68px !important;
+  border-radius:50% !important;
+  display:grid !important;
+  place-items:center !important;
+  background:#f4eadb !important;
+  color:#173a35 !important;
+  border:0 !important;
+  box-shadow:0 18px 40px rgba(0,0,0,.28) !important;
+  cursor:pointer !important;
+  transition:transform .35s ease,background .35s ease !important;
+  z-index:3 !important;
+}
+.novaAbout .aboutVideoReworked .aboutVideoPlayButton:hover { transform:scale(1.08) !important; background:#fffaf2 !important; }
+.novaAbout .aboutVideoCaption {
+  position:absolute !important;
+  left:32px !important;
+  right:32px !important;
+  bottom:28px !important;
+  z-index:3 !important;
+  display:flex !important;
+  align-items:center !important;
+  gap:11px !important;
+  color:#fffaf2 !important;
+  font-size:11px !important;
+  letter-spacing:.08em !important;
+  text-transform:uppercase !important;
+}
+.novaAbout .aboutVideoCaption b { margin-left:auto; color:#a7e9df !important; font-weight:700 !important; }
+.novaAbout .aboutVideoLabelIcon { width:30px !important; height:30px !important; border-radius:50% !important; display:grid !important; place-items:center !important; background:rgba(255,255,255,.14) !important; border:1px solid rgba(255,255,255,.24) !important; }
+.novaAbout .aboutVideoReworked .aboutFinalVideoCopy {
+  position:relative !important;
+  margin:42px 0 42px -1px !important;
+  padding:58px 54px 52px !important;
+  border-radius:0 34px 34px 0 !important;
+  background:#f3e7d8 !important;
+  color:#173a35 !important;
+  box-shadow:0 30px 80px rgba(0,0,0,.24) !important;
+  border:1px solid rgba(255,255,255,.18) !important;
+  display:flex !important;
+  flex-direction:column !important;
+  justify-content:center !important;
+  overflow:hidden !important;
+}
+.novaAbout .aboutVideoReworked .aboutFinalVideoCopy::before {
+  content:"";
+  position:absolute;
+  width:190px;
+  height:190px;
+  top:-95px;
+  right:-60px;
+  border-radius:50%;
+  background:rgba(83,176,166,.14);
+}
+.novaAbout .aboutVideoReworked .aboutFinalVideoCopy .aboutEyebrow { color:#8d543b !important; }
+.novaAbout .aboutVideoReworked .aboutFinalVideoCopy h2 { color:#173a35 !important; font-size:clamp(38px,4vw,60px) !important; line-height:1.03 !important; margin:17px 0 18px !important; }
+.novaAbout .aboutVideoReworked .aboutFinalVideoCopy h2 em { color:#a85f3d !important; font-style:italic; }
+.novaAbout .aboutVideoReworked .aboutFinalVideoCopy p { color:#4c6059 !important; line-height:1.8 !important; margin-bottom:24px !important; }
+.novaAbout .aboutVideoFacts { display:grid !important; gap:10px !important; margin:4px 0 30px !important; }
+.novaAbout .aboutVideoFacts span { display:flex !important; align-items:center !important; gap:12px !important; color:#49615a !important; font-size:12px !important; letter-spacing:.04em !important; padding-bottom:10px !important; border-bottom:1px solid rgba(23,58,53,.12) !important; }
+.novaAbout .aboutVideoFacts b { color:#a85f3d !important; font-size:10px !important; letter-spacing:.12em !important; }
+.novaAbout .aboutVideoReworked .aboutButtonOutline { width:max-content !important; background:#173a35 !important; color:#fffaf2 !important; border:1px solid #173a35 !important; border-radius:999px !important; padding:0 21px !important; min-height:50px !important; }
+.novaAbout .aboutVideoReworked .aboutButtonOutline:hover { background:#a85f3d !important; border-color:#a85f3d !important; transform:translateY(-3px) !important; }
+
+/* DOCTORS: image-led editorial cards with a clear information rail */
+.novaAbout .aboutFinalTeam.aboutTeamCinematic {
+  padding:112px 0 125px !important;
+  background:linear-gradient(145deg,#123a35 0%,#0b2825 58%,#071c21 100%) !important;
+  color:#f7f0e6 !important;
+  position:relative !important;
+  overflow:hidden !important;
+}
+.novaAbout .aboutFinalTeam.aboutTeamCinematic::before {
+  content:"";
+  position:absolute;
+  width:620px;
+  height:620px;
+  right:-250px;
+  top:-300px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(171,224,214,.15),transparent 68%);
+}
+.novaAbout .aboutFinalTeam .aboutCinematicHeading.light { position:relative; z-index:1; margin-bottom:48px !important; }
+.novaAbout .aboutFinalTeam .aboutCinematicHeading.light h2 { color:#fffaf2 !important; font-size:clamp(42px,5vw,68px) !important; }
+.novaAbout .aboutFinalTeam .aboutCinematicHeading.light h2 span { color:#a8e4dc !important; }
+.novaAbout .aboutFinalTeam .aboutCinematicHeading.light .aboutEyebrow { color:#a8e4dc !important; }
+.novaAbout .aboutFinalTeam .aboutButtonOutline { background:#f3e7d8 !important; color:#173a35 !important; border-color:#f3e7d8 !important; border-radius:999px !important; }
+.novaAbout .aboutFinalTeam .aboutButtonOutline:hover { background:#a8e4dc !important; border-color:#a8e4dc !important; color:#102e2a !important; }
+.novaAbout .aboutTeamFilm { position:relative; z-index:1; grid-template-columns:repeat(3,minmax(0,1fr)) !important; gap:24px !important; }
+.novaAbout .aboutTeamFilmCard {
+  min-height:540px !important;
+  padding:0 !important;
+  border-radius:28px !important;
+  overflow:hidden !important;
+  display:flex !important;
+  align-items:flex-end !important;
+  background:#0d2522 !important;
+  border:1px solid rgba(255,255,255,.12) !important;
+  box-shadow:0 26px 60px rgba(0,0,0,.24) !important;
+  isolation:isolate !important;
+}
+.novaAbout .aboutTeamFilmCard::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,rgba(5,18,17,.02) 38%,rgba(5,18,17,.26) 54%,rgba(5,18,17,.96) 100%);
+  z-index:-1;
+}
+.novaAbout .aboutTeamFilmCard::after {
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  height:6px;
+  background:linear-gradient(90deg,#a8e4dc,#d9a77e);
+  z-index:2;
+}
+.novaAbout .aboutTeamFilmCard img { opacity:1 !important; filter:saturate(.9) contrast(1.04) !important; transition:transform 1s cubic-bezier(.2,.7,.2,1),filter .5s ease !important; }
+.novaAbout .aboutTeamFilmCard > div {
+  position:relative !important;
+  z-index:3 !important;
+  width:100% !important;
+  padding:26px 25px 28px !important;
+  transform:none !important;
+  background:linear-gradient(180deg,rgba(9,34,30,0),rgba(9,34,30,.76) 22%,rgba(9,34,30,.97) 100%) !important;
+}
+.novaAbout .aboutTeamFilmCard span { color:#a8e4dc !important; font-size:9px !important; letter-spacing:2px !important; }
+.novaAbout .aboutTeamFilmCard h3 { color:#fffaf2 !important; font-size:26px !important; margin:8px 0 5px !important; }
+.novaAbout .aboutTeamFilmCard p { color:#d9e4df !important; font-size:12px !important; }
+.novaAbout .aboutTeamFilmCard > svg { right:22px !important; top:22px !important; color:#fffaf2 !important; width:34px !important; height:34px !important; padding:8px !important; border-radius:50% !important; background:rgba(7,29,26,.55) !important; border:1px solid rgba(255,255,255,.24) !important; opacity:1 !important; }
+.novaAbout .aboutTeamFilmCard:hover { transform:translateY(-10px) !important; box-shadow:0 35px 75px rgba(0,0,0,.34) !important; }
+.novaAbout .aboutTeamFilmCard:hover img { transform:scale(1.065) !important; filter:saturate(1.05) contrast(1.06) !important; }
+
+/* CTA: cinematic background video + floating cream editorial frame */
+.novaAbout .aboutCtaReworked.aboutFinalClosing {
+  min-height:690px !important;
+  padding:110px 0 !important;
+  background:#071b20 !important;
+  overflow:hidden !important;
+  position:relative !important;
+  isolation:isolate !important;
+}
+.novaAbout .aboutCtaVideo { position:absolute !important; inset:0 !important; width:100% !important; height:100% !important; object-fit:cover !important; z-index:-4 !important; filter:saturate(.72) contrast(1.08) !important; transform:scale(1.04) !important; }
+.novaAbout .aboutCtaReworked .aboutClosingImage { display:none !important; }
+.novaAbout .aboutCtaReworked .aboutClosingOverlay {
+  position:absolute !important;
+  inset:0 !important;
+  z-index:-3 !important;
+  opacity:1 !important;
+  background:linear-gradient(90deg,rgba(4,22,27,.88),rgba(7,33,34,.60),rgba(11,43,39,.78)) !important;
+}
+.novaAbout .aboutCtaReworked::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-2;
+  background:radial-gradient(circle at 50% 50%,rgba(168,228,220,.15),transparent 42%);
+}
+.novaAbout .aboutCtaFrame {
+  width:min(900px,calc(100% - 36px));
+  margin:auto;
+  border-radius:34px;
+  padding:2px;
+  background:linear-gradient(135deg,rgba(255,250,242,.72),rgba(168,228,220,.38),rgba(217,167,126,.54));
+  box-shadow:0 35px 100px rgba(0,0,0,.38);
+  position:relative;
+  z-index:2;
+}
+.novaAbout .aboutCtaFrame::before {
+  content:"";
+  position:absolute;
+  inset:12px;
+  border:1px solid rgba(23,58,53,.10);
+  border-radius:24px;
+  pointer-events:none;
+}
+.novaAbout .aboutCtaReworked .aboutClosingContent {
+  width:100% !important;
+  max-width:none !important;
+  min-height:470px !important;
+  padding:70px 55px !important;
+  border-radius:32px !important;
+  background:rgba(244,234,219,.96) !important;
+  color:#173a35 !important;
+  backdrop-filter:blur(10px) !important;
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:center !important;
+  justify-content:center !important;
+  text-align:center !important;
+}
+.novaAbout .aboutCtaReworked .aboutEyebrow { color:#8d543b !important; }
+.novaAbout .aboutCtaReworked h2 { color:#173a35 !important; max-width:730px !important; font-size:clamp(44px,6vw,76px) !important; line-height:.98 !important; margin:18px 0 !important; }
+.novaAbout .aboutCtaReworked h2 span { color:#a85f3d !important; background:none !important; padding:0 !important; }
+.novaAbout .aboutCtaReworked p { max-width:590px !important; color:#52635d !important; line-height:1.8 !important; margin:0 0 25px !important; }
+.novaAbout .aboutCtaReworked .aboutHeroActions { display:flex !important; justify-content:center !important; align-items:center !important; gap:12px !important; flex-wrap:wrap !important; margin-top:4px !important; }
+.novaAbout .aboutCtaReworked .aboutButtonLight { background:#173a35 !important; color:#fffaf2 !important; border:1px solid #173a35 !important; border-radius:999px !important; min-height:54px !important; padding:0 23px !important; }
+.novaAbout .aboutCtaReworked .aboutButtonLight:hover { background:#a85f3d !important; border-color:#a85f3d !important; transform:translateY(-3px) !important; }
+.novaAbout .aboutCtaReworked .aboutTextLinkLight { color:#173a35 !important; border:1px solid rgba(23,58,53,.30) !important; background:rgba(255,255,255,.28) !important; border-radius:999px !important; min-height:54px !important; padding:0 22px !important; }
+.novaAbout .aboutCtaReworked .aboutTextLinkLight:hover { color:#173a35 !important; border-color:#a85f3d !important; background:#fffaf2 !important; transform:translateY(-3px) !important; }
+
+@media(max-width:900px){
+  .novaAbout .aboutVideoReworked { padding:75px 0 !important; min-height:auto !important; }
+  .novaAbout .aboutReworked .aboutFinalVideoGrid,
+  .novaAbout .aboutVideoReworked .aboutFinalVideoGrid { grid-template-columns:1fr !important; }
+  .novaAbout .aboutVideoReworked .aboutFinalVideoFrame { min-height:480px !important; border-radius:30px 30px 0 0 !important; border-right:1px solid rgba(255,255,255,.12) !important; }
+  .novaAbout .aboutVideoReworked .aboutFinalVideoCopy { margin:-1px 0 0 !important; border-radius:0 0 30px 30px !important; }
+  .novaAbout .aboutTeamFilm { grid-template-columns:1fr 1fr !important; }
+  .novaAbout .aboutTeamFilmCard { min-height:500px !important; }
+}
+@media(max-width:640px){
+  .novaAbout .aboutVideoReworked { padding:58px 0 !important; }
+  .novaAbout .aboutVideoReworked .aboutFinalVideoFrame { min-height:380px !important; border-radius:24px 24px 0 0 !important; }
+  .novaAbout .aboutVideoReworked .aboutFinalVideoCopy { padding:38px 26px 34px !important; border-radius:0 0 24px 24px !important; }
+  .novaAbout .aboutVideoReworked .aboutFinalVideoCopy h2 { font-size:38px !important; }
+  .novaAbout .aboutVideoReworked .aboutVideoPlayButton { width:56px !important; height:56px !important; left:22px !important; top:22px !important; }
+  .novaAbout .aboutVideoCaption { left:20px !important; right:20px !important; bottom:20px !important; font-size:9px !important; }
+  .novaAbout .aboutVideoFacts { margin-bottom:24px !important; }
+  .novaAbout .aboutFinalTeam.aboutTeamCinematic { padding:72px 0 80px !important; }
+  .novaAbout .aboutTeamFilm { grid-template-columns:1fr !important; gap:18px !important; }
+  .novaAbout .aboutTeamFilmCard { min-height:470px !important; border-radius:24px !important; }
+  .novaAbout .aboutFinalTeam .aboutCinematicHeading { gap:24px !important; }
+  .novaAbout .aboutFinalTeam .aboutButtonOutline { width:max-content !important; }
+  .novaAbout .aboutCtaReworked.aboutFinalClosing { min-height:auto !important; padding:58px 0 !important; }
+  .novaAbout .aboutCtaFrame { width:calc(100% - 24px) !important; border-radius:26px !important; }
+  .novaAbout .aboutCtaReworked .aboutClosingContent { min-height:430px !important; padding:52px 24px !important; border-radius:24px !important; }
+  .novaAbout .aboutCtaReworked h2 { font-size:42px !important; }
+  .novaAbout .aboutCtaReworked .aboutHeroActions { width:100% !important; flex-direction:column !important; }
+  .novaAbout .aboutCtaReworked .aboutButtonLight,
+  .novaAbout .aboutCtaReworked .aboutTextLinkLight { width:100% !important; justify-content:center !important; }
+}
+
+
+/* ===== FINAL USER REQUEST — HERO-LIKE BLUE + WHITE/CREAM VISUAL SYSTEM ===== */
+
+/* VIDEO: dark tech-blue section, visual heading on top, clean light copy panel */
+.novaAbout .aboutVideoReworked {
+  background:linear-gradient(135deg,#061522 0%,#08283a 52%,#0b3543 100%) !important;
+  color:#fff !important;
+  padding:92px 0 108px !important;
+}
+.novaAbout .aboutVideoBackdrop {
+  background:
+    radial-gradient(circle at 82% 18%,rgba(24,216,239,.16),transparent 30%),
+    radial-gradient(circle at 10% 85%,rgba(113,133,255,.12),transparent 32%),
+    linear-gradient(135deg,#061522 0%,#08283a 52%,#0b3543 100%) !important;
+}
+.novaAbout .aboutVideoBackdrop::after {
+  background:linear-gradient(180deg,rgba(3,15,25,.05),rgba(3,15,25,.38)) !important;
+}
+.novaAbout .aboutVideoIntro {
+  position:relative !important;
+  z-index:2 !important;
+  max-width:850px !important;
+  margin:0 auto 46px !important;
+  text-align:center !important;
+}
+.novaAbout .aboutVideoIntro .aboutEyebrow {
+  color:#8ff3ff !important;
+  justify-content:center !important;
+}
+.novaAbout .aboutVideoIntro h2 {
+  color:#fff !important;
+  font-size:clamp(38px,5vw,68px) !important;
+  line-height:.98 !important;
+  letter-spacing:-.045em !important;
+  margin:14px 0 !important;
+}
+.novaAbout .aboutVideoIntro h2 span { color:#bdeff4 !important; }
+.novaAbout .aboutVideoIntro p {
+  color:#d7e9ee !important;
+  margin:0 auto !important;
+  max-width:570px !important;
+}
+
+/* Video remains the visual hero; text side is light for instant readability */
+.novaAbout .aboutVideoReworked .aboutFinalVideoCopy {
+  background:#fffdf8 !important;
+  color:#12332f !important;
+  border:0 !important;
+}
+.novaAbout .aboutVideoReworked .aboutFinalVideoCopy .aboutEyebrow { color:#168b91 !important; }
+.novaAbout .aboutVideoReworked .aboutFinalVideoCopy h2 { color:#123b36 !important; }
+.novaAbout .aboutVideoReworked .aboutFinalVideoCopy h2 em { color:#176c70 !important; }
+.novaAbout .aboutVideoReworked .aboutFinalVideoCopy p { color:#4b625e !important; }
+.novaAbout .aboutVideoFacts span { color:#49615a !important; }
+.novaAbout .aboutVideoFacts b { color:#168b91 !important; }
+.novaAbout .aboutVideoReworked .aboutButtonOutline {
+  background:#123b36 !important;
+  color:#fff !important;
+  border-color:#123b36 !important;
+}
+
+/* DOCTORS: same dark-blue storytelling family, with a clearly visual heading */
+.novaAbout .aboutFinalTeam.aboutTeamCinematic {
+  background:
+    radial-gradient(circle at 85% 5%,rgba(24,216,239,.13),transparent 25%),
+    linear-gradient(135deg,#061522 0%,#08283a 55%,#0b3543 100%) !important;
+  color:#fff !important;
+}
+.novaAbout .aboutFinalTeam .aboutCinematicHeading.light {
+  padding:0 0 38px !important;
+  margin-bottom:34px !important;
+  border-bottom:1px solid rgba(255,255,255,.14) !important;
+}
+.novaAbout .aboutFinalTeam .aboutCinematicHeading.light h2 {
+  color:#fff !important;
+  font-size:clamp(42px,5vw,70px) !important;
+  line-height:.98 !important;
+  letter-spacing:-.045em !important;
+}
+.novaAbout .aboutFinalTeam .aboutCinematicHeading.light h2 span { color:#9af0e8 !important; }
+.novaAbout .aboutFinalTeam .aboutCinematicHeading.light .aboutEyebrow { color:#8ff3ff !important; }
+.novaAbout .aboutFinalTeam .aboutCinematicHeading.light h2::after {
+  content:"";
+  display:block;
+  width:72px;
+  height:3px;
+  margin-top:22px;
+  border-radius:99px;
+  background:linear-gradient(90deg,#18d8ef,#7185ff);
+}
+.novaAbout .aboutFinalTeam .aboutButtonOutline {
+  background:#fffdf8 !important;
+  color:#123b36 !important;
+  border-color:#fffdf8 !important;
+}
+
+/* Doctor cards: image + cream/white information area */
+.novaAbout .aboutFinalTeam .aboutTeamFilmCard {
+  background:#fffdf8 !important;
+  border:1px solid rgba(255,255,255,.24) !important;
+  box-shadow:0 28px 70px rgba(0,0,0,.28) !important;
+}
+.novaAbout .aboutFinalTeam .aboutTeamFilmCard::before {
+  background:linear-gradient(180deg,rgba(6,21,34,0) 34%,rgba(6,21,34,.10) 54%,rgba(6,21,34,.30) 100%) !important;
+}
+.novaAbout .aboutFinalTeam .aboutTeamFilmCard > div {
+  background:linear-gradient(180deg,rgba(255,253,248,.02),rgba(255,253,248,.94) 20%,#fffdf8 100%) !important;
+  padding:25px 25px 27px !important;
+}
+.novaAbout .aboutFinalTeam .aboutTeamFilmCard span { color:#168b91 !important; }
+.novaAbout .aboutFinalTeam .aboutTeamFilmCard h3 { color:#123b36 !important; }
+.novaAbout .aboutFinalTeam .aboutTeamFilmCard p { color:#526661 !important; }
+.novaAbout .aboutFinalTeam .aboutTeamFilmCard > svg {
+  color:#123b36 !important;
+  background:rgba(255,253,248,.92) !important;
+  border-color:rgba(18,59,54,.18) !important;
+}
+.novaAbout .aboutFinalTeam .aboutTeamFilmCard::after {
+  background:linear-gradient(90deg,#18b7ae,#7185ff) !important;
+}
+
+/* CTA: outside can stay cinematic, but the CTA BOX itself is clean cream/white */
+.novaAbout .aboutCtaReworked.aboutFinalClosing {
+  background:#071b28 !important;
+  padding:108px 0 !important;
+}
+.novaAbout .aboutCtaReworked .aboutClosingOverlay {
+  background:linear-gradient(135deg,rgba(5,20,32,.90),rgba(7,40,52,.70),rgba(8,51,59,.82)) !important;
+}
+.novaAbout .aboutCtaFrame {
+  background:linear-gradient(135deg,#fffdf8,#9af0e8,#fffdf8) !important;
+  padding:2px !important;
+}
+.novaAbout .aboutCtaReworked .aboutClosingContent {
+  background:#fffdf8 !important;
+  color:#123b36 !important;
+}
+.novaAbout .aboutCtaReworked .aboutEyebrow { color:#168b91 !important; }
+.novaAbout .aboutCtaReworked h2 { color:#123b36 !important; }
+.novaAbout .aboutCtaReworked h2 span { color:#176c70 !important; }
+.novaAbout .aboutCtaReworked p { color:#526661 !important; }
+.novaAbout .aboutCtaReworked .aboutButtonLight {
+  background:#123b36 !important;
+  color:#fffdf8 !important;
+  border-color:#123b36 !important;
+}
+.novaAbout .aboutCtaReworked .aboutTextLinkLight {
+  color:#123b36 !important;
+  border-color:rgba(18,59,54,.30) !important;
+  background:#fff !important;
+}
+
+@media(max-width:900px){
+  .novaAbout .aboutVideoIntro { margin-bottom:34px !important; }
+  .novaAbout .aboutFinalTeam .aboutCinematicHeading.light { padding-bottom:28px !important; }
+}
+
+/* ===== FINAL COMPACT + CLEAN VISUAL PASS ===== */
+.novaAbout .aboutFinalVideo {
+  min-height:0 !important;
+  padding:70px 0 76px !important;
+}
+.novaAbout .aboutVideoReworked .aboutVideoBackdrop {
+  background:
+    radial-gradient(circle at 82% 20%,rgba(24,216,239,.11),transparent 28%),
+    linear-gradient(115deg,#061522 0%,#08283a 52%,#0b3543 100%) !important;
+}
+.novaAbout .aboutVideoReworked .aboutVideoBackdrop::after { background:linear-gradient(90deg,rgba(4,19,27,.05),rgba(4,19,27,.16)) !important; }
+.novaAbout .aboutVideoReworked .aboutFinalVideoGrid { max-width:1160px !important; margin:0 auto !important; }
+.novaAbout .aboutVideoReworked .aboutFinalVideoFrame {
+  min-height:430px !important;
+  filter:none !important;
+  box-shadow:0 22px 55px rgba(0,0,0,.26) !important;
+}
+.novaAbout .aboutVideoReworked .aboutFinalVideoFrame video {
+  filter:none !important;
+  opacity:1 !important;
+  transform:none !important;
+}
+.novaAbout .aboutVideoReworked .aboutVideoFrameShade {
+  background:linear-gradient(180deg,rgba(2,12,18,0) 45%,rgba(2,12,18,.38) 100%) !important;
+}
+.novaAbout .aboutVideoReworked .aboutFinalVideoCopy {
+  margin:28px 0 28px -1px !important;
+  padding:38px 42px !important;
+  background:#fffaf2 !important;
+  border-color:rgba(255,255,255,.8) !important;
+  box-shadow:0 22px 55px rgba(0,0,0,.20) !important;
+}
+.novaAbout .aboutVideoReworked .aboutFinalVideoCopy h2 {
+  font-size:clamp(34px,3.5vw,48px) !important;
+  line-height:1.05 !important;
+  margin:12px 0 14px !important;
+}
+.novaAbout .aboutVideoReworked .aboutFinalVideoCopy p { font-size:13px !important; line-height:1.65 !important; margin-bottom:18px !important; }
+.novaAbout .aboutVideoFacts { margin:2px 0 20px !important; gap:7px !important; }
+.novaAbout .aboutVideoFacts span { padding-bottom:7px !important; font-size:11px !important; }
+
+/* Keep all About headings compact instead of oversized */
+.novaAbout .aboutFinalHeroCopy h1 { font-size:clamp(42px,5vw,58px) !important; line-height:1.02 !important; }
+.novaAbout .aboutFinalIntro .aboutCinematicHeading h2,
+.novaAbout .aboutFinalClinic h2 { font-size:clamp(34px,4vw,46px) !important; line-height:1.05 !important; }
+.novaAbout .aboutFinalChapter h3 { font-size:clamp(25px,2.6vw,31px) !important; line-height:1.08 !important; }
+.novaAbout .aboutFinalTeam.aboutTeamCinematic { padding:72px 0 82px !important; }
+.novaAbout .aboutFinalTeam .aboutCinematicHeading.light { margin-bottom:34px !important; }
+.novaAbout .aboutFinalTeam .aboutCinematicHeading.light h2 { font-size:clamp(36px,4.2vw,50px) !important; line-height:1.04 !important; }
+.novaAbout .aboutFinalTeam .aboutTeamFilm { gap:18px !important; }
+.novaAbout .aboutFinalTeam .aboutTeamFilmCard { min-height:455px !important; border-radius:24px !important; }
+.novaAbout .aboutFinalTeam .aboutTeamFilmCard img { height:295px !important; flex-basis:295px !important; }
+.novaAbout .aboutFinalTeam .aboutTeamFilmCard > div { min-height:160px !important; padding:20px 21px 22px !important; }
+.novaAbout .aboutFinalTeam .aboutTeamFilmCard h3 { font-size:22px !important; margin:6px 0 4px !important; }
+.novaAbout .aboutFinalTeam .aboutTeamFilmCard p { font-size:11px !important; }
+
+/* CTA: cream/white box with clean dark text; no same-colour text/background */
+.novaAbout .aboutCtaReworked.aboutFinalClosing {
+  min-height:0 !important;
+  padding:72px 20px !important;
+  background:linear-gradient(120deg,#061b2a 0%,#0a3444 52%,#102f39 100%) !important;
+}
+.novaAbout .aboutCtaReworked .aboutCtaVideo { filter:saturate(.82) contrast(1.04) !important; opacity:.72 !important; }
+.novaAbout .aboutCtaReworked .aboutClosingOverlay { background:rgba(3,19,28,.62) !important; }
+.novaAbout .aboutCtaFrame {
+  width:min(820px,100%) !important;
+  padding:0 !important;
+  border-radius:26px !important;
+  background:transparent !important;
+  box-shadow:0 25px 70px rgba(0,0,0,.30) !important;
+}
+.novaAbout .aboutCtaFrame::before { display:none !important; }
+.novaAbout .aboutCtaReworked .aboutClosingContent {
+  min-height:350px !important;
+  padding:48px 44px !important;
+  border-radius:26px !important;
+  background:#fffaf2 !important;
+  color:#163b36 !important;
+  border:1px solid rgba(255,255,255,.85) !important;
+  box-shadow:none !important;
+  backdrop-filter:none !important;
+}
+.novaAbout .aboutCtaReworked .aboutEyebrow { color:#197a76 !important; }
+.novaAbout .aboutCtaReworked h2 {
+  font-size:clamp(38px,4.5vw,52px) !important;
+  line-height:1.04 !important;
+  margin:12px 0 12px !important;
+  color:#163b36 !important;
+}
+.novaAbout .aboutCtaReworked h2 span {
+  color:#197a76 !important;
+  background:none !important;
+  padding:0 !important;
+}
+.novaAbout .aboutCtaReworked p { max-width:560px !important; font-size:13px !important; line-height:1.65 !important; color:#52645f !important; margin-bottom:20px !important; }
+.novaAbout .aboutCtaReworked .aboutHeroActions { margin-top:0 !important; gap:10px !important; }
+.novaAbout .aboutCtaReworked .aboutButtonLight {
+  background:#163b36 !important;
+  color:#fffaf2 !important;
+  border:1px solid #163b36 !important;
+}
+.novaAbout .aboutCtaReworked .aboutButtonLight:hover { background:#197a76 !important; border-color:#197a76 !important; }
+.novaAbout .aboutCtaReworked .aboutTextLinkLight {
+  background:#fff !important;
+  color:#163b36 !important;
+  border:1px solid rgba(22,59,54,.24) !important;
+}
+.novaAbout .aboutCtaReworked .aboutTextLinkLight:hover { background:#eef8f5 !important; color:#197a76 !important; border-color:#197a76 !important; }
+
+@media(max-width:900px){
+  .novaAbout .aboutFinalVideo { padding:58px 0 64px !important; }
+  .novaAbout .aboutVideoReworked .aboutFinalVideoGrid { margin:0 16px !important; }
+  .novaAbout .aboutVideoReworked .aboutFinalVideoFrame { min-height:340px !important; height:340px !important; }
+  .novaAbout .aboutVideoReworked .aboutFinalVideoCopy { margin:0 !important; padding:32px 30px !important; border-radius:0 0 24px 24px !important; }
+  .novaAbout .aboutFinalTeam.aboutTeamCinematic { padding:60px 0 68px !important; }
+}
+@media(max-width:640px){
+  .novaAbout .aboutFinalHeroCopy h1 { font-size:36px !important; }
+  .novaAbout .aboutFinalVideo { padding:50px 0 56px !important; }
+  .novaAbout .aboutVideoReworked .aboutFinalVideoFrame { min-height:270px !important; height:270px !important; border-radius:20px 20px 0 0 !important; }
+  .novaAbout .aboutVideoReworked .aboutFinalVideoCopy { padding:27px 22px 28px !important; border-radius:0 0 20px 20px !important; }
+  .novaAbout .aboutVideoReworked .aboutFinalVideoCopy h2 { font-size:29px !important; }
+  .novaAbout .aboutFinalTeam .aboutCinematicHeading.light h2 { font-size:34px !important; }
+  .novaAbout .aboutFinalTeam .aboutTeamFilmCard { min-height:0 !important; }
+  .novaAbout .aboutFinalTeam .aboutTeamFilmCard img { height:255px !important; flex-basis:255px !important; }
+  .novaAbout .aboutFinalTeam .aboutTeamFilmCard > div { min-height:135px !important; padding:18px 19px !important; }
+  .novaAbout .aboutFinalClosing { padding:48px 14px !important; }
+  .novaAbout .aboutCtaReworked .aboutClosingContent { min-height:320px !important; padding:38px 22px !important; border-radius:22px !important; }
+  .novaAbout .aboutCtaReworked h2 { font-size:34px !important; }
+}
+
+
+/* FINAL USER VISUAL FIX — clean video, equal panels, readable CTA */
+.novaAbout .aboutFinalVideo.aboutVideoReworked {
+  background: linear-gradient(135deg,#071f35 0%,#0b3550 52%,#092a3f 100%) !important;
+  padding: 72px 0 78px !important;
+}
+.novaAbout .aboutVideoReworked .aboutFinalVideoGrid {
+  display:grid !important;
+  grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr) !important;
+  align-items:stretch !important;
+  gap:0 !important;
+  overflow:hidden !important;
+  border-radius:24px !important;
+  background:#ffffff !important;
+  box-shadow:0 24px 70px rgba(0,15,30,.24) !important;
+}
+.novaAbout .aboutVideoReworked .aboutFinalVideoFrame,
+.novaAbout .aboutVideoReworked .aboutFinalVideoCopy {
+  min-height:430px !important;
+  height:430px !important;
+  margin:0 !important;
+}
+.novaAbout .aboutVideoReworked .aboutFinalVideoFrame {
+  position:relative !important;
+  overflow:hidden !important;
+  background:#071b2d !important;
+  border-radius:0 !important;
+}
+.novaAbout .aboutVideoReworked .aboutFinalVideoFrame video {
+  display:block !important;
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+  object-position:center !important;
+  filter:none !important;
+  opacity:1 !important;
+  transform:none !important;
+}
+.novaAbout .aboutVideoReworked .aboutVideoFrameShade {
+  background:linear-gradient(180deg,rgba(3,18,30,.04),rgba(3,18,30,.16)) !important;
+  opacity:1 !important;
+  pointer-events:none !important;
+}
+.novaAbout .aboutVideoReworked .aboutFinalVideoCopy {
+  display:flex !important;
+  flex-direction:column !important;
+  justify-content:center !important;
+  background:#fffaf2 !important;
+  color:#163b36 !important;
+  padding:46px 48px !important;
+  border-radius:0 !important;
+}
+.novaAbout .aboutVideoReworked .aboutFinalVideoCopy .aboutEyebrow { color:#167b78 !important; }
+.novaAbout .aboutVideoReworked .aboutFinalVideoCopy h2 {
+  color:#163b36 !important;
+  font-size:clamp(30px,3.1vw,42px) !important;
+  line-height:1.08 !important;
+  letter-spacing:-.035em !important;
+  margin:12px 0 14px !important;
+}
+.novaAbout .aboutVideoReworked .aboutFinalVideoCopy h2 em { color:#167b78 !important; }
+.novaAbout .aboutVideoReworked .aboutFinalVideoCopy p {
+  color:#52645f !important;
+  font-size:14px !important;
+  line-height:1.65 !important;
+  margin:0 0 18px !important;
+  max-width:480px !important;
+}
+.novaAbout .aboutVideoReworked .aboutVideoFacts {
+  gap:8px !important;
+  margin:4px 0 20px !important;
+}
+.novaAbout .aboutVideoReworked .aboutVideoFacts span {
+  color:#294a45 !important;
+  font-size:11px !important;
+}
+.novaAbout .aboutVideoReworked .aboutVideoFacts b { color:#167b78 !important; }
+.novaAbout .aboutVideoReworked .aboutButtonOutline {
+  width:max-content !important;
+  background:#163b36 !important;
+  color:#ffffff !important;
+  border-color:#163b36 !important;
+  padding:11px 18px !important;
+}
+
+/* CTA: different background video + cream panel with dark text */
+.novaAbout .aboutCtaReworked {
+  position:relative !important;
+  min-height:470px !important;
+  padding:68px 22px !important;
+  overflow:hidden !important;
+  background:#082438 !important;
+}
+.novaAbout .aboutCtaReworked .aboutCtaVideo {
+  position:absolute !important;
+  inset:0 !important;
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+  object-position:center !important;
+  filter:none !important;
+  opacity:.72 !important;
+  transform:none !important;
+}
+.novaAbout .aboutCtaReworked .aboutClosingOverlay {
+  position:absolute !important;
+  inset:0 !important;
+  background:linear-gradient(120deg,rgba(4,24,39,.78),rgba(7,51,67,.58),rgba(9,43,49,.76)) !important;
+}
+.novaAbout .aboutCtaReworked .aboutCtaFrame {
+  position:relative !important;
+  z-index:3 !important;
+  width:min(100%,860px) !important;
+  margin:auto !important;
+}
+.novaAbout .aboutCtaReworked .aboutClosingContent {
+  width:100% !important;
+  min-height:0 !important;
+  padding:48px 54px !important;
+  border-radius:26px !important;
+  background:#fffaf2 !important;
+  color:#163b36 !important;
+  border:1px solid rgba(255,255,255,.9) !important;
+  box-shadow:0 28px 75px rgba(0,0,0,.28) !important;
+}
+.novaAbout .aboutCtaReworked .aboutEyebrow { color:#a45e3f !important; }
+.novaAbout .aboutCtaReworked h2 {
+  color:#163b36 !important;
+  font-size:clamp(30px,3.5vw,46px) !important;
+  line-height:1.06 !important;
+  letter-spacing:-.035em !important;
+  margin:10px 0 12px !important;
+}
+.novaAbout .aboutCtaReworked h2 span {
+  color:#167b78 !important;
+  background:none !important;
+  -webkit-text-fill-color:initial !important;
+}
+.novaAbout .aboutCtaReworked p { color:#52645f !important; font-size:13px !important; line-height:1.65 !important; }
+.novaAbout .aboutCtaReworked .aboutButtonLight { background:#163b36 !important; color:#ffffff !important; border-color:#163b36 !important; }
+.novaAbout .aboutCtaReworked .aboutTextLinkLight { background:#ffffff !important; color:#163b36 !important; border-color:rgba(22,59,54,.22) !important; }
+
+@media(max-width:900px){
+  .novaAbout .aboutVideoReworked .aboutFinalVideoGrid { grid-template-columns:1fr !important; }
+  .novaAbout .aboutVideoReworked .aboutFinalVideoFrame,
+  .novaAbout .aboutVideoReworked .aboutFinalVideoCopy { height:auto !important; min-height:340px !important; }
+}
+@media(max-width:640px){
+  .novaAbout .aboutFinalVideo.aboutVideoReworked { padding:52px 0 58px !important; }
+  .novaAbout .aboutVideoReworked .aboutFinalVideoFrame { min-height:270px !important; }
+  .novaAbout .aboutVideoReworked .aboutFinalVideoCopy { min-height:300px !important; padding:28px 23px !important; }
+  .novaAbout .aboutVideoReworked .aboutFinalVideoCopy h2 { font-size:28px !important; }
+  .novaAbout .aboutCtaReworked { min-height:0 !important; padding:48px 14px !important; }
+  .novaAbout .aboutCtaReworked .aboutClosingContent { padding:34px 22px !important; }
+}

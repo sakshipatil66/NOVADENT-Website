@@ -1,0 +1,143 @@
+/* NOVADENT Step 3 — inner-page storytelling polish. Additive, content-preserving styles. */
+:root {
+  --nova-motion-ease: cubic-bezier(.2, .8, .2, 1);
+  --nova-motion-ink: #173440;
+  --nova-motion-teal: #1b7880;
+}
+
+/* Scroll reveals are only enabled when the motion observer is available. */
+.nova-motion-item {
+  opacity: 0;
+  transform: translate3d(0, 26px, 0);
+  filter: blur(3px);
+  transition: opacity .72s var(--nova-motion-ease),
+    transform .82s var(--nova-motion-ease), filter .72s ease;
+  transition-delay: var(--nova-motion-delay, 0ms);
+  will-change: opacity, transform;
+}
+.nova-motion-item.nova-motion-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  filter: blur(0);
+}
+
+/* About page: premium image movement and editorial rhythm. */
+.novaAbout .aboutHeroImage,
+.novaAbout .aboutStoryImageMain,
+.novaAbout .aboutStoryImageSmall,
+.novaAbout .aboutExperienceImage,
+.novaAbout .aboutFounderImage,
+.novaAbout .aboutModernImage,
+.novaAbout .aboutGalleryItem {
+  overflow: hidden;
+}
+.novaAbout .aboutStoryImageMain img,
+.novaAbout .aboutStoryImageSmall img,
+.novaAbout .aboutExperienceImage img,
+.novaAbout .aboutFounderImage img,
+.novaAbout .aboutModernImage img,
+.novaAbout .aboutGalleryItem img {
+  transition: transform 1.05s var(--nova-motion-ease), filter .65s ease;
+}
+.novaAbout .aboutStoryImages:hover img,
+.novaAbout .aboutGalleryItem:hover img {
+  transform: scale(1.045);
+}
+.novaAbout .aboutValueCard,
+.novaAbout .aboutJourneyStep,
+.novaAbout .aboutButton,
+.novaAbout .aboutHeroButton,
+.novaAbout .aboutArrowLink,
+.novaAbout .aboutGalleryArrow {
+  transition: transform .35s var(--nova-motion-ease), box-shadow .35s ease,
+    border-color .3s ease, background-color .3s ease;
+}
+.novaAbout .aboutValueCard:hover,
+.novaAbout .aboutJourneyStep:hover { transform: translateY(-4px); }
+.novaAbout .aboutButton:hover,
+.novaAbout .aboutHeroButton:hover,
+.novaAbout .aboutArrowLink:hover { transform: translateY(-2px); }
+
+/* Doctors page: portrait cards feel tactile without shifting layout. */
+.novaDoctorsPage .novaDoctorCard,
+.novaDoctorsPage .novaDoctorsValueCard,
+.novaDoctorsPage .novaDoctorsProcessStep {
+  transition: transform .45s var(--nova-motion-ease), box-shadow .45s ease,
+    border-color .3s ease;
+}
+.novaDoctorsPage .novaDoctorCard:hover,
+.novaDoctorsPage .novaDoctorsValueCard:hover,
+.novaDoctorsPage .novaDoctorsProcessStep:hover {
+  transform: translateY(-5px);
+}
+.novaDoctorsPage .novaDoctorImage img,
+.novaDoctorsPage .novaDoctorsHeroImageFrame img,
+.novaDoctorsPage .novaDoctorsStoryImage img {
+  transition: transform 1s var(--nova-motion-ease), filter .6s ease;
+}
+.novaDoctorsPage .novaDoctorCard:hover .novaDoctorImage img,
+.novaDoctorsPage .novaDoctorsHeroVisual:hover .novaDoctorsHeroImageFrame img,
+.novaDoctorsPage .novaDoctorsStoryGrid:hover .novaDoctorsStoryImage img {
+  transform: scale(1.04);
+}
+
+/* Treatments page: interactive image panels, readable cards and FAQ cues. */
+.premiumTreatmentsPage .premiumTreatmentImage,
+.premiumTreatmentsPage .premiumTreatmentCTAImage {
+  overflow: hidden;
+}
+.premiumTreatmentsPage .premiumTreatmentImage img,
+.premiumTreatmentsPage .premiumTreatmentCTAImage img {
+  transition: transform 1s var(--nova-motion-ease), filter .6s ease;
+}
+.premiumTreatmentsPage .premiumTreatmentItem,
+.premiumTreatmentsPage .premiumTreatmentStep,
+.premiumTreatmentsPage .premiumTreatmentFAQ,
+.premiumTreatmentsPage .premiumTreatmentPrimaryBtn,
+.premiumTreatmentsPage .premiumTreatmentOutlineBtn,
+.premiumTreatmentsPage .premiumTreatmentLearnLink {
+  transition: transform .35s var(--nova-motion-ease), box-shadow .35s ease,
+    border-color .3s ease, color .3s ease, background-color .3s ease;
+}
+.premiumTreatmentsPage .premiumTreatmentItem:hover,
+.premiumTreatmentsPage .premiumTreatmentStep:hover { transform: translateY(-4px); }
+.premiumTreatmentsPage .premiumTreatmentItem:hover .premiumTreatmentImage img,
+.premiumTreatmentsPage .premiumTreatmentCTA:hover .premiumTreatmentCTAImage img {
+  transform: scale(1.045);
+}
+.premiumTreatmentsPage a:focus-visible,
+.novaAbout a:focus-visible,
+.novaDoctorsPage a:focus-visible,
+.novaAbout button:focus-visible,
+.novaDoctorsPage button:focus-visible,
+.premiumTreatmentsPage button:focus-visible {
+  outline: 3px solid rgba(27, 120, 128, .68);
+  outline-offset: 4px;
+}
+
+@media (max-width: 767px) {
+  .nova-motion-item { transform: translate3d(0, 16px, 0); filter: blur(1.5px); }
+  .novaAbout .aboutStoryImages:hover img,
+  .novaAbout .aboutGalleryItem:hover img,
+  .novaDoctorsPage .novaDoctorCard:hover .novaDoctorImage img,
+  .premiumTreatmentsPage .premiumTreatmentItem:hover .premiumTreatmentImage img { transform: none; }
+  .novaAbout .aboutValueCard:hover,
+  .novaAbout .aboutJourneyStep:hover,
+  .novaDoctorsPage .novaDoctorCard:hover,
+  .novaDoctorsPage .novaDoctorsValueCard:hover,
+  .novaDoctorsPage .novaDoctorsProcessStep:hover,
+  .premiumTreatmentsPage .premiumTreatmentItem:hover,
+  .premiumTreatmentsPage .premiumTreatmentStep:hover { transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nova-motion-item,
+  .novaAbout *,
+  .novaDoctorsPage *,
+  .premiumTreatmentsPage * {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .nova-motion-item { opacity: 1; transform: none; filter: none; }
+}

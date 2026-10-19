@@ -1,0 +1,125 @@
+/* Step 18 — editorial storytelling finish, aligned with NOVADENT navy / aqua brand. */
+:root {
+  --nova18-ink: #0b2d4c;
+  --nova18-blue: #236f92;
+  --nova18-aqua: #8fe0df;
+  --nova18-mist: #edf6fa;
+  --nova18-line: rgba(24, 92, 126, .18);
+}
+.novaAbout { color: var(--nova18-ink); background: #fff; overflow: clip; }
+.novaAbout .aboutHero { min-height: clamp(570px, 76svh, 760px) !important; }
+.novaAbout .aboutHeroImage { background-position: center 43% !important; filter: blur(1.7px) saturate(.88) !important; transform: scale(1.035); }
+.novaAbout .aboutHeroOverlay { background: linear-gradient(100deg, rgba(5,28,48,.91) 0%, rgba(8,43,69,.76) 48%, rgba(8,54,77,.45) 100%), linear-gradient(0deg, rgba(4,25,43,.55), transparent 66%) !important; }
+.novaAbout .aboutHeroEyebrow { color: var(--nova18-aqua) !important; letter-spacing: .19em !important; }
+.novaAbout .aboutHeroContent h1 { color: #fff !important; max-width: 13ch !important; font-size: clamp(43px, 5.9vw, 78px) !important; line-height: 1.04 !important; letter-spacing: -.05em !important; }
+.novaAbout .aboutHeroContent h1 em { color: var(--nova18-aqua) !important; font-style: italic; }
+.novaAbout .aboutHeroDescription { max-width: 54ch !important; color: rgba(255,255,255,.94) !important; font-size: clamp(15px,1.25vw,18px) !important; line-height: 1.8 !important; }
+.novaAbout .aboutHeroFooter { color: rgba(245,251,255,.9) !important; border-color: rgba(143,224,223,.36) !important; letter-spacing: .14em; }
+
+/* Unified section rhythm and fine dividers. */
+.novaAbout > section:not(.aboutHero) { position: relative; border-top: 1px solid var(--nova18-line); }
+.novaAbout > section:not(.aboutHero)::before { content: ""; position: absolute; top: -1px; left: clamp(22px, 7vw, 104px); width: clamp(44px, 6vw, 82px); height: 2px; background: linear-gradient(90deg, #24799a, var(--nova18-aqua)); }
+.novaAbout .aboutIntro, .novaAbout .aboutGallery { background: #fff !important; }
+.novaAbout .aboutIntroGrid { align-items: stretch !important; }
+.novaAbout .aboutIntroText, .novaAbout .aboutIntroImage { min-height: clamp(360px, 42vw, 570px) !important; }
+.novaAbout .aboutIntroImage { position: relative; overflow: hidden; border-radius: 22px 22px 76px 22px !important; box-shadow: 0 24px 64px rgba(11,45,76,.14); }
+.novaAbout .aboutIntroImage img { width: 100%; height: 100% !important; min-height: inherit; object-fit: cover !important; transition: transform .8s cubic-bezier(.2,.7,.2,1); }
+.novaAbout .aboutIntroImage:hover img { transform: scale(1.045); }
+.novaAbout .aboutImageCaption { background: linear-gradient(90deg, rgba(7,35,57,.88), rgba(7,35,57,.2)) !important; color: #fff !important; }
+
+/* Video story: visual and editorial copy share the same full height. */
+.novaAbout .aboutExperienceFilm { grid-template-columns: minmax(0,.9fr) minmax(0,1.1fr) !important; align-items: stretch !important; gap: clamp(28px,5vw,72px) !important; padding: clamp(64px,8vw,112px) clamp(24px,7vw,104px) !important; background: linear-gradient(135deg,#f5fafc 0%,#e8f3f8 55%,#fafdff 100%) !important; }
+.novaAbout .aboutExperienceFilmIntro { align-self: stretch !important; justify-content: center; }
+.novaAbout .aboutExperienceFilmIntro h2 { color: var(--nova18-ink) !important; font-size: clamp(34px,4vw,56px) !important; line-height: 1.08 !important; }
+.novaAbout .aboutExperienceFilmIntro h2 em { color: var(--nova18-blue) !important; }
+.novaAbout .aboutExperienceFilmFrame { height: 100% !important; min-height: clamp(330px,37vw,500px) !important; overflow: hidden; border: 1px solid rgba(35,111,146,.22); border-radius: 22px 22px 74px 22px !important; box-shadow: 0 24px 62px rgba(11,45,76,.18) !important; }
+.novaAbout .aboutExperienceFilmVideo { display: block; width: 100%; height: 100% !important; min-height: inherit !important; object-fit: cover !important; background: #0b2d4c; }
+
+/* WHAT GUIDES US: strong hierarchy, soft blue canvas, individual raised cards. */
+.novaAbout .aboutValues { background: linear-gradient(180deg,#f1f8fb 0%,#f8fbfd 100%) !important; padding: clamp(72px,8vw,116px) clamp(24px,7vw,104px) !important; }
+.novaAbout .aboutSectionHeading { gap: clamp(28px,5vw,76px) !important; align-items: end !important; margin-bottom: clamp(32px,4vw,54px) !important; }
+.novaAbout .aboutEyebrow { color: var(--nova18-blue) !important; letter-spacing: .18em !important; font-weight: 800 !important; }
+.novaAbout .aboutSectionHeading h2 { color: var(--nova18-ink) !important; font-size: clamp(40px,5vw,68px) !important; line-height: 1.02 !important; letter-spacing: -.05em !important; }
+.novaAbout .aboutSectionHeading h2 span { color: var(--nova18-blue) !important; font-style: italic; }
+.novaAbout .aboutSectionDescription { color: #506a7e !important; max-width: 52ch !important; line-height: 1.85 !important; }
+.novaAbout .aboutValuesGrid { gap: 18px !important; }
+.novaAbout .aboutValueCard { position: relative; min-height: 270px; padding: clamp(24px,2.8vw,36px) !important; border: 1px solid rgba(35,111,146,.16) !important; border-radius: 20px !important; background: rgba(255,255,255,.92) !important; box-shadow: 0 14px 38px rgba(11,45,76,.055) !important; transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease !important; }
+.novaAbout .aboutValueCard:hover { transform: translateY(-7px) !important; border-color: rgba(35,111,146,.42) !important; box-shadow: 0 24px 48px rgba(11,45,76,.12) !important; }
+.novaAbout .aboutValueNumber { color: var(--nova18-blue) !important; font-size: 13px !important; font-weight: 800 !important; letter-spacing: .12em; }
+.novaAbout .aboutValueIcon { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 14px; background: #e7f4f8 !important; color: var(--nova18-blue) !important; }
+.novaAbout .aboutValueCard h3 { margin: 30px 0 12px !important; color: var(--nova18-ink) !important; font-size: clamp(20px,1.8vw,25px) !important; line-height: 1.25 !important; }
+.novaAbout .aboutValueCard p { color: #526b7e !important; line-height: 1.8 !important; font-size: 15px !important; }
+.novaAbout .aboutValueRule { display: block; width: 52px; height: 2px; margin-top: 24px; background: linear-gradient(90deg,var(--nova18-blue),var(--nova18-aqua)); }
+
+/* YOUR EXPERIENCE — clean timeline and equal-height image/content pair. */
+.novaAbout .aboutJourney { background: linear-gradient(135deg,#f2f8fb 0%,#e7f2f8 54%,#fbfdfe 100%) !important; }
+.novaAbout .aboutJourneyHeading h2 span { color: var(--nova18-blue) !important; }
+.novaAbout .aboutJourneyStep { min-height: 122px !important; }
+.novaAbout .aboutExperienceSection { min-height: clamp(470px,55vw,680px) !important; grid-template-columns: 1fr minmax(0,1fr) !important; align-items: stretch !important; }
+.novaAbout .aboutExperienceImage, .novaAbout .aboutExperienceImage img { width: 100% !important; height: 100% !important; min-height: inherit !important; object-fit: cover !important; }
+.novaAbout .aboutExperienceOverlay { background: linear-gradient(90deg,rgba(6,31,52,.82),rgba(8,43,69,.62)) !important; }
+.novaAbout .aboutExperienceContent { align-self: center !important; max-width: 620px !important; padding: clamp(28px,5vw,70px) !important; }
+.novaAbout .aboutExperienceContent h2 { color: #fff !important; font-size: clamp(40px,5vw,66px) !important; line-height: 1.03 !important; }
+.novaAbout .aboutExperienceContent h2 span { color: var(--nova18-aqua) !important; }
+.novaAbout .aboutExperienceContent > p:not(.aboutEyebrow) { color: rgba(255,255,255,.93) !important; line-height: 1.85 !important; }
+.novaAbout .aboutExperienceContent .aboutButtonLight { background: #fff !important; color: var(--nova18-ink) !important; border: 1px solid rgba(255,255,255,.7) !important; }
+
+/* Founder section image and content align to a common height. */
+.novaAbout .aboutFounder { align-items: stretch !important; gap: clamp(32px,6vw,88px) !important; background: #fff !important; }
+.novaAbout .aboutFounderImage { min-height: clamp(480px,54vw,690px) !important; height: 100% !important; border-radius: 22px 22px 80px 22px !important; overflow: hidden; }
+.novaAbout .aboutFounderImage img { width: 100% !important; height: 100% !important; min-height: inherit; object-fit: cover !important; }
+.novaAbout .aboutFounderContent { display: flex; flex-direction: column; justify-content: center; padding-block: 28px !important; }
+.novaAbout .aboutFounderContent h3 { color: var(--nova18-ink) !important; }
+.novaAbout .aboutFounderRole, .novaAbout .aboutFounderSpecialty { color: var(--nova18-blue) !important; }
+
+/* Gallery and promise: crisp cards and a high-contrast blue feature panel. */
+.novaAbout .aboutGallery { padding: clamp(72px,8vw,112px) clamp(24px,7vw,104px) !important; }
+.novaAbout .aboutGalleryItem { overflow: hidden; border: 1px solid rgba(35,111,146,.14) !important; border-radius: 18px !important; background: #fff !important; box-shadow: 0 14px 38px rgba(11,45,76,.06) !important; transition: transform .35s ease, box-shadow .35s ease !important; }
+.novaAbout .aboutGalleryItem:hover { transform: translateY(-6px) !important; box-shadow: 0 24px 50px rgba(11,45,76,.13) !important; }
+.novaAbout .aboutGalleryItem > img { aspect-ratio: 4 / 3 !important; object-fit: cover !important; }
+.novaAbout .aboutGalleryItem figcaption { display: grid !important; grid-template-columns: 32px minmax(0,1fr) 24px !important; gap: 12px !important; align-items: center !important; padding: 18px 20px !important; }
+.novaAbout .aboutGalleryItem figcaption strong { color: var(--nova18-ink) !important; font-size: 16px !important; line-height: 1.35 !important; }
+.novaAbout .aboutGalleryItem figcaption > span:first-child { color: var(--nova18-blue) !important; }
+.novaAbout .aboutGalleryArrow { color: var(--nova18-blue) !important; }
+.novaAbout .aboutPromise { background: linear-gradient(135deg,#0b2d4c 0%,#124d70 58%,#176b83 100%) !important; color: #fff !important; overflow: hidden; }
+.novaAbout .aboutPromise::after { content: ""; position: absolute; width: 440px; height: 440px; right: -150px; bottom: -250px; border: 1px solid rgba(143,224,223,.26); border-radius: 50%; box-shadow: 0 0 0 32px rgba(143,224,223,.045),0 0 0 72px rgba(143,224,223,.03); pointer-events: none; }
+.novaAbout .aboutPromise .aboutEyebrow { color: var(--nova18-aqua) !important; }
+.novaAbout .aboutPromise h2 { color: #fff !important; font-size: clamp(36px,5.2vw,70px) !important; line-height: 1.12 !important; text-wrap: balance !important; }
+.novaAbout .aboutPromise h2 .aboutPromiseAccent { color: var(--nova18-aqua) !important; }
+.novaAbout .aboutPromiseDescription { color: rgba(255,255,255,.88) !important; max-width: 64ch !important; line-height: 1.9 !important; }
+.novaAbout .aboutFinalCta { display: grid !important; grid-template-columns: minmax(0,1.2fr) minmax(260px,.8fr) !important; align-items: center !important; gap: 42px !important; background: linear-gradient(135deg,#f4f9fc,#e6f2f8) !important; padding: clamp(64px,8vw,110px) clamp(24px,7vw,104px) !important; }
+.novaAbout .aboutFinalCtaText h2 { color: var(--nova18-ink) !important; font-size: clamp(42px,5.2vw,70px) !important; line-height: 1.02 !important; letter-spacing: -.05em !important; }
+.novaAbout .aboutFinalCtaText > p:last-child { color: #526b7e !important; line-height: 1.85 !important; max-width: 55ch; }
+.novaAbout .aboutFinalCtaAction { align-items: flex-start !important; gap: 18px !important; }
+.novaAbout .aboutButtonDark { background: var(--nova18-ink) !important; color: #fff !important; border: 1px solid var(--nova18-ink) !important; box-shadow: 0 12px 28px rgba(11,45,76,.18) !important; }
+.novaAbout .aboutButtonDark:hover { background: var(--nova18-blue) !important; transform: translateY(-3px); }
+.novaAbout .aboutFinalCtaAction > span { color: #526b7e !important; }
+
+/* Scroll reveals already attach these classes in About.jsx; keep transitions subtle. */
+.novaAbout .about-motion-target { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); }
+.novaAbout .about-motion-target.about-is-visible { opacity: 1; transform: translateY(0); }
+.novaAbout .aboutValueCard.about-motion-target:nth-child(2) { transition-delay: .08s; }
+.novaAbout .aboutValueCard.about-motion-target:nth-child(3) { transition-delay: .16s; }
+.novaAbout a:focus-visible { outline: 3px solid #58b9c5 !important; outline-offset: 4px !important; }
+@media (max-width: 900px) {
+  .novaAbout .aboutExperienceFilm { grid-template-columns: 1fr !important; }
+  .novaAbout .aboutExperienceFilmFrame { min-height: 0 !important; aspect-ratio: 16 / 9 !important; }
+  .novaAbout .aboutExperienceFilmVideo { min-height: 0 !important; aspect-ratio: 16 / 9; }
+  .novaAbout .aboutExperienceSection { grid-template-columns: 1fr !important; min-height: 620px !important; }
+  .novaAbout .aboutFounder { grid-template-columns: 1fr !important; }
+  .novaAbout .aboutFounderImage { min-height: 440px !important; }
+  .novaAbout .aboutFinalCta { grid-template-columns: 1fr !important; }
+}
+@media (max-width: 600px) {
+  .novaAbout .aboutHero { min-height: 640px !important; }
+  .novaAbout .aboutHeroContent h1 { font-size: clamp(39px,10vw,54px) !important; }
+  .novaAbout .aboutValuesGrid { grid-template-columns: 1fr !important; }
+  .novaAbout .aboutValueCard { min-height: 0 !important; }
+  .novaAbout .aboutSectionHeading { align-items: start !important; }
+  .novaAbout .aboutExperienceContent { padding: 28px 22px !important; }
+  .novaAbout .aboutGalleryGrid { grid-template-columns: 1fr !important; }
+  .novaAbout .aboutPromise h2 { font-size: clamp(34px,8.8vw,48px) !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .novaAbout *, .novaAbout *::before, .novaAbout *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+}

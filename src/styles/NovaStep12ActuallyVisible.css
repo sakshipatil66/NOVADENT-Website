@@ -1,0 +1,62 @@
+/* Step 12: loaded after AboutCinematic.css so these fixes win in the cascade. */
+.novaAbout .aboutHero {
+  position: relative !important;
+  isolation: isolate !important;
+  min-height: clamp(650px, 84svh, 900px) !important;
+  padding: clamp(115px, 14vh, 160px) clamp(24px, 8vw, 130px) 112px !important;
+  display: flex !important;
+  align-items: center !important;
+  background: #103b32 !important;
+  overflow: hidden !important;
+}
+/* Positive stacking levels are intentional: negative layers were hidden behind the hero background. */
+.novaAbout .aboutHeroImage { position: absolute !important; inset: 0 !important; z-index: 0 !important; background-position: center !important; background-size: cover !important; }
+.novaAbout .aboutHeroVideo {
+  position: absolute !important; inset: 0 !important; z-index: 1 !important;
+  display: block !important; width: 100% !important; height: 100% !important;
+  object-fit: cover !important; object-position: center 44% !important;
+  opacity: 1 !important; visibility: visible !important;
+  filter: saturate(.92) contrast(1.04) !important;
+  transform: scale(1.025); animation: novaAboutVideoMove 24s ease-in-out infinite alternate;
+}
+.novaAbout .aboutHeroOverlay { position: absolute !important; inset: 0 !important; z-index: 2 !important; pointer-events: none !important; background: linear-gradient(90deg, rgba(7,34,29,.82) 0%, rgba(7,34,29,.68) 43%, rgba(7,34,29,.25) 100%), linear-gradient(0deg, rgba(7,34,29,.52), rgba(7,34,29,.04) 70%) !important; }
+.novaAbout .aboutHeroContent { position: relative !important; z-index: 3 !important; width: min(900px, 100%) !important; max-width: 900px !important; margin: 0 !important; padding: 0 !important; text-align: left !important; animation: novaAboutHeroEnter .95s cubic-bezier(.2,.7,.2,1) both; }
+.novaAbout .aboutHeroEyebrow { color: #c3eadc !important; font-size: 11px !important; letter-spacing: .2em !important; font-weight: 750 !important; text-transform: uppercase; }
+.novaAbout .aboutHeroContent h1 { max-width: 12.5ch !important; margin: 20px 0 20px !important; color: #fff !important; font-size: clamp(46px, 6vw, 82px) !important; line-height: 1.01 !important; letter-spacing: -.055em !important; text-wrap: balance !important; text-shadow: 0 3px 30px rgba(0,0,0,.15); }
+.novaAbout .aboutHeroContent h1 em { color: #a9e4d5 !important; font-weight: 500 !important; }
+.novaAbout .aboutHeroDescription { max-width: 48ch !important; margin: 20px 0 0 !important; color: rgba(255,255,255,.96) !important; font-size: clamp(16px, 1.3vw, 19px) !important; line-height: 1.75 !important; }
+.novaAbout .aboutHeroButton, .novaAbout .aboutHeroActions { display: none !important; }
+.novaAbout .aboutHeroFooter { z-index: 4 !important; right: clamp(24px, 8vw, 130px) !important; left: clamp(24px, 8vw, 130px) !important; color: rgba(255,255,255,.88) !important; border-color: rgba(216,244,232,.4) !important; }
+
+/* Promise headline: intentionally two lines, never three on desktop. */
+.novaAbout .aboutPromise { background: linear-gradient(135deg, #f9fcf9 0%, #eaf4ee 100%) !important; position: relative; overflow: hidden; }
+.novaAbout .aboutPromiseHeading { display: flex !important; flex-direction: column !important; align-items: center !important; max-width: 100% !important; margin: 0 auto 24px !important; color: #163e35 !important; font-size: clamp(40px, 5.6vw, 76px) !important; line-height: 1.02 !important; letter-spacing: -.05em !important; text-align: center !important; text-wrap: balance !important; }
+.novaAbout .aboutPromiseHeading .aboutPromiseLine { display: block !important; color: #173f36 !important; white-space: nowrap !important; }
+.novaAbout .aboutPromiseHeading .aboutPromiseAccent { color: #438b75 !important; font-family: Georgia, 'Times New Roman', serif !important; font-weight: 400 !important; font-style: italic !important; }
+.novaAbout .aboutPromise::after { content: ''; display: block; position: absolute; bottom: 0; left: 50%; width: min(82%, 1120px); height: 1px; transform: translateX(-50%); background: linear-gradient(90deg, transparent, #9dcbb8, transparent); }
+
+/* Section dividers and stronger, visible entrance motion */
+.novaAbout > section:not(.aboutHero) { position: relative; }
+.novaAbout > section:not(.aboutHero)::before { content: ''; position: absolute; top: 0; left: clamp(24px, 7vw, 110px); width: 78px; height: 2px; background: linear-gradient(90deg, #4b9b82, rgba(75,155,130,0)); opacity: .9; }
+.novaAbout .about-motion-target { will-change: opacity, transform; }
+.novaAbout .about-motion-target.about-is-visible { animation: novaAboutSectionEnter .8s cubic-bezier(.2,.7,.2,1) both; }
+.novaAbout .aboutValueCard { background: linear-gradient(145deg, #fff 0%, #f1f7f3 100%) !important; border: 1px solid rgba(65,125,102,.18) !important; box-shadow: 0 14px 42px rgba(20,58,45,.055); }
+.novaAbout .aboutValueCard:hover { transform: translateY(-7px); box-shadow: 0 22px 48px rgba(20,58,45,.12); border-color: rgba(65,125,102,.4) !important; }
+.novaAbout .aboutStoryImageMain img, .novaAbout .aboutStoryImageSmall img, .novaAbout .aboutIntroImage img, .novaAbout .aboutFounderImage img, .novaAbout .aboutModernImage img { transition: transform 1s cubic-bezier(.2,.7,.2,1), filter .6s ease !important; }
+.novaAbout .aboutStoryImages:hover img, .novaAbout .aboutIntroImage:hover img, .novaAbout .aboutFounderImage:hover img, .novaAbout .aboutModernImage:hover img { transform: scale(1.035); }
+@keyframes novaAboutVideoMove { from { transform: scale(1.025) translateX(0); } to { transform: scale(1.075) translateX(-.5%); } }
+@keyframes novaAboutHeroEnter { from { opacity: 0; transform: translate3d(-26px, 18px, 0); filter: blur(5px); } to { opacity: 1; transform: translate3d(0,0,0); filter: blur(0); } }
+@keyframes novaAboutSectionEnter { from { opacity: .35; } to { opacity: 1; } }
+@media (max-width: 760px) {
+ .novaAbout .aboutHero { min-height: 740px !important; min-height: 82svh !important; padding: 135px 24px 120px !important; }
+ .novaAbout .aboutHeroVideo { object-position: 58% center !important; }
+ .novaAbout .aboutHeroOverlay { background: linear-gradient(90deg, rgba(7,34,29,.82), rgba(7,34,29,.54)), linear-gradient(0deg, rgba(7,34,29,.55), rgba(7,34,29,.12)) !important; }
+ .novaAbout .aboutHeroContent h1 { max-width: 11ch !important; font-size: clamp(42px, 10.2vw, 62px) !important; }
+ .novaAbout .aboutHeroFooter { gap: 10px 20px !important; flex-wrap: wrap !important; }
+ .novaAbout .aboutPromiseHeading { font-size: clamp(34px, 8.4vw, 55px) !important; }
+ .novaAbout .aboutPromiseHeading .aboutPromiseLine { white-space: normal !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+ .novaAbout .aboutHeroVideo { animation: none !important; }
+ .novaAbout .aboutHeroContent, .novaAbout .about-motion-target.about-is-visible { animation: none !important; }
+}

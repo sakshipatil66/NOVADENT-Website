@@ -1,0 +1,42 @@
+/* NOVADENT targeted About-page polish. The Hero section is intentionally untouched. */
+.novaAbout .aboutFinalIntro .aboutFinalChapters{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:28px!important;align-items:stretch!important;margin-top:36px!important}
+.novaAbout .aboutFinalIntro .aboutFinalChapter{display:flex!important;flex-direction:column!important;gap:18px!important;min-width:0!important;height:auto!important;grid-column:auto!important}
+.novaAbout .aboutFinalIntro .aboutFinalChapterImage{position:relative!important;width:100%!important;height:285px!important;min-height:0!important;overflow:hidden!important;border-radius:16px!important;background:#edf1f2!important}
+.novaAbout .aboutFinalIntro .aboutFinalChapterImage img{display:block!important;width:100%!important;height:100%!important;object-fit:cover!important;object-position:center!important;transform:none;transition:transform .45s ease!important}
+.novaAbout .aboutFinalIntro .aboutFinalChapter:hover .aboutFinalChapterImage img{transform:scale(1.035)!important}
+.novaAbout .aboutFinalIntro .aboutFinalChapter>div:last-child{min-width:0!important}
+.novaAbout .aboutFinalIntro .aboutFinalChapter h3{line-height:1.25!important;margin:10px 0!important}
+.novaAbout .aboutFinalIntro .aboutFinalChapter p{line-height:1.7!important}
+.novaAbout .aboutFinalClinic .aboutFinalClinicGrid{display:grid!important;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)!important;gap:48px!important;align-items:center!important}
+.novaAbout .aboutFinalClinic .aboutFinalClinicImages{display:grid!important;grid-template-columns:minmax(0,1.3fr) minmax(0,.8fr)!important;gap:16px!important;align-items:center!important;min-width:0!important}
+.novaAbout .aboutFinalClinic .aboutFinalClinicImages img{display:block!important;width:100%!important;height:330px!important;min-height:0!important;max-height:none!important;object-fit:cover!important;object-position:center!important;border-radius:16px!important;margin:0!important}
+.novaAbout .aboutFinalClinic .aboutFinalClinicImages img.small{height:245px!important;margin:0!important}
+.novaAbout .aboutFinalTeam .aboutTeamFilm{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:22px!important;align-items:stretch!important}
+.novaAbout .aboutFinalTeam .aboutTeamFilmCard{position:relative!important;display:flex!important;flex-direction:column!important;min-width:0!important;height:auto!important;min-height:0!important;overflow:hidden!important;border-radius:16px!important}
+.novaAbout .aboutFinalTeam .aboutTeamFilmCard img{display:block!important;width:100%!important;height:330px!important;min-height:0!important;max-height:none!important;object-fit:cover!important;object-position:center top!important;margin:0!important;transition:transform .45s ease!important}
+.novaAbout .aboutFinalTeam .aboutTeamFilmCard:hover img{transform:scale(1.025)!important}
+.novaAbout .aboutFinalTeam .aboutTeamFilmCard>div{padding:20px!important}
+.novaAbout .aboutFinalTeam .aboutTeamFilmCard h3{line-height:1.25!important}
+.novaAbout .aboutFinalVideo .aboutFinalVideoGrid{display:grid!important;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr)!important;gap:36px!important;align-items:center!important}
+.novaAbout .aboutFinalVideo .aboutFinalVideoFrame{position:relative!important;min-width:0!important;overflow:hidden!important;border-radius:18px!important}
+.novaAbout .aboutFinalVideo .aboutFinalVideoFrame video{display:block!important;width:100%!important;height:auto!important;aspect-ratio:16/10!important;object-fit:cover!important}
+.novaAbout .aboutFinalValues .aboutValuesCinematicGrid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:20px!important;align-items:stretch!important}
+.novaAbout .aboutFinalValues .aboutValueCinematicCard{min-width:0!important;height:auto!important;box-sizing:border-box!important}
+.novaAbout .aboutFinalIntro,.novaAbout .aboutFinalVideo,.novaAbout .aboutFinalValues,.novaAbout .aboutFinalClinic,.novaAbout .aboutFinalTeam,.novaAbout .aboutFinalClosing{overflow:visible}
+@media(max-width:900px){
+ .novaAbout .aboutFinalIntro .aboutFinalChapters{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:22px!important}
+ .novaAbout .aboutFinalClinic .aboutFinalClinicGrid,.novaAbout .aboutFinalVideo .aboutFinalVideoGrid{grid-template-columns:1fr!important;gap:28px!important}
+ .novaAbout .aboutFinalClinic .aboutFinalClinicImages img{height:300px!important}
+ .novaAbout .aboutFinalClinic .aboutFinalClinicImages img.small{height:235px!important}
+ .novaAbout .aboutFinalTeam .aboutTeamFilm{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .novaAbout .aboutFinalValues .aboutValuesCinematicGrid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+@media(max-width:600px){
+ .novaAbout .aboutFinalIntro .aboutFinalChapters,.novaAbout .aboutFinalTeam .aboutTeamFilm,.novaAbout .aboutFinalValues .aboutValuesCinematicGrid{grid-template-columns:minmax(0,1fr)!important;gap:22px!important}
+ .novaAbout .aboutFinalIntro .aboutFinalChapterImage{height:240px!important}
+ .novaAbout .aboutFinalClinic .aboutFinalClinicImages{grid-template-columns:minmax(0,1fr) minmax(0,.8fr)!important;gap:10px!important}
+ .novaAbout .aboutFinalClinic .aboutFinalClinicImages img{height:220px!important}
+ .novaAbout .aboutFinalClinic .aboutFinalClinicImages img.small{height:180px!important}
+ .novaAbout .aboutFinalTeam .aboutTeamFilmCard img{height:340px!important}
+ .novaAbout .aboutFinalVideo .aboutFinalVideoGrid{gap:24px!important}
+}

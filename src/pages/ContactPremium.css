@@ -1,0 +1,653 @@
+
+/* NOVADENT CONTACT — CINEMATIC POLISH */
+
+.novaContactPage {
+  overflow: hidden;
+}
+
+.novaContactPage .contactHeroContent,
+.novaContactPage .contactHeroVisual,
+.novaContactPage .contactSectionIntro,
+.novaContactPage .contactFormHeader,
+.novaContactPage .contactLocationContent {
+  animation: contactRiseIn 0.8s ease both;
+}
+
+.novaContactPage .contactHeroVisual {
+  animation-delay: 0.12s;
+}
+
+.novaContactPage .contactInfoCard,
+.novaContactPage .contactSideCard,
+.novaContactPage .contactMapVisual {
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.novaContactPage .contactInfoCard:hover,
+.novaContactPage .contactSideCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 40px rgba(20, 45, 70, 0.10);
+}
+
+.novaContactPage .contactHeroImage {
+  overflow: hidden;
+  border-radius: inherit;
+}
+
+.novaContactPage .contactHeroImage img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.novaContactPage .contactHeroVisual:hover .contactHeroImage img {
+  transform: scale(1.035);
+}
+
+.novaContactPage .contactField input,
+.novaContactPage .contactField textarea {
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.novaContactPage .contactField input:focus,
+.novaContactPage .contactField textarea:focus {
+  outline: none;
+  border-color: #5689a8;
+  box-shadow: 0 0 0 3px rgba(86, 137, 168, 0.13);
+}
+
+.novaContactPage .contactSubmitBtn,
+.novaContactPage .contactAppointmentBtn,
+.novaContactPage .contactMapLink,
+.novaContactPage .contactCTAButton,
+.novaContactPage .contactCTASecondary {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.novaContactPage .contactSubmitBtn:hover,
+.novaContactPage .contactAppointmentBtn:hover,
+.novaContactPage .contactMapLink:hover,
+.novaContactPage .contactCTAButton:hover,
+.novaContactPage .contactCTASecondary:hover {
+  transform: translateY(-2px);
+}
+
+@keyframes contactRiseIn {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .novaContactPage .contactHeroContent,
+  .novaContactPage .contactHeroVisual,
+  .novaContactPage .contactSectionIntro,
+  .novaContactPage .contactFormHeader,
+  .novaContactPage .contactLocationContent {
+    animation-duration: 0.55s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .novaContactPage *,
+  .novaContactPage *::before,
+  .novaContactPage *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* NOVADENT CONTACT — ANIMATION AND INTERACTION POLISH */
+
+.novaContactPage {
+  overflow: clip;
+}
+
+.novaContactPage .contactHeroContent,
+.novaContactPage .contactHeroVisual {
+  animation: contactHeroEntrance 0.8s ease both;
+}
+
+.novaContactPage .contactHeroVisual {
+  animation-delay: 0.12s;
+}
+
+.novaContactPage .contactReveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s cubic-bezier(0.2, 0.65, 0.3, 1),
+    box-shadow 0.35s ease;
+}
+
+.novaContactPage .contactReveal.contactVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.novaContactPage .contactInfoCard,
+.novaContactPage .contactSideCard,
+.novaContactPage .contactMapVisual {
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.novaContactPage .contactInfoCard:hover,
+.novaContactPage .contactSideCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 38px rgba(20, 45, 70, 0.1);
+}
+
+.novaContactPage .contactHeroImage {
+  overflow: hidden;
+}
+
+.novaContactPage .contactHeroImage img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.novaContactPage .contactHeroVisual:hover .contactHeroImage img {
+  transform: scale(1.035);
+}
+
+.novaContactPage .contactField input,
+.novaContactPage .contactField textarea {
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.novaContactPage .contactField input:focus,
+.novaContactPage .contactField textarea:focus {
+  outline: none;
+  border-color: #5689a8;
+  box-shadow: 0 0 0 3px rgba(86, 137, 168, 0.13);
+}
+
+.novaContactPage .contactSubmitBtn,
+.novaContactPage .contactAppointmentBtn,
+.novaContactPage .contactMapLink,
+.novaContactPage .contactCTAButton,
+.novaContactPage .contactCTASecondary,
+.novaContactPage .mapOpenButton {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.novaContactPage .contactSubmitBtn:hover,
+.novaContactPage .contactAppointmentBtn:hover,
+.novaContactPage .contactMapLink:hover,
+.novaContactPage .contactCTAButton:hover,
+.novaContactPage .contactCTASecondary:hover,
+.novaContactPage .mapOpenButton:hover {
+  transform: translateY(-2px);
+}
+
+.novaContactPage a:focus-visible,
+.novaContactPage button:focus-visible {
+  outline: 2px solid #5689a8;
+  outline-offset: 4px;
+}
+
+@keyframes contactHeroEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .novaContactPage .contactReveal {
+    transition-duration: 0.5s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .novaContactPage *,
+  .novaContactPage *::before,
+  .novaContactPage *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+
+  .novaContactPage .contactReveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ==========================================
+   NOVADENT CONTACT — PREMIUM FINAL POLISH
+   Append to src/pages/ContactPremium.css
+========================================== */
+
+.novaContactPage {
+  width: 100%;
+  overflow-x: clip;
+  background: #f7fafc;
+  color: #17334b;
+}
+
+.novaContactPage * {
+  box-sizing: border-box;
+}
+
+.novaContactPage img {
+  max-width: 100%;
+}
+
+.novaContactPage a,
+.novaContactPage button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Hero cinematic entrance */
+.novaContactPage .contactHeroContent {
+  animation: novaContactTextIn 0.8s ease both;
+}
+
+.novaContactPage .contactHeroVisual {
+  animation: novaContactImageIn 1s ease both;
+  animation-delay: 0.12s;
+}
+
+@keyframes novaContactTextIn {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes novaContactImageIn {
+  from {
+    opacity: 0;
+    transform: translateX(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Scroll reveal */
+.novaContactPage .contactReveal {
+  opacity: 0;
+  transform: translateY(25px);
+  transition:
+    opacity 0.65s ease,
+    transform 0.65s cubic-bezier(.2, .65, .3, 1);
+}
+
+.novaContactPage .contactReveal.contactVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Premium card interactions */
+.novaContactPage .contactInfoCard,
+.novaContactPage .contactSideCard,
+.novaContactPage .contactFormCard,
+.novaContactPage .contactMapVisual,
+.novaContactPage .contactCTACard {
+  min-width: 0;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.novaContactPage .contactInfoCard:hover,
+.novaContactPage .contactSideCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(23, 51, 75, 0.09);
+}
+
+/* Image treatment */
+.novaContactPage .contactHeroImage {
+  overflow: hidden;
+  border-radius: inherit;
+}
+
+.novaContactPage .contactHeroImage img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(.2, .65, .3, 1);
+}
+
+.novaContactPage .contactHeroVisual:hover .contactHeroImage img {
+  transform: scale(1.025);
+}
+
+/* Form fields */
+.novaContactPage .contactField {
+  min-width: 0;
+}
+
+.novaContactPage .contactField input,
+.novaContactPage .contactField textarea {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  font: inherit;
+  color: #17334b;
+  border: 1px solid #d7e2eb;
+  border-radius: 10px;
+  background: #fff;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.novaContactPage .contactField input:focus,
+.novaContactPage .contactField textarea:focus {
+  outline: none;
+  border-color: #5689a8;
+  box-shadow: 0 0 0 3px rgba(86, 137, 168, 0.14);
+}
+
+.novaContactPage .contactField input::placeholder,
+.novaContactPage .contactField textarea::placeholder {
+  color: #8193a2;
+}
+
+.novaContactPage .contactField textarea {
+  resize: vertical;
+}
+
+/* Buttons */
+.novaContactPage .contactSubmitBtn,
+.novaContactPage .contactAppointmentBtn,
+.novaContactPage .contactMapLink,
+.novaContactPage .contactCTAButton,
+.novaContactPage .contactCTASecondary,
+.novaContactPage .mapOpenButton {
+  max-width: 100%;
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    background 0.22s ease;
+}
+
+.novaContactPage .contactSubmitBtn:hover,
+.novaContactPage .contactAppointmentBtn:hover,
+.novaContactPage .contactMapLink:hover,
+.novaContactPage .contactCTAButton:hover,
+.novaContactPage .contactCTASecondary:hover,
+.novaContactPage .mapOpenButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 9px 22px rgba(23, 51, 75, 0.13);
+}
+
+.novaContactPage a:focus-visible,
+.novaContactPage button:focus-visible {
+  outline: 2px solid #5689a8;
+  outline-offset: 4px;
+}
+
+/* Avoid long text breaking the layout */
+.novaContactPage p,
+.novaContactPage a,
+.novaContactPage h1,
+.novaContactPage h2,
+.novaContactPage h3 {
+  overflow-wrap: anywhere;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .novaContactPage .contactReveal {
+    transform: translateY(18px);
+  }
+
+  .novaContactPage .contactInfoCard:hover,
+  .novaContactPage .contactSideCard:hover {
+    transform: translateY(-2px);
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .novaContactPage {
+    overflow-x: clip;
+  }
+
+  .novaContactPage .contactHeroContent,
+  .novaContactPage .contactHeroVisual {
+    animation-duration: 0.65s;
+  }
+
+  .novaContactPage .contactHeroVisual {
+    animation-delay: 0.05s;
+  }
+
+  .novaContactPage .contactInfoCard,
+  .novaContactPage .contactFormCard,
+  .novaContactPage .contactSideCard,
+  .novaContactPage .contactCTACard {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .novaContactPage .contactField input,
+  .novaContactPage .contactField textarea {
+    font-size: 16px;
+  }
+
+  .novaContactPage .contactSubmitBtn,
+  .novaContactPage .contactAppointmentBtn,
+  .novaContactPage .contactMapLink,
+  .novaContactPage .contactCTAButton,
+  .novaContactPage .contactCTASecondary,
+  .novaContactPage .mapOpenButton {
+    min-height: 44px;
+  }
+
+  .novaContactPage .contactHeroImage img {
+    transform: none;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .novaContactPage *,
+  .novaContactPage *::before,
+  .novaContactPage *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+
+  .novaContactPage .contactReveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ==========================================
+   NOVADENT CONTACT — REFINED UI PASS
+========================================== */
+
+/* Consistent page rhythm */
+.novaContactPage section {
+  position: relative;
+  isolation: isolate;
+}
+
+.novaContactPage .contactHeroContent,
+.novaContactPage .contactHeroVisual,
+.novaContactPage .contactInfoCard,
+.novaContactPage .contactFormCard,
+.novaContactPage .contactSideCard,
+.novaContactPage .contactMapVisual,
+.novaContactPage .contactCTACard {
+  min-width: 0;
+}
+
+/* Cleaner typography */
+.novaContactPage h1,
+.novaContactPage h2,
+.novaContactPage h3 {
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.novaContactPage p {
+  line-height: 1.75;
+}
+
+/* Card depth and borders */
+.novaContactPage .contactInfoCard,
+.novaContactPage .contactSideCard,
+.novaContactPage .contactFormCard {
+  border: 1px solid rgba(86, 137, 168, 0.16);
+  border-radius: 18px;
+  box-shadow: 0 8px 28px rgba(23, 51, 75, 0.045);
+  background: #fff;
+}
+
+.novaContactPage .contactInfoCard:hover,
+.novaContactPage .contactSideCard:hover,
+.novaContactPage .contactFormCard:hover {
+  border-color: rgba(86, 137, 168, 0.38);
+  box-shadow: 0 16px 36px rgba(23, 51, 75, 0.09);
+}
+
+/* Form labels */
+.novaContactPage .contactField label {
+  display: block;
+  margin-bottom: 8px;
+  color: #17334b;
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.novaContactPage .contactField input,
+.novaContactPage .contactField textarea {
+  padding: 13px 15px;
+  line-height: 1.5;
+}
+
+.novaContactPage .contactField input:focus,
+.novaContactPage .contactField textarea:focus {
+  background: #fcfeff;
+}
+
+/* Map visual */
+.novaContactPage .contactMapVisual {
+  overflow: hidden;
+  border-radius: 18px;
+}
+
+.novaContactPage .contactMapVisual iframe {
+  display: block;
+  width: 100%;
+  min-height: 280px;
+  border: 0;
+}
+
+/* CTA finish */
+.novaContactPage .contactCTACard {
+  border-radius: 22px;
+  overflow: hidden;
+}
+
+.novaContactPage .contactCTAButton,
+.novaContactPage .contactCTASecondary,
+.novaContactPage .contactSubmitBtn {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .novaContactPage .contactInfoCard,
+  .novaContactPage .contactFormCard,
+  .novaContactPage .contactSideCard {
+    border-radius: 16px;
+  }
+
+  .novaContactPage .contactMapVisual iframe {
+    min-height: 240px;
+  }
+}
+
+/* Mobile refinements */
+@media (max-width: 600px) {
+  .novaContactPage h1 {
+    font-size: clamp(2rem, 8vw, 2.8rem);
+    line-height: 1.12;
+  }
+
+  .novaContactPage h2 {
+    font-size: clamp(1.55rem, 6vw, 2.1rem);
+    line-height: 1.2;
+  }
+
+  .novaContactPage p {
+    line-height: 1.7;
+  }
+
+  .novaContactPage .contactInfoCard,
+  .novaContactPage .contactFormCard,
+  .novaContactPage .contactSideCard {
+    border-radius: 14px;
+    box-shadow: 0 6px 20px rgba(23, 51, 75, 0.05);
+  }
+
+  .novaContactPage .contactMapVisual iframe {
+    min-height: 210px;
+  }
+
+  .novaContactPage .contactSubmitBtn,
+  .novaContactPage .contactAppointmentBtn,
+  .novaContactPage .contactCTAButton,
+  .novaContactPage .contactCTASecondary {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Keep animations accessible */
+@media (prefers-reduced-motion: reduce) {
+  .novaContactPage *,
+  .novaContactPage *::before,
+  .novaContactPage *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .novaContactPage .contactReveal {
+    opacity: 1;
+    transform: none;
+  }
+}

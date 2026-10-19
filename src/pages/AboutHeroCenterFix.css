@@ -1,0 +1,368 @@
+
+/* NOVADENT ABOUT HERO — CLEAN FINAL VISUAL FIX */
+
+/* Hero container */
+html body #root main.novaAbout > section.aboutHero {
+  position: relative !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) !important;
+  place-items: center !important;
+  min-height: 680px !important;
+  height: clamp(680px, 78vh, 820px) !important;
+  padding: 88px 24px 120px !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+  isolation: isolate !important;
+  text-align: center !important;
+}
+
+/* Hero image */
+html body #root main.novaAbout > section.aboutHero > .aboutHeroImage {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background-position: center !important;
+  background-size: cover !important;
+  filter: blur(1.5px) !important;
+  transform: scale(1.025) !important;
+}
+
+/* Readability overlay */
+html body #root main.novaAbout > section.aboutHero > .aboutHeroOverlay {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 1 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: linear-gradient(
+    90deg,
+    rgba(12, 43, 45, 0.70) 0%,
+    rgba(18, 57, 59, 0.58) 50%,
+    rgba(12, 43, 45, 0.66) 100%
+  ) !important;
+  pointer-events: none !important;
+}
+
+/* Centered hero content */
+html body #root main.novaAbout > section.aboutHero > .aboutHeroContent {
+  position: relative !important;
+  inset: auto !important;
+  z-index: 3 !important;
+  transform: none !important;
+  justify-self: center !important;
+  align-self: center !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0 !important;
+  width: min(900px, 100%) !important;
+  max-width: 900px !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+  text-align: center !important;
+}
+
+/* Eyebrow */
+html body #root main.novaAbout > section.aboutHero
+> .aboutHeroContent > .aboutHeroEyebrow {
+  display: block !important;
+  width: 100% !important;
+  max-width: 640px !important;
+  margin: 0 auto 14px !important;
+  text-align: center !important;
+  align-self: center !important;
+}
+
+/* Hero heading */
+html body #root main.novaAbout > section.aboutHero
+> .aboutHeroContent > h1.aboutHeroTitle {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  max-width: 900px !important;
+  margin: 0 auto 22px !important;
+  padding: 0 !important;
+  font-size: clamp(2.35rem, 5vw, 4.35rem) !important;
+  line-height: 1.1 !important;
+  letter-spacing: -0.035em !important;
+  text-align: center !important;
+  overflow: visible !important;
+}
+
+html body #root main.novaAbout > section.aboutHero
+> .aboutHeroContent > h1.aboutHeroTitle > span {
+  display: block !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+  text-align: center !important;
+}
+
+/* Keep heading colors consistent with the existing site */
+html body #root main.novaAbout > section.aboutHero
+> .aboutHeroContent > h1.aboutHeroTitle > .aboutHeroTitlePrimary {
+  color: #ffffff !important;
+}
+
+html body #root main.novaAbout > section.aboutHero
+> .aboutHeroContent > h1.aboutHeroTitle > .aboutHeroTitleAccent {
+  color: #e0eeeb !important;
+}
+
+/* Description */
+html body #root main.novaAbout > section.aboutHero
+> .aboutHeroContent > .aboutHeroDescription {
+  display: block !important;
+  width: 100% !important;
+  max-width: 680px !important;
+  margin: 0 auto !important;
+  padding: 0 4px !important;
+  color: #f4f8f7 !important;
+  line-height: 1.7 !important;
+  text-align: center !important;
+  align-self: center !important;
+  overflow: visible !important;
+}
+
+/* Footer labels */
+html body #root main.novaAbout > section.aboutHero > .aboutHeroFooter {
+  position: absolute !important;
+  z-index: 4 !important;
+  right: 5% !important;
+  bottom: 22px !important;
+  left: 5% !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  gap: 12px !important;
+  width: 90% !important;
+  margin: 0 auto !important;
+  color: #f4f8f7 !important;
+}
+
+/* Space before the following section */
+html body #root main.novaAbout > section.aboutIntro {
+  padding-top: clamp(68px, 7vw, 108px) !important;
+}
+
+/* Mobile layout */
+@media (max-width: 650px) {
+  html body #root main.novaAbout > section.aboutHero {
+    min-height: 650px !important;
+    height: 82svh !important;
+    padding: 82px 18px 112px !important;
+  }
+
+  html body #root main.novaAbout > section.aboutHero
+  > .aboutHeroContent {
+    width: 100% !important;
+    max-width: 100% !important;
+    transform: none !important;
+  }
+
+  html body #root main.novaAbout > section.aboutHero
+  > .aboutHeroContent > .aboutHeroEyebrow {
+    margin-bottom: 12px !important;
+    font-size: 0.72rem !important;
+  }
+
+  html body #root main.novaAbout > section.aboutHero
+  > .aboutHeroContent > h1.aboutHeroTitle {
+    font-size: clamp(2.05rem, 8.2vw, 3.1rem) !important;
+    line-height: 1.12 !important;
+    margin-bottom: 17px !important;
+    letter-spacing: -0.03em !important;
+  }
+
+  html body #root main.novaAbout > section.aboutHero
+  > .aboutHeroContent > .aboutHeroDescription {
+    max-width: 440px !important;
+    font-size: 0.95rem !important;
+    line-height: 1.6 !important;
+  }
+
+  html body #root main.novaAbout > section.aboutHero
+  > .aboutHeroFooter {
+    right: 18px !important;
+    bottom: 16px !important;
+    left: 18px !important;
+    width: auto !important;
+    font-size: 8px !important;
+    gap: 8px !important;
+  }
+
+  html body #root main.novaAbout > section.aboutIntro {
+    padding-top: 68px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  html body #root main.novaAbout > section.aboutHero
+  > .aboutHeroFooter {
+    font-size: 7px !important;
+  }
+
+  html body #root main.novaAbout > section.aboutHero
+  > .aboutHeroContent > h1.aboutHeroTitle {
+    font-size: 2rem !important;
+  }
+}
+
+/* ABOUT HERO — COMPACT VISUAL POLISH */
+
+html body #root main.novaAbout > section.aboutHero
+> .aboutHeroContent > h1.aboutHeroTitle {
+  font-size: clamp(2.2rem, 4.1vw, 3.65rem) !important;
+  line-height: 1.12 !important;
+  margin-bottom: 18px !important;
+}
+
+html body #root main.novaAbout > section.aboutHero
+> .aboutHeroContent > h1.aboutHeroTitle > span {
+  letter-spacing: -0.025em !important;
+}
+
+html body #root main.novaAbout > section.aboutHero
+> .aboutHeroContent > .aboutHeroDescription {
+  max-width: 600px !important;
+  font-size: 1rem !important;
+  line-height: 1.65 !important;
+}
+
+html body #root main.novaAbout > section.aboutHero
+> .aboutHeroImage {
+  filter: blur(2px) !important;
+  transform: scale(1.035) !important;
+}
+
+html body #root main.novaAbout > section.aboutHero
+> .aboutHeroOverlay {
+  background: linear-gradient(
+    90deg,
+    rgba(12, 43, 45, 0.76),
+    rgba(18, 57, 59, 0.62),
+    rgba(12, 43, 45, 0.74)
+  ) !important;
+}
+
+@media (max-width: 650px) {
+  html body #root main.novaAbout > section.aboutHero
+  > .aboutHeroContent > h1.aboutHeroTitle {
+    font-size: clamp(2rem, 7.5vw, 2.7rem) !important;
+  }
+
+  html body #root main.novaAbout > section.aboutHero
+  > .aboutHeroContent > .aboutHeroDescription {
+    font-size: 0.92rem !important;
+  }
+}
+
+/* ABOUT HERO — MOVE CONTENT UP */
+
+html body #root main.novaAbout > section.aboutHero
+> .aboutHeroContent {
+  transform: translateY(-65px) !important;
+}
+
+@media (max-width: 650px) {
+  html body #root main.novaAbout > section.aboutHero
+  > .aboutHeroContent {
+    transform: translateY(-40px) !important;
+  }
+}
+
+/* ABOUT HERO — POSITION FIX */
+
+html body #root main.novaAbout > section.aboutHero {
+  min-height: 640px !important;
+  height: 76vh !important;
+  display: grid !important;
+  place-items: center !important;
+  padding: 40px 24px 80px !important;
+}
+
+html body #root main.novaAbout > section.aboutHero
+> .aboutHeroContent {
+  position: relative !important;
+  top: -70px !important;
+  transform: none !important;
+  align-self: center !important;
+  justify-self: center !important;
+  margin: 0 auto !important;
+}
+
+@media (max-width: 650px) {
+  html body #root main.novaAbout > section.aboutHero {
+    min-height: 590px !important;
+    height: 78svh !important;
+    padding: 40px 18px 70px !important;
+  }
+
+  html body #root main.novaAbout > section.aboutHero
+  > .aboutHeroContent {
+    top: -35px !important;
+    transform: none !important;
+  }
+}
+
+/* ABOUT HERO — FINAL SPACING ADJUSTMENT */
+
+html body #root main.novaAbout > section.aboutHero {
+  min-height: 660px !important;
+  height: 78vh !important;
+}
+
+html body #root main.novaAbout > section.aboutHero
+> .aboutHeroContent {
+  top: -95px !important;
+}
+
+html body #root main.novaAbout > section.aboutHero
+> .aboutHeroContent > h1.aboutHeroTitle {
+  font-size: clamp(2.1rem, 3.7vw, 3.25rem) !important;
+  line-height: 1.12 !important;
+  margin-bottom: 16px !important;
+}
+
+html body #root main.novaAbout > section.aboutHero
+> .aboutHeroContent > .aboutHeroDescription {
+  max-width: 580px !important;
+  line-height: 1.6 !important;
+}
+
+@media (max-width: 650px) {
+  html body #root main.novaAbout > section.aboutHero {
+    min-height: 600px !important;
+    height: 78svh !important;
+  }
+
+  html body #root main.novaAbout > section.aboutHero
+  > .aboutHeroContent {
+    top: -45px !important;
+  }
+
+  html body #root main.novaAbout > section.aboutHero
+  > .aboutHeroContent > h1.aboutHeroTitle {
+    font-size: clamp(1.9rem, 7vw, 2.5rem) !important;
+  }
+}
+
+/* ABOUT HERO — RESTORE PREVIOUS POSITION */
+
+html body #root main.novaAbout > section.aboutHero
+> .aboutHeroContent {
+  top: -145px !important;
+  transform: none !important;
+}
+
+@media (max-width: 650px) {
+  html body #root main.novaAbout > section.aboutHero
+  > .aboutHeroContent {
+    top: -55px !important;
+  }
+}

@@ -1,0 +1,45 @@
+
+/* NOVADENT requested page refinements */
+.novaDoctorsPage .novaDoctorsHero { padding-bottom: clamp(34px, 5vw, 64px) !important; }
+.novaDoctorsPage .novaDoctorsHeroGrid { align-items: center !important; gap: clamp(24px, 4vw, 52px) !important; }
+.novaDoctorsPage .novaDoctorsHeroVisual { margin-bottom: 0 !important; }
+.novaDoctorsPage .novaDoctorCardActions { display:flex !important; flex-wrap:wrap; gap:12px !important; }
+.novaDoctorsPage .novaDoctorProfileLink,
+.novaDoctorsPage .novaDoctorCardLink,
+.doctorProfilePage .doctorProfileBook {
+ display:inline-flex !important; align-items:center; justify-content:center; gap:9px;
+ min-height:48px; padding:13px 20px !important; border-radius:999px !important;
+ font-weight:750 !important; text-decoration:none !important; letter-spacing:.01em;
+ transition:transform .2s ease, box-shadow .2s ease, background .2s ease !important;
+}
+.novaDoctorsPage .novaDoctorProfileLink,
+.doctorProfilePage .doctorProfileBook {
+ color:#fff !important; background:linear-gradient(135deg,#087f8c,#12b8b0) !important;
+ box-shadow:0 10px 24px rgba(8,127,140,.22) !important; border:1px solid rgba(255,255,255,.35) !important;
+}
+.novaDoctorsPage .novaDoctorCardLink { color:#087b86 !important; background:#fff !important; border:1px solid rgba(8,127,140,.25) !important; }
+.novaDoctorsPage .novaDoctorProfileLink:hover,
+.novaDoctorsPage .novaDoctorCardLink:hover,
+.doctorProfilePage .doctorProfileBook:hover { transform:translateY(-3px); box-shadow:0 15px 28px rgba(8,80,95,.2) !important; }
+.doctorProfilePage .doctorProfileHero { gap:clamp(24px,4vw,52px) !important; align-items:center !important; }
+.novaReviewsPage { background:linear-gradient(145deg,#edf8fb 0%,#f9fcff 48%,#e5f5f4 100%) !important; }
+.novaReviewsPage .novaReviewsHero { background:linear-gradient(120deg,rgba(8,75,91,.96),rgba(8,127,140,.88)) !important; border-radius:0 0 42px 42px; }
+.novaReviewsPage .novaReviewCard,
+.novaReviewsPage .novaReviewTrustCard,
+.novaReviewsPage .novaReviewsCTACard { box-shadow:0 18px 48px rgba(16,67,82,.09) !important; border:1px solid rgba(28,129,145,.13) !important; }
+.novaContactPage { background:linear-gradient(145deg,#eef9fb 0%,#ffffff 48%,#e9f6f5 100%) !important; }
+.novaContactPage .novaContactHero { background:linear-gradient(125deg,#0c394b 0%,#087b88 60%,#12a6a2 100%) !important; border-radius:0 0 42px 42px; }
+.novaContactPage .contactInfoCard,
+.novaContactPage .contactFormCard,
+.novaContactPage .contactSideCard,
+.novaContactPage .contactCTACard { box-shadow:0 18px 48px rgba(13,69,84,.10) !important; border:1px solid rgba(14,130,145,.14) !important; }
+.novaAppointmentPage { background:linear-gradient(145deg,#edf8fc 0%,#fff 50%,#e7f5f4 100%) !important; }
+.novaAppointmentPage .novaAppointmentHero { background:linear-gradient(125deg,#10394d 0%,#087f8c 58%,#16a7a2 100%) !important; border-radius:0 0 42px 42px; }
+.novaAppointmentPage .appointmentFormCard,
+.novaAppointmentPage .appointmentSideCard,
+.novaAppointmentPage .appointmentInfoCard { box-shadow:0 18px 48px rgba(13,69,84,.10) !important; border:1px solid rgba(14,130,145,.14) !important; }
+@media(max-width:700px) {
+ .novaDoctorsPage .novaDoctorCardActions { flex-direction:column; }
+ .novaDoctorsPage .novaDoctorProfileLink,.novaDoctorsPage .novaDoctorCardLink { width:100%; }
+ .novaReviewsPage .novaReviewsHero,.novaContactPage .novaContactHero,.novaAppointmentPage .novaAppointmentHero { border-radius:0 0 26px 26px; }
+}

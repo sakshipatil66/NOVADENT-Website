@@ -1,0 +1,197 @@
+/* Step 17 — align About with NOVADENT's navy / aqua Home identity. */
+:root {
+  --nova17-navy: #0b2d4c;
+  --nova17-blue: #174f78;
+  --nova17-aqua: #9be6e1;
+  --nova17-pale: #eef7fb;
+  --nova17-line: rgba(37, 112, 151, .2);
+}
+
+/* About hero: remove all gold/cream accents; retain white for readability and aqua for emphasis. */
+.novaAbout .aboutHero {
+  min-height: clamp(590px, 78svh, 790px) !important;
+  background: var(--nova17-navy) !important;
+  isolation: isolate !important;
+}
+.novaAbout .aboutHeroImage {
+  background-image: url('/images/gallery/gallery-05.jpg') !important;
+  background-position: center 42% !important;
+  filter: blur(3px) saturate(.84) !important;
+  transform: scale(1.045);
+}
+.novaAbout .aboutHeroOverlay {
+  background:
+    linear-gradient(100deg, rgba(6, 31, 53, .88) 0%, rgba(11, 48, 77, .72) 48%, rgba(14, 57, 86, .40) 100%),
+    linear-gradient(0deg, rgba(5, 29, 49, .58), transparent 65%) !important;
+}
+.novaAbout .aboutHeroEyebrow { color: var(--nova17-aqua) !important; }
+.novaAbout .aboutHeroContent h1 {
+  color: #fff !important;
+  max-width: 13.5ch !important;
+  font-size: clamp(44px, 6.1vw, 82px) !important;
+  line-height: 1.02 !important;
+  letter-spacing: -.052em !important;
+  text-wrap: balance !important;
+  text-shadow: 0 4px 26px rgba(0, 15, 32, .28) !important;
+}
+.novaAbout .aboutHeroContent h1 em { color: var(--nova17-aqua) !important; font-style: italic; font-weight: 500 !important; }
+.novaAbout .aboutHeroDescription { color: rgba(255,255,255,.93) !important; max-width: 52ch !important; line-height: 1.85 !important; }
+.novaAbout .aboutHeroFooter { color: rgba(238,248,255,.88) !important; border-color: rgba(155,230,225,.35) !important; }
+
+/* The Experience film keeps copy and visual in equal-height columns on desktop. */
+.novaAbout .aboutExperienceFilm {
+  grid-template-columns: minmax(280px, .88fr) minmax(0, 1.12fr) !important;
+  align-items: stretch !important;
+  gap: clamp(32px, 5vw, 76px) !important;
+  background: linear-gradient(135deg, #f8fbfd 0%, #eaf4f9 54%, #f5fafc 100%) !important;
+  border-block: 1px solid var(--nova17-line);
+}
+.novaAbout .aboutExperienceFilmIntro {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(18px, 2.8vw, 38px) 0;
+}
+.novaAbout .aboutExperienceFilmIntro .aboutEyebrow { color: #287c9d !important; }
+.novaAbout .aboutExperienceFilmIntro h2 {
+  color: var(--nova17-navy) !important;
+  font-size: clamp(35px, 4.1vw, 59px) !important;
+  line-height: 1.06 !important;
+  letter-spacing: -.047em !important;
+  text-wrap: balance !important;
+}
+.novaAbout .aboutExperienceFilmIntro h2 em { color: #287fa0 !important; }
+.novaAbout .aboutExperienceFilmIntro > p:last-child { color: #4a6478 !important; line-height: 1.85 !important; }
+.novaAbout .aboutExperienceFilmFrame {
+  align-self: stretch;
+  min-height: 390px !important;
+  aspect-ratio: auto !important;
+  border-radius: 26px 26px 82px 26px !important;
+  box-shadow: 0 26px 68px rgba(11,45,76,.19) !important;
+}
+.novaAbout .aboutExperienceFilmVideo { height: 100% !important; min-height: 390px !important; object-fit: cover !important; }
+
+/* YOUR EXPERIENCE / Every step, made clearer — a clear editorial timeline. */
+.novaAbout .aboutJourney {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: minmax(250px, .78fr) minmax(0, 1.22fr);
+  align-items: stretch;
+  gap: clamp(34px, 6vw, 92px);
+  padding: clamp(78px, 9vw, 132px) clamp(24px, 8vw, 128px) !important;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f4f9fc 0%, #e6f2f8 55%, #fbfdfe 100%) !important;
+  border-top: 1px solid var(--nova17-line);
+}
+.novaAbout .aboutJourney::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 420px; height: 420px;
+  left: -220px; top: -210px;
+  border: 1px solid rgba(38, 126, 161, .18);
+  border-radius: 50%;
+  box-shadow: 0 0 0 30px rgba(38,126,161,.035), 0 0 0 68px rgba(38,126,161,.025);
+}
+.novaAbout .aboutJourneyHeading {
+  position: sticky;
+  top: 120px;
+  align-self: start;
+  max-width: 470px;
+  padding: 12px 0 22px;
+}
+.novaAbout .aboutJourneyHeading::after {
+  content: "";
+  display: block;
+  width: 76px; height: 3px;
+  margin-top: 30px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #287fa0, #9be6e1);
+}
+.novaAbout .aboutJourneyHeading .aboutEyebrow {
+  color: #287c9d !important;
+  letter-spacing: .2em !important;
+  font-weight: 800 !important;
+}
+.novaAbout .aboutJourneyHeading h2 {
+  margin: 16px 0 24px !important;
+  color: var(--nova17-navy) !important;
+  font-size: clamp(42px, 5vw, 70px) !important;
+  line-height: 1.02 !important;
+  letter-spacing: -.055em !important;
+  text-wrap: balance !important;
+}
+.novaAbout .aboutJourneyHeading h2 span { color: #287fa0 !important; font-style: italic; }
+.novaAbout .aboutJourneyHeading > p:last-child { color: #526d80 !important; font-size: 16px !important; line-height: 1.9 !important; max-width: 40ch; }
+.novaAbout .aboutJourneyList { display: grid; grid-template-columns: 1fr; align-content: stretch; gap: 12px; min-width: 0; }
+.novaAbout .aboutJourneyStep {
+  display: grid !important;
+  grid-template-columns: 52px minmax(0,1fr) 34px !important;
+  align-items: center !important;
+  gap: 20px !important;
+  min-height: 118px;
+  padding: 23px 26px !important;
+  border: 1px solid rgba(31,105,143,.16) !important;
+  border-radius: 18px !important;
+  background: rgba(255,255,255,.88) !important;
+  box-shadow: 0 10px 28px rgba(13,53,82,.045) !important;
+  backdrop-filter: blur(8px);
+  transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease, border-color .35s ease, background .35s ease !important;
+}
+.novaAbout .aboutJourneyStep:hover {
+  transform: translateY(-4px) !important;
+  border-color: rgba(40,127,160,.42) !important;
+  background: #fff !important;
+  box-shadow: 0 20px 42px rgba(13,53,82,.1) !important;
+}
+.novaAbout .aboutJourneyNumber {
+  display: grid; place-items: center;
+  width: 48px; height: 48px;
+  border: 1px solid rgba(40,127,160,.22);
+  border-radius: 15px;
+  background: #e8f5f8 !important;
+  color: #176083 !important;
+  font-size: 13px !important; font-weight: 800 !important; letter-spacing: .04em;
+}
+.novaAbout .aboutJourneyStep h3 { margin: 0 0 7px !important; color: var(--nova17-navy) !important; font-size: clamp(17px,1.5vw,21px) !important; line-height: 1.25 !important; }
+.novaAbout .aboutJourneyStep p { margin: 0 !important; color: #587082 !important; font-size: 14px !important; line-height: 1.7 !important; }
+.novaAbout .aboutJourneyArrow { color: #287fa0 !important; font-size: 22px !important; transition: transform .3s ease; }
+.novaAbout .aboutJourneyStep:hover .aboutJourneyArrow { transform: translate(3px,-3px); }
+
+/* Match the separate clinic image/content pair to one shared height. */
+.novaAbout .aboutExperienceSection { min-height: clamp(480px, 56vw, 690px) !important; display: grid !important; align-items: stretch !important; }
+.novaAbout .aboutExperienceImage, .novaAbout .aboutExperienceOverlay, .novaAbout .aboutExperienceContent { grid-area: 1 / 1 !important; }
+.novaAbout .aboutExperienceImage, .novaAbout .aboutExperienceImage img { width: 100% !important; height: 100% !important; min-height: inherit; object-fit: cover !important; }
+.novaAbout .aboutExperienceContent { align-self: center !important; z-index: 2 !important; max-width: 650px; }
+.novaAbout .aboutExperienceContent .aboutEyebrow { color: var(--nova17-aqua) !important; }
+.novaAbout .aboutExperienceContent h2 { color: #fff !important; }
+.novaAbout .aboutExperienceContent h2 span { color: var(--nova17-aqua) !important; }
+.novaAbout .aboutExperienceContent > p:not(.aboutEyebrow) { color: rgba(255,255,255,.92) !important; }
+
+/* Section separators and reveal feel: refined, not over-animated. */
+.novaAbout > section:not(.aboutHero) { border-top: 1px solid rgba(35,112,151,.14); }
+.novaAbout .aboutJourneyStep, .novaAbout .aboutExperienceFilmFrame, .novaAbout .aboutIntroImage { will-change: transform; }
+.novaAbout .aboutJourneyStep:focus-within { outline: 2px solid #4ca8bc; outline-offset: 3px; }
+@media (max-width: 900px) {
+  .novaAbout .aboutJourney { grid-template-columns: 1fr; gap: 30px; padding: 76px 6vw !important; }
+  .novaAbout .aboutJourneyHeading { position: relative; top: auto; max-width: 700px; }
+  .novaAbout .aboutJourneyHeading h2 { font-size: clamp(40px,7vw,60px) !important; }
+  .novaAbout .aboutExperienceFilm { grid-template-columns: 1fr !important; gap: 24px !important; }
+  .novaAbout .aboutExperienceFilmIntro { padding: 0; }
+  .novaAbout .aboutExperienceFilmFrame, .novaAbout .aboutExperienceFilmVideo { min-height: 0 !important; aspect-ratio: 16 / 10 !important; }
+}
+@media (max-width: 600px) {
+  .novaAbout .aboutHero { min-height: 650px !important; min-height: 80svh !important; }
+  .novaAbout .aboutHeroImage { background-position: 58% center !important; filter: blur(2px) saturate(.85) !important; }
+  .novaAbout .aboutHeroContent h1 { font-size: clamp(40px,10vw,58px) !important; max-width: 12ch !important; }
+  .novaAbout .aboutJourney { padding: 64px 20px !important; }
+  .novaAbout .aboutJourneyStep { grid-template-columns: 42px minmax(0,1fr) 20px !important; gap: 12px !important; min-height: 0; padding: 18px 15px !important; border-radius: 15px !important; }
+  .novaAbout .aboutJourneyNumber { width: 40px; height: 40px; border-radius: 12px; }
+  .novaAbout .aboutJourneyStep p { font-size: 13px !important; }
+  .novaAbout .aboutExperienceSection { min-height: 560px !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .novaAbout .aboutHeroImage, .novaAbout .aboutJourneyStep, .novaAbout .aboutJourneyArrow { animation: none !important; transition: none !important; }
+}

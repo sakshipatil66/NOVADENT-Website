@@ -1,0 +1,51 @@
+/* Step 16 — small but visible refinements based on the actual project assets. */
+:root { --nova-step16-navy: #102f50; --nova-step16-blue: #174e76; --nova-step16-aqua: #9be6e1; }
+
+/* The logo should read as a deliberate brand lockup, not a tiny image lost in the header. */
+.novaNavbar .novaBrand { min-width: max-content; }
+.novaNavbar .novaBrandText { display: flex; flex-direction: column; justify-content: center; }
+.novaNavbar .novaLogo { box-shadow: 0 8px 24px rgba(16,47,80,.13), 0 0 0 4px rgba(155,230,225,.14) !important; }
+.novaNavbar .novaNavbarLogoImage { object-position: center; }
+.novaNavbar .novaBrand:focus-visible .novaLogo { outline: 3px solid #4bbbc4; outline-offset: 4px; }
+
+/* Avoid repeating the same photo in the Home CTA and About hero. Keep CTA copy readable. */
+.homePage.premiumHome .cinematicAppointmentSmile { width: min(340px, 27vw); min-height: 330px; border-radius: 190px 190px 28px 28px !important; }
+.homePage.premiumHome .cinematicAppointmentSmile img { object-position: 50% 38% !important; }
+.homePage.premiumHome .cinematicAppointmentSmile::after { background: linear-gradient(180deg, rgba(7,35,57,.02) 15%, rgba(7,35,57,.2) 48%, rgba(5,27,46,.9) 100%) !important; }
+.homePage.premiumHome .cinematicAppointmentSmile span { bottom: 22px; left: 50%; transform: translateX(-50%); width: max-content; text-align: center; letter-spacing: .12em; }
+.homePage.premiumHome .cinematicAppointmentCopy h2 { text-wrap: balance; max-width: 15ch; }
+.homePage.premiumHome .cinematicAppointmentCopy p { max-width: 49ch; line-height: 1.8; }
+
+/* About hero: retain the blue palette while keeping the photo recognisable. */
+.novaAbout .aboutHeroImage { filter: blur(1.5px) saturate(.92) !important; }
+.novaAbout .aboutHeroOverlay { background: linear-gradient(90deg, rgba(7,31,54,.82) 0%, rgba(13,48,76,.63) 48%, rgba(13,48,76,.34) 100%), linear-gradient(0deg, rgba(7,30,51,.4), transparent 58%) !important; }
+.novaAbout .aboutHeroContent h1 { max-width: 14ch !important; }
+.novaAbout .aboutExperienceFilm { display: grid; grid-template-columns: minmax(240px,.72fr) minmax(0,1.28fr); align-items: center; gap: clamp(28px,5vw,76px); }
+.novaAbout .aboutExperienceFilm::before { grid-column: 1 / -1; margin-bottom: -4px; }
+.novaAbout .aboutExperienceFilmIntro { max-width: 480px; }
+.novaAbout .aboutExperienceFilmFrame { width: 100%; }
+.novaAbout .aboutExperienceFilmVideo { cursor: pointer; }
+.novaAbout .aboutExperienceFilmFrame:hover { box-shadow: 0 30px 78px rgba(14,48,74,.23), 0 0 0 8px rgba(155,230,225,.16) !important; }
+.novaAbout .aboutExperienceFilmCaption { bottom: 20px; }
+
+/* Distinctive section edges and more intentional hover feedback. */
+.novaAbout .aboutValues, .novaAbout .aboutJourney, .novaAbout .aboutGallery { border-top: 1px solid rgba(36,112,143,.13); }
+.novaAbout .aboutValueCard, .novaAbout .aboutJourneyStep, .novaAbout .aboutGalleryItem { transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease, border-color .35s ease !important; }
+.novaAbout .aboutGalleryItem:hover { transform: translateY(-5px); box-shadow: 0 18px 42px rgba(16,47,80,.13); }
+.novaNavbar .novaDesktopCTA, .novaNavbar .novaMobileAppointment { box-shadow: 0 9px 24px rgba(16,47,80,.16); }
+.novaFooter { border-top: 1px solid rgba(155,230,225,.2); }
+
+@media (max-width: 900px) {
+  .homePage.premiumHome .cinematicAppointmentSmile { width: min(300px, 30vw); min-height: 280px; }
+  .novaAbout .aboutExperienceFilm { grid-template-columns: 1fr; gap: 26px; }
+  .novaAbout .aboutExperienceFilmIntro { max-width: 680px; }
+}
+@media (max-width: 640px) {
+  .homePage.premiumHome .cinematicAppointmentSmile { width: min(82vw, 330px); min-height: 280px; margin: 0 auto 22px; }
+  .homePage.premiumHome .cinematicAppointmentSmile span { bottom: 18px; font-size: 9px !important; }
+  .novaAbout .aboutHeroContent h1 { max-width: 11ch !important; }
+  .novaAbout .aboutExperienceFilmFrame { border-radius: 18px !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .novaNavbar *, .novaAbout *, .homePage.premiumHome .cinematicAppointmentSmile * { transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+}

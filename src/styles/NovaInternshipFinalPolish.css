@@ -1,0 +1,61 @@
+/* NOVADENT internship delivery polish — public website only. Hero geometry intentionally untouched. */
+:root {
+  --nova-polish-teal: #168b91;
+  --nova-polish-ink: #15343b;
+  --nova-polish-line: rgba(21, 70, 78, .13);
+}
+html { scroll-behavior: smooth; scroll-padding-top: 92px; }
+body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+img { height: auto; }
+:where(a, button, input, select, textarea, [role="button"]):focus-visible {
+  outline: 3px solid rgba(22, 139, 145, .62) !important;
+  outline-offset: 3px;
+}
+:where(button, .storyButton, .careStoryLink, .novaNotFoundPrimary, .novaNotFoundSecondary) {
+  transition: transform .22s ease, box-shadow .22s ease, background-color .22s ease, border-color .22s ease;
+}
+@media (hover:hover) {
+  :where(button, .storyButton, .careStoryLink, .novaNotFoundPrimary, .novaNotFoundSecondary):hover { transform: translateY(-2px); }
+}
+/* Shared card polish without changing page structure or hero placement. */
+:where(.treatment-card, .treatmentCard, .doctor-card, .doctorCard, .review-card, .reviewCard,
+  .gallery-card, .galleryCard, .service-card, .serviceCard, .novaExperienceItem,
+  .storyMiniGrid > *, .careStoryPoint, .founderExperienceCard) {
+  transition: border-color .25s ease, box-shadow .25s ease, transform .25s ease;
+}
+@media (hover:hover) {
+  :where(.treatment-card, .treatmentCard, .doctor-card, .doctorCard, .review-card, .reviewCard,
+    .gallery-card, .galleryCard, .service-card, .serviceCard, .novaExperienceItem,
+    .storyMiniGrid > *, .careStoryPoint, .founderExperienceCard):hover {
+    border-color: rgba(22, 139, 145, .28);
+    box-shadow: 0 16px 36px rgba(17, 64, 72, .09);
+  }
+}
+/* Consistent image behavior on content cards, not the existing homepage hero. */
+:where(.treatment-card, .treatmentCard, .doctor-card, .doctorCard, .review-card, .reviewCard,
+  .gallery-card, .galleryCard, .service-card, .serviceCard) img {
+  transition: transform .45s cubic-bezier(.2,.7,.2,1), filter .35s ease;
+}
+@media (hover:hover) {
+  :where(.treatment-card, .treatmentCard, .doctor-card, .doctorCard, .gallery-card, .galleryCard):hover img { filter: saturate(1.04); }
+}
+/* Forms: clearer field affordance and error-state visibility. */
+:where(input, select, textarea) { max-width: 100%; }
+:where(input, select, textarea):focus {
+  border-color: var(--nova-polish-teal) !important;
+  box-shadow: 0 0 0 3px rgba(22, 139, 145, .10);
+}
+:where(input, select, textarea)[aria-invalid="true"] { border-color: #c94c4c !important; }
+:where(label) { line-height: 1.45; }
+/* Small-screen safety: prevent horizontal overflow and keep tap targets comfortable. */
+@media (max-width: 767px) {
+  html { scroll-padding-top: 76px; }
+  :where(button, .storyButton, .careStoryLink, .novaNotFoundPrimary, .novaNotFoundSecondary) { min-height: 42px; }
+  :where(input, select, textarea) { font-size: 16px; }
+  :where(.novaNotFoundActions) { flex-wrap: wrap; }
+  :where(.novaNotFoundPrimary, .novaNotFoundSecondary) { justify-content: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+}

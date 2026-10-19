@@ -1,0 +1,443 @@
+/* Step 27 — compact, balanced About page typography and CTA storytelling. */
+:root {
+  --nova27-navy: #082b49;
+  --nova27-blue: #237c9e;
+  --nova27-aqua: #91e0e5;
+  --nova27-ink: #153b53;
+  --nova27-muted: #557083;
+}
+
+/* Hero: compact, centered, and consistent with Home's restrained editorial scale. */
+html body #root main.novaAbout > section.aboutHero {
+  display: grid !important;
+  place-items: center !important;
+  text-align: center !important;
+  min-height: clamp(520px, 72vh, 760px) !important;
+  padding: clamp(100px, 12vh, 140px) 24px 88px !important;
+}
+html body #root main.novaAbout > section.aboutHero .aboutHeroContent {
+  width: min(100%, 900px) !important;
+  margin-inline: auto !important;
+  text-align: center !important;
+  align-items: center !important;
+  position: relative !important;
+  z-index: 3 !important;
+}
+html body #root main.novaAbout > section.aboutHero .aboutHeroContent h1.aboutHeroTitle {
+  width: 100% !important;
+  max-width: 820px !important;
+  margin: 14px auto 22px !important;
+  font-size: clamp(2.45rem, 5.4vw, 4.9rem) !important;
+  line-height: 1.04 !important;
+  letter-spacing: -.045em !important;
+  text-align: center !important;
+  text-wrap: balance !important;
+}
+html body #root main.novaAbout > section.aboutHero .aboutHeroContent h1.aboutHeroTitle > span {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  text-align: center !important;
+}
+html body #root main.novaAbout > section.aboutHero .aboutHeroContent .aboutHeroEyebrow {
+  margin-inline: auto !important;
+  font-size: .7rem !important;
+  letter-spacing: .2em !important;
+  color: #b8f2f1 !important;
+  -webkit-text-fill-color: #b8f2f1 !important;
+}
+html body #root main.novaAbout > section.aboutHero .aboutHeroContent .aboutHeroDescription {
+  max-width: 620px !important;
+  margin: 0 auto !important;
+  font-size: clamp(.96rem, 1.12vw, 1.08rem) !important;
+  line-height: 1.72 !important;
+  text-align: center !important;
+}
+/* Trust point row removed from JSX; guard against any stale style leaving a gap. */
+html body #root main.novaAbout .aboutHeroTrustPoints { display: none !important; }
+
+/* Bring every About section closer to Home's typography scale. */
+.novaAbout .aboutSectionHeading h2,
+.novaAbout .aboutIntro h2,
+.novaAbout .aboutStory h2,
+.novaAbout .aboutModern h2,
+.novaAbout .aboutJourney h2,
+.novaAbout .aboutValues h2,
+.novaAbout .aboutGallery h2,
+.novaAbout .aboutExperienceSection h2,
+.novaAbout .aboutExperienceFilm h2,
+.novaAbout .aboutFinalCta h2,
+.novaAbout .aboutPromise h2 {
+  font-size: clamp(2rem, 4vw, 3.75rem) !important;
+  line-height: 1.08 !important;
+  letter-spacing: -.045em !important;
+  text-wrap: balance !important;
+}
+.novaAbout p,
+.novaAbout .aboutSectionDescription,
+.novaAbout .aboutStoryContent p,
+.novaAbout .aboutModernText p,
+.novaAbout .aboutExperienceContent p,
+.novaAbout .aboutFinalCtaText > p:not(.aboutEyebrow),
+.novaAbout .aboutPromiseDescription {
+  font-size: clamp(.94rem, 1.05vw, 1.04rem) !important;
+  line-height: 1.75 !important;
+}
+.novaAbout > section { scroll-margin-top: 88px; }
+
+/* Penultimate promise section: cinematic background with text clearly above it. */
+html body #root main.novaAbout > section.aboutPromise {
+  position: relative !important;
+  isolation: isolate !important;
+  overflow: hidden !important;
+  padding: clamp(64px, 8vw, 108px) clamp(22px, 6vw, 84px) !important;
+  text-align: center !important;
+  background:
+    radial-gradient(ellipse at 82% 12%, rgba(76,166,199,.32), transparent 42%),
+    linear-gradient(125deg, #061f37 0%, #0b385b 56%, #145b78 100%) !important;
+  color: #fff !important;
+  border-radius: 28px !important;
+  margin: clamp(28px, 5vw, 64px) auto !important;
+  width: min(calc(100% - 40px), 1380px) !important;
+}
+html body #root main.novaAbout > section.aboutPromise::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 18px !important;
+  border: 1px solid rgba(176,238,242,.24) !important;
+  border-radius: 20px !important;
+  pointer-events: none !important;
+  z-index: -1 !important;
+}
+.novaAbout .aboutPromiseMark { color: rgba(164,231,238,.22) !important; }
+.novaAbout .aboutPromise .aboutEyebrow { color: #a9edf0 !important; -webkit-text-fill-color: #a9edf0 !important; }
+.novaAbout .aboutPromise h2 { color: #fff !important; max-width: 820px !important; margin: 16px auto 22px !important; }
+.novaAbout .aboutPromise .aboutPromiseAccent { color: #91e0e5 !important; -webkit-text-fill-color: #91e0e5 !important; }
+.novaAbout .aboutPromiseDescription { color: rgba(246,252,255,.9) !important; max-width: 720px !important; margin-inline: auto !important; }
+
+/* Final CTA: strong contrast and clear action, no pale text on pale background. */
+html body #root main.novaAbout > section.aboutFinalCta {
+  position: relative !important;
+  isolation: isolate !important;
+  overflow: hidden !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.3fr) minmax(220px, .7fr) !important;
+  align-items: center !important;
+  gap: clamp(24px, 5vw, 64px) !important;
+  padding: clamp(42px, 6vw, 78px) clamp(24px, 6vw, 82px) !important;
+  width: min(calc(100% - 40px), 1380px) !important;
+  margin: 0 auto clamp(42px, 6vw, 84px) !important;
+  border-radius: 28px !important;
+  background:
+    radial-gradient(circle at 90% 0%, rgba(94,188,214,.28), transparent 34%),
+    linear-gradient(125deg, #eaf5fa 0%, #f8fcfe 50%, #dceef5 100%) !important;
+  border: 1px solid rgba(35,124,158,.17) !important;
+}
+.novaAbout .aboutFinalCtaText h2 { color: var(--nova27-navy) !important; font-size: clamp(2.2rem, 4.3vw, 4.1rem) !important; margin: 12px 0 18px !important; }
+.novaAbout .aboutFinalCtaText > p:not(.aboutEyebrow) { color: var(--nova27-muted) !important; max-width: 600px !important; }
+.novaAbout .aboutFinalCta .aboutEyebrow { color: var(--nova27-blue) !important; -webkit-text-fill-color: var(--nova27-blue) !important; }
+.novaAbout .aboutFinalCtaAction { display: flex !important; flex-direction: column !important; align-items: flex-start !important; gap: 16px !important; }
+.novaAbout .aboutFinalCtaAction > span { color: var(--nova27-muted) !important; font-size: .9rem !important; }
+.novaAbout .aboutFinalCta .aboutButtonDark {
+  display: inline-flex !important; align-items: center !important; justify-content: center !important;
+  gap: 12px !important; padding: 15px 23px !important; min-height: 52px !important;
+  color: #fff !important; background: var(--nova27-navy) !important;
+  border: 1px solid var(--nova27-navy) !important; border-radius: 999px !important;
+  box-shadow: 0 10px 24px rgba(8,43,73,.18) !important;
+  transition: transform .25s ease, box-shadow .25s ease, background .25s ease !important;
+}
+.novaAbout .aboutFinalCta .aboutButtonDark:hover { transform: translateY(-3px) !important; background: #124b70 !important; box-shadow: 0 16px 30px rgba(8,43,73,.24) !important; }
+
+@media (max-width: 760px) {
+  html body #root main.novaAbout > section.aboutHero { min-height: 560px !important; padding: 104px 20px 76px !important; }
+  html body #root main.novaAbout > section.aboutHero .aboutHeroContent h1.aboutHeroTitle { font-size: clamp(2.2rem, 8.4vw, 3.4rem) !important; line-height: 1.07 !important; }
+  .novaAbout .aboutSectionHeading h2,
+  .novaAbout .aboutIntro h2,
+  .novaAbout .aboutStory h2,
+  .novaAbout .aboutModern h2,
+  .novaAbout .aboutJourney h2,
+  .novaAbout .aboutValues h2,
+  .novaAbout .aboutGallery h2,
+  .novaAbout .aboutExperienceSection h2,
+  .novaAbout .aboutExperienceFilm h2,
+  .novaAbout .aboutFinalCta h2,
+  .novaAbout .aboutPromise h2 { font-size: clamp(1.9rem, 7vw, 2.75rem) !important; }
+  html body #root main.novaAbout > section.aboutPromise,
+  html body #root main.novaAbout > section.aboutFinalCta { width: calc(100% - 28px) !important; border-radius: 22px !important; }
+  html body #root main.novaAbout > section.aboutPromise { padding: 58px 22px !important; }
+  html body #root main.novaAbout > section.aboutFinalCta { grid-template-columns: 1fr !important; padding: 36px 24px !important; gap: 22px !important; }
+  .novaAbout .aboutFinalCtaAction { align-items: flex-start !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .novaAbout .aboutFinalCta .aboutButtonDark { transition: none !important; }
+  .novaAbout .aboutFinalCta .aboutButtonDark:hover { transform: none !important; }
+}
+
+/* Step 28 — prevent heading/description collisions and refine the closing story. */
+html body #root main.novaAbout .aboutSectionHeading {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.05fr) minmax(260px, .75fr) !important;
+  align-items: end !important;
+  justify-content: space-between !important;
+  column-gap: clamp(28px, 6vw, 92px) !important;
+  row-gap: 20px !important;
+  width: 100% !important;
+  max-width: 1240px !important;
+  margin: 0 auto clamp(34px, 4vw, 54px) !important;
+}
+html body #root main.novaAbout .aboutSectionHeading > div,
+html body #root main.novaAbout .aboutSectionHeading > p {
+  min-width: 0 !important;
+  width: auto !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  position: relative !important;
+  overflow-wrap: anywhere !important;
+}
+html body #root main.novaAbout .aboutSectionHeading > p.aboutSectionDescription {
+  justify-self: end !important;
+  max-width: 450px !important;
+  padding: 0 0 5px !important;
+  text-align: left !important;
+  text-wrap: pretty !important;
+}
+html body #root main.novaAbout .aboutSectionHeading h2 {
+  max-width: 720px !important;
+  margin: 12px 0 0 !important;
+  overflow-wrap: normal !important;
+}
+html body #root main.novaAbout .aboutValues,
+html body #root main.novaAbout .aboutGallery {
+  position: relative !important;
+  isolation: isolate !important;
+}
+html body #root main.novaAbout .aboutValuesGrid {
+  align-items: stretch !important;
+  gap: clamp(14px, 2vw, 26px) !important;
+}
+html body #root main.novaAbout .aboutValueCard {
+  min-width: 0 !important;
+  height: 100% !important;
+  padding: clamp(22px, 2.5vw, 34px) !important;
+  border: 1px solid rgba(24, 91, 124, .12) !important;
+  border-radius: 22px !important;
+  background: linear-gradient(150deg, #fff 0%, #f3f9fc 100%) !important;
+  box-shadow: 0 14px 40px rgba(8, 43, 73, .055) !important;
+  overflow-wrap: anywhere !important;
+}
+html body #root main.novaAbout .aboutGallery .aboutSectionHeading > p.aboutSectionDescription {
+  max-width: 410px !important;
+}
+html body #root main.novaAbout .aboutGalleryItem {
+  min-width: 0 !important;
+  border-radius: 20px !important;
+  box-shadow: 0 14px 36px rgba(8, 43, 73, .10) !important;
+}
+html body #root main.novaAbout .aboutPromise {
+  min-height: 330px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0 !important;
+  box-shadow: 0 24px 70px rgba(8, 43, 73, .18) !important;
+}
+html body #root main.novaAbout .aboutPromiseMark {
+  position: absolute !important;
+  right: clamp(24px, 5vw, 76px) !important;
+  top: 8px !important;
+  font-size: clamp(7rem, 15vw, 13rem) !important;
+  line-height: 1 !important;
+  pointer-events: none !important;
+  user-select: none !important;
+}
+html body #root main.novaAbout .aboutPromise > *:not(.aboutPromiseMark) {
+  position: relative !important;
+  z-index: 1 !important;
+}
+html body #root main.novaAbout .aboutPromiseDescription {
+  max-width: 660px !important;
+  text-wrap: pretty !important;
+}
+html body #root main.novaAbout .aboutFinalCta {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(103, 208, 222, .30), transparent 34%),
+    linear-gradient(125deg, #f0f8fc 0%, #ffffff 52%, #e0f2f7 100%) !important;
+  box-shadow: 0 22px 60px rgba(8, 43, 73, .09) !important;
+  border: 1px solid rgba(35, 124, 158, .20) !important;
+}
+html body #root main.novaAbout .aboutFinalCta::after {
+  content: "N." !important;
+  position: absolute !important;
+  right: 3% !important;
+  bottom: -32% !important;
+  z-index: -1 !important;
+  font-size: clamp(8rem, 19vw, 17rem) !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  letter-spacing: -.1em !important;
+  color: rgba(35, 124, 158, .055) !important;
+  pointer-events: none !important;
+}
+html body #root main.novaAbout .aboutFinalCtaText,
+html body #root main.novaAbout .aboutFinalCtaAction {
+  min-width: 0 !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+html body #root main.novaAbout .aboutFinalCtaText > p:last-child {
+  max-width: 540px !important;
+  text-wrap: pretty !important;
+}
+html body #root main.novaAbout .aboutFinalCtaAction {
+  justify-self: end !important;
+  width: 100% !important;
+  max-width: 290px !important;
+  padding: 24px !important;
+  border: 1px solid rgba(35, 124, 158, .14) !important;
+  border-radius: 20px !important;
+  background: rgba(255, 255, 255, .68) !important;
+  box-shadow: 0 12px 34px rgba(8, 43, 73, .07) !important;
+}
+html body #root main.novaAbout .aboutFinalCta .aboutButtonDark {
+  max-width: 100% !important;
+  white-space: normal !important;
+  text-align: center !important;
+}
+@media (max-width: 760px) {
+  html body #root main.novaAbout .aboutSectionHeading {
+    grid-template-columns: minmax(0, 1fr) !important;
+    align-items: start !important;
+    gap: 14px !important;
+    margin-bottom: 28px !important;
+  }
+  html body #root main.novaAbout .aboutSectionHeading > p.aboutSectionDescription {
+    justify-self: stretch !important;
+    max-width: 100% !important;
+    font-size: .94rem !important;
+    line-height: 1.7 !important;
+  }
+  html body #root main.novaAbout .aboutPromise { min-height: 0 !important; }
+  html body #root main.novaAbout .aboutPromiseMark { right: 18px !important; top: 12px !important; font-size: 6.5rem !important; }
+  html body #root main.novaAbout .aboutFinalCtaAction {
+    justify-self: stretch !important;
+    max-width: none !important;
+    padding: 18px !important;
+  }
+}
+
+/* Step 30 — explicit layout repair for the live About section markup. */
+html body #root main.novaAbout .aboutSectionHeading {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.1fr) minmax(240px, .8fr) !important;
+  align-items: end !important;
+  gap: clamp(18px, 4vw, 56px) !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  position: relative !important;
+  margin: 0 auto clamp(28px, 4vw, 48px) !important;
+  padding: 0 !important;
+}
+html body #root main.novaAbout .aboutSectionHeading > div {
+  display: block !important;
+  min-width: 0 !important;
+  width: 100% !important;
+  height: auto !important;
+  position: relative !important;
+  inset: auto !important;
+}
+html body #root main.novaAbout .aboutSectionHeading h2 {
+  display: block !important;
+  position: relative !important;
+  width: 100% !important;
+  height: auto !important;
+  margin: 12px 0 0 !important;
+  transform: none !important;
+  white-space: normal !important;
+  overflow-wrap: normal !important;
+  line-height: 1.08 !important;
+}
+html body #root main.novaAbout .aboutSectionHeading .aboutSectionDescription {
+  display: block !important;
+  position: relative !important;
+  inset: auto !important;
+  align-self: end !important;
+  justify-self: stretch !important;
+  width: 100% !important;
+  max-width: 440px !important;
+  height: auto !important;
+  min-height: 0 !important;
+  margin: 0 0 4px !important;
+  padding: 0 !important;
+  transform: none !important;
+  white-space: normal !important;
+  overflow: visible !important;
+  overflow-wrap: anywhere !important;
+  font-size: clamp(.92rem, 1vw, 1.02rem) !important;
+  line-height: 1.75 !important;
+}
+html body #root main.novaAbout .aboutValues,
+html body #root main.novaAbout .aboutGallery {
+  display: block !important;
+  height: auto !important;
+  min-height: 0 !important;
+  overflow: visible !important;
+  padding-block: clamp(54px, 7vw, 96px) !important;
+}
+html body #root main.novaAbout .aboutValuesGrid,
+html body #root main.novaAbout .aboutGalleryGrid {
+  position: relative !important;
+  clear: both !important;
+  margin-top: 0 !important;
+}
+html body #root main.novaAbout .aboutPromiseDescription {
+  position: relative !important;
+  display: block !important;
+  width: min(100%, 700px) !important;
+  height: auto !important;
+  margin: 0 auto !important;
+  line-height: 1.8 !important;
+  overflow-wrap: anywhere !important;
+}
+html body #root main.novaAbout .aboutFinalCta {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(230px, .72fr) !important;
+  align-items: center !important;
+  gap: clamp(24px, 5vw, 68px) !important;
+  height: auto !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+  padding: clamp(32px, 6vw, 76px) !important;
+}
+html body #root main.novaAbout .aboutFinalCta h2,
+html body #root main.novaAbout .aboutFinalCtaText > p {
+  position: relative !important;
+  height: auto !important;
+  transform: none !important;
+  overflow-wrap: anywhere !important;
+}
+@media (max-width: 760px) {
+  html body #root main.novaAbout .aboutSectionHeading,
+  html body #root main.novaAbout .aboutFinalCta {
+    grid-template-columns: minmax(0, 1fr) !important;
+    align-items: start !important;
+    gap: 18px !important;
+  }
+  html body #root main.novaAbout .aboutSectionHeading .aboutSectionDescription {
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+  html body #root main.novaAbout .aboutFinalCtaAction {
+    justify-self: stretch !important;
+    max-width: 100% !important;
+  }
+  html body #root main.novaAbout > section.aboutHero {
+    min-height: 560px !important;
+    padding: 100px 20px 76px !important;
+  }
+  html body #root main.novaAbout .aboutHeroTitle {
+    font-size: clamp(2.05rem, 8.3vw, 3.1rem) !important;
+    line-height: 1.08 !important;
+  }
+}

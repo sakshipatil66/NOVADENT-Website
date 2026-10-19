@@ -1,0 +1,21 @@
+/* Patient FAQ storytelling chapter — accessible, responsive accordion */
+.novaPatientFaq { position: relative; padding: clamp(72px, 9vw, 132px) 24px; background: #f3f7f6; color: #17343b; }
+.novaPatientFaqInner { width: min(1160px, 100%); margin: 0 auto; display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(36px, 7vw, 100px); align-items: start; }
+.novaPatientFaqIntro { position: sticky; top: 110px; }
+.novaPatientFaqIntro h2 { margin: 18px 0 18px; max-width: 520px; font-size: clamp(2rem, 4vw, 3.65rem); line-height: 1.05; letter-spacing: -.045em; font-weight: 500; }
+.novaPatientFaqIntro h2 em { color: #398b89; font-family: Georgia, serif; font-weight: 400; }
+.novaPatientFaqIntro > p { max-width: 440px; color: #5d7074; line-height: 1.8; }
+.novaFaqContactLink { display: inline-flex; align-items: center; gap: 9px; margin-top: 18px; color: #1b7778; font-size: .92rem; font-weight: 650; text-decoration: none; }
+.novaFaqContactLink:hover { gap: 13px; }
+.novaFaqContactLink:focus-visible, .novaFaqQuestion:focus-visible { outline: 2px solid #287e80; outline-offset: 4px; border-radius: 4px; }
+.novaPatientFaqList { border-top: 1px solid rgba(23,52,59,.18); }
+.novaFaqItem { border-bottom: 1px solid rgba(23,52,59,.18); }
+.novaFaqQuestion { width: 100%; display: grid; grid-template-columns: 34px 1fr 28px; gap: 14px; align-items: center; padding: 23px 0; border: 0; background: transparent; color: inherit; text-align: left; cursor: pointer; font: inherit; font-size: clamp(.98rem, 1.4vw, 1.12rem); font-weight: 600; }
+.novaFaqNumber { color: #438d8c; font-size: .72rem; letter-spacing: .1em; }
+.novaFaqToggle { display: grid; place-items: center; width: 28px; height: 28px; border: 1px solid rgba(27,119,120,.28); border-radius: 50%; color: #287e80; font-size: 1.2rem; font-weight: 400; transition: transform .22s ease, background .22s ease, color .22s ease; }
+.novaFaqItem.is-open .novaFaqToggle { color: white; background: #287e80; transform: rotate(180deg); }
+.novaFaqAnswer { padding: 0 42px 23px 48px; animation: novaFaqReveal .28s ease both; }
+.novaFaqAnswer p { margin: 0; max-width: 58ch; color: #5d7074; line-height: 1.8; font-size: .95rem; }
+@keyframes novaFaqReveal { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 760px) { .novaPatientFaqInner { grid-template-columns: 1fr; gap: 32px; } .novaPatientFaqIntro { position: static; } .novaFaqQuestion { grid-template-columns: 27px 1fr 28px; gap: 10px; padding: 19px 0; } .novaFaqAnswer { padding: 0 12px 20px 37px; } }
+@media (prefers-reduced-motion: reduce) { .novaFaqToggle, .novaFaqContactLink { transition: none; } .novaFaqAnswer { animation: none; } }

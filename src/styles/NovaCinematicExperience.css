@@ -1,0 +1,116 @@
+/* NOVADENT cinematic storytelling polish — appended after legacy layers. */
+.novaAbout .aboutHero {
+  min-height: 650px !important;
+  height: min(82svh, 780px) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 76px 24px 104px !important;
+  box-sizing: border-box !important;
+}
+.novaAbout .aboutHeroContent {
+  position: relative !important;
+  inset: auto !important;
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  width: min(1080px, 100%) !important;
+  max-width: 1080px !important;
+  margin: 0 auto !important;
+  padding: 0 12px !important;
+  transform: none !important;
+  text-align: center !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 0 !important;
+  z-index: 3 !important;
+}
+.novaAbout .aboutHeroEyebrow { margin: 0 0 24px !important; }
+.novaAbout .aboutHeroTitle {
+  width: 100%; max-width: 1050px; margin: 0 auto !important;
+  display: flex; flex-direction: column; align-items: center;
+  font-size: clamp(46px, 5.6vw, 88px) !important;
+  line-height: 1.03 !important; letter-spacing: -.045em;
+  text-wrap: balance;
+}
+.novaAbout .aboutHeroTitlePrimary,
+.novaAbout .aboutHeroTitleAccent { display: block; max-width: 100%; }
+.novaAbout .aboutHeroDescription {
+  width: min(720px, 100%); max-width: 720px;
+  margin: 26px auto 0 !important; padding: 0 8px !important;
+  font-size: clamp(16px, 1.25vw, 19px) !important;
+  line-height: 1.65 !important; text-align: center !important;
+  text-wrap: balance; position: relative; z-index: 3;
+}
+.novaAbout .aboutHeroFooter {
+  position: absolute !important; left: 5% !important; right: 5% !important;
+  bottom: 24px !important; width: 90% !important;
+  display: flex !important; justify-content: space-between !important;
+  align-items: center !important; gap: 16px !important;
+  z-index: 4 !important;
+}
+
+/* Consistent cinematic page entrances without changing the content structure. */
+.novaDoctorsPage .novaDoctorsHeroContent,
+.novaReviewsPage .novaReviewsHeroContent,
+.novaServicesPage .novaServicesHeroContent,
+.novaContactPage .contactHeroContent,
+.novaAppointmentPage .appointmentHeroContent,
+.premiumTreatmentsPage .premiumTreatmentHeroContent,
+.nova-gallery-hero-content {
+  animation: novaHeroRise .9s cubic-bezier(.2,.7,.2,1) both;
+}
+.novaDoctorsHeroImageFrame, .novaDoctorsHeroVisual,
+.appointmentHeroImage, .contactHeroImage, .novaServicesHeroImage {
+  will-change: transform;
+  transition: transform 900ms cubic-bezier(.2,.7,.2,1), filter 700ms ease;
+}
+.novaDoctorsHero:hover .novaDoctorsHeroImageFrame,
+.appointmentHeroVisual:hover .appointmentHeroImage,
+.contactHeroVisual:hover .contactHeroImage { transform: translateY(-5px) scale(1.018); }
+.novaDoctorCard, .novaDoctorsValueCard, .novaReviewTrustCard,
+.novaReviewCard, .premiumTreatmentItem, .premiumTreatmentStep,
+.premiumTreatmentFAQ, .appointmentInfoCard, .contactInfoCard,
+.novaServicesBenefitCard, .nova-gallery-item, .gallery-card,
+.aboutValueCard, .aboutJourneyStep, .aboutGalleryItem {
+  transition: transform 420ms cubic-bezier(.2,.7,.2,1), box-shadow 420ms ease, border-color 420ms ease;
+}
+.novaDoctorCard:hover, .novaDoctorsValueCard:hover, .novaReviewTrustCard:hover,
+.novaReviewCard:hover, .premiumTreatmentItem:hover, .premiumTreatmentStep:hover,
+.appointmentInfoCard:hover, .contactInfoCard:hover, .novaServicesBenefitCard:hover,
+.aboutValueCard:hover, .aboutJourneyStep:hover, .aboutGalleryItem:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 22px 48px rgba(10, 38, 63, .12);
+}
+.nova-gallery-hero, .novaDoctorsHero, .novaReviewsHero,
+.novaServicesHero, .novaContactHero, .novaAppointmentHero,
+.premiumTreatmentHero { overflow: clip; }
+@keyframes novaHeroRise {
+  from { opacity: 0; transform: translate3d(0, 22px, 0); filter: blur(3px); }
+  to { opacity: 1; transform: translate3d(0, 0, 0); filter: blur(0); }
+}
+@media (max-width: 768px) {
+  .novaAbout .aboutHero {
+    min-height: 620px !important; height: auto !important;
+    padding: 76px 18px 98px !important;
+  }
+  .novaAbout .aboutHeroTitle { font-size: clamp(39px, 9vw, 62px) !important; line-height: 1.08 !important; }
+  .novaAbout .aboutHeroEyebrow { margin-bottom: 20px !important; }
+  .novaAbout .aboutHeroDescription { margin-top: 22px !important; font-size: 16px !important; }
+  .novaAbout .aboutHeroFooter { left: 18px !important; right: 18px !important; bottom: 18px !important; width: auto !important; font-size: 9px !important; }
+}
+@media (max-width: 440px) {
+  .novaAbout .aboutHero { min-height: 600px !important; padding-inline: 14px !important; }
+  .novaAbout .aboutHeroTitle { font-size: clamp(34px, 9vw, 44px) !important; }
+  .novaAbout .aboutHeroFooter { align-items: flex-start !important; }
+  .novaAbout .aboutHeroFooter span:last-child { text-align: right; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .novaDoctorsPage .novaDoctorsHeroContent, .novaReviewsPage .novaReviewsHeroContent,
+  .novaServicesPage .novaServicesHeroContent, .novaContactPage .contactHeroContent,
+  .novaAppointmentPage .appointmentHeroContent, .premiumTreatmentHeroContent,
+  .nova-gallery-hero-content { animation: none !important; }
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+}

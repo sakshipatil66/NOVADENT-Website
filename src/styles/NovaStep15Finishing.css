@@ -1,0 +1,133 @@
+/* Step 15 — visible finishing pass for brand, About storytelling film, CTA contrast and responsive polish. */
+:root {
+  --nova-navy: #102f50;
+  --nova-blue: #174e76;
+  --nova-aqua: #9be6e1;
+  --nova-ice: #eef8fb;
+}
+
+/* Brand mark and wordmark: separate colour planes so neither disappears into the white header. */
+.novaNavbar .novaBrand { gap: 13px !important; }
+.novaNavbar .novaLogo {
+  position: relative !important;
+  overflow: visible !important;
+  isolation: isolate !important;
+  transition: transform .35s ease, box-shadow .35s ease !important;
+}
+.novaNavbar .novaLogo::before {
+  content: "";
+  position: absolute;
+  inset: -5px;
+  border: 1px solid rgba(36,127,153,.24);
+  border-radius: 21px;
+  transform: scale(.88);
+  opacity: 0;
+  z-index: -1;
+  transition: transform .4s ease, opacity .4s ease;
+}
+.novaNavbar .novaBrand:hover .novaLogo { transform: translateY(-2px) rotate(-2deg) !important; }
+.novaNavbar .novaBrand:hover .novaLogo::before { transform: scale(1); opacity: 1; }
+.novaNavbar .novaBrandText strong { letter-spacing: .095em !important; line-height: 1.05 !important; }
+.novaNavbar .novaBrandText span { letter-spacing: .25em !important; margin-top: 5px !important; }
+.novaNavbar .novaNavLink { position: relative; transition: color .25s ease, background .25s ease, transform .25s ease !important; }
+.novaNavbar .novaNavLink:hover { transform: translateY(-1px); }
+.novaNavbar .novaNavLink::after {
+  content: ""; position: absolute; height: 2px; width: 18px; border-radius: 2px;
+  left: 50%; bottom: 7px; background: var(--nova-aqua); transform: translateX(-50%) scaleX(0);
+  transform-origin: center; transition: transform .25s ease;
+}
+.novaNavbar .novaNavLink:hover::after, .novaNavbar .novaNavLink.isActive::after { transform: translateX(-50%) scaleX(1); }
+
+/* Intro wordmark gets a clear staged reveal and a quiet aura, without hiding the home page for too long. */
+.homePage.premiumHome .novaIntroMark { animation: novaStep15IntroRise .8s cubic-bezier(.2,.8,.2,1) both; }
+.homePage.premiumHome .novaIntroMark img {
+  box-sizing: border-box !important;
+  filter: drop-shadow(0 8px 18px rgba(16,47,80,.08));
+  animation: novaStep15LogoOpen 1.05s cubic-bezier(.2,.8,.2,1) both !important;
+}
+.homePage.premiumHome .novaIntroLine { background: linear-gradient(90deg, transparent, var(--nova-aqua), transparent) !important; }
+.homePage.premiumHome .novaIntroTagline { letter-spacing: .22em !important; text-align: center !important; }
+
+/* About hero: keep the chosen existing photo, use a cleaner blue wash and stronger type contrast. */
+.novaAbout .aboutHero { background-color: var(--nova-navy) !important; }
+.novaAbout .aboutHeroImage {
+  background-image: url('/images/gallery/gallery-08.jpg') !important;
+  background-position: 62% 44% !important;
+  filter: blur(2px) saturate(.92) !important;
+}
+.novaAbout .aboutHeroOverlay {
+  background: linear-gradient(90deg, rgba(8,31,54,.86) 0%, rgba(13,48,76,.68) 47%, rgba(13,48,76,.38) 100%),
+              linear-gradient(0deg, rgba(7,30,51,.45), transparent 58%) !important;
+}
+.novaAbout .aboutHeroContent { max-width: 900px !important; }
+.novaAbout .aboutHeroContent h1 { max-width: 820px; text-wrap: balance; line-height: .99 !important; }
+.novaAbout .aboutHeroContent h1 em { font-style: italic; }
+.novaAbout .aboutHeroDescription { max-width: 610px !important; line-height: 1.8 !important; }
+
+/* Story film: frame the real supplied clip like an editorial feature; controls stay available for replay. */
+.novaAbout .aboutExperienceFilm { position: relative; overflow: hidden; }
+.novaAbout .aboutExperienceFilm::before {
+  content: ""; display: block; width: min(112px, 24vw); height: 3px; margin: 0 auto 30px;
+  background: linear-gradient(90deg, transparent, #2b8299, #a4e4e2, transparent); border-radius: 3px;
+}
+.novaAbout .aboutExperienceFilmIntro h2 { text-wrap: balance; line-height: 1.06 !important; }
+.novaAbout .aboutExperienceFilmFrame {
+  position: relative; overflow: hidden; border-radius: clamp(18px, 2.3vw, 30px) !important;
+  border: 1px solid rgba(35,116,148,.24) !important;
+  box-shadow: 0 24px 65px rgba(14,48,74,.18), 0 0 0 7px rgba(155,230,225,.12) !important;
+  background: #0b2b46 !important;
+}
+.novaAbout .aboutExperienceFilmVideo {
+  display: block; width: 100%; max-height: 610px; min-height: 280px; object-fit: cover;
+  background: #0b2b46; aspect-ratio: 16 / 9;
+}
+.novaAbout .aboutExperienceFilmVideo::-webkit-media-controls-panel { background-image: linear-gradient(transparent, rgba(5,25,43,.78)); }
+.novaAbout .aboutExperienceFilmCaption {
+  pointer-events: none; z-index: 2; text-shadow: 0 2px 10px rgba(0,0,0,.4);
+}
+.novaAbout .aboutPromiseLine { display: block; text-wrap: balance; }
+.novaAbout .aboutPromiseAccent { color: #287f9c !important; }
+
+/* CTA image and text never compete: strong lower gradient and opaque label plate. */
+.homePage.premiumHome .cinematicAppointmentSmile { position: relative; isolation: isolate; }
+.homePage.premiumHome .cinematicAppointmentSmile::after {
+  content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: linear-gradient(180deg, rgba(7,35,57,.08) 20%, rgba(7,35,57,.28) 54%, rgba(5,27,46,.88) 100%) !important;
+}
+.homePage.premiumHome .cinematicAppointmentSmile span { position: absolute; z-index: 2; max-width: calc(100% - 32px); }
+.homePage.premiumHome .cinematicAppointmentSmile img { transition: transform .8s cubic-bezier(.2,.8,.2,1), filter .5s ease !important; }
+.homePage.premiumHome .cinematicAppointmentSmile:hover img { transform: scale(1.045); filter: saturate(1) contrast(1.04) !important; }
+
+/* Section dividers and shared reveal transitions across both key pages. */
+.novaAbout .aboutIntro,
+.novaAbout .aboutStory,
+.novaAbout .aboutExperienceFilm,
+.novaAbout .aboutPromise { position: relative; }
+.novaAbout .aboutIntro::after,
+.novaAbout .aboutStory::after { content: ""; display: block; width: min(100px, 20vw); height: 2px; margin: 44px auto 0; background: linear-gradient(90deg, transparent, #8ccfd2, #245f82, transparent); }
+.novaAbout .about-motion-target { opacity: 0; transform: translateY(24px); transition: opacity .75s ease, transform .75s cubic-bezier(.2,.8,.2,1); }
+.novaAbout .about-motion-target.about-is-visible { opacity: 1; transform: translateY(0); }
+.novaAbout img { transition: transform .65s cubic-bezier(.2,.8,.2,1), filter .4s ease; }
+.novaAbout a:focus-visible, .novaNavbar a:focus-visible, .novaFooter a:focus-visible { outline: 3px solid #56b9c3; outline-offset: 4px; }
+
+/* Footer matches the navy / white / aqua system and gains restrained hover movement. */
+.novaFooterCTAButton, .novaDesktopCTA, .novaMobileAppointment { transition: transform .25s ease, box-shadow .25s ease, background .25s ease !important; }
+.novaFooterCTAButton:hover, .novaDesktopCTA:hover, .novaMobileAppointment:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(9,40,68,.2); }
+.novaFooterLogoIcon { transition: transform .4s ease, box-shadow .4s ease; }
+.novaFooterLogo:hover .novaFooterLogoIcon { transform: rotate(-5deg) scale(1.04); box-shadow: 0 0 0 5px rgba(155,230,225,.14); }
+
+@keyframes novaStep15IntroRise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes novaStep15LogoOpen { from { opacity: 0; transform: translateY(14px) scale(.92); clip-path: inset(0 50% 0 50% round 20px); } to { opacity: 1; transform: translateY(0) scale(1); clip-path: inset(0 0 0 0 round 20px); } }
+
+@media (max-width: 760px) {
+  .novaAbout .aboutHeroImage { background-position: 58% center !important; filter: blur(1.5px) saturate(.9) !important; }
+  .novaAbout .aboutHeroOverlay { background: linear-gradient(90deg, rgba(7,31,53,.82), rgba(9,39,64,.56)), linear-gradient(0deg, rgba(7,30,51,.42), transparent 65%) !important; }
+  .novaAbout .aboutExperienceFilmVideo { min-height: 220px; aspect-ratio: 4 / 3; }
+  .novaAbout .aboutExperienceFilmCaption { font-size: 10px !important; letter-spacing: .08em; }
+  .homePage.premiumHome .cinematicAppointmentSmile { opacity: .72 !important; }
+  .homePage.premiumHome .cinematicAppointmentSmile span { font-size: 10px !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .novaNavbar *, .novaFooter *, .homePage.premiumHome .novaIntroMark *, .novaAbout * { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+  .novaAbout .about-motion-target { opacity: 1 !important; transform: none !important; }
+}

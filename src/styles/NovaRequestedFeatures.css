@@ -1,0 +1,133 @@
+/* Requested functional additions: doctor profile, voice assistant, crisp About media */
+.novaDoctorMiniActions{display:flex;flex-direction:column;gap:9px;margin-top:12px}
+.novaDoctorCardActions{display:flex;flex-direction:column;gap:9px;margin-top:16px}
+.novaDoctorCardActions .novaDoctorCardLink{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.novaDoctorProfileLink{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:42px;padding:10px 15px;border:1px solid rgba(31,138,138,.35);border-radius:999px;color:#126d6c;font-size:12px;font-weight:800;transition:background .2s,transform .2s}
+.novaDoctorProfileLink:hover{background:#eaf7f5;transform:translateY(-2px)}
+.appointmentSelectedDoctor{display:flex;flex-direction:column;gap:4px;padding:14px 16px;margin-bottom:18px;border:1px solid #b8dfd9;border-radius:14px;background:#effaf8;color:#123c4a}
+.appointmentSelectedDoctor strong{font-size:14px}.appointmentSelectedDoctor span{font-size:12px;color:#496b76}
+.novaVoiceAssistant{position:fixed;right:22px;bottom:24px;z-index:1200;font-family:inherit}
+.novaVoiceLauncher{display:flex;align-items:center;justify-content:center;gap:9px;min-height:52px;padding:0 19px;border:0;border-radius:999px;background:linear-gradient(135deg,#087f80,#123d56);color:#fff;font-weight:800;font-size:13px;box-shadow:0 12px 32px #082f3a40;cursor:pointer;transition:transform .25s,box-shadow .25s}
+.novaVoiceLauncher:hover{transform:translateY(-3px);box-shadow:0 16px 36px #082f3a55}
+.novaVoicePanel{width:min(350px,calc(100vw - 28px));margin-bottom:12px;overflow:hidden;border:1px solid #d8e9e8;border-radius:22px;background:#fff;box-shadow:0 22px 70px #082f3a30;animation:novaVoiceIn .24s ease-out}
+.novaVoiceHeader{display:flex;align-items:center;gap:10px;padding:16px;background:linear-gradient(135deg,#e8f8f5,#f5fafb);border-bottom:1px solid #deebeb}
+.novaVoiceIcon{display:grid;place-items:center;width:38px;height:38px;border-radius:13px;background:#0e7979;color:white}
+.novaVoiceHeader div{display:flex;flex:1;flex-direction:column;gap:2px}.novaVoiceHeader strong{font-size:14px;color:#123c4a}.novaVoiceHeader small{font-size:11px;color:#65808a}
+.novaVoiceHeader>button{display:grid;place-items:center;width:32px;height:32px;border:0;border-radius:50%;background:#fff;color:#274c58;cursor:pointer}
+.novaVoiceMessage{margin:16px 16px 12px;padding:12px 13px;border-radius:14px;background:#f2f8f8;color:#294e59;font-size:12px;line-height:1.65}
+.novaVoiceQuickLinks{display:flex;flex-wrap:wrap;gap:7px;padding:0 16px 13px}.novaVoiceQuickLinks button{border:1px solid #d4e7e5;border-radius:999px;background:#fff;color:#176b6b;padding:8px 10px;font-size:11px;font-weight:700;cursor:pointer}
+.novaVoiceListen{display:flex;align-items:center;justify-content:center;gap:9px;width:calc(100% - 32px);min-height:44px;margin:0 16px 10px;border:0;border-radius:12px;background:#087e7c;color:#fff;font-weight:800;font-size:13px;cursor:pointer}
+.novaVoiceListen.isListening{background:#a43f4a;animation:novaVoicePulse 1.2s infinite}
+.novaVoiceSpeak{display:flex;align-items:center;justify-content:center;gap:6px;width:100%;padding:0 12px 15px;border:0;background:transparent;color:#4c6872;font-size:11px;font-weight:700;cursor:pointer}
+@keyframes novaVoiceIn{from{opacity:0;transform:translateY(8px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes novaVoicePulse{50%{box-shadow:0 0 0 6px #a43f4a22}}
+.doctorProfilePage{min-height:70vh;padding:130px 24px 80px;background:linear-gradient(180deg,#f2faf9,#fff)}
+.doctorProfileContainer{width:min(1160px,100%);margin:0 auto}
+.doctorProfileBack{display:inline-flex;align-items:center;gap:8px;margin-bottom:24px;color:#176d70;font-size:13px;font-weight:800}
+.doctorProfileHero{display:grid;grid-template-columns:minmax(280px,.8fr) 1.2fr;gap:clamp(28px,5vw,70px);align-items:center;padding:clamp(22px,4vw,48px);border:1px solid #dcebea;border-radius:28px;background:#fff;box-shadow:0 24px 65px #123c4a10}
+.doctorProfilePhoto{overflow:hidden;aspect-ratio:4/5;border-radius:22px;background:#eaf4f3}
+.doctorProfilePhoto img{width:100%;height:100%;object-fit:cover;object-position:center}
+.doctorProfileEyebrow{display:inline-flex;align-items:center;gap:8px;color:#0e8280;font-size:11px;font-weight:800;letter-spacing:1.7px}
+.doctorProfileContent h1{margin:15px 0 8px;color:#12384c;font-size:clamp(28px,4vw,48px);line-height:1.1}
+.doctorProfileContent h2{margin:0 0 17px;color:#0d8280;font-size:18px;font-weight:700}
+.doctorProfileContent p,.doctorProfileNote p{max-width:55ch;color:#58707a;font-size:14px;line-height:1.8}
+.doctorProfileFacts{display:flex;flex-wrap:wrap;gap:10px 18px;margin:22px 0}
+.doctorProfileFacts span{display:inline-flex;align-items:center;gap:7px;color:#315b66;font-size:12px;font-weight:700}
+.doctorProfileFacts svg{color:#0b9188}
+.doctorProfileTags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:25px}
+.doctorProfileTags span{padding:8px 11px;border:1px solid #d7eae8;border-radius:999px;background:#f4fbfa;color:#27656b;font-size:11px;font-weight:700}
+.doctorProfileBook{display:inline-flex;align-items:center;gap:10px;padding:14px 18px;border-radius:999px;background:#087e7c;color:#fff;font-size:12px;font-weight:800;box-shadow:0 9px 22px #087e7c26}
+.doctorProfileBook span{font-size:17px}
+.doctorProfileNote{margin-top:28px;padding:30px;border-radius:22px;background:#123c4a;color:#fff}
+.doctorProfileNote>span{color:#8de0d4;font-size:10px;font-weight:800;letter-spacing:2px}
+.doctorProfileNote h2{margin:10px 0;color:#fff;font-size:clamp(22px,3vw,32px)}
+.doctorProfileNote p{color:#d0e1e5}
+.doctorProfileNote a{display:inline-flex;margin-top:5px;color:#a6eee3;font-size:13px;font-weight:800}
+.appointmentFormCard .appointmentSelectedDoctor{margin:0 0 18px}
+/* Remove the deliberate blur from the About page hero and film imagery. */
+.novaAbout .aboutHeroImage,.novaAbout .aboutFilmVideo,.novaAbout .aboutExperienceFilmVideo,.novaAbout .aboutExperienceFilm img,.novaAbout .aboutStoryFrame img{filter:none!important;backdrop-filter:none!important}
+.novaAbout .aboutHeroImage{transform:scale(1.015)!important}
+@media(max-width:720px){.novaVoiceAssistant{right:12px;bottom:14px}.novaVoiceLauncher{min-height:48px;padding:0 15px}.doctorProfilePage{padding:105px 15px 55px}.doctorProfileHero{grid-template-columns:1fr;padding:18px;gap:24px}.doctorProfilePhoto{max-height:420px;aspect-ratio:4/3}.doctorProfileNote{padding:22px}.novaDoctorCardActions .novaDoctorCardLink{font-size:11px}}
+@media(prefers-reduced-motion:reduce){.novaVoicePanel,.novaVoiceListen.isListening{animation:none!important}}
+
+/* Keep the restored About page video crisp (no blur/filter overlays). */
+.novaAbout .aboutCtaVideo,.novaAbout .aboutFinalVideo video,.novaAbout .aboutVideoBackdrop,.novaAbout .aboutVideoGlow{filter:none!important;backdrop-filter:none!important}
+.novaAbout .aboutCtaVideo{opacity:1!important}
+
+.novaVoiceHeard{display:flex;align-items:flex-start;gap:6px;margin:12px 16px 0;color:#5a737c;font-size:11px;line-height:1.5;overflow-wrap:anywhere}
+.novaVoiceHeard svg{flex:0 0 auto;margin-top:2px}
+.novaVoiceTextForm{display:flex;gap:7px;padding:0 16px 13px}
+.novaVoiceTextForm input{min-width:0;flex:1;padding:10px 11px;border:1px solid #d4e7e5;border-radius:11px;background:#fff;color:#183f4b;font:inherit;font-size:12px;outline-offset:2px}
+.novaVoiceTextForm input:focus{border-color:#087e7c;box-shadow:0 0 0 3px #087e7c1c}
+.novaVoiceTextForm button{padding:0 13px;border:0;border-radius:11px;background:#123d56;color:#fff;font-size:12px;font-weight:800;cursor:pointer}
+.novaVoiceTextForm button:disabled{opacity:.45;cursor:not-allowed}
+.novaVoiceListen:disabled{opacity:.75;cursor:wait}
+
+/* Screenshot-matched NOVA assistant refinements: compact launcher and visible question label. */
+.novaVoiceLauncher{width:60px;height:60px;min-height:60px;padding:0;border-radius:50%;}
+.novaVoiceTextForm{align-items:center;gap:7px;}
+.novaVoiceQuestionLabel{flex:0 0 auto;color:#315763;font-size:12px;font-weight:500;white-space:nowrap;}
+.novaVoiceTextForm input{min-width:0;flex:1;width:100%;height:44px;padding:0 11px;border:1px solid #d8e9e8;border-radius:13px;background:#fff;color:#294e59;font:inherit;font-size:11px;outline:none;}
+.novaVoiceTextForm input:focus{border-color:#0b8986;box-shadow:0 0 0 3px #0b898615;}
+.novaVoiceTextForm button{height:44px;padding:0 13px;border:0;border-radius:13px;background:#0a7f80;color:#fff;font-size:12px;font-weight:800;cursor:pointer;}
+.novaVoiceTextForm button:disabled{background:#9aafb5;cursor:not-allowed;}
+@media(max-width:420px){.novaVoiceQuestionLabel{font-size:11px}.novaVoiceTextForm{gap:5px;padding-right:12px;padding-left:12px}.novaVoiceTextForm input{padding:0 8px}.novaVoiceTextForm button{padding:0 10px}}
+
+/* NOVA assistant usability upgrades: chat history, quick prompts and audio controls. */
+.novaVoiceUtility{display:grid;place-items:center;width:30px;height:30px;border:0;border-radius:50%;background:#fff;color:#27616a;cursor:pointer}
+.novaVoiceHistory{max-height:230px;overflow-y:auto;padding:0 10px;scrollbar-width:thin}
+.novaVoiceHistory .novaVoiceMessage{margin:8px 6px 10px}
+.novaVoiceMessage strong,.novaVoiceUserBubble strong{display:block;margin-bottom:4px;font-size:10px;letter-spacing:.04em}
+.novaVoiceUserBubble{margin:8px 6px 10px auto;padding:10px 12px;max-width:90%;border-radius:14px 14px 3px 14px;background:#e2f4f1;color:#214e58;font-size:12px;line-height:1.55;overflow-wrap:anywhere}
+.novaVoiceSuggestions{display:flex;flex-wrap:wrap;gap:6px;padding:0 16px 12px}
+.novaVoiceSuggestions button{border:1px solid #d8e9e8;border-radius:999px;background:#f8fcfb;color:#37616a;padding:7px 10px;font-size:10px;font-weight:700;cursor:pointer}
+.novaVoiceAudioControls{display:flex;gap:8px;padding:0 10px 10px}
+.novaVoiceAudioControls .novaVoiceSpeak{width:50%;padding:8px 3px 8px;margin:0;border:1px solid #e0eceb;border-radius:10px}
+.novaVoiceAudioControls .novaVoiceStop:disabled{opacity:.45;cursor:not-allowed}
+.novaVoiceQuickLinks button{display:inline-flex;align-items:center;gap:5px}
+
+.novaVoiceLanguage{display:flex;align-items:center;gap:6px;padding:9px 16px 2px;color:#65808a;font-size:10px}
+.novaVoiceLanguage span{margin-right:auto;font-weight:700}
+.novaVoiceLanguage button{padding:6px 9px;border:1px solid #d4e7e5;border-radius:999px;background:#fff;color:#315763;font-size:10px;font-weight:700;cursor:pointer}
+.novaVoiceLanguage button.active{border-color:#087e7c;background:#e8f8f5;color:#087e7c}
+.novaVoiceAssistant button:focus-visible,.novaVoiceAssistant input:focus-visible{outline:3px solid #f0b84a;outline-offset:2px}
+.novaVoiceHistory{overscroll-behavior:contain}
+@media(max-width:420px){.novaVoicePanel{width:calc(100vw - 24px);max-height:min(78vh,680px);overflow-y:auto}.novaVoiceHistory{max-height:200px}.novaVoiceAudioControls{gap:5px}.novaVoiceAudioControls .novaVoiceSpeak{font-size:10px}}
+
+/* NOVADENT quality pass: more predictable assistant layout, form clarity, and small-screen comfort. */
+.novaVoiceAssistant{right:max(14px,env(safe-area-inset-right));bottom:max(14px,env(safe-area-inset-bottom))}
+.novaVoicePanel{display:flex;flex-direction:column;max-height:min( min(760px, calc(100dvh - 100px)), 760px)}
+.novaVoiceHeader{position:relative;flex-shrink:0}
+.novaVoiceHistory{overscroll-behavior:contain;overflow-wrap:anywhere}
+.novaVoiceMessage,.novaVoiceUserBubble{white-space:pre-wrap;overflow-wrap:anywhere}
+.novaVoiceSuggestions button,.novaVoiceQuickLinks button,.novaVoiceAudioControls button,.novaVoiceLanguage button{transition:background .18s ease,border-color .18s ease,transform .18s ease}
+.novaVoiceSuggestions button:hover,.novaVoiceQuickLinks button:hover,.novaVoiceLanguage button:hover{transform:translateY(-1px);border-color:#91c9c3;background:#effaf8}
+.novaVoiceAssistant button:focus-visible,.novaVoiceAssistant input:focus-visible{outline:3px solid #e9ad42;outline-offset:3px}
+.novaVoiceTextForm input{font-size:16px; /* prevents iOS zoom on focus */}
+.appointmentFormCard input,.appointmentFormCard select,.appointmentFormCard textarea{max-width:100%;min-width:0}
+.appointmentFormCard input:focus-visible,.appointmentFormCard select:focus-visible,.appointmentFormCard textarea:focus-visible,.appointmentFormCard button:focus-visible{outline:3px solid #0b8986;outline-offset:2px}
+.appointmentSubmitError{overflow-wrap:anywhere}
+.appointmentSubmitBtn:disabled{opacity:.72;cursor:wait}
+@media(max-width:720px){
+  .novaVoiceAssistant{right:12px;bottom:calc(12px + env(safe-area-inset-bottom))}
+  .novaVoicePanel{width:min(390px,calc(100vw - 24px));max-height:calc(100dvh - 88px);border-radius:20px}
+  .novaVoiceHistory{max-height:clamp(130px,28dvh,260px)}
+  .novaVoiceTextForm{padding-bottom:12px}
+  .novaAppointmentPage .appointmentContainer{width:min(100% - 30px, 1120px)}
+  .appointmentFormCard{padding:clamp(18px,4vw,28px)}
+  .appointmentFormCard .formRow{grid-template-columns:minmax(0,1fr);gap:14px}
+  .appointmentFormCard .formField{min-width:0}
+  .appointmentFormCard input,.appointmentFormCard select,.appointmentFormCard textarea{width:100%;box-sizing:border-box}
+  .appointmentSubmitBtn{width:100%;justify-content:center;gap:10px}
+}
+@media(max-width:420px){
+  .novaVoicePanel{width:calc(100vw - 20px);max-height:calc(100dvh - 82px);margin-bottom:8px}
+  .novaVoiceHeader{padding:12px}
+  .novaVoiceLanguage{padding-right:12px;padding-left:12px}
+  .novaVoiceTextForm{display:grid;grid-template-columns:1fr auto}
+  .novaVoiceQuestionLabel{grid-column:1/-1}
+  .novaVoiceTextForm input{width:100%;box-sizing:border-box}
+  .novaVoiceAudioControls{flex-wrap:wrap}
+  .novaVoiceAudioControls .novaVoiceSpeak{min-width:0}
+}
+@media(prefers-reduced-motion:reduce){.novaVoiceSuggestions button,.novaVoiceQuickLinks button,.novaVoiceLanguage button{transition:none}}

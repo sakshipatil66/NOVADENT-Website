@@ -1,0 +1,63 @@
+/* NOVADENT Premium Story + Motion Pass
+   Scoped to non-hero content. Existing Hero layouts are intentionally untouched. */
+:root{--nova-ink:#103a3b;--nova-deep:#062e35;--nova-teal:#168f88;--nova-mint:#b5f2df;--nova-cream:#fffaf2;--nova-line:rgba(17,67,67,.14);--nova-ease:cubic-bezier(.2,.75,.25,1)}
+html{scroll-behavior:smooth;scroll-padding-top:88px}
+/* Make non-hero storytelling sections feel intentionally paced without hiding content. */
+main.novaAbout>section:not(.aboutFinalHero),
+main.novaAbout>section:not(.aboutHero),
+.homePage>section:not(:first-child),
+main[class*="nova"]>section:not(:first-child){position:relative;isolation:isolate}
+.novaAbout .aboutFinalIntro .aboutCinematicHeading,
+.novaAbout .aboutFinalClinicGrid>div:first-child,
+.novaAbout .aboutFinalVideoCopy,
+.novaAbout .aboutValuesIntro,
+.novaAbout .aboutClosingContent{animation:novaStoryEnter .9s var(--nova-ease) both}
+@keyframes novaStoryEnter{from{opacity:.65;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes novaSoftFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes novaLightSweep{0%{background-position:0% 50%}100%{background-position:200% 50%}}
+@keyframes novaBorderPulse{0%,100%{box-shadow:0 10px 30px rgba(4,43,49,.08)}50%{box-shadow:0 18px 42px rgba(4,43,49,.16)}}
+@keyframes novaImageBreath{0%,100%{transform:scale(1)}50%{transform:scale(1.025)}}
+/* Chapter cards: editorial rhythm, consistent image windows, refined hover. */
+.novaAbout .aboutFinalIntro .aboutFinalChapters{align-items:stretch;gap:clamp(18px,2.3vw,32px)}
+.novaAbout .aboutFinalChapter{height:100%;padding-bottom:clamp(16px,2vw,24px);border-bottom:1px solid var(--nova-line);transition:transform .45s var(--nova-ease),border-color .35s ease}
+.novaAbout .aboutFinalChapter:hover{transform:translateY(-7px);border-color:rgba(22,143,136,.55)}
+.novaAbout .aboutFinalChapterImage{isolation:isolate;box-shadow:0 12px 32px rgba(7,43,47,.10)}
+.novaAbout .aboutFinalChapterImage:after,.novaAbout .aboutFinalClinicImages:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(135deg,rgba(181,242,223,.13),transparent 48%,rgba(6,46,53,.12));opacity:.7}
+.novaAbout .aboutFinalChapterImage img,.novaAbout .aboutFinalClinicImages img,.novaAbout .aboutTeamFilmCard img{transition:transform .85s var(--nova-ease),filter .6s ease}
+.novaAbout .aboutFinalChapter:hover .aboutFinalChapterImage img,.novaAbout .aboutFinalClinicImages:hover img,.novaAbout .aboutTeamFilmCard:hover img{filter:saturate(1.06) contrast(1.02)}
+.novaAbout .aboutFinalChapterImage span{z-index:2;box-shadow:0 5px 18px rgba(0,0,0,.14)}
+/* Video and clinic imagery. */
+.novaAbout .aboutFinalVideoGrid,.novaAbout .aboutFinalClinicGrid{gap:clamp(24px,4vw,64px)}
+.novaAbout .aboutFinalVideoFrame,.novaAbout .aboutFinalClinicImages{box-shadow:0 22px 60px rgba(0,20,27,.16)}
+.novaAbout .aboutFinalVideoFrame video{transition:filter .5s ease}
+.novaAbout .aboutFinalVideoFrame:hover video{filter:saturate(1.08)}
+.novaAbout .aboutVideoPlayButton{transition:transform .3s ease,box-shadow .3s ease}
+.novaAbout .aboutVideoPlayButton:hover{transform:scale(1.08);box-shadow:0 0 0 10px rgba(181,242,223,.18)}
+/* Philosophy cards have clear hover feedback and a slow, subtle idle lift. */
+.novaAbout .aboutValueCinematicCard{border:1px solid rgba(181,242,223,.13);transition:transform .4s var(--nova-ease),border-color .35s ease,background .35s ease,box-shadow .35s ease}
+.novaAbout .aboutValueCinematicCard:hover{transform:translateY(-8px);border-color:rgba(181,242,223,.5);box-shadow:0 20px 46px rgba(0,0,0,.17);background-color:rgba(255,255,255,.045)}
+.novaAbout .aboutValueCinematicCard>svg{transition:transform .4s ease,color .3s ease}
+.novaAbout .aboutValueCinematicCard:hover>svg{transform:rotate(-8deg) scale(1.12);color:var(--nova-mint)}
+/* Team cards: image-led and polished. */
+.novaAbout .aboutTeamFilmCard{position:relative;isolation:isolate;background:#fffaf2;box-shadow:0 10px 34px rgba(0,20,27,.10);transition:transform .4s var(--nova-ease),box-shadow .4s ease}
+.novaAbout .aboutTeamFilmCard:hover{transform:translateY(-7px);box-shadow:0 24px 48px rgba(0,20,27,.18)}
+.novaAbout .aboutTeamFilmCard>div{flex:1}
+.novaAbout .aboutTeamFilmCard>svg{margin:0 20px 20px auto;transition:transform .3s ease}
+.novaAbout .aboutTeamFilmCard:hover>svg{transform:translate(3px,-3px)}
+/* Global non-hero card polish for Doctors, Treatments, Gallery, Reviews, Appointment and Contact. */
+.novaDoctorCard,.novaDoctorsValueCard,.novaDoctorsProcessStep,.premiumTreatmentItem,.premiumTreatmentStep,.premiumTreatmentFAQ,.nova-gallery-item,.novaReviewTrustCard,.novaReviewCard,.appointmentInfoCard,.appointmentFormCard,.appointmentSideCard,.contactInfoCard,.contactFormCard,.contactSideCard{transition:transform .38s var(--nova-ease),box-shadow .38s ease,border-color .3s ease}
+.novaDoctorCard:hover,.novaDoctorsValueCard:hover,.novaDoctorsProcessStep:hover,.premiumTreatmentItem:hover,.premiumTreatmentStep:hover,.premiumTreatmentFAQ:hover,.nova-gallery-item:hover,.novaReviewTrustCard:hover,.novaReviewCard:hover,.appointmentInfoCard:hover,.appointmentSideCard:hover,.contactInfoCard:hover,.contactSideCard:hover{transform:translateY(-5px);box-shadow:0 18px 42px rgba(6,46,53,.12)}
+.nova-gallery-item img,.nova-gallery-item picture img{transition:transform .75s var(--nova-ease),filter .5s ease}
+.nova-gallery-item:hover img,.nova-gallery-item:hover picture img{transform:scale(1.035);filter:saturate(1.08)}
+/* Small always-visible motion accents, never applied to any hero. */
+.novaAbout .aboutChapterLine i{display:block;transform-origin:left;animation:novaLightSweep 5s linear infinite;background-size:200% 100%}
+.novaAbout .aboutFinalClinicImages img.large{animation:novaImageBreath 12s ease-in-out infinite}
+.novaAbout .aboutFinalClinicImages img.small{animation:novaSoftFloat 7s ease-in-out infinite}
+.novaAbout .aboutFinalClinicImages:hover img{animation-play-state:paused}
+/* Scrollbar, selection and keyboard focus details. */
+::selection{background:#b5f2df;color:#07373a}
+.novaAbout a:focus-visible,.novaAbout button:focus-visible,.novaDoctorCard:focus-visible,.nova-gallery-item:focus-visible{outline:3px solid #38b7a5;outline-offset:4px}
+@media(max-width:900px){.novaAbout .aboutFinalIntro .aboutFinalChapters{gap:20px}.novaAbout .aboutFinalChapterImage{height:250px}.novaAbout .aboutTeamFilmCard img{height:300px}}
+@media(max-width:600px){html{scroll-padding-top:72px}.novaAbout .aboutFinalIntro .aboutFinalChapters,.novaAbout .aboutTeamFilm,.novaAbout .aboutValuesCinematicGrid{grid-template-columns:1fr}.novaAbout .aboutFinalChapterImage{height:clamp(220px,68vw,320px)}.novaAbout .aboutFinalClinicImages{gap:10px}.novaAbout .aboutFinalClinicImages img{height:250px}.novaAbout .aboutFinalClinicImages img.small{height:190px}.novaAbout .aboutTeamFilmCard img{height:clamp(270px,82vw,380px)}.novaAbout .aboutFinalVideoGrid{gap:24px}}
+/* Respect accessibility preferences; content remains fully visible. */
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}

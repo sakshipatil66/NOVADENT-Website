@@ -1,0 +1,97 @@
+/* NOVADENT cinematic finishing pass: consistent type, stronger section rhythm, clear text contrast. */
+:root {
+  --nova-forest: #173d35;
+  --nova-forest-deep: #102f2a;
+  --nova-sage: #5b8d79;
+  --nova-mint: #dcebe3;
+  --nova-paper: #fbfcfb;
+  --nova-body: #50645d;
+  --nova-line: #dce7e0;
+  --nova-ease: cubic-bezier(.2,.72,.2,1);
+}
+html { scroll-behavior: smooth; }
+body { color: var(--nova-forest); }
+/* Keep a unified typographic scale across pages without overriding the logo or iconography. */
+:is(.homePage, .novaAbout, .novaDoctors, .novaTreatments, .novaServices, .novaGallery, .novaReviews, .novaAppointment, .novaContact) {
+  --page-heading: clamp(2.1rem, 4.2vw, 4.25rem);
+  --page-subheading: clamp(1.45rem, 2.5vw, 2.35rem);
+  --page-body: clamp(.96rem, 1.05vw, 1.08rem);
+  --page-kicker: .72rem;
+}
+:is(.homePage, .novaAbout) :is(h1, .novaHeroTitle, .aboutHeroContent h1) { letter-spacing: -.045em; text-wrap: balance; }
+:is(.homePage, .novaAbout) :is(p, li) { line-height: 1.78; }
+/* Logo-first reveal: the brand screen opens outward from the centre, rather than wiping down. */
+.novaCinematicIntro {
+  isolation: isolate;
+  background: var(--nova-forest-deep);
+  clip-path: circle(150% at 50% 50%);
+  animation: novaBrandExpand 1.05s cubic-bezier(.76,0,.24,1) 1.55s forwards !important;
+}
+.novaCinematicIntro::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: min(32vw, 340px);
+  aspect-ratio: 1;
+  border: 1px solid rgba(219,244,231,.32);
+  border-radius: 50%;
+  box-shadow: 0 0 0 22px rgba(219,244,231,.035), 0 0 0 48px rgba(219,244,231,.025);
+  animation: novaLogoHalo 1.4s ease-out both;
+}
+.novaIntroMark { z-index: 1; }
+.novaIntroMark img { width: clamp(170px, 24vw, 285px); max-height: 145px; object-fit: contain; filter: brightness(0) invert(1) drop-shadow(0 8px 26px rgba(0,0,0,.18)); }
+@keyframes novaBrandExpand { 0% { clip-path: circle(150% at 50% 50%); opacity: 1; visibility: visible; } 99% { clip-path: circle(0% at 50% 50%); opacity: 0; visibility: visible; } 100% { clip-path: circle(0% at 50% 50%); opacity: 0; visibility: hidden; pointer-events: none; } }
+@keyframes novaLogoHalo { 0% { transform: scale(.45); opacity: 0; } 35% { opacity: .8; } 100% { transform: scale(1.55); opacity: 0; } }
+/* Distinct section boundaries with restrained alternation, top rules, and breathing room. */
+.homePage.premiumHome .storySection { position: relative; isolation: isolate; }
+.homePage.premiumHome .storySection:not(.founderStory):not(.cinematicAppointment)::before {
+  content: ""; position: absolute; top: 0; left: max(6%, calc((100% - 1180px)/2)); right: max(6%, calc((100% - 1180px)/2)); height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(75,127,105,.28), transparent); pointer-events: none;
+}
+.homePage.premiumHome .storySection:nth-of-type(even) { background-color: #f6faf7; }
+.homePage.premiumHome .storySection:nth-of-type(odd) { background-color: #fff; }
+.homePage.premiumHome .founderStory { background: radial-gradient(ellipse at 12% 18%, rgba(212,234,222,.56), transparent 42%), #f4f8f5; }
+.homePage.premiumHome .founderHeading h2 { font-size: clamp(2rem, 4vw, 3.9rem); line-height: 1.07; letter-spacing: -.045em; }
+.homePage.premiumHome .founderEditorialContent p { max-width: 62ch; font-size: var(--page-body); }
+.homePage.premiumHome .founderEditorialImage { background: #e4eee8; }
+.homePage.premiumHome .founderEditorialImage img { object-fit: cover; object-position: center 22%; }
+/* CTA is legible first; the image remains a decorative accent rather than competing with copy. */
+.homePage.premiumHome .cinematicAppointment { isolation: isolate; background: linear-gradient(120deg, #12372f 0%, #1d4a3d 60%, #2d6652 100%); }
+.homePage.premiumHome .cinematicAppointment::before { content:""; position:absolute; inset:18px; border:1px solid rgba(230,247,237,.22); pointer-events:none; z-index:-1; }
+.homePage.premiumHome .cinematicAppointmentCopy { position: relative; z-index: 2; }
+.homePage.premiumHome .cinematicAppointmentCopy :is(h2,h3,p,.storyKicker) { text-shadow: 0 1px 14px rgba(0,0,0,.12); }
+.homePage.premiumHome .cinematicAppointmentSmile { filter: drop-shadow(0 24px 35px rgba(0,0,0,.2)); }
+.homePage.premiumHome .cinematicAppointmentSmile img { border: 5px solid rgba(255,255,255,.18); box-shadow: 0 22px 54px rgba(0,0,0,.22); }
+/* More noticeable, coordinated left/right entrances for existing reveal targets. */
+.homePage.premiumHome [data-reveal], .novaAbout .about-motion-target { will-change: opacity, transform; }
+.homePage.premiumHome [data-reveal].reveal-left:not(.is-visible) { transform: translate3d(-72px, 10px, 0); }
+.homePage.premiumHome [data-reveal].reveal-right:not(.is-visible) { transform: translate3d(72px, 10px, 0); }
+.homePage.premiumHome [data-reveal].is-visible { transition-delay: 70ms; }
+.novaAbout .aboutHeroImage { background-image: url('/images/gallery/gallery-04.jpg') !important; background-position: center 48%; }
+.novaAbout .aboutIntroImage img { object-fit: cover; object-position: center; }
+.novaAbout .aboutHeroOverlay { background: linear-gradient(90deg, rgba(10,35,29,.88) 0%, rgba(10,35,29,.68) 43%, rgba(10,35,29,.18) 100%), linear-gradient(0deg, rgba(9,30,24,.42), transparent 65%); }
+.novaAbout .aboutHeroContent { max-width: 820px; }
+.novaAbout .aboutHeroContent h1 { font-size: clamp(2.8rem, 6vw, 5.4rem); }
+.novaAbout .aboutHeroDescription { max-width: 54ch; font-size: clamp(1rem, 1.3vw, 1.18rem); }
+.novaAbout .aboutIntro { background: #fff; }
+.novaAbout .aboutStory { background: #f6faf7; }
+.novaAbout .aboutValues { background: linear-gradient(180deg, #f3f8f4, #fbfcfb); }
+.novaAbout .aboutValueCard { min-height: 100%; }
+.novaAbout :is(.aboutIntroText h2, .aboutStoryContent h2, .aboutFounderContent h2) { font-size: var(--page-heading); line-height: 1.08; letter-spacing: -.04em; }
+.novaAbout :is(.aboutIntroText p, .aboutBodyText, .aboutSectionDescription, .aboutValueCard p) { font-size: var(--page-body); color: #4b6259; }
+@media (max-width: 760px) {
+  .novaIntroMark img { width: 168px; }
+  .novaCinematicIntro::before { width: 58vw; }
+  .homePage.premiumHome .storySection:not(.founderStory):not(.cinematicAppointment)::before { left: 6%; right: 6%; }
+  .homePage.premiumHome [data-reveal].reveal-left:not(.is-visible) { transform: translate3d(-24px, 8px, 0); }
+  .homePage.premiumHome [data-reveal].reveal-right:not(.is-visible) { transform: translate3d(24px, 8px, 0); }
+  .homePage.premiumHome .cinematicAppointment::before { inset: 10px; }
+  .homePage.premiumHome .cinematicAppointmentSmile { opacity: .2; }
+  .homePage.premiumHome .cinematicAppointmentCopy { max-width: 100%; }
+  .novaAbout .aboutHero { background-color: #173d35; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .novaCinematicIntro { animation: none !important; display: none !important; }
+  .novaCinematicIntro::before { animation: none !important; }
+  .homePage.premiumHome [data-reveal], .novaAbout .about-motion-target { opacity: 1 !important; transform: none !important; filter: none !important; transition: none !important; will-change: auto; }
+}

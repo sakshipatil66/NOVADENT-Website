@@ -1,0 +1,254 @@
+
+/* NOVADENT — final professional visual/color pass
+   Scoped to About only. Home page is intentionally untouched. */
+
+.novaAbout{
+  --nova-navy:#071b2d;
+  --nova-navy-2:#0b2940;
+  --nova-teal:#1fb8b0;
+  --nova-cyan:#9af0e8;
+  --nova-cream:#f5efe4;
+  --nova-white:#ffffff;
+  --nova-ink:#102c3e;
+  --nova-muted:#526874;
+}
+
+/* Keep every section visually compact and readable */
+.novaAbout .aboutContainer{max-width:1180px !important}
+.novaAbout .aboutFinalVideo,
+.novaAbout .aboutFinalValues,
+.novaAbout .aboutFinalClinic,
+.novaAbout .aboutFinalTeam,
+.novaAbout .aboutFinalClosing{padding-top:76px !important;padding-bottom:76px !important}
+.novaAbout h2{font-size:clamp(30px,3.2vw,48px) !important;line-height:1.08 !important;letter-spacing:-.035em !important}
+.novaAbout p{line-height:1.6 !important}
+.novaAbout .aboutEyebrow{font-size:11px !important;letter-spacing:.16em !important}
+
+/* STORY / VIDEO: dark tech visual, no blur on the actual media */
+.novaAbout .aboutFinalVideo{
+  background:
+    radial-gradient(circle at 12% 18%,rgba(31,184,176,.12),transparent 30%),
+    linear-gradient(120deg,#061827 0%,#09283d 55%,#071b2d 100%) !important;
+  color:#fff !important;
+}
+.novaAbout .aboutFinalVideo::before,
+.novaAbout .aboutFinalVideo::after,
+.novaAbout .aboutVideoBackdrop,
+.novaAbout .aboutVideoGlow{pointer-events:none !important}
+.novaAbout .aboutVideoBackdrop{opacity:.35 !important}
+.novaAbout .aboutVideoGlow{filter:none !important;opacity:.45 !important}
+
+.novaAbout .aboutVideoIntro{margin-bottom:28px !important}
+.novaAbout .aboutVideoIntro h2{color:#fff !important;max-width:620px !important}
+.novaAbout .aboutVideoIntro h2 span{color:var(--nova-cyan) !important}
+.novaAbout .aboutVideoIntro p{color:#c8dbe2 !important;margin-top:12px !important}
+
+.novaAbout .aboutFinalVideoGrid{
+  align-items:stretch !important;
+  gap:18px !important;
+}
+.novaAbout .aboutFinalVideoFrame,
+.novaAbout .aboutFinalVideoCopy{
+  min-height:420px !important;
+  height:420px !important;
+}
+.novaAbout .aboutFinalVideoFrame{
+  background:#061522 !important;
+  border:1px solid rgba(154,240,232,.24) !important;
+  box-shadow:0 24px 65px rgba(0,0,0,.28) !important;
+  overflow:hidden !important;
+}
+.novaAbout .aboutFinalVideoFrame video{
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+  filter:none !important;
+  opacity:1 !important;
+  transform:none !important;
+}
+.novaAbout .aboutVideoFrameShade{
+  background:linear-gradient(180deg,transparent 52%,rgba(3,18,29,.62) 100%) !important;
+  opacity:.8 !important;
+}
+.novaAbout .aboutVideoPlayButton{
+  background:#fff !important;
+  color:#0b3442 !important;
+  border:2px solid rgba(255,255,255,.85) !important;
+}
+.novaAbout .aboutVideoCaption{
+  color:#fff !important;
+  background:rgba(4,20,31,.72) !important;
+  border:1px solid rgba(255,255,255,.12) !important;
+  backdrop-filter:blur(8px) !important;
+}
+.novaAbout .aboutVideoCaption b{color:var(--nova-cyan) !important}
+
+.novaAbout .aboutFinalVideoCopy{
+  background:var(--nova-cream) !important;
+  color:var(--nova-ink) !important;
+  border:1px solid rgba(255,255,255,.85) !important;
+  box-shadow:0 24px 65px rgba(0,0,0,.20) !important;
+  padding:46px !important;
+}
+.novaAbout .aboutFinalVideoCopy .aboutEyebrow{color:#167d7d !important}
+.novaAbout .aboutFinalVideoCopy .aboutEyebrow i{background:#1fb8b0 !important}
+.novaAbout .aboutFinalVideoCopy h2{color:#102c3e !important}
+.novaAbout .aboutFinalVideoCopy h2 em{color:#157d7b !important;font-style:normal !important}
+.novaAbout .aboutFinalVideoCopy p{color:#455f69 !important}
+.novaAbout .aboutVideoFacts span{color:#284852 !important}
+.novaAbout .aboutVideoFacts b{color:#0d7f7b !important}
+.novaAbout .aboutFinalVideoCopy .aboutButtonOutline{
+  color:#102c3e !important;
+  border-color:#2d6c70 !important;
+  background:transparent !important;
+}
+.novaAbout .aboutFinalVideoCopy .aboutButtonOutline:hover{
+  color:#fff !important;background:#123e43 !important;border-color:#123e43 !important;
+}
+
+/* Philosophy — dark section, white cards, no weak contrast */
+.novaAbout .aboutFinalValues{
+  background:linear-gradient(120deg,#071b2d 0%,#0a3042 58%,#08263a 100%) !important;
+  color:#fff !important;
+}
+.novaAbout .aboutValuesIntro h2,
+.novaAbout .aboutValuesIntro p{color:#fff !important}
+.novaAbout .aboutValuesIntro h2 span{color:var(--nova-cyan) !important}
+.novaAbout .aboutValuesIntro p{color:#c8dbe2 !important}
+.novaAbout .aboutValueCinematicCard{
+  background:#fff !important;
+  color:#102c3e !important;
+  border:1px solid rgba(31,184,176,.25) !important;
+  border-radius:22px !important;
+  box-shadow:0 18px 45px rgba(0,0,0,.20) !important;
+}
+.novaAbout .aboutValueCinematicCard:nth-child(2){background:#f5f9f7 !important}
+.novaAbout .aboutValueCinematicCard:nth-child(3){background:#eef6f4 !important}
+.novaAbout .aboutValueCinematicCard h3{color:#102c3e !important}
+.novaAbout .aboutValueCinematicCard p{color:#526874 !important}
+.novaAbout .aboutValueCinematicCard .aboutValueNumber,
+.novaAbout .aboutValueCinematicCard svg{color:#138c89 !important}
+
+/* Clinic — clean light editorial section */
+.novaAbout .aboutFinalClinic{
+  background:#f5efe4 !important;
+  color:#102c3e !important;
+}
+.novaAbout .aboutFinalClinic h2{color:#102c3e !important}
+.novaAbout .aboutFinalClinic h2 span{color:#167d7d !important}
+.novaAbout .aboutFinalClinic p{color:#526874 !important}
+.novaAbout .aboutFinalClinic .aboutEyebrow{color:#167d7d !important}
+
+/* TEAM — dark tech background + clear heading + cream information panels */
+.novaAbout .aboutFinalTeam{
+  background:
+    radial-gradient(circle at 88% 12%,rgba(154,240,232,.10),transparent 28%),
+    linear-gradient(120deg,#071b2d 0%,#0a2d40 100%) !important;
+  color:#fff !important;
+}
+.novaAbout .aboutCinematicHeading h2{color:#fff !important}
+.novaAbout .aboutCinematicHeading h2 span{color:var(--nova-cyan) !important}
+.novaAbout .aboutCinematicHeading .aboutEyebrow{color:var(--nova-cyan) !important}
+.novaAbout .aboutCinematicHeading .aboutButtonOutline{
+  color:#fff !important;border-color:rgba(255,255,255,.5) !important;
+}
+.novaAbout .aboutTeamFilm{gap:18px !important}
+.novaAbout .aboutTeamFilmCard{
+  background:#f5efe4 !important;
+  border:1px solid rgba(255,255,255,.5) !important;
+  box-shadow:0 20px 50px rgba(0,0,0,.24) !important;
+  color:#102c3e !important;
+}
+.novaAbout .aboutTeamFilmCard img{
+  filter:none !important;
+  opacity:1 !important;
+}
+.novaAbout .aboutTeamFilmCard > div{
+  background:#f5efe4 !important;
+}
+.novaAbout .aboutTeamFilmCard h3{color:#102c3e !important}
+.novaAbout .aboutTeamFilmCard p{color:#526874 !important}
+.novaAbout .aboutTeamFilmCard span{color:#157d7b !important}
+.novaAbout .aboutTeamFilmCard > svg{color:#157d7b !important}
+
+/* CTA — separate dark outer canvas + light inner panel, never white text on cream */
+.novaAbout .aboutFinalClosing{
+  min-height:470px !important;
+  padding:62px 20px !important;
+  background:linear-gradient(125deg,#061827 0%,#0a3042 58%,#071b2d 100%) !important;
+  overflow:hidden !important;
+}
+.novaAbout .aboutCtaVideo{
+  filter:none !important;
+  opacity:.24 !important;
+  transform:none !important;
+}
+.novaAbout .aboutClosingOverlay{
+  background:linear-gradient(120deg,rgba(6,24,39,.78),rgba(8,48,66,.60)) !important;
+  opacity:1 !important;
+}
+.novaAbout .aboutCtaFrame{
+  position:relative !important;
+  z-index:3 !important;
+  width:min(900px,100%) !important;
+  margin:auto !important;
+  background:var(--nova-cream) !important;
+  border:1px solid rgba(255,255,255,.95) !important;
+  border-radius:28px !important;
+  box-shadow:0 30px 80px rgba(0,0,0,.30) !important;
+}
+.novaAbout .aboutCtaFrame .aboutClosingContent{
+  padding:54px 52px !important;
+  color:#102c3e !important;
+}
+.novaAbout .aboutCtaFrame .aboutEyebrow{
+  color:#167d7d !important;
+}
+.novaAbout .aboutCtaFrame h2{
+  color:#102c3e !important;
+}
+.novaAbout .aboutCtaFrame h2 span{
+  color:#147f7c !important;
+}
+.novaAbout .aboutCtaFrame p{
+  color:#526874 !important;
+}
+.novaAbout .aboutCtaFrame .aboutButtonLight{
+  background:#123f43 !important;
+  color:#fff !important;
+  border-color:#123f43 !important;
+}
+.novaAbout .aboutCtaFrame .aboutButtonLight:hover{
+  background:#0b2c31 !important;
+  color:#fff !important;
+}
+.novaAbout .aboutCtaFrame .aboutTextLinkLight{
+  color:#123f43 !important;
+  border-color:rgba(18,63,67,.35) !important;
+}
+.novaAbout .aboutCtaFrame .aboutTextLinkLight:hover{
+  color:#0b7f7b !important;
+  border-color:#0b7f7b !important;
+}
+
+/* Ensure reveal effects never blur the actual media itself */
+.novaAbout img,
+.novaAbout video{filter:none !important}
+.novaAbout [data-about-reveal]{backface-visibility:hidden}
+
+/* Mobile */
+@media (max-width:760px){
+  .novaAbout .aboutFinalVideo,
+  .novaAbout .aboutFinalValues,
+  .novaAbout .aboutFinalClinic,
+  .novaAbout .aboutFinalTeam,
+  .novaAbout .aboutFinalClosing{padding-top:52px !important;padding-bottom:52px !important}
+  .novaAbout h2{font-size:30px !important}
+  .novaAbout .aboutFinalVideoGrid{gap:14px !important}
+  .novaAbout .aboutFinalVideoFrame,
+  .novaAbout .aboutFinalVideoCopy{height:auto !important;min-height:0 !important}
+  .novaAbout .aboutFinalVideoFrame{height:300px !important}
+  .novaAbout .aboutFinalVideoCopy{padding:30px 24px !important}
+  .novaAbout .aboutCtaFrame .aboutClosingContent{padding:36px 24px !important}
+  .novaAbout .aboutFinalClosing{min-height:420px !important}
+}

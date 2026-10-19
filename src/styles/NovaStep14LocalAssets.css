@@ -1,0 +1,86 @@
+/* Step 14: use existing project photography, make the brand mark readable, and remove yellow/teeth CTA imagery. */
+.novaAbout .aboutHero {
+  isolation: isolate !important;
+  background: #103a60 !important;
+}
+.novaAbout .aboutHeroImage {
+  background-image: url('/images/gallery/gallery-08.jpg') !important;
+  background-size: cover !important;
+  background-position: 64% 43% !important;
+  filter: blur(3px) saturate(.88) !important;
+  transform: scale(1.045) !important;
+  animation: novaAboutCarePhoto 22s ease-in-out infinite alternate !important;
+}
+.novaAbout .aboutHeroOverlay {
+  background: linear-gradient(90deg, rgba(7,32,56,.88) 0%, rgba(10,48,78,.74) 45%, rgba(12,57,88,.40) 100%), linear-gradient(0deg, rgba(7,32,56,.44), transparent 60%) !important;
+}
+.novaAbout .aboutHeroEyebrow { color: #a8e5e6 !important; }
+.novaAbout .aboutHeroContent h1 { color: #fff !important; text-shadow: 0 5px 24px rgba(0,18,36,.35) !important; }
+.novaAbout .aboutHeroContent h1 em { color: #a8e5e6 !important; }
+.novaAbout .aboutHeroDescription { color: #f7fbff !important; }
+.novaAbout .aboutHeroFooter { color: rgba(245,251,255,.9) !important; border-color: rgba(168,229,230,.4) !important; }
+
+/* Navbar gets a square, dedicated tooth emblem instead of squeezing the full wordmark into a tiny square. */
+.novaNavbar .novaLogo {
+  width: 54px !important; height: 54px !important; flex: 0 0 54px !important;
+  display: grid !important; place-items: center !important; padding: 0 !important;
+  border-radius: 17px !important; background: #fff !important;
+  border: 1px solid rgba(36,127,153,.24) !important;
+  box-shadow: 0 9px 25px rgba(16,58,96,.12), 0 0 0 4px rgba(168,229,230,.12) !important;
+}
+.novaNavbar .novaNavbarLogoImage {
+  width: 100% !important; height: 100% !important; object-fit: contain !important;
+  padding: 3px !important; animation: novaNavEmblemReveal .85s cubic-bezier(.2,.8,.2,1) both, novaNavEmblemFloat 5s ease-in-out 1s infinite !important;
+}
+.novaNavbar .novaBrandText strong { color: #103a60 !important; }
+.novaNavbar .novaBrandText span { color: #247f99 !important; }
+.novaNavbar .novaBrand:hover .novaLogo { box-shadow: 0 13px 30px rgba(16,91,130,.2), 0 0 0 6px rgba(168,229,230,.16) !important; }
+
+/* Full NOVADENT wordmark on a high-contrast plate in the opening scene. */
+.homePage.premiumHome .novaCinematicIntro { background: radial-gradient(ellipse at 50% 38%, #1c5a7c 0%, #103a60 48%, #08233e 100%) !important; }
+.homePage.premiumHome .novaIntroMark img {
+  display: block !important; object-fit: contain !important; width: clamp(265px, 35vw, 420px) !important;
+  max-height: 140px !important; padding: 20px 24px !important; background: #fff !important;
+  border: 1px solid rgba(168,229,230,.75) !important; border-radius: 20px !important;
+  box-shadow: 0 22px 68px rgba(0,14,32,.32), 0 0 0 8px rgba(255,255,255,.08) !important;
+  animation: novaIntroWordmarkOpen 1.1s cubic-bezier(.2,.8,.2,1) both !important;
+}
+.homePage.premiumHome .novaIntroTagline { color: #e3f8fa !important; }
+
+/* CTA uses a real patient-care image from this project, not the yellow teeth-whitening image. */
+.homePage.premiumHome .cinematicAppointmentSmile {
+  overflow: hidden !important; background: #123d63 !important; border: 1px solid rgba(255,255,255,.48) !important;
+  box-shadow: 0 26px 70px rgba(0,18,35,.34) !important;
+}
+.homePage.premiumHome .cinematicAppointmentSmile img {
+  display: block !important; width: 100% !important; height: 100% !important; object-fit: cover !important;
+  object-position: 54% 42% !important; filter: saturate(.86) contrast(1.04) !important;
+}
+.homePage.premiumHome .cinematicAppointmentSmile::after {
+  background: linear-gradient(0deg, rgba(5,34,56,.78), rgba(5,34,56,.04) 70%) !important;
+}
+.homePage.premiumHome .cinematicAppointmentSmile span {
+  color: #fff !important; background: rgba(7,39,62,.92) !important;
+  border: 1px solid rgba(168,229,230,.55) !important; box-shadow: 0 6px 22px rgba(0,0,0,.18) !important;
+}
+
+.novaAbout .aboutExperienceFilmFrame { outline: 1px solid rgba(46,127,164,.18); }
+.novaAbout .aboutExperienceFilmCaption { color: #fff !important; }
+
+@keyframes novaAboutCarePhoto { from { transform: scale(1.045) translateX(0); } to { transform: scale(1.095) translateX(-.5%); } }
+@keyframes novaNavEmblemReveal { from { opacity: 0; transform: scale(.72) rotate(-8deg); } to { opacity: 1; transform: scale(1) rotate(0); } }
+@keyframes novaNavEmblemFloat { 0%,100% { translate: 0 0; } 50% { translate: 0 -2px; } }
+@keyframes novaIntroWordmarkOpen { from { opacity: 0; transform: translateY(20px) scale(.88); clip-path: inset(0 50% 0 50% round 20px); } to { opacity: 1; transform: translateY(0) scale(1); clip-path: inset(0 0 0 0 round 20px); } }
+@media (max-width: 900px) {
+  .novaAbout .aboutHeroImage { background-position: 62% center !important; }
+  .novaNavbar .novaLogo { width: 48px !important; height: 48px !important; flex-basis: 48px !important; }
+}
+@media (max-width: 640px) {
+  .novaAbout .aboutHeroImage { background-position: 60% center !important; filter: blur(2px) saturate(.88) !important; }
+  .novaNavbar .novaLogo { width: 43px !important; height: 43px !important; flex-basis: 43px !important; border-radius: 14px !important; }
+  .homePage.premiumHome .novaIntroMark img { width: min(84vw,330px) !important; padding: 15px 17px !important; }
+  .homePage.premiumHome .cinematicAppointmentSmile { opacity: .28 !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .novaAbout .aboutHeroImage, .novaNavbar .novaNavbarLogoImage, .homePage.premiumHome .novaIntroMark img { animation: none !important; }
+}

@@ -1,0 +1,162 @@
+/* Step 26 — unify About typography with the established Home visual system. */
+:root {
+  --nova-type-ink: #153640;
+  --nova-type-blue: #176f78;
+  --nova-type-aqua: #c4e4df;
+  --nova-type-muted: #526d80;
+  --nova-type-line: rgba(21, 54, 64, .16);
+}
+
+/* Hero type scale now follows Home's large editorial display scale. */
+html body #root main.novaAbout > section.aboutHero .aboutHeroContent h1.aboutHeroTitle {
+  max-width: 960px !important;
+  font-size: clamp(3.1rem, 7.3vw, 7.2rem) !important;
+  line-height: .98 !important;
+  letter-spacing: -.065em !important;
+  text-wrap: balance;
+  margin-bottom: clamp(18px, 2vw, 28px) !important;
+}
+html body #root main.novaAbout > section.aboutHero .aboutHeroContent h1.aboutHeroTitle > span {
+  display: block !important;
+  width: fit-content;
+  max-width: 100%;
+}
+html body #root main.novaAbout > section.aboutHero .aboutHeroContent .aboutHeroDescription {
+  font-size: clamp(.98rem, 1.2vw, 1.13rem) !important;
+  line-height: 1.85 !important;
+  max-width: 600px !important;
+}
+html body #root main.novaAbout > section.aboutHero .aboutHeroContent .aboutHeroEyebrow {
+  font-size: .68rem !important;
+  letter-spacing: .19em !important;
+}
+
+/* About section headings mirror Home story headings. */
+.novaAbout .aboutSectionHeading h2,
+.novaAbout .aboutIntro h2,
+.novaAbout .aboutStory h2,
+.novaAbout .aboutModern h2,
+.novaAbout .aboutJourney h2,
+.novaAbout .aboutValues h2,
+.novaAbout .aboutGallery h2,
+.novaAbout .aboutExperienceSection h2,
+.novaAbout .aboutFinalCta h2,
+.novaAbout .aboutPromise h2 {
+  font-size: clamp(2.45rem, 5.1vw, 5.25rem) !important;
+  line-height: 1.02 !important;
+  letter-spacing: -.06em !important;
+  text-wrap: balance;
+}
+.novaAbout .aboutSectionHeading h2 em,
+.novaAbout .aboutIntro h2 em,
+.novaAbout .aboutStory h2 em,
+.novaAbout .aboutModern h2 em,
+.novaAbout .aboutJourney h2 em,
+.novaAbout .aboutValues h2 em,
+.novaAbout .aboutGallery h2 em,
+.novaAbout .aboutExperienceSection h2 em,
+.novaAbout .aboutFinalCta h2 em,
+.novaAbout .aboutPromise h2 em {
+  color: var(--nova-type-blue) !important;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+}
+.novaAbout .aboutEyebrow,
+.novaAbout .aboutSectionHeading .aboutEyebrow,
+.novaAbout .aboutHeroEyebrow {
+  letter-spacing: .19em;
+}
+.novaAbout p,
+.novaAbout .aboutSectionDescription,
+.novaAbout .aboutStoryContent,
+.novaAbout .aboutModernText,
+.novaAbout .aboutExperienceContent p,
+.novaAbout .aboutExperienceFilmIntro p {
+  line-height: 1.8;
+}
+.novaAbout .aboutSectionDescription,
+.novaAbout .aboutStoryContent p,
+.novaAbout .aboutModernText p,
+.novaAbout .aboutExperienceContent p {
+  font-size: clamp(1rem, 1.15vw, 1.12rem);
+}
+
+/* Keep paired media and copy aligned; allow natural height on small screens. */
+.novaAbout .aboutSectionHeading,
+.novaAbout .aboutStory,
+.novaAbout .aboutModern,
+.novaAbout .aboutJourney,
+.novaAbout .aboutExperienceSection .aboutExperienceInner {
+  align-items: stretch;
+}
+.novaAbout .aboutStoryImage,
+.novaAbout .aboutModernImage,
+.novaAbout .aboutExperienceImage,
+.novaAbout .aboutExperienceFilmFrame {
+  min-height: 100%;
+  overflow: hidden;
+}
+.novaAbout .aboutStoryImage img,
+.novaAbout .aboutModernImage img,
+.novaAbout .aboutExperienceImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* More consistent section rhythm, readable cards and visible dividers. */
+.novaAbout > section:not(.aboutHero) {
+  scroll-margin-top: 96px;
+}
+.novaAbout .aboutValueCard,
+.novaAbout .aboutModernPoints > div,
+.novaAbout .aboutJourneyCard,
+.novaAbout .aboutGalleryCard {
+  transition: transform .32s cubic-bezier(.2,.72,.22,1), box-shadow .32s ease, border-color .32s ease;
+}
+.novaAbout .aboutValueCard:hover,
+.novaAbout .aboutModernPoints > div:hover,
+.novaAbout .aboutJourneyCard:hover,
+.novaAbout .aboutGalleryCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 42px rgba(9,44,75,.10);
+}
+.novaAbout > section:not(.aboutHero):not(.aboutFinalCta):not(.aboutPromise) {
+  border-bottom: 1px solid var(--nova-type-line);
+}
+
+@media (max-width: 768px) {
+  html body #root main.novaAbout > section.aboutHero .aboutHeroContent h1.aboutHeroTitle {
+    font-size: clamp(2.75rem, 11.8vw, 4.6rem) !important;
+    line-height: 1.02 !important;
+    letter-spacing: -.055em !important;
+  }
+  .novaAbout .aboutSectionHeading h2,
+  .novaAbout .aboutIntro h2,
+  .novaAbout .aboutStory h2,
+  .novaAbout .aboutModern h2,
+  .novaAbout .aboutJourney h2,
+  .novaAbout .aboutValues h2,
+  .novaAbout .aboutGallery h2,
+  .novaAbout .aboutExperienceSection h2,
+  .novaAbout .aboutFinalCta h2,
+  .novaAbout .aboutPromise h2 {
+    font-size: clamp(2.2rem, 9vw, 3.7rem) !important;
+    line-height: 1.04 !important;
+  }
+  .novaAbout .sectionPadding { padding-top: 76px; padding-bottom: 76px; }
+  .novaAbout .aboutStoryImage,
+  .novaAbout .aboutModernImage,
+  .novaAbout .aboutExperienceImage { min-height: 300px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .novaAbout .aboutValueCard,
+  .novaAbout .aboutModernPoints > div,
+  .novaAbout .aboutJourneyCard,
+  .novaAbout .aboutGalleryCard { transition: none !important; }
+  .novaAbout .aboutValueCard:hover,
+  .novaAbout .aboutModernPoints > div:hover,
+  .novaAbout .aboutJourneyCard:hover,
+  .novaAbout .aboutGalleryCard:hover { transform: none !important; }
+}

@@ -1,0 +1,176 @@
+/* NOVADENT — focused cinematic polish pass. Loaded after legacy styles intentionally. */
+:root {
+  --nova-ink: #173d35;
+  --nova-ink-deep: #102f2a;
+  --nova-sage: #5b8d79;
+  --nova-sage-pale: #edf5f0;
+  --nova-paper: #ffffff;
+  --nova-copy: #4e625a;
+  --nova-hairline: #dce7e0;
+  --nova-motion: cubic-bezier(.2,.72,.2,1);
+}
+
+html { scroll-behavior: smooth; }
+.homePage.premiumHome,
+.novaAbout {
+  color: var(--nova-ink);
+  font-family: inherit;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+.homePage.premiumHome :is(h1,h2,h3,h4),
+.novaAbout :is(h1,h2,h3,h4) {
+  font-family: inherit;
+  letter-spacing: -.04em;
+  text-wrap: balance;
+}
+.homePage.premiumHome :is(p,li),
+.novaAbout :is(p,li) {
+  font-size: clamp(.96rem, 1.04vw, 1.075rem);
+  line-height: 1.82;
+}
+.homePage.premiumHome .storyKicker,
+.novaAbout .aboutEyebrow,
+.novaAbout .aboutHeroEyebrow {
+  font-size: .7rem;
+  font-weight: 750;
+  letter-spacing: .18em;
+  line-height: 1.6;
+}
+
+/* Brand opening: real logo, short hold, then outward circular reveal. */
+.novaCinematicIntro {
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 42%, #285849 0%, #173d35 48%, #0e2924 100%);
+  clip-path: circle(150% at 50% 50%);
+  animation: novaRevealHome 1.15s cubic-bezier(.76,0,.24,1) 1.45s forwards !important;
+}
+.novaIntroMark { display: flex; align-items: center; flex-direction: column; gap: 15px; animation: novaLogoSettle .85s var(--nova-motion) both; }
+.novaIntroMark img {
+  width: clamp(180px, 23vw, 290px);
+  max-height: 155px;
+  object-fit: contain;
+  filter: brightness(0) invert(1) drop-shadow(0 10px 28px rgba(0,0,0,.22));
+}
+.novaIntroTagline { color: rgba(255,255,255,.82); letter-spacing: .23em; font-size: clamp(8px,.8vw,10px); text-align: center; }
+.novaIntroLine { width: 42px; height: 1px; background: #b9dfcc; transform-origin: center; animation: novaLineGrow .8s .2s both; }
+.novaIntroProgress { width: 110px; height: 2px; margin-top: 12px; overflow: hidden; background: rgba(255,255,255,.18); }
+.novaIntroProgress i { display: block; width: 100%; height: 100%; background: #d6f0e2; transform: scaleX(0); transform-origin: left; animation: novaProgressRun 1.45s .2s ease-in-out both; }
+.novaCinematicIntro::before { content: ""; position: absolute; width: min(36vw, 390px); aspect-ratio: 1; border: 1px solid rgba(221,245,232,.25); border-radius: 50%; box-shadow: 0 0 0 22px rgba(221,245,232,.035), 0 0 0 54px rgba(221,245,232,.025); animation: novaHaloExpand 1.6s ease-out both; }
+@keyframes novaRevealHome { 0% { clip-path: circle(150% at 50% 50%); opacity: 1; visibility: visible; } 99% { clip-path: circle(0% at 50% 50%); opacity: 0; visibility: visible; } 100% { clip-path: circle(0% at 50% 50%); opacity: 0; visibility: hidden; pointer-events: none; } }
+@keyframes novaLogoSettle { from { opacity: 0; transform: translateY(16px) scale(.97); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes novaLineGrow { from { transform: scaleX(0); opacity: 0; } to { transform: scaleX(1); opacity: 1; } }
+@keyframes novaProgressRun { to { transform: scaleX(1); } }
+@keyframes novaHaloExpand { 0% { opacity: 0; transform: scale(.6); } 25% { opacity: .8; } 100% { opacity: 0; transform: scale(1.5); } }
+
+/* Hero video treatment: preserve video, improve legibility and avoid washed-out text. */
+.novaHero { isolation: isolate; background: #102f2a; }
+.novaHeroVideo { filter: saturate(.88) contrast(1.04); transform: scale(1.025); }
+.novaHeroOverlay { background: linear-gradient(90deg, rgba(8,29,25,.82) 0%, rgba(8,29,25,.58) 46%, rgba(8,29,25,.2) 100%); }
+.novaHeroGradient { background: linear-gradient(0deg, rgba(8,29,25,.64), transparent 38%, rgba(8,29,25,.14)); }
+.novaHeroTitle { max-width: 980px; text-shadow: 0 4px 28px rgba(0,0,0,.24); }
+.novaHeroDescription { max-width: 58ch; color: rgba(255,255,255,.93); text-shadow: 0 2px 16px rgba(0,0,0,.22); }
+.novaHeroPrimary { box-shadow: 0 10px 28px rgba(0,0,0,.14); transition: transform .3s var(--nova-motion), box-shadow .3s var(--nova-motion), background .3s ease; }
+.novaHeroPrimary:hover { transform: translateY(-3px); box-shadow: 0 16px 34px rgba(0,0,0,.22); }
+.novaHeroSecondary { backdrop-filter: blur(9px); }
+
+/* Section identity: quiet alternating surfaces, editorial boundaries and depth. */
+.homePage.premiumHome .storySection { position: relative; isolation: isolate; }
+.homePage.premiumHome .storySection:not(.founderStory):not(.cinematicAppointment)::before {
+  content: ""; position: absolute; top: 0; left: max(6%, calc((100% - 1180px)/2)); right: max(6%, calc((100% - 1180px)/2)); height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(69,119,98,.3), transparent); pointer-events: none;
+}
+.homePage.premiumHome .storySection:nth-of-type(odd) { background-color: #fff; }
+.homePage.premiumHome .storySection:nth-of-type(even) { background-color: #f5f9f6; }
+.homePage.premiumHome .founderStory { background: radial-gradient(ellipse at 10% 18%, rgba(205,231,216,.7), transparent 42%), linear-gradient(135deg,#f4f8f5,#fff 72%); }
+.homePage.premiumHome .founderEditorial { align-items: center; gap: clamp(38px, 7vw, 104px); }
+.homePage.premiumHome .founderHeading h2 { font-size: clamp(2.15rem,4.2vw,4rem); line-height: 1.06; }
+.homePage.premiumHome .founderEditorialContent .storyLead { color: #294b40; font-size: clamp(1.03rem,1.2vw,1.18rem); }
+.homePage.premiumHome .founderEditorialContent :is(p,li) { color: #50645b; }
+.homePage.premiumHome .founderEditorialImage { overflow: hidden; border: 1px solid rgba(32,81,63,.12); box-shadow: 0 26px 70px rgba(19,58,45,.14); }
+.homePage.premiumHome .founderEditorialImage img { object-fit: cover; object-position: center 18%; transition: transform 1.1s var(--nova-motion); }
+.homePage.premiumHome .founderEditorialImage:hover img { transform: scale(1.045); }
+
+/* Real left/right entrances: the founder visual and text arrive from opposite sides. */
+.homePage.premiumHome [data-reveal] { will-change: opacity, transform, filter; }
+.homePage.premiumHome .founderEditorialVisual:not(.is-visible) { opacity: 0; transform: translate3d(-64px,12px,0); filter: blur(3px); }
+.homePage.premiumHome .founderEditorialContent:not(.is-visible) { opacity: 0; transform: translate3d(64px,12px,0); filter: blur(3px); }
+.homePage.premiumHome .founderEditorialVisual.is-visible,
+.homePage.premiumHome .founderEditorialContent.is-visible { opacity: 1; transform: translate3d(0,0,0); filter: blur(0); transition: opacity .9s ease, transform 1s var(--nova-motion), filter .9s ease; }
+.homePage.premiumHome .welcomeStory .storyContainer > :first-child,
+.homePage.premiumHome .clinicStory .storyContainer > :first-child { transition-delay: 80ms; }
+.homePage.premiumHome .welcomeStory .storyContainer > :last-child,
+.homePage.premiumHome .clinicStory .storyContainer > :last-child { transition-delay: 170ms; }
+.homePage.premiumHome .cinematicAppointment { overflow: hidden; background: radial-gradient(ellipse at 80% 22%, rgba(115,169,142,.32), transparent 38%), linear-gradient(120deg,#102f2a,#1b4a3d 58%,#2b6651); }
+.homePage.premiumHome .cinematicAppointment::before { content: ""; position: absolute; inset: 18px; border: 1px solid rgba(230,247,237,.26); pointer-events: none; }
+.homePage.premiumHome .cinematicAppointmentSmile { opacity: .94; }
+.homePage.premiumHome .cinematicAppointmentSmile img { border: 5px solid rgba(255,255,255,.2); box-shadow: 0 22px 54px rgba(0,0,0,.25); }
+.homePage.premiumHome .cinematicAppointmentCopy { max-width: 740px; }
+
+/* About: distinct clinic hero, matching typography and clear image/text contrast. */
+.novaAbout { --about-green: #173d35; --about-green-dark: #102f2a; --about-green-light: #eaf3ed; --about-ink: #183b32; --about-muted: #536960; }
+.novaAbout .aboutHero { min-height: clamp(620px,82svh,820px); background: #102f2a; }
+.novaAbout .aboutHeroImage { background-image: url('/images/gallery/gallery-01.jpg') !important; background-position: center 52%; background-size: cover; animation: novaAboutHeroDrift 20s ease-in-out infinite alternate; }
+.novaAbout .aboutHeroOverlay { background: linear-gradient(90deg,rgba(8,31,26,.9) 0%,rgba(8,31,26,.72) 42%,rgba(8,31,26,.19) 100%), linear-gradient(0deg,rgba(8,31,26,.48),transparent 60%); }
+.novaAbout .aboutHeroContent { max-width: 790px; }
+.novaAbout .aboutHeroEyebrow { color: #d4ecdf; }
+.novaAbout .aboutHeroContent h1 { color: #fff; font-size: clamp(2.8rem,6vw,5.35rem); line-height: 1.02; text-shadow: 0 3px 26px rgba(0,0,0,.28); }
+.novaAbout .aboutHeroContent h1 em { color: #c9e9d8; }
+.novaAbout .aboutHeroDescription { max-width: 55ch; color: rgba(255,255,255,.95); font-size: clamp(1rem,1.25vw,1.15rem); }
+.novaAbout .aboutHeroButton { border: 1px solid rgba(255,255,255,.56); background: rgba(255,255,255,.1); color: #fff; backdrop-filter: blur(8px); transition: background .3s ease,color .3s ease,transform .3s ease; }
+.novaAbout .aboutHeroButton:hover { background: #fff; color: #173d35; transform: translateY(-3px); }
+@keyframes novaAboutHeroDrift { from { transform: scale(1.02) translateX(0); } to { transform: scale(1.075) translateX(-.4%); } }
+.novaAbout .aboutIntro { background: #fff; }
+.novaAbout .aboutStory { background: linear-gradient(135deg,#f3f8f4,#fbfcfb); }
+.novaAbout .aboutValues { background: #edf5f0; }
+.novaAbout .aboutFounder { background: #fff; }
+.novaAbout :is(.aboutIntroText h2,.aboutStoryContent h2,.aboutFounderContent h2) { color: #173d35; font-size: clamp(2.15rem,4.2vw,4rem); line-height: 1.08; }
+.novaAbout :is(.aboutIntroText h2 em,.aboutStoryContent h2 span,.aboutFounderContent h2 span) { color: #5b8d79; }
+.novaAbout :is(.aboutIntroText p,.aboutBodyText,.aboutSectionDescription,.aboutValueCard p,.aboutStoryContent p) { color: #4e625a; }
+.novaAbout .aboutIntroImage { overflow: hidden; border: 1px solid #dce7e0; box-shadow: 0 22px 58px rgba(23,61,53,.12); }
+.novaAbout .aboutIntroImage img,
+.novaAbout .aboutStoryImages img,
+.novaAbout .aboutFounderImage img { transition: transform 1s var(--nova-motion); }
+.novaAbout :is(.aboutIntroImage,.aboutStoryImageMain,.aboutStoryImageSmall,.aboutFounderImage):hover img { transform: scale(1.045); }
+.novaAbout .aboutImageCaption { text-shadow: 0 2px 12px rgba(0,0,0,.6); }
+.novaAbout .aboutValueCard { border-color: #d4e3da; border-radius: 6px; box-shadow: 0 10px 28px rgba(23,61,53,.055); }
+.novaAbout .aboutValueCard h3 { color: #173d35; font-size: clamp(1.12rem,1.5vw,1.35rem); }
+.novaAbout .aboutValueCard p { font-size: .98rem; }
+.novaAbout .aboutValueCard:hover { transform: translateY(-7px); box-shadow: 0 20px 46px rgba(23,61,53,.12); }
+.novaAbout .aboutFounderImage { border: 1px solid #dce7e0; box-shadow: 0 22px 58px rgba(23,61,53,.1); }
+.novaAbout .about-motion-target { transition-duration: .85s; }
+.novaAbout :is(a,button):focus-visible,
+.homePage.premiumHome :is(a,button):focus-visible { outline: 3px solid #78b69a; outline-offset: 4px; }
+
+@media (max-width: 900px) {
+  .homePage.premiumHome .founderEditorial { gap: 34px; }
+  .homePage.premiumHome .founderEditorialVisual:not(.is-visible) { transform: translate3d(-28px,8px,0); }
+  .homePage.premiumHome .founderEditorialContent:not(.is-visible) { transform: translate3d(28px,8px,0); }
+  .novaAbout .aboutHero { min-height: 700px; }
+}
+@media (max-width: 640px) {
+  .novaIntroMark img { width: 168px; }
+  .novaIntroTagline { max-width: 250px; line-height: 1.8; }
+  .novaCinematicIntro::before { width: 58vw; }
+  .homePage.premiumHome .storySection:not(.founderStory):not(.cinematicAppointment)::before { left: 6%; right: 6%; }
+  .homePage.premiumHome .founderEditorialVisual:not(.is-visible) { transform: translate3d(-18px,6px,0); }
+  .homePage.premiumHome .founderEditorialContent:not(.is-visible) { transform: translate3d(18px,6px,0); }
+  .homePage.premiumHome .cinematicAppointment::before { inset: 10px; }
+  .homePage.premiumHome .cinematicAppointmentSmile { opacity: .22; right: -34px; }
+  .homePage.premiumHome .cinematicAppointmentCopy { max-width: 100%; }
+  .novaAbout .aboutHero { min-height: 82svh; padding-top: 90px; padding-bottom: 115px; }
+  .novaAbout .aboutHeroImage { background-position: 58% center; }
+  .novaAbout .aboutHeroOverlay { background: linear-gradient(90deg,rgba(8,31,26,.88),rgba(8,31,26,.52)),linear-gradient(0deg,rgba(8,31,26,.42),transparent); }
+  .novaAbout .aboutHeroContent h1 { font-size: clamp(2.55rem,10vw,3.75rem); }
+  .novaAbout .sectionPadding { padding-top: 72px; padding-bottom: 72px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .novaCinematicIntro { animation: none !important; }
+  .novaAbout .aboutHeroImage { animation: none !important; }
+  .homePage.premiumHome *, .novaAbout *, .homePage.premiumHome *::before, .novaAbout *::before { transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+  .homePage.premiumHome .founderEditorialVisual:not(.is-visible), .homePage.premiumHome .founderEditorialContent:not(.is-visible) { opacity: 1; transform: none; filter: none; }
+}

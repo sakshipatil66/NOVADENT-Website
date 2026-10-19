@@ -1,0 +1,125 @@
+/* NOVADENT — site-wide premium finish, responsive motion and interaction polish.
+   Deliberately avoids changing hero geometry, copy, routes, or core functionality. */
+:root {
+  --nova-motion-ease: cubic-bezier(.22,.7,.24,1);
+  --nova-motion-fast: 220ms;
+  --nova-motion-mid: 420ms;
+}
+
+html { scroll-behavior: smooth; }
+body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+
+/* Smooth, visible but restrained interactions across every route. */
+:where(a, button, [role="button"], input, select, textarea) {
+  -webkit-tap-highlight-color: transparent;
+}
+:where(button, a, [role="button"]) {
+  transition: color var(--nova-motion-fast) ease,
+    background-color var(--nova-motion-fast) ease,
+    border-color var(--nova-motion-fast) ease,
+    box-shadow var(--nova-motion-mid) var(--nova-motion-ease),
+    transform var(--nova-motion-mid) var(--nova-motion-ease),
+    opacity var(--nova-motion-fast) ease;
+}
+:where(button, a, [role="button"]):focus-visible,
+:where(input, select, textarea):focus-visible {
+  outline: 3px solid rgba(40, 190, 190, .72);
+  outline-offset: 3px;
+}
+:where(a, button, [role="button"]):active { transform: translateY(1px); }
+
+/* Common cards on Home, Doctors, Treatments, Reviews, Gallery and inner pages. */
+:where(
+  .doctor-card, .doctorCard, .treatment-card, .treatmentCard,
+  .review-card, .reviewCard, .gallery-card, .galleryCard,
+  .service-card, .serviceCard, .feature-card, .featureCard,
+  .aboutTeamFilmCard, .aboutValueCinematicCard
+) {
+  transition: transform var(--nova-motion-mid) var(--nova-motion-ease),
+    box-shadow var(--nova-motion-mid) var(--nova-motion-ease),
+    border-color var(--nova-motion-fast) ease;
+  transform: translateZ(0);
+}
+@media (hover: hover) and (pointer: fine) {
+  :where(
+    .doctor-card, .doctorCard, .treatment-card, .treatmentCard,
+    .review-card, .reviewCard, .gallery-card, .galleryCard,
+    .service-card, .serviceCard, .feature-card, .featureCard,
+    .aboutTeamFilmCard, .aboutValueCinematicCard
+  ):hover {
+    transform: translateY(-5px);
+    box-shadow: 0 18px 42px rgba(12, 42, 53, .12);
+  }
+  :where(main img, footer img):not(.no-motion-image) {
+    transition: filter var(--nova-motion-mid) ease;
+  }
+}
+
+/* Responsive image rendering without forcing fixed heights on unknown layouts. */
+main img { max-width: 100%; }
+main video { max-width: 100%; }
+:where(.gallery-card, .galleryCard, .aboutFinalChapterImage, .aboutFinalClinicImages,
+       .aboutTeamFilmCard, .aboutFinalVideoFrame) { overflow: hidden; }
+:where(.gallery-card, .galleryCard, .aboutFinalChapterImage, .aboutFinalClinicImages,
+       .aboutTeamFilmCard) img { backface-visibility: hidden; }
+@media (hover: hover) and (pointer: fine) {
+  :where(.gallery-card, .galleryCard, .aboutFinalChapterImage, .aboutFinalClinicImages,
+         .aboutTeamFilmCard) img { transition: transform 650ms var(--nova-motion-ease); }
+  :where(.gallery-card, .galleryCard, .aboutFinalChapterImage, .aboutFinalClinicImages,
+         .aboutTeamFilmCard):hover img { transform: scale(1.025); }
+}
+
+/* Soft continuous accent shimmer for existing accent lines / decorative elements. */
+@keyframes novaAccentBreath {
+  0%, 100% { opacity: .72; filter: saturate(.92); }
+  50% { opacity: 1; filter: saturate(1.12); }
+}
+@keyframes novaAmbientFloat {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -5px, 0); }
+}
+:where(.aboutChapterLine i, .aboutValueNumber, .aboutVideoLabelIcon) {
+  animation: novaAccentBreath 4.8s ease-in-out infinite;
+}
+:where(.aboutFinalHeroGlow, .aboutVideoGlow) {
+  animation: novaAmbientFloat 9s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Page transitions/reveal remain driven by existing JS where present. */
+@keyframes novaPageContentEnter {
+  from { opacity: .72; }
+  to { opacity: 1; }
+}
+#root > main { animation: novaPageContentEnter 500ms ease-out both; }
+
+/* Appointment and contact forms: clearer focus and comfortable touch targets. */
+:where(form input, form select, form textarea) {
+  transition: border-color var(--nova-motion-fast) ease,
+    box-shadow var(--nova-motion-fast) ease,
+    background-color var(--nova-motion-fast) ease;
+}
+:where(form input, form select, form textarea):focus {
+  box-shadow: 0 0 0 4px rgba(34, 175, 177, .12);
+}
+:where(form button, form [type="submit"]) { min-height: 44px; }
+
+/* Avoid persistent animation when the visitor requests reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+@media (max-width: 768px) {
+  :where(.doctor-card, .doctorCard, .treatment-card, .treatmentCard,
+         .review-card, .reviewCard, .gallery-card, .galleryCard,
+         .service-card, .serviceCard, .feature-card, .featureCard,
+         .aboutTeamFilmCard, .aboutValueCinematicCard):hover {
+    transform: none;
+  }
+}

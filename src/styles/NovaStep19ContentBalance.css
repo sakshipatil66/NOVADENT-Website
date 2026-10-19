@@ -1,0 +1,157 @@
+/* Step 19 — enforce the Home navy/aqua palette on About and use the available space intentionally. */
+:root {
+  --nova19-navy: #0b2d4c;
+  --nova19-blue: #236f92;
+  --nova19-aqua: #8fe0df;
+  --nova19-mist: #edf6fa;
+  --nova19-muted: #526b7e;
+}
+
+/* Use higher-specificity selectors so older cream/gold declarations cannot win. */
+body .novaAbout .aboutHero .aboutHeroContent h1,
+body .novaAbout .aboutHeroContent h1 {
+  color: #fff !important;
+  text-shadow: 0 4px 30px rgba(0, 20, 38, .34) !important;
+}
+body .novaAbout .aboutHero .aboutHeroContent h1 em,
+body .novaAbout .aboutHeroContent h1 em {
+  color: var(--nova19-aqua) !important;
+  font-style: normal !important;
+  font-weight: 500 !important;
+}
+body .novaAbout .aboutHero .aboutHeroEyebrow,
+body .novaAbout .aboutHeroFooter {
+  color: #d6f6f8 !important;
+}
+body .novaAbout .aboutHeroOverlay {
+  background: linear-gradient(100deg, rgba(5, 27, 48, .91) 0%, rgba(8, 43, 69, .76) 52%, rgba(8, 54, 77, .48) 100%), linear-gradient(0deg, rgba(4, 25, 43, .5), transparent 70%) !important;
+}
+
+/* Intro copy fills the same visual rhythm as its image without artificial empty height. */
+body .novaAbout .aboutIntro {
+  background: linear-gradient(120deg, #fff 0%, #fbfdff 58%, #f0f8fb 100%) !important;
+  padding: clamp(64px, 7.2vw, 100px) clamp(24px, 7vw, 104px) !important;
+}
+body .novaAbout .aboutIntroGrid {
+  display: grid !important;
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr) !important;
+  gap: clamp(34px, 6vw, 86px) !important;
+  align-items: stretch !important;
+}
+body .novaAbout .aboutIntroText {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  min-height: clamp(390px, 42vw, 570px) !important;
+  padding-block: clamp(8px, 2vw, 24px) !important;
+}
+body .novaAbout .aboutIntroText h2 {
+  color: var(--nova19-navy) !important;
+  font-size: clamp(36px, 4.5vw, 62px) !important;
+  line-height: 1.04 !important;
+  letter-spacing: -.055em !important;
+  margin-bottom: 24px !important;
+  text-wrap: balance !important;
+}
+body .novaAbout .aboutIntroText h2 em {
+  color: var(--nova19-blue) !important;
+  font-style: italic !important;
+}
+body .novaAbout .aboutIntroText > p {
+  max-width: 58ch !important;
+  color: var(--nova19-muted) !important;
+  font-size: clamp(15px, 1.15vw, 17px) !important;
+  line-height: 1.85 !important;
+  margin-bottom: 15px !important;
+}
+body .novaAbout .aboutIntroText > .aboutIntroSupportingCopy {
+  color: #61798a !important;
+  font-size: 14px !important;
+}
+body .novaAbout .aboutIntroHighlights {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin: 13px 0 23px;
+}
+body .novaAbout .aboutIntroHighlights > div {
+  min-height: 78px;
+  padding: 13px 12px;
+  border: 1px solid rgba(35, 111, 146, .16);
+  border-radius: 12px;
+  background: rgba(237, 246, 250, .8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 7px;
+}
+body .novaAbout .aboutIntroHighlights span {
+  color: var(--nova19-blue);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .12em;
+}
+body .novaAbout .aboutIntroHighlights strong {
+  color: var(--nova19-navy);
+  font-size: clamp(11px, .95vw, 13px);
+  line-height: 1.35;
+}
+body .novaAbout .aboutIntroImage {
+  min-height: clamp(390px, 42vw, 570px) !important;
+  height: auto !important;
+  border-radius: 22px 22px 76px 22px !important;
+  overflow: hidden !important;
+}
+body .novaAbout .aboutIntroImage img {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 100% !important;
+  object-fit: cover !important;
+}
+
+/* More intentional content density throughout the About page. */
+body .novaAbout .aboutStory,
+body .novaAbout .aboutModern,
+body .novaAbout .aboutJourney,
+body .novaAbout .aboutGallery,
+body .novaAbout .aboutValues {
+  scroll-margin-top: 100px;
+}
+body .novaAbout .aboutStoryContent > p,
+body .novaAbout .aboutModernText > p:not(.aboutEyebrow),
+body .novaAbout .aboutJourneyHeading > p:not(.aboutEyebrow) {
+  max-width: 62ch;
+  line-height: 1.9 !important;
+}
+body .novaAbout .aboutJourneyHeading > p:not(.aboutEyebrow) {
+  color: var(--nova19-muted) !important;
+  font-size: 16px !important;
+}
+body .novaAbout .aboutJourney {
+  background: linear-gradient(135deg, #f0f7fb 0%, #e7f2f8 54%, #fbfdff 100%) !important;
+}
+body .novaAbout .aboutGallery {
+  background: #fff !important;
+}
+body .novaAbout .aboutGalleryItem figcaption {
+  min-height: 80px;
+}
+body .novaAbout .aboutFinalCtaText h2 em,
+body .novaAbout .aboutFinalCtaText h2 span {
+  color: var(--nova19-blue) !important;
+}
+
+@media (max-width: 900px) {
+  body .novaAbout .aboutIntroGrid { grid-template-columns: 1fr !important; }
+  body .novaAbout .aboutIntroText { min-height: 0 !important; }
+  body .novaAbout .aboutIntroImage { min-height: 0 !important; aspect-ratio: 4 / 3; }
+}
+@media (max-width: 560px) {
+  body .novaAbout .aboutIntro { padding: 58px 20px !important; }
+  body .novaAbout .aboutIntroHighlights { grid-template-columns: 1fr; }
+  body .novaAbout .aboutIntroHighlights > div { min-height: 62px; }
+  body .novaAbout .aboutIntroText h2 { font-size: clamp(35px, 9vw, 46px) !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  body .novaAbout *, body .novaAbout *::before, body .novaAbout *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}

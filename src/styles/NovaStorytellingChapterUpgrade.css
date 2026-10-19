@@ -1,0 +1,106 @@
+/* NOVADENT Storytelling Chapter Upgrade — additive polish, preserves existing hero and routes. */
+:root {
+  --nova-story-progress: 0;
+  --nova-story-cyan: #2b858a;
+  --nova-story-deep: #102d38;
+}
+
+/* Quiet reading progress makes the long-form homepage feel like one journey. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0 auto auto 0;
+  z-index: 9999;
+  width: 100%;
+  height: 3px;
+  transform: scaleX(var(--nova-story-progress, 0));
+  transform-origin: left center;
+  background: linear-gradient(90deg, #6fb6b1, #1b7880, #c6a66b);
+  pointer-events: none;
+  opacity: .92;
+}
+
+.homePage.premiumHome .storySection,
+.homePage.premiumHome .cinematicTreatments,
+.homePage.premiumHome .cinematicDoctors,
+.homePage.premiumHome .cinematicAppointment {
+  position: relative;
+  isolation: isolate;
+}
+
+.homePage.premiumHome .storySection::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: max(24px, calc((100% - 1180px) / 2));
+  right: max(24px, calc((100% - 1180px) / 2));
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(27, 120, 128, .2), transparent);
+  pointer-events: none;
+}
+
+.homePage.premiumHome .storyIndex {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--nova-story-cyan);
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .16em;
+  line-height: 1.5;
+}
+.homePage.premiumHome .storyIndex::before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 1px;
+  background: currentColor;
+  opacity: .7;
+}
+.homePage.premiumHome .storyKicker { color: var(--nova-story-cyan); }
+.homePage.premiumHome .storyLead { max-width: 58ch; text-wrap: pretty; }
+
+.homePage.premiumHome .storyMiniGrid > div {
+  transition: transform .35s cubic-bezier(.22, 1, .36, 1), border-color .35s ease, background-color .35s ease;
+}
+.homePage.premiumHome .storyMiniGrid > div:hover {
+  transform: translateY(-3px);
+  border-color: rgba(27, 120, 128, .28);
+}
+.homePage.premiumHome .novaWelcomeMainImage img,
+.homePage.premiumHome .novaWelcomeSecondImage img,
+.homePage.premiumHome .novaExperienceMain img,
+.homePage.premiumHome .careStoryMainImage img,
+.homePage.premiumHome .founderEditorialImage img { backface-visibility: hidden; }
+.homePage.premiumHome .novaWelcomeImageCaption,
+.homePage.premiumHome .novaExperienceImageCaption {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+@media (min-width: 1100px) {
+  .homePage.premiumHome .novaStoryProgressItems button { border-radius: 999px; }
+  .homePage.premiumHome .novaStoryProgressItems button.is-active { color: var(--nova-story-deep); }
+  .homePage.premiumHome .novaStoryProgressItems button.is-active span {
+    color: #fff;
+    background: var(--nova-story-cyan);
+    box-shadow: 0 0 0 5px rgba(43, 133, 138, .12);
+  }
+  .homePage.premiumHome .novaStoryProgressItems button:focus-visible {
+    outline: 2px solid var(--nova-story-cyan);
+    outline-offset: 5px;
+  }
+}
+@media (hover: none) {
+  .homePage.premiumHome .storyMiniGrid > div:hover { transform: none; }
+}
+@media (max-width: 767px) {
+  body::before { height: 2px; }
+  .homePage.premiumHome .storySection::after { left: 22px; right: 22px; }
+  .homePage.premiumHome .storyIndex { font-size: .62rem; letter-spacing: .12em; }
+}
+@media (prefers-reduced-motion: reduce) {
+  body::before { transition: none !important; }
+  .homePage.premiumHome .storyMiniGrid > div { transition: none !important; }
+}

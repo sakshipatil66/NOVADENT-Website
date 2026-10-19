@@ -1,0 +1,33 @@
+/* Final frontend finish: accessible focus, readable form states and responsive media. */
+:where(a, button, input, select, textarea, [role="button"]):focus-visible {
+  outline: 3px solid rgba(18, 126, 133, 0.75);
+  outline-offset: 3px;
+}
+:where(img, video) {
+  max-width: 100%;
+}
+img {
+  height: auto;
+}
+::selection {
+  color: #073b4c;
+  background: rgba(98, 205, 195, 0.35);
+}
+:where(input, select, textarea) {
+  transition: border-color 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+:where(input, select, textarea):focus-visible {
+  border-color: #16838a;
+  box-shadow: 0 0 0 3px rgba(22, 131, 138, 0.13);
+}
+@media (max-width: 640px) {
+  :where(button, a, input, select, textarea) { scroll-margin-top: 88px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

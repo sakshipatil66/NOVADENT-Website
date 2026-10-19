@@ -1,0 +1,3336 @@
+
+/* Treatment image layout fix */
+
+.premiumTreatmentsPage .premiumTreatmentList {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+  align-items: stretch;
+}
+
+.premiumTreatmentsPage .premiumTreatmentItem {
+  min-width: 0;
+  overflow: hidden;
+  height: 100%;
+}
+
+.premiumTreatmentsPage .premiumTreatmentImage {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #f4f7f8;
+  isolation: isolate;
+}
+
+.premiumTreatmentsPage .premiumTreatmentImage img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  background: #f4f7f8;
+  transform: none;
+  transition: transform 0.45s ease;
+}
+
+.premiumTreatmentsPage .premiumTreatmentImage:hover img {
+  transform: scale(1.025);
+}
+
+.premiumTreatmentsPage .premiumTreatmentImageShade {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    to top,
+    rgba(9, 29, 39, 0.72) 0%,
+    rgba(9, 29, 39, 0.2) 35%,
+    transparent 70%
+  );
+}
+
+.premiumTreatmentsPage .premiumTreatmentNumber,
+.premiumTreatmentsPage .premiumTreatmentCategory,
+.premiumTreatmentsPage .premiumTreatmentImageTitle {
+  z-index: 1;
+}
+
+.premiumTreatmentsPage .premiumTreatmentItemBody {
+  min-width: 0;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.premiumTreatmentsPage .premiumTreatmentItemBody > p {
+  line-height: 1.75;
+}
+
+.premiumTreatmentsPage .premiumTreatmentTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.premiumTreatmentsPage .premiumTreatmentCTAImage {
+  min-width: 0;
+  overflow: hidden;
+  background: #f4f7f8;
+}
+
+.premiumTreatmentsPage .premiumTreatmentCTAImage img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 280px;
+  object-fit: contain;
+  object-position: center;
+  background: #f4f7f8;
+}
+
+.premiumTreatmentsPage .premiumTreatmentExploreVisual {
+  position: relative;
+  overflow: hidden;
+  background: #f4f7f8;
+  aspect-ratio: 4 / 3;
+}
+
+.premiumTreatmentsPage .premiumTreatmentExploreVisual img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  background: #f4f7f8;
+}
+
+@media (max-width: 760px) {
+  .premiumTreatmentsPage .premiumTreatmentList {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+
+  .premiumTreatmentsPage .premiumTreatmentImage {
+    aspect-ratio: 4 / 3;
+  }
+
+  .premiumTreatmentsPage .premiumTreatmentCTAImage img {
+    min-height: 220px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .premiumTreatmentsPage .premiumTreatmentImage img {
+    transition: none;
+  }
+}
+
+/* 4 treatment cards in one row */
+.premiumTreatmentsPage .premiumTreatmentList {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+  align-items: stretch;
+}
+
+/* Equal card widths */
+.premiumTreatmentsPage .premiumTreatmentItem {
+  min-width: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Image frame */
+.premiumTreatmentsPage .premiumTreatmentImage {
+  display: block;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  height: auto;
+  overflow: hidden;
+  background: #f5f7f8;
+}
+
+/* Show full image without top/bottom cropping */
+.premiumTreatmentsPage .premiumTreatmentImage img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center center;
+  transform: none;
+}
+
+/* Avoid zoom on hover */
+.premiumTreatmentsPage .premiumTreatmentImage:hover img {
+  transform: none;
+}
+
+/* Tablet: 2 cards per row */
+@media (max-width: 1024px) {
+  .premiumTreatmentsPage .premiumTreatmentList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+  }
+}
+
+/* Mobile: 1 card per row */
+@media (max-width: 600px) {
+  .premiumTreatmentsPage .premiumTreatmentList {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+
+  .premiumTreatmentsPage .premiumTreatmentImage {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+/* FIX: Make complete treatment images visible */
+
+.premiumTreatmentsPage .premiumTreatmentList .premiumTreatmentItem {
+  height: auto !important;
+  min-height: 0 !important;
+  overflow: visible !important;
+}
+
+.premiumTreatmentsPage .premiumTreatmentList .premiumTreatmentImage {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  height: 260px !important;
+  min-height: 260px !important;
+  max-height: none !important;
+  aspect-ratio: auto !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  background: #f5f7f8 !important;
+}
+
+.premiumTreatmentsPage .premiumTreatmentList .premiumTreatmentImage img {
+  display: block !important;
+  position: static !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  transform: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Disable image zoom */
+.premiumTreatmentsPage .premiumTreatmentList .premiumTreatmentImage:hover img {
+  transform: none !important;
+}
+
+/* Responsive image height */
+@media (max-width: 760px) {
+  .premiumTreatmentsPage .premiumTreatmentList .premiumTreatmentImage {
+    height: 240px !important;
+    min-height: 240px !important;
+  }
+}
+
+/* NOVADENT — Treatments visual improvements */
+
+.premiumTreatmentsPage .premiumTreatmentList {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+  align-items: stretch;
+}
+
+.premiumTreatmentsPage .premiumTreatmentItem {
+  min-width: 0;
+  height: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #e7edf0;
+  box-shadow: 0 6px 24px rgba(20, 45, 60, 0.06);
+  transition: box-shadow 250ms ease, transform 250ms ease;
+}
+
+.premiumTreatmentsPage .premiumTreatmentItem:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 32px rgba(20, 45, 60, 0.12);
+}
+
+.premiumTreatmentsPage .premiumTreatmentImage {
+  position: relative;
+  width: 100%;
+  height: 230px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f5f8fa;
+}
+
+.premiumTreatmentsPage .premiumTreatmentImage img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  transition: transform 300ms ease;
+}
+
+.premiumTreatmentsPage .premiumTreatmentItem:hover
+.premiumTreatmentImage img {
+  transform: scale(1.03);
+}
+
+@media (max-width: 1024px) {
+  .premiumTreatmentsPage .premiumTreatmentList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .premiumTreatmentsPage .premiumTreatmentList {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  .premiumTreatmentsPage .premiumTreatmentImage {
+    height: 240px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .premiumTreatmentsPage .premiumTreatmentItem,
+  .premiumTreatmentsPage .premiumTreatmentImage img {
+    transition: none;
+  }
+
+  .premiumTreatmentsPage .premiumTreatmentItem:hover,
+  .premiumTreatmentsPage .premiumTreatmentItem:hover
+  .premiumTreatmentImage img {
+    transform: none;
+  }
+}
+
+/* NOVADENT — Treatment images and grid only */
+
+.premiumTreatmentsPage .premiumTreatmentList {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+  align-items: stretch;
+}
+
+.premiumTreatmentsPage .premiumTreatmentItem {
+  min-width: 0;
+  height: 100%;
+}
+
+.premiumTreatmentsPage .premiumTreatmentItem > .premiumTreatmentImage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 230px;
+  overflow: hidden;
+  background: #f5f8f9;
+}
+
+.premiumTreatmentsPage .premiumTreatmentImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .premiumTreatmentsPage .premiumTreatmentList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .premiumTreatmentsPage .premiumTreatmentList {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .premiumTreatmentsPage .premiumTreatmentItem > .premiumTreatmentImage {
+    height: 240px;
+  }
+}
+
+/* Additional responsive refinements — no button changes */
+
+.premiumTreatmentsPage,
+.premiumTreatmentsPage * {
+  box-sizing: border-box;
+}
+
+.premiumTreatmentsPage .premiumTreatmentList > .premiumTreatmentItem {
+  min-width: 0;
+}
+
+.premiumTreatmentsPage .premiumTreatmentItemBody {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.premiumTreatmentsPage .premiumTreatmentItemBody > p {
+  line-height: 1.75;
+}
+
+.premiumTreatmentsPage .premiumTreatmentTags {
+  align-items: flex-start;
+}
+
+.premiumTreatmentsPage .premiumTreatmentTags > span {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+.premiumTreatmentsPage .premiumTreatmentExploreList {
+  min-width: 0;
+}
+
+.premiumTreatmentsPage img {
+  max-width: 100%;
+}
+
+@media (max-width: 600px) {
+  .premiumTreatmentsPage .premiumTreatmentItemBody > p {
+    font-size: 14px;
+  }
+
+  .premiumTreatmentsPage .premiumTreatmentTags {
+    gap: 7px;
+  }
+}
+
+/* NOVADENT — Subtle premium card interactions */
+
+/* Smoother card interaction */
+.premiumTreatmentsPage .premiumTreatmentItem {
+  transition:
+    box-shadow 250ms ease,
+    border-color 250ms ease;
+}
+
+/* Gentle image movement without changing the image crop */
+.premiumTreatmentsPage .premiumTreatmentImage img {
+  transition: transform 300ms ease;
+}
+
+.premiumTreatmentsPage .premiumTreatmentItem:hover
+.premiumTreatmentImage img {
+  transform: scale(1.025);
+}
+
+/* Clear keyboard focus without restyling buttons */
+.premiumTreatmentsPage .premiumTreatmentImage:focus-visible,
+.premiumTreatmentsPage .premiumTreatmentBookButton:focus-visible,
+.premiumTreatmentsPage .premiumTreatmentPrimaryBtn:focus-visible,
+.premiumTreatmentsPage .premiumTreatmentOutlineBtn:focus-visible {
+  outline: 2px solid #477f93;
+  outline-offset: 4px;
+}
+
+/* Keep images and card content within their columns */
+.premiumTreatmentsPage .premiumTreatmentItem,
+.premiumTreatmentsPage .premiumTreatmentExploreCard {
+  min-width: 0;
+}
+
+.premiumTreatmentsPage .premiumTreatmentImage img,
+.premiumTreatmentsPage .premiumTreatmentExploreVisual img,
+.premiumTreatmentsPage .premiumTreatmentCTAImage img {
+  max-width: 100%;
+}
+
+/* Respect reduced-motion settings */
+@media (prefers-reduced-motion: reduce) {
+  .premiumTreatmentsPage .premiumTreatmentItem,
+  .premiumTreatmentsPage .premiumTreatmentImage img {
+    transition: none;
+  }
+
+  .premiumTreatmentsPage .premiumTreatmentItem:hover
+  .premiumTreatmentImage img {
+    transform: none;
+  }
+}
+
+/* NOVADENT Treatments — Compact layout and directional motion */
+
+.premiumTreatmentsPage .premiumTreatmentList {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 16px !important;
+  align-items: stretch;
+  width: 100%;
+}
+
+.premiumTreatmentsPage .premiumTreatmentItem {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid #e1e8eb;
+  box-shadow: 0 3px 12px rgba(23, 55, 70, 0.06);
+}
+
+/* Smaller image section; remove container's white background */
+.premiumTreatmentsPage .premiumTreatmentItem > .premiumTreatmentImage {
+  position: relative;
+  display: block;
+  flex: 0 0 145px;
+  height: 145px;
+  min-height: 145px;
+  width: 100%;
+  padding: 0 !important;
+  margin: 0;
+  overflow: hidden;
+  background: #eaf0f2 !important;
+  isolation: isolate;
+}
+
+.premiumTreatmentsPage .premiumTreatmentImage img {
+  display: block;
+  position: absolute;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  object-fit: cover;
+  object-position: center;
+  background: transparent !important;
+  border: 0 !important;
+}
+
+/* Keep the image labels visible */
+.premiumTreatmentsPage .premiumTreatmentImageShade {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.premiumTreatmentsPage .premiumTreatmentNumber,
+.premiumTreatmentsPage .premiumTreatmentCategory,
+.premiumTreatmentsPage .premiumTreatmentImageTitle {
+  z-index: 2;
+}
+
+/* Compact card text */
+.premiumTreatmentsPage .premiumTreatmentItemBody {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+  padding: 12px !important;
+  box-sizing: border-box;
+  background: #fff;
+  color: #173746;
+}
+
+.premiumTreatmentsPage .premiumTreatmentItemBody h3 {
+  margin: 0 0 6px;
+  font-size: 15px;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.premiumTreatmentsPage .premiumTreatmentItemBody > p {
+  margin: 0 0 9px;
+  font-size: 12px;
+  line-height: 1.6;
+  color: #687b85;
+  overflow-wrap: anywhere;
+}
+
+.premiumTreatmentsPage .premiumTreatmentTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+/* Directional entrance */
+@keyframes treatmentEnterLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-70px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes treatmentEnterRight {
+  from {
+    opacity: 0;
+    transform: translateX(70px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* First and second cards enter from left */
+.premiumTreatmentsPage .premiumTreatmentItem:nth-child(4n + 1) {
+  animation: treatmentEnterLeft 800ms cubic-bezier(.2, .7, .2, 1) 80ms both !important;
+}
+
+.premiumTreatmentsPage .premiumTreatmentItem:nth-child(4n + 2) {
+  animation: treatmentEnterLeft 800ms cubic-bezier(.2, .7, .2, 1) 180ms both !important;
+}
+
+/* Third and fourth cards enter from right */
+.premiumTreatmentsPage .premiumTreatmentItem:nth-child(4n + 3) {
+  animation: treatmentEnterRight 800ms cubic-bezier(.2, .7, .2, 1) 280ms both !important;
+}
+
+.premiumTreatmentsPage .premiumTreatmentItem:nth-child(4n + 4) {
+  animation: treatmentEnterRight 800ms cubic-bezier(.2, .7, .2, 1) 380ms both !important;
+}
+
+/* Tablet */
+@media (max-width: 1050px) {
+  .premiumTreatmentsPage .premiumTreatmentList {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 14px !important;
+  }
+
+  .premiumTreatmentsPage .premiumTreatmentItem > .premiumTreatmentImage {
+    flex-basis: 150px;
+    height: 150px;
+    min-height: 150px;
+  }
+
+  .premiumTreatmentsPage .premiumTreatmentItem:nth-child(odd) {
+    animation: treatmentEnterLeft 700ms ease-out 80ms both !important;
+  }
+
+  .premiumTreatmentsPage .premiumTreatmentItem:nth-child(even) {
+    animation: treatmentEnterRight 700ms ease-out 180ms both !important;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .premiumTreatmentsPage .premiumTreatmentList {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 14px !important;
+  }
+
+  .premiumTreatmentsPage .premiumTreatmentItem > .premiumTreatmentImage {
+    flex-basis: 165px;
+    height: 165px;
+    min-height: 165px;
+  }
+
+  .premiumTreatmentsPage .premiumTreatmentItem:nth-child(n) {
+    animation: treatmentEnterLeft 650ms ease-out 80ms both !important;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .premiumTreatmentsPage .premiumTreatmentItem {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+/* Reduce space between price and booking button */
+.premiumTreatmentItemBody {
+  padding-bottom: 12px !important;
+}
+
+.premiumTreatmentItemBody .premiumTreatmentPrice {
+  margin-bottom: 8px !important;
+}
+
+.premiumTreatmentItemBody .premiumTreatmentBooking,
+.premiumTreatmentItemBody .premiumTreatmentButton {
+  margin-top: 0 !important;
+}
+
+/* Keep treatment images uncropped */
+.premiumTreatmentImage img {
+  object-fit: contain !important;
+}
+/* Further reduce treatment card height */
+.premiumTreatmentItemBody {
+  padding-top: 10px !important;
+  padding-bottom: 4px !important;
+  gap: 4px !important;
+}
+
+.premiumTreatmentItemBody .premiumTreatmentPrice {
+  margin-top: 0 !important;
+  margin-bottom: 3px !important;
+  line-height: 1.2 !important;
+}
+
+.premiumTreatmentItemBody .premiumTreatmentBooking,
+.premiumTreatmentItemBody .premiumTreatmentButton {
+  margin-top: 0 !important;
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
+}
+
+.premiumTreatmentItem {
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.premiumTreatmentImage img {
+  object-fit: contain !important;
+}
+/* NOVADENT — Extra Compact Treatment Cards */
+
+.premiumTreatmentItemBody {
+  padding: 6px 12px 3px !important;
+  gap: 2px !important;
+}
+
+.premiumTreatmentItemBody p {
+  margin-top: 3px !important;
+  margin-bottom: 3px !important;
+}
+
+.premiumTreatmentItemBody .premiumTreatmentPrice {
+  margin: 0 0 2px !important;
+  padding: 0 !important;
+  line-height: 1.1 !important;
+}
+
+.premiumTreatmentItemBody .premiumTreatmentBooking,
+.premiumTreatmentItemBody .premiumTreatmentButton {
+  margin: 0 !important;
+  padding: 6px 12px !important;
+  line-height: 1.2 !important;
+}
+
+.premiumTreatmentItem {
+  height: auto !important;
+  min-height: 0 !important;
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.premiumTreatmentImage img {
+  object-fit: contain !important;
+}
+/* Extra Compact Treatment Cards */
+.premiumTreatmentItemBody {
+  padding: 4px 10px 2px !important;
+  gap: 0 !important;
+}
+
+.premiumTreatmentItemBody p {
+  margin-top: 2px !important;
+  margin-bottom: 2px !important;
+  line-height: 1.3 !important;
+}
+
+.premiumTreatmentItemBody .premiumTreatmentPrice {
+  margin: 0 0 1px !important;
+  padding: 0 !important;
+  line-height: 1.1 !important;
+}
+
+.premiumTreatmentItemBody .premiumTreatmentBooking,
+.premiumTreatmentItemBody .premiumTreatmentButton {
+  margin: 0 !important;
+  padding: 5px 10px !important;
+  line-height: 1.1 !important;
+}
+
+.premiumTreatmentItem {
+  height: auto !important;
+  min-height: 0 !important;
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.premiumTreatmentImage img {
+  object-fit: contain !important;
+}
+.premiumTreatmentItemBody .premiumTreatmentPrice {
+  margin-bottom: 2px !important;
+}
+
+.premiumTreatmentItemBody .premiumTreatmentBooking,
+.premiumTreatmentItemBody .premiumTreatmentButton {
+  margin-top: 0 !important;
+}
+
+.premiumTreatmentItemBody {
+  padding-bottom: 2px !important;
+}
+/* Reduce only the empty space below the price section */
+.premiumTreatmentsPage .premiumTreatmentPrice {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* Keep tags in place, but reduce their bottom gap */
+.premiumTreatmentsPage .premiumTreatmentTags {
+  margin-bottom: 4px !important;
+}
+
+/* Remove extra top spacing before the booking button */
+.premiumTreatmentsPage .premiumTreatmentBookButton {
+  margin-top: 0 !important;
+}
+/* Fix price box overlapping with information above */
+.premiumTreatmentsPage .premiumTreatmentPrice {
+  position: relative !important;
+  inset: auto !important;
+  transform: none !important;
+  margin-top: 12px !important;
+  margin-bottom: 8px !important;
+  z-index: 1;
+  clear: both;
+}
+/* Refine Estimated Starting Price box */
+.premiumTreatmentsPage .premiumTreatmentPrice {
+  margin-top: 18px !important;
+  margin-bottom: 8px !important;
+  padding-top: 14px !important;
+  padding-bottom: 14px !important;
+  position: relative !important;
+  inset: auto !important;
+  transform: none !important;
+  z-index: 1;
+}
+/* Reduce space between price box and booking button */
+.premiumTreatmentsPage .premiumTreatmentPrice {
+  margin-bottom: 4px !important;
+}
+
+.premiumTreatmentsPage .premiumTreatmentTags {
+  margin-bottom: 2px !important;
+}
+
+.premiumTreatmentsPage .premiumTreatmentBookButton {
+  margin-top: 0 !important;
+}
+.premiumTreatmentsPage .premiumTreatmentPrice {
+  margin-bottom: 0 !important;
+}
+
+.premiumTreatmentsPage .premiumTreatmentTags {
+  margin-top: 2px !important;
+  margin-bottom: 0 !important;
+}
+
+.premiumTreatmentsPage .premiumTreatmentBookButton {
+  margin-top: 0 !important;
+}
+.premiumTreatmentsPage .premiumTreatmentPrice {
+  margin-bottom: 0 !important;
+  padding-bottom: 8px !important;
+}
+
+.premiumTreatmentsPage .premiumTreatmentTags {
+  margin-top: 0 !important;
+  margin-bottom: -4px !important;
+  gap: 4px !important;
+}
+
+.premiumTreatmentsPage .premiumTreatmentBookButton {
+  margin-top: 0 !important;
+}
+.premiumTreatmentsPage .premiumTreatmentTags {
+  margin-bottom: -8px !important;
+  row-gap: 2px !important;
+}
+
+.premiumTreatmentsPage .premiumTreatmentBookButton {
+  margin-top: 0 !important;
+}
+.premiumTreatmentsPage .premiumTreatmentTags {
+  margin-bottom: -12px !important;
+  row-gap: 0 !important;
+}
+
+.premiumTreatmentsPage .premiumTreatmentBookButton {
+  margin-top: 0 !important;
+}
+/* NOVADENT — Treatments visual polish */
+
+/* Remove unwanted white overlays from treatment images */
+.premiumTreatmentsPage .premiumTreatmentImage {
+  background: #102d38 !important;
+  overflow: hidden;
+}
+
+.premiumTreatmentsPage .premiumTreatmentImage img {
+  background: transparent !important;
+  object-fit: contain !important;
+}
+
+/* Remove decorative white pseudo overlays, if present */
+.premiumTreatmentsPage .premiumTreatmentImage::before,
+.premiumTreatmentsPage .premiumTreatmentImage::after {
+  background: transparent;
+  box-shadow: none;
+}
+
+/* Richer treatment card backgrounds and cleaner text */
+.premiumTreatmentsPage .premiumTreatmentItem {
+  background: #ffffff;
+  border: 1px solid rgba(27, 105, 111, 0.16);
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(18, 48, 58, 0.08);
+  transition:
+    transform 280ms ease,
+    box-shadow 280ms ease,
+    border-color 280ms ease;
+}
+
+.premiumTreatmentsPage .premiumTreatmentItem h3 {
+  color: #173b46;
+}
+
+.premiumTreatmentsPage .premiumTreatmentItem p {
+  color: #52666d;
+}
+
+/* Attractive estimated price box */
+.premiumTreatmentsPage .premiumTreatmentPrice {
+  background: #eaf5f3;
+  border: 1px solid #c9e5df;
+  border-radius: 10px;
+  color: #173b46;
+}
+
+.premiumTreatmentsPage .premiumTreatmentPrice span {
+  color: #52666d;
+}
+
+.premiumTreatmentsPage .premiumTreatmentPrice strong {
+  color: #087f70;
+}
+
+/* Refined booking button */
+.premiumTreatmentsPage .premiumTreatmentBookButton {
+  background: #126e70;
+  color: #ffffff;
+  border: 1px solid #126e70;
+  border-radius: 8px;
+  transition:
+    background-color 220ms ease,
+    transform 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.premiumTreatmentsPage .premiumTreatmentBookButton:hover {
+  background: #0d555a;
+  box-shadow: 0 6px 16px rgba(18, 110, 112, 0.2);
+  transform: translateY(-2px);
+}
+
+.premiumTreatmentsPage .premiumTreatmentItem:hover {
+  border-color: rgba(18, 110, 112, 0.4);
+  box-shadow: 0 14px 30px rgba(18, 48, 58, 0.13);
+}
+
+/* Smoother existing reveal animations */
+.premiumTreatmentsPage .premiumTreatmentItem {
+  animation-duration: 650ms;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  animation-fill-mode: both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .premiumTreatmentsPage .premiumTreatmentItem,
+  .premiumTreatmentsPage .premiumTreatmentBookButton {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}
+/* Remove white overlay from treatment images */
+.premiumTreatmentsPage .premiumTreatmentImage {
+  position: relative;
+  overflow: hidden;
+  background: #102d38 !important;
+}
+
+.premiumTreatmentsPage .premiumTreatmentImage img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain !important;
+  background: transparent !important;
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+/* Remove unwanted white layers */
+.premiumTreatmentsPage .premiumTreatmentImage::before,
+.premiumTreatmentsPage .premiumTreatmentImage::after {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Keep image title readable with a subtle dark shade */
+.premiumTreatmentsPage .premiumTreatmentImageShade {
+  background: linear-gradient(
+    to top,
+    rgba(8, 35, 43, 0.78),
+    transparent 65%
+  ) !important;
+}
+/* Fix white patch on treatment image corners */
+.premiumTreatmentsPage .premiumTreatmentImage {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: 14px;
+  background: #123b46 !important;
+  clip-path: inset(0 round 14px);
+}
+
+.premiumTreatmentsPage .premiumTreatmentImage img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain !important;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+/* Remove corner decorations causing white patches */
+.premiumTreatmentsPage .premiumTreatmentImage::before,
+.premiumTreatmentsPage .premiumTreatmentImage::after {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+  box-shadow: none !important;
+}
+
+/* Keep the treatment image shade clean */
+.premiumTreatmentsPage .premiumTreatmentImageShade {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    to top,
+    rgba(8, 35, 43, 0.72) 0%,
+    rgba(8, 35, 43, 0.12) 40%,
+    transparent 68%
+  ) !important;
+  border-radius: inherit;
+}
+.premiumTreatmentsPage .premiumTreatmentImage {
+  overflow: hidden !important;
+  border-radius: 14px !important;
+  isolation: isolate;
+}
+
+.premiumTreatmentsPage .premiumTreatmentImage img {
+  display: block !important;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit !important;
+}
+
+/* Remove white corner artifacts */
+.premiumTreatmentsPage .premiumTreatmentImage img,
+.premiumTreatmentsPage .premiumTreatmentImageShade {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.premiumTreatmentsPage .premiumTreatmentImage::before,
+.premiumTreatmentsPage .premiumTreatmentImage::after {
+  content: none !important;
+  display: none !important;
+}
+
+.premiumTreatmentsPage .premiumTreatmentList {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 16px !important;
+  align-items: stretch !important;
+}
+
+@media (max-width: 1024px) {
+  .premiumTreatmentsPage .premiumTreatmentList {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 18px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .premiumTreatmentsPage .premiumTreatmentList {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+}
+
+/* Remove white labels and unwanted white overlays on treatment images */
+
+.premiumTreatmentsPage .premiumTreatmentImage::before,
+.premiumTreatmentsPage .premiumTreatmentImage::after {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.premiumTreatmentsPage .premiumTreatmentImageShade {
+  background: linear-gradient(
+    to top,
+    rgba(12, 39, 45, 0.78) 0%,
+    rgba(12, 39, 45, 0.18) 45%,
+    transparent 75%
+  ) !important;
+}
+
+/* Hide the white pill label on image */
+.premiumTreatmentsPage .premiumTreatmentImage span:not(.premiumTreatmentNumber),
+.premiumTreatmentsPage .premiumTreatmentImage .premiumTreatmentLabel,
+.premiumTreatmentsPage .premiumTreatmentImage .premiumTreatmentBadge {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Keep the image clean and properly fitted */
+.premiumTreatmentsPage .premiumTreatmentImage img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain !important;
+  background: #f3f7f8;
+}
+
+/* Hide unwanted white text labels over treatment images */
+
+.premiumTreatmentsPage .premiumTreatmentImage span:not(.premiumTreatmentNumber),
+.premiumTreatmentsPage .premiumTreatmentImage .premiumTreatmentLabel,
+.premiumTreatmentsPage .premiumTreatmentImage .premiumTreatmentBadge,
+.premiumTreatmentsPage .premiumTreatmentImage .premiumTreatmentTag,
+.premiumTreatmentsPage .premiumTreatmentImage .imageLabel,
+.premiumTreatmentsPage .premiumTreatmentImage .imageBadge {
+  display: none !important;
+}
+
+/* Keep treatment number and title visible */
+.premiumTreatmentsPage .premiumTreatmentImage .premiumTreatmentNumber,
+.premiumTreatmentsPage .premiumTreatmentImage h3 {
+  display: block !important;
+}
+
+/* NOVADENT — Premium Treatment Card Animations */
+
+.premiumTreatmentsPage .premiumTreatmentItem {
+  position: relative;
+  border: 1px solid rgba(22, 125, 128, 0.16);
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 5px 20px rgba(21, 57, 63, 0.06);
+  overflow: hidden;
+  animation: treatmentCardReveal 0.7s ease both;
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.premiumTreatmentsPage .premiumTreatmentItem:nth-child(4n + 1) {
+  animation-delay: 0.05s;
+}
+
+.premiumTreatmentsPage .premiumTreatmentItem:nth-child(4n + 2) {
+  animation-delay: 0.12s;
+}
+
+.premiumTreatmentsPage .premiumTreatmentItem:nth-child(4n + 3) {
+  animation-delay: 0.19s;
+}
+
+.premiumTreatmentsPage .premiumTreatmentItem:nth-child(4n + 4) {
+  animation-delay: 0.26s;
+}
+
+@keyframes treatmentCardReveal {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Premium hover effect */
+@media (hover: hover) and (pointer: fine) {
+  .premiumTreatmentsPage .premiumTreatmentItem:hover {
+    transform: translateY(-7px);
+    border-color: rgba(22, 125, 128, 0.48);
+    box-shadow: 0 16px 34px rgba(21, 57, 63, 0.13);
+  }
+
+  .premiumTreatmentsPage .premiumTreatmentImage img {
+    transition: transform 0.55s ease;
+  }
+
+  .premiumTreatmentsPage .premiumTreatmentItem:hover
+  .premiumTreatmentImage img {
+    transform: scale(1.035);
+  }
+
+  .premiumTreatmentsPage .premiumTreatmentBookButton {
+    transition:
+      background-color 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  .premiumTreatmentsPage .premiumTreatmentItem:hover
+  .premiumTreatmentBookButton {
+    background-color: #126a6b;
+    box-shadow: 0 5px 14px rgba(18, 106, 107, 0.2);
+  }
+}
+
+/* Refined headings */
+.premiumTreatmentsPage .premiumTreatmentItemBody h3 {
+  transition: color 0.3s ease;
+}
+
+.premiumTreatmentsPage .premiumTreatmentItem:hover
+.premiumTreatmentItemBody h3 {
+  color: #168b8c;
+}
+
+/* Keyboard accessibility */
+.premiumTreatmentsPage .premiumTreatmentBookButton:focus-visible {
+  outline: 3px solid rgba(22, 139, 140, 0.4);
+  outline-offset: 3px;
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .premiumTreatmentsPage .premiumTreatmentItem {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .premiumTreatmentsPage .premiumTreatmentImage img {
+    transition: none !important;
+  }
+}
+
+/* NOVADENT — Enhanced Treatments Micro-interactions */
+
+/* Subtle premium card surface */
+.premiumTreatmentsPage .premiumTreatmentItem {
+  isolation: isolate;
+  transition:
+    transform 0.4s cubic-bezier(0.2, 0.75, 0.25, 1),
+    box-shadow 0.4s ease,
+    border-color 0.35s ease;
+}
+
+/* Elegant teal highlight along the card edge */
+.premiumTreatmentsPage .premiumTreatmentItem::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 3px;
+  background: linear-gradient(90deg, #167d80, #80d4ca, #167d80);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.45s ease;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.premiumTreatmentsPage .premiumTreatmentItem:hover::before {
+  transform: scaleX(1);
+}
+
+/* Price box interaction */
+.premiumTreatmentsPage .premiumTreatmentPrice {
+  border: 1px solid rgba(22, 125, 128, 0.13);
+  border-radius: 13px;
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.premiumTreatmentsPage .premiumTreatmentItem:hover
+.premiumTreatmentPrice {
+  background-color: #e5f5f2;
+  border-color: rgba(22, 125, 128, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Booking button micro-interaction */
+.premiumTreatmentsPage .premiumTreatmentBookButton {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  border-radius: 10px;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.premiumTreatmentsPage .premiumTreatmentBookButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(18, 106, 107, 0.18);
+}
+
+/* Treatment image frame */
+.premiumTreatmentsPage .premiumTreatmentImage {
+  border-radius: 13px;
+  overflow: hidden;
+}
+
+.premiumTreatmentsPage .premiumTreatmentImage img {
+  transition: transform 0.6s cubic-bezier(0.2, 0.75, 0.25, 1);
+}
+
+/* Refined focus for interactive cards */
+.premiumTreatmentsPage .premiumTreatmentItem:focus-within {
+  outline: 2px solid rgba(22, 125, 128, 0.45);
+  outline-offset: 3px;
+}
+
+/* Keep motion comfortable */
+@media (prefers-reduced-motion: reduce) {
+  .premiumTreatmentsPage .premiumTreatmentItem::before,
+  .premiumTreatmentsPage .premiumTreatmentPrice,
+  .premiumTreatmentsPage .premiumTreatmentBookButton,
+  .premiumTreatmentsPage .premiumTreatmentImage img {
+    transition: none !important;
+  }
+}
+
+/* NOVADENT — The NOVADENT Difference */
+
+.premiumTreatmentsPage .premiumTreatmentWhy {
+  position: relative;
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: clamp(32px, 5vw, 76px);
+  align-items: center;
+  padding: clamp(56px, 7vw, 96px) clamp(22px, 6vw, 88px);
+  margin: 28px 0;
+  background: #f1f7f6;
+  border-top: 1px solid rgba(22, 125, 128, 0.12);
+  border-bottom: 1px solid rgba(22, 125, 128, 0.12);
+}
+
+.premiumTreatmentsPage .premiumTreatmentWhyIntro {
+  max-width: 440px;
+}
+
+.premiumTreatmentsPage .premiumTreatmentWhyIntro h2 {
+  margin: 16px 0;
+  color: #173d43;
+  font-size: clamp(32px, 3.6vw, 48px);
+  line-height: 1.12;
+  letter-spacing: -0.04em;
+}
+
+.premiumTreatmentsPage .premiumTreatmentWhyIntro h2 em {
+  color: #168b8c;
+  font-style: normal;
+}
+
+.premiumTreatmentsPage .premiumTreatmentWhyIntro > p {
+  max-width: 420px;
+  margin: 0;
+  color: #5c7073;
+  font-size: 15px;
+  line-height: 1.85;
+}
+
+.premiumTreatmentsPage .premiumTreatmentWhyList {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.premiumTreatmentsPage .premiumTreatmentWhyCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 22px;
+  min-height: 185px;
+  padding: 22px;
+  background: #ffffff;
+  border: 1px solid rgba(22, 125, 128, 0.12);
+  border-radius: 16px;
+  box-shadow: 0 5px 20px rgba(23, 61, 67, 0.04);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.premiumTreatmentsPage .premiumTreatmentWhyNumber {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  color: #147779;
+  background: #e4f3f0;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.premiumTreatmentsPage .premiumTreatmentWhyCard > div h3 {
+  margin: 0 0 8px;
+  color: #173d43;
+  font-size: 17px;
+  line-height: 1.4;
+}
+
+.premiumTreatmentsPage .premiumTreatmentWhyCard > div p {
+  margin: 0;
+  color: #647679;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.premiumTreatmentsPage .premiumTreatmentWhyCard > svg {
+  position: absolute;
+  top: 26px;
+  right: 20px;
+  color: #168b8c;
+  transition: transform 0.3s ease;
+}
+
+@media (hover: hover) {
+  .premiumTreatmentsPage .premiumTreatmentWhyCard:hover {
+    transform: translateY(-5px);
+    border-color: rgba(22, 139, 140, 0.35);
+    box-shadow: 0 14px 28px rgba(23, 61, 67, 0.09);
+  }
+
+  .premiumTreatmentsPage .premiumTreatmentWhyCard:hover > svg {
+    transform: translate(3px, -3px);
+  }
+}
+
+@media (max-width: 900px) {
+  .premiumTreatmentsPage .premiumTreatmentWhy {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .premiumTreatmentsPage .premiumTreatmentWhyIntro {
+    max-width: 620px;
+  }
+}
+
+@media (max-width: 560px) {
+  .premiumTreatmentsPage .premiumTreatmentWhy {
+    padding: 44px 18px;
+    gap: 24px;
+  }
+
+  .premiumTreatmentsPage .premiumTreatmentWhyList {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .premiumTreatmentsPage .premiumTreatmentWhyCard {
+    min-height: 0;
+    padding: 20px;
+    gap: 16px;
+  }
+}
+
+/* NOVADENT — Treatment Explore Editorial Section */
+
+.premiumTreatmentsPage .premiumTreatmentExplore {
+  padding: clamp(56px, 7vw, 92px) clamp(20px, 6vw, 84px);
+  background: #ffffff;
+}
+
+.premiumTreatmentsPage .premiumTreatmentExploreHeading {
+  max-width: 700px;
+  margin: 0 auto 38px;
+  text-align: center;
+}
+
+.premiumTreatmentsPage .premiumTreatmentExploreHeading h2 {
+  margin: 14px 0;
+  color: #173d43;
+  font-size: clamp(30px, 4vw, 46px);
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+}
+
+.premiumTreatmentsPage .premiumTreatmentExploreHeading h2 em {
+  color: #168b8c;
+  font-style: normal;
+}
+
+.premiumTreatmentsPage .premiumTreatmentExploreHeading > p {
+  max-width: 560px;
+  margin: 0 auto;
+  color: #647679;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.premiumTreatmentsPage .premiumTreatmentExploreList {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  align-items: stretch;
+}
+
+.premiumTreatmentsPage .premiumTreatmentExploreCard {
+  min-width: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: #f7faf9;
+  border: 1px solid #e1ecea;
+  border-radius: 18px;
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.premiumTreatmentsPage .premiumTreatmentExploreVisual {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+  background: #edf4f3;
+}
+
+.premiumTreatmentsPage .premiumTreatmentExploreVisual img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.55s ease;
+}
+
+.premiumTreatmentsPage .premiumTreatmentExploreIndex {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  padding: 8px 11px;
+  color: #ffffff;
+  background: rgba(17, 55, 60, 0.86);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 7px;
+  font-size: 10px;
+  letter-spacing: 0.09em;
+}
+
+.premiumTreatmentsPage .premiumTreatmentExploreBody {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 22px;
+}
+
+.premiumTreatmentsPage .premiumTreatmentExploreBody h3 {
+  margin: 12px 0 10px;
+  color: #173d43;
+  font-size: 20px;
+  line-height: 1.4;
+}
+
+.premiumTreatmentsPage .premiumTreatmentExploreBody > p {
+  margin: 0 0 20px;
+  color: #647679;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.premiumTreatmentsPage .premiumTreatmentExploreLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  color: #147779;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: gap 0.25s ease, color 0.25s ease;
+}
+
+.premiumTreatmentsPage .premiumTreatmentExploreLink:hover {
+  gap: 13px;
+  color: #0c5557;
+}
+
+@media (hover: hover) {
+  .premiumTreatmentsPage .premiumTreatmentExploreCard:hover {
+    transform: translateY(-6px);
+    border-color: #b6d8d3;
+    box-shadow: 0 15px 32px rgba(23, 61, 67, 0.09);
+  }
+
+  .premiumTreatmentsPage .premiumTreatmentExploreCard:hover
+  .premiumTreatmentExploreVisual img {
+    transform: scale(1.04);
+  }
+}
+
+@media (max-width: 900px) {
+  .premiumTreatmentsPage .premiumTreatmentExploreList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+}
+
+@media (max-width: 600px) {
+  .premiumTreatmentsPage .premiumTreatmentExplore {
+    padding: 48px 18px;
+  }
+
+  .premiumTreatmentsPage .premiumTreatmentExploreHeading {
+    margin-bottom: 28px;
+    text-align: left;
+  }
+
+  .premiumTreatmentsPage .premiumTreatmentExploreList {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .premiumTreatmentsPage .premiumTreatmentExploreVisual {
+    height: 210px;
+  }
+
+  .premiumTreatmentsPage .premiumTreatmentExploreBody {
+    padding: 19px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .premiumTreatmentsPage .premiumTreatmentExploreCard,
+  .premiumTreatmentsPage .premiumTreatmentExploreVisual img,
+  .premiumTreatmentsPage .premiumTreatmentExploreLink {
+    transition: none !important;
+  }
+}
+
+/* NOVADENT — Premium Treatment Process */
+
+.premiumTreatmentsPage .premiumTreatmentProcess {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(56px, 7vw, 92px) clamp(20px, 6vw, 84px);
+  background: #f1f7f6;
+}
+
+.premiumTreatmentsPage .premiumTreatmentProcessHeading {
+  max-width: 650px;
+  margin: 0 auto 42px;
+  text-align: center;
+}
+
+.premiumTreatmentsPage .premiumTreatmentProcessHeading h2 {
+  margin: 14px 0;
+  color: #173d43;
+  font-size: clamp(32px, 4vw, 46px);
+  line-height: 1.14;
+  letter-spacing: -0.04em;
+}
+
+.premiumTreatmentsPage .premiumTreatmentProcessHeading h2 em {
+  color: #168b8c;
+  font-style: normal;
+}
+
+.premiumTreatmentsPage .premiumTreatmentProcessHeading > p {
+  max-width: 540px;
+  margin: 0 auto;
+  color: #647679;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.premiumTreatmentsPage .premiumTreatmentSteps {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.premiumTreatmentsPage .premiumTreatmentSteps::before {
+  content: "";
+  position: absolute;
+  top: 39px;
+  left: 12%;
+  right: 12%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(22, 125, 128, 0.35),
+    rgba(22, 125, 128, 0.35),
+    transparent
+  );
+}
+
+.premiumTreatmentsPage .premiumTreatmentStep {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+  padding: 22px 20px 24px;
+  background: #ffffff;
+  border: 1px solid rgba(22, 125, 128, 0.14);
+  border-radius: 16px;
+  box-shadow: 0 5px 20px rgba(23, 61, 67, 0.04);
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.premiumTreatmentsPage .premiumTreatmentStepTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.premiumTreatmentsPage .premiumTreatmentStepTop > span:first-child {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  color: #ffffff;
+  background: #167d80;
+  border: 4px solid #e1f1ee;
+  box-sizing: content-box;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.premiumTreatmentsPage .premiumTreatmentStepIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  color: #167d80;
+  background: #e8f5f2;
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.premiumTreatmentsPage .premiumTreatmentStep h3 {
+  margin: 0 0 10px;
+  color: #173d43;
+  font-size: 20px;
+  line-height: 1.4;
+}
+
+.premiumTreatmentsPage .premiumTreatmentStep p {
+  margin: 0;
+  color: #647679;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.premiumTreatmentsPage .premiumTreatmentStepArrow {
+  display: block;
+  margin-top: 20px;
+  color: #168b8c;
+  transition: transform 0.3s ease;
+}
+
+@media (hover: hover) {
+  .premiumTreatmentsPage .premiumTreatmentStep:hover {
+    transform: translateY(-6px);
+    border-color: rgba(22, 139, 140, 0.4);
+    box-shadow: 0 15px 30px rgba(23, 61, 67, 0.09);
+  }
+
+  .premiumTreatmentsPage .premiumTreatmentStep:hover
+  .premiumTreatmentStepIcon {
+    color: #ffffff;
+    background: #167d80;
+    transform: rotate(-5deg);
+  }
+
+  .premiumTreatmentsPage .premiumTreatmentStep:hover
+  .premiumTreatmentStepArrow {
+    transform: translateX(5px);
+  }
+}
+
+@media (max-width: 900px) {
+  .premiumTreatmentsPage .premiumTreatmentSteps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .premiumTreatmentsPage .premiumTreatmentSteps::before {
+    display: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .premiumTreatmentsPage .premiumTreatmentProcess {
+    padding: 48px 18px;
+  }
+
+  .premiumTreatmentsPage .premiumTreatmentProcessHeading {
+    margin-bottom: 28px;
+    text-align: left;
+  }
+
+  .premiumTreatmentsPage .premiumTreatmentSteps {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .premiumTreatmentsPage .premiumTreatmentStep {
+    padding: 20px;
+  }
+
+  .premiumTreatmentsPage .premiumTreatmentStepTop {
+    margin-bottom: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .premiumTreatmentsPage .premiumTreatmentStep,
+  .premiumTreatmentsPage .premiumTreatmentStepIcon,
+  .premiumTreatmentsPage .premiumTreatmentStepArrow {
+    transition: none !important;
+  }
+}
+
+/* NOVADENT — Premium FAQ Section */
+
+.premiumTreatmentsPage .premiumTreatmentFAQ {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  align-items: start;
+  gap: clamp(32px, 6vw, 84px);
+  padding: clamp(56px, 7vw, 92px) clamp(20px, 6vw, 84px);
+  background: #ffffff;
+}
+
+.premiumTreatmentsPage .premiumTreatmentFAQIntro {
+  position: sticky;
+  top: 32px;
+  max-width: 420px;
+}
+
+.premiumTreatmentsPage .premiumTreatmentFAQIntro h2 {
+  margin: 15px 0;
+  color: #173d43;
+  font-size: clamp(32px, 3.8vw, 46px);
+  line-height: 1.13;
+  letter-spacing: -0.04em;
+}
+
+.premiumTreatmentsPage .premiumTreatmentFAQIntro h2 em {
+  color: #168b8c;
+  font-style: normal;
+}
+
+.premiumTreatmentsPage .premiumTreatmentFAQIntro > p {
+  margin: 0 0 22px;
+  color: #647679;
+  font-size: 14px;
+  line-height: 1.85;
+}
+
+.premiumTreatmentsPage .premiumTreatmentFAQContact {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: #147779;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: gap 0.25s ease;
+}
+
+.premiumTreatmentsPage .premiumTreatmentFAQContact:hover {
+  gap: 14px;
+}
+
+.premiumTreatmentsPage .premiumTreatmentFAQList {
+  min-width: 0;
+  border-top: 1px solid #dce8e6;
+}
+
+.premiumTreatmentsPage .premiumTreatmentFAQItem {
+  border-bottom: 1px solid #dce8e6;
+}
+
+.premiumTreatmentsPage .premiumTreatmentFAQItem > button {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 38px minmax(0, 1fr) 22px;
+  align-items: center;
+  gap: 14px;
+  padding: 22px 4px;
+  border: 0;
+  background: transparent;
+  color: #173d43;
+  text-align: left;
+  cursor: pointer;
+}
+
+.premiumTreatmentsPage .premiumTreatmentFAQNumber {
+  color: #168b8c;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.premiumTreatmentsPage .premiumTreatmentFAQItem > button > span:nth-child(2) {
+  font-size: 15px;
+  font-weight: 650;
+  line-height: 1.55;
+  transition: color 0.25s ease;
+}
+
+.premiumTreatmentsPage .premiumTreatmentFAQItem > button > svg {
+  color: #168b8c;
+  transition: transform 0.3s ease;
+}
+
+.premiumTreatmentsPage .premiumTreatmentFAQItem.is-open > button > span:nth-child(2) {
+  color: #147779;
+}
+
+.premiumTreatmentsPage .premiumTreatmentFAQItem.is-open > button > svg {
+  transform: rotate(180deg);
+}
+
+.premiumTreatmentsPage .premiumTreatmentFAQAnswer {
+  padding: 0 36px 22px 56px;
+  animation: treatmentFAQReveal 0.25s ease both;
+}
+
+.premiumTreatmentsPage .premiumTreatmentFAQAnswer p {
+  margin: 0;
+  color: #647679;
+  font-size: 14px;
+  line-height: 1.85;
+}
+
+.premiumTreatmentsPage .premiumTreatmentFAQItem > button:focus-visible,
+.premiumTreatmentsPage .premiumTreatmentFAQContact:focus-visible {
+  outline: 2px solid #168b8c;
+  outline-offset: 4px;
+}
+
+@keyframes treatmentFAQReveal {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 850px) {
+  .premiumTreatmentsPage .premiumTreatmentFAQ {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .premiumTreatmentsPage .premiumTreatmentFAQIntro {
+    position: static;
+    max-width: 620px;
+  }
+}
+
+@media (max-width: 560px) {
+  .premiumTreatmentsPage .premiumTreatmentFAQ {
+    padding: 48px 18px;
+    gap: 24px;
+  }
+
+  .premiumTreatmentsPage .premiumTreatmentFAQItem > button {
+    grid-template-columns: 28px minmax(0, 1fr) 20px;
+    gap: 10px;
+    padding: 19px 0;
+  }
+
+  .premiumTreatmentsPage .premiumTreatmentFAQItem > button > span:nth-child(2) {
+    font-size: 14px;
+  }
+
+  .premiumTreatmentsPage .premiumTreatmentFAQAnswer {
+    padding: 0 8px 20px 38px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .premiumTreatmentsPage .premiumTreatmentFAQItem > button > svg,
+  .premiumTreatmentsPage .premiumTreatmentFAQContact {
+    transition: none !important;
+  }
+
+  .premiumTreatmentsPage .premiumTreatmentFAQAnswer {
+    animation: none !important;
+  }
+}
+
+/* NOVADENT — Premium Treatment CTA */
+
+.premiumTreatmentsPage .premiumTreatmentCTA {
+  position: relative;
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  align-items: stretch;
+  gap: clamp(24px, 4vw, 54px);
+  margin: clamp(32px, 5vw, 64px) clamp(18px, 5vw, 68px);
+  overflow: hidden;
+  border: 1px solid #dce9e7;
+  border-radius: 24px;
+  background: #f0f8f7;
+}
+
+.premiumTreatmentsPage .premiumTreatmentCTA img {
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+.premiumTreatmentsPage .premiumTreatmentCTA > div,
+.premiumTreatmentsPage .premiumTreatmentCTAContent {
+  align-self: center;
+  padding: clamp(28px, 4vw, 56px);
+}
+
+.premiumTreatmentsPage .premiumTreatmentCTA h2 {
+  margin: 12px 0 16px;
+  color: #173d43;
+  font-size: clamp(30px, 3.4vw, 44px);
+  line-height: 1.13;
+  letter-spacing: -0.04em;
+}
+
+.premiumTreatmentsPage .premiumTreatmentCTA p {
+  max-width: 470px;
+  margin: 0 0 24px;
+  color: #617679;
+  font-size: 14px;
+  line-height: 1.85;
+}
+
+.premiumTreatmentsPage .premiumTreatmentCTA a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 46px;
+  margin: 0 10px 8px 0;
+  padding: 12px 20px;
+  border: 1px solid #147779;
+  border-radius: 6px;
+  background: #147779;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 650;
+  text-decoration: none;
+  transition: background 0.25s ease, color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.premiumTreatmentsPage .premiumTreatmentCTA a:hover {
+  transform: translateY(-2px);
+  background: #105e61;
+}
+
+.premiumTreatmentsPage .premiumTreatmentCTA a:last-child {
+  background: transparent;
+  color: #147779;
+}
+
+.premiumTreatmentsPage .premiumTreatmentCTA a:last-child:hover {
+  background: #dcefed;
+}
+
+@media (max-width: 760px) {
+  .premiumTreatmentsPage .premiumTreatmentCTA {
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin: 28px 18px;
+    border-radius: 18px;
+  }
+
+  .premiumTreatmentsPage .premiumTreatmentCTA img {
+    height: 260px;
+    min-height: 0;
+  }
+
+  .premiumTreatmentsPage .premiumTreatmentCTA > div,
+  .premiumTreatmentsPage .premiumTreatmentCTAContent {
+    padding: 28px 22px 32px;
+  }
+}
+
+@media (max-width: 420px) {
+  .premiumTreatmentsPage .premiumTreatmentCTA img {
+    height: 220px;
+  }
+
+  .premiumTreatmentsPage .premiumTreatmentCTA a {
+    width: 100%;
+    margin-right: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .premiumTreatmentsPage .premiumTreatmentCTA a {
+    transition: none !important;
+  }
+}
+
+/* NOVADENT — Treatments Visual Upgrade */
+
+/* Main section backgrounds */
+.premiumTreatmentsPage .premiumTreatmentWhy {
+  background: linear-gradient(135deg, #e7f3f1 0%, #f4f8f7 55%, #e1efed 100%);
+}
+
+.premiumTreatmentsPage .premiumTreatmentExplore {
+  background: #f7faf9;
+}
+
+.premiumTreatmentsPage .premiumTreatmentProcess {
+  background: linear-gradient(135deg, #12383f 0%, #19545a 100%);
+  color: #fff;
+}
+
+.premiumTreatmentsPage .premiumTreatmentProcess h2,
+.premiumTreatmentsPage .premiumTreatmentProcess h3,
+.premiumTreatmentsPage .premiumTreatmentProcess p {
+  color: #fff;
+}
+
+.premiumTreatmentsPage .premiumTreatmentStep {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.17);
+  border-radius: 16px;
+  backdrop-filter: blur(8px);
+}
+
+.premiumTreatmentsPage .premiumTreatmentFAQ {
+  background: linear-gradient(135deg, #edf6f4, #f8fbfa);
+}
+
+.premiumTreatmentsPage .premiumTreatmentCTA {
+  background: linear-gradient(135deg, #d7ece8, #f1f8f6);
+  border-color: #c1dfda;
+}
+
+/* Treatment cards */
+.premiumTreatmentsPage .premiumTreatmentCard,
+.premiumTreatmentsPage .premiumTreatmentExploreCard {
+  background: #fff;
+  border: 1px solid #dce9e6;
+  border-radius: 16px;
+  box-shadow: 0 12px 35px rgba(20, 65, 68, 0.07);
+}
+
+/* Adjustable image blur and overlay */
+.premiumTreatmentsPage {
+  --treatment-image-blur: 1.5px;
+  --treatment-overlay: rgba(12, 48, 55, 0.34);
+  --treatment-image-brightness: 0.82;
+}
+
+.premiumTreatmentsPage .premiumTreatmentExploreVisual,
+.premiumTreatmentsPage .premiumTreatmentImage {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.premiumTreatmentsPage .premiumTreatmentExploreVisual img,
+.premiumTreatmentsPage .premiumTreatmentImage img {
+  filter:
+    blur(var(--treatment-image-blur))
+    brightness(var(--treatment-image-brightness));
+  transform: scale(1.04);
+  transition: filter 0.35s ease, transform 0.5s ease;
+}
+
+.premiumTreatmentsPage .premiumTreatmentExploreVisual::after,
+.premiumTreatmentsPage .premiumTreatmentImage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: var(--treatment-overlay);
+  pointer-events: none;
+}
+
+.premiumTreatmentsPage .premiumTreatmentExploreCard:hover img,
+.premiumTreatmentsPage .premiumTreatmentCard:hover img {
+  filter: blur(0) brightness(1);
+  transform: scale(1.07);
+}
+
+/* Headings and supporting text */
+.premiumTreatmentsPage .premiumTreatmentWhy h2,
+.premiumTreatmentsPage .premiumTreatmentExplore h2,
+.premiumTreatmentsPage .premiumTreatmentFAQ h2 {
+  color: #173d43;
+}
+
+.premiumTreatmentsPage .premiumTreatmentWhyCard {
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(31, 105, 105, 0.12);
+  border-radius: 14px;
+}
+
+/* Tablet and mobile */
+@media (max-width: 760px) {
+  .premiumTreatmentsPage .premiumTreatmentProcess {
+    background: linear-gradient(160deg, #12383f, #1c6063);
+  }
+
+  .premiumTreatmentsPage .premiumTreatmentExplore,
+  .premiumTreatmentsPage .premiumTreatmentWhy,
+  .premiumTreatmentsPage .premiumTreatmentFAQ {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .premiumTreatmentsPage img {
+    transition: none !important;
+  }
+}
+
+/* NOVADENT — Sharp Images + Premium Cinematic Look */
+
+.premiumTreatmentsPage {
+  --treatment-image-blur: 0px;
+  --treatment-overlay: rgba(12, 48, 55, 0.16);
+  --treatment-image-brightness: 1;
+}
+
+/* Keep images clear and sharp */
+.premiumTreatmentsPage .premiumTreatmentExploreVisual img,
+.premiumTreatmentsPage .premiumTreatmentImage img {
+  filter: none !important;
+  transform: scale(1.001);
+  transition: transform 0.6s ease, filter 0.6s ease;
+  backface-visibility: hidden;
+}
+
+/* Elegant teal cinematic overlay */
+.premiumTreatmentsPage .premiumTreatmentExploreVisual::after,
+.premiumTreatmentsPage .premiumTreatmentImage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    180deg,
+    rgba(10, 42, 48, 0.02) 0%,
+    rgba(10, 42, 48, 0.04) 42%,
+    rgba(10, 42, 48, 0.32) 100%
+  );
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+/* Premium card appearance */
+.premiumTreatmentsPage .premiumTreatmentCard,
+.premiumTreatmentsPage .premiumTreatmentExploreCard {
+  overflow: hidden;
+  border: 1px solid rgba(35, 104, 104, 0.14);
+  border-radius: 18px;
+  background: linear-gradient(160deg, #ffffff, #f0f8f6);
+  box-shadow: 0 10px 32px rgba(20, 65, 68, 0.08);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.premiumTreatmentsPage .premiumTreatmentCard:hover,
+.premiumTreatmentsPage .premiumTreatmentExploreCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 42px rgba(20, 65, 68, 0.15);
+}
+
+.premiumTreatmentsPage .premiumTreatmentCard:hover img,
+.premiumTreatmentsPage .premiumTreatmentExploreCard:hover img {
+  filter: none !important;
+  transform: scale(1.055);
+}
+
+/* Soft mint + deep teal section contrast */
+.premiumTreatmentsPage .premiumTreatmentWhy {
+  background:
+    radial-gradient(ellipse at top left, rgba(175, 220, 212, 0.34), transparent 55%),
+    #edf6f4;
+}
+
+.premiumTreatmentsPage .premiumTreatmentExplore {
+  background: linear-gradient(180deg, #f8fbfa 0%, #eaf4f2 100%);
+}
+
+.premiumTreatmentsPage .premiumTreatmentFAQ {
+  background:
+    radial-gradient(ellipse at bottom right, rgba(175, 220, 212, 0.25), transparent 52%),
+    #f0f7f5;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .premiumTreatmentsPage .premiumTreatmentCard,
+  .premiumTreatmentsPage .premiumTreatmentExploreCard,
+  .premiumTreatmentsPage img {
+    transition: none !important;
+  }
+}
+
+/* FIX: Remove blur from treatment images completely */
+
+.premiumTreatmentsPage .premiumTreatmentExploreVisual img,
+.premiumTreatmentsPage .premiumTreatmentImage img,
+.premiumTreatmentsPage .premiumTreatmentCard img,
+.premiumTreatmentsPage .premiumTreatmentExploreCard img {
+  filter: none !important;
+  -webkit-filter: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+  backdrop-filter: none !important;
+}
+
+/* Remove image overlays that make images look hazy */
+.premiumTreatmentsPage .premiumTreatmentExploreVisual::after,
+.premiumTreatmentsPage .premiumTreatmentImage::after,
+.premiumTreatmentsPage .premiumTreatmentImageShade {
+  background: transparent !important;
+  opacity: 0 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Remove blur from image containers */
+.premiumTreatmentsPage .premiumTreatmentExploreVisual,
+.premiumTreatmentsPage .premiumTreatmentImage {
+  filter: none !important;
+  backdrop-filter: none !important;
+  overflow: hidden;
+}
+
+/* FIX: Treatment CTA image looks faded */
+
+.premiumTreatmentsPage .premiumTreatmentCTA img {
+  opacity: 1 !important;
+  filter: none !important;
+  -webkit-filter: none !important;
+  mix-blend-mode: normal !important;
+  transform: none !important;
+}
+
+/* Remove pale overlays from CTA image */
+.premiumTreatmentsPage .premiumTreatmentCTA::before,
+.premiumTreatmentsPage .premiumTreatmentCTA::after,
+.premiumTreatmentsPage .premiumTreatmentCTA img::after {
+  content: none !important;
+  background: transparent !important;
+  opacity: 0 !important;
+  backdrop-filter: none !important;
+}
+
+/* Keep image clear while preserving premium layout */
+.premiumTreatmentsPage .premiumTreatmentCTA {
+  background: linear-gradient(135deg, #d9efeb, #f0f8f6) !important;
+}
+
+.premiumTreatmentsPage .premiumTreatmentCTA img {
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Do not fade image on hover */
+.premiumTreatmentsPage .premiumTreatmentCTA:hover img {
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+/* Reduce space between Intro and Treatment Cards */
+
+.premiumTreatmentsPage .premiumTreatmentIntro {
+  padding-bottom: 20px !important;
+  margin-bottom: 0 !important;
+}
+
+.premiumTreatmentsPage .premiumTreatmentEditorial {
+  padding-top: 24px !important;
+  margin-top: 0 !important;
+}
+
+/* Reduce excess space inside intro */
+.premiumTreatmentsPage .premiumTreatmentIntro p {
+  margin-bottom: 12px !important;
+}
+
+/* Bring treatment cards closer together */
+.premiumTreatmentsPage .premiumTreatmentEditorial .premiumTreatmentGrid,
+.premiumTreatmentsPage .premiumTreatmentEditorial .premiumTreatmentCards {
+  margin-top: 20px !important;
+  row-gap: 24px !important;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .premiumTreatmentsPage .premiumTreatmentIntro {
+    padding-bottom: 12px !important;
+  }
+
+  .premiumTreatmentsPage .premiumTreatmentEditorial {
+    padding-top: 16px !important;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .premiumTreatmentsPage .premiumTreatmentIntro {
+    padding-bottom: 8px !important;
+  }
+
+  .premiumTreatmentsPage .premiumTreatmentEditorial {
+    padding-top: 12px !important;
+  }
+}
+
+/* NOVADENT — Premium Treatment Closing Section */
+
+.premiumTreatmentsPage .premiumTreatmentClosing {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(42px, 6vw, 72px) 24px;
+  margin: 0;
+  text-align: center;
+  background:
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(93, 174, 165, 0.2),
+      transparent 36%
+    ),
+    linear-gradient(135deg, #143e45 0%, #1b6668 100%);
+  color: #fff;
+}
+
+.premiumTreatmentsPage .premiumTreatmentClosing::before {
+  content: "N.";
+  position: absolute;
+  right: 5%;
+  bottom: -48px;
+  color: rgba(255, 255, 255, 0.055);
+  font-family: Georgia, serif;
+  font-size: clamp(130px, 20vw, 250px);
+  font-weight: 700;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.premiumTreatmentsPage .premiumTreatmentClosing > * {
+  position: relative;
+  z-index: 1;
+}
+
+.premiumTreatmentsPage .premiumTreatmentClosing h2 {
+  max-width: 720px;
+  margin: 14px auto 16px;
+  color: #fff;
+  font-size: clamp(30px, 4vw, 48px);
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+}
+
+.premiumTreatmentsPage .premiumTreatmentClosing p {
+  max-width: 600px;
+  margin: 0 auto 24px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  line-height: 1.85;
+}
+
+.premiumTreatmentsPage .premiumTreatmentClosing a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 46px;
+  padding: 12px 24px;
+  border: 1px solid #fff;
+  border-radius: 6px;
+  background: #fff;
+  color: #17474b;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.25s ease, color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.premiumTreatmentsPage .premiumTreatmentClosing a:hover {
+  transform: translateY(-3px);
+  background: #d9efeb;
+  border-color: #d9efeb;
+}
+
+@media (max-width: 600px) {
+  .premiumTreatmentsPage .premiumTreatmentClosing {
+    padding: 42px 20px;
+  }
+
+  .premiumTreatmentsPage .premiumTreatmentClosing h2 {
+    font-size: 30px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .premiumTreatmentsPage .premiumTreatmentClosing a {
+    transition: none !important;
+  }
+}
+
+/* NOVADENT — Improve Process Section Contrast */
+
+.premiumTreatmentsPage .premiumTreatmentProcess {
+  background:
+    radial-gradient(
+      circle at 90% 10%,
+      rgba(40, 145, 137, 0.13),
+      transparent 35%
+    ),
+    linear-gradient(180deg, #edf6f4 0%, #f8fbfa 100%) !important;
+  color: #173d43 !important;
+  padding: 76px 6% !important;
+}
+
+.premiumTreatmentsPage .premiumTreatmentProcess h2,
+.premiumTreatmentsPage .premiumTreatmentProcess h3 {
+  color: #173d43 !important;
+}
+
+.premiumTreatmentsPage .premiumTreatmentProcess p {
+  color: #607779 !important;
+}
+
+.premiumTreatmentsPage .premiumTreatmentStep {
+  background: #ffffff !important;
+  border: 1px solid #d8e9e5 !important;
+  border-radius: 16px !important;
+  box-shadow: 0 12px 32px rgba(23, 61, 67, 0.07);
+}
+
+.premiumTreatmentsPage .premiumTreatmentStep:hover {
+  border-color: #83c7bd !important;
+  box-shadow: 0 18px 38px rgba(23, 61, 67, 0.12);
+}
+
+/* Better spacing between Closing and Process */
+.premiumTreatmentsPage .premiumTreatmentClosing {
+  margin-bottom: 0 !important;
+}
+
+.premiumTreatmentsPage .premiumTreatmentProcess {
+  margin-top: 0 !important;
+}
+
+/* Responsive spacing */
+@media (max-width: 768px) {
+  .premiumTreatmentsPage .premiumTreatmentProcess {
+    padding: 50px 20px !important;
+  }
+}
+
+/* FAQ — CTA spacing and visual separation */
+
+.premiumTreatmentsPage .premiumTreatmentFAQ {
+  padding-bottom: 56px !important;
+}
+
+.premiumTreatmentsPage .premiumTreatmentCTA {
+  margin-top: 28px !important;
+  margin-bottom: 48px !important;
+}
+
+/* CTA content balance */
+.premiumTreatmentsPage .premiumTreatmentCTAContent {
+  max-width: 560px;
+}
+
+.premiumTreatmentsPage .premiumTreatmentCTA h2 {
+  max-width: 440px;
+}
+
+.premiumTreatmentsPage .premiumTreatmentCTA p {
+  max-width: 440px;
+}
+
+@media (max-width: 760px) {
+  .premiumTreatmentsPage .premiumTreatmentFAQ {
+    padding-bottom: 36px !important;
+  }
+
+  .premiumTreatmentsPage .premiumTreatmentCTA {
+    margin: 18px 18px 32px !important;
+  }
+}
+
+/* NOVADENT — Consistent section spacing */
+
+.premiumTreatmentsPage .premiumTreatmentWhy,
+.premiumTreatmentsPage .premiumTreatmentExplore,
+.premiumTreatmentsPage .premiumTreatmentFAQ {
+  padding-top: clamp(44px, 5vw, 68px);
+  padding-bottom: clamp(44px, 5vw, 68px);
+}
+
+.premiumTreatmentsPage .premiumTreatmentWhy h2,
+.premiumTreatmentsPage .premiumTreatmentExplore h2,
+.premiumTreatmentsPage .premiumTreatmentFAQ h2,
+.premiumTreatmentsPage .premiumTreatmentProcess h2 {
+  margin-top: 10px;
+  margin-bottom: 18px;
+}
+
+.premiumTreatmentsPage .premiumTreatmentWhy p,
+.premiumTreatmentsPage .premiumTreatmentExplore p,
+.premiumTreatmentsPage .premiumTreatmentFAQ p,
+.premiumTreatmentsPage .premiumTreatmentProcess p {
+  line-height: 1.8;
+}
+
+.premiumTreatmentsPage .premiumTreatmentWhyCard,
+.premiumTreatmentsPage .premiumTreatmentExploreCard,
+.premiumTreatmentsPage .premiumTreatmentStep {
+  height: 100%;
+}
+
+@media (max-width: 600px) {
+  .premiumTreatmentsPage .premiumTreatmentWhy,
+  .premiumTreatmentsPage .premiumTreatmentExplore,
+  .premiumTreatmentsPage .premiumTreatmentFAQ {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+}
+
+/* NOVADENT — Treatments Smooth Motion */
+
+@keyframes treatmentFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.premiumTreatmentsPage .premiumTreatmentWhyCard,
+.premiumTreatmentsPage .premiumTreatmentExploreCard,
+.premiumTreatmentsPage .premiumTreatmentStep {
+  animation: treatmentFadeUp 0.65s ease both;
+}
+
+.premiumTreatmentsPage .premiumTreatmentWhyCard:nth-child(2),
+.premiumTreatmentsPage .premiumTreatmentExploreCard:nth-child(2),
+.premiumTreatmentsPage .premiumTreatmentStep:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.premiumTreatmentsPage .premiumTreatmentWhyCard:nth-child(3),
+.premiumTreatmentsPage .premiumTreatmentExploreCard:nth-child(3),
+.premiumTreatmentsPage .premiumTreatmentStep:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.premiumTreatmentsPage .premiumTreatmentWhyCard:nth-child(4),
+.premiumTreatmentsPage .premiumTreatmentStep:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+/* Smooth image hover */
+.premiumTreatmentsPage .premiumTreatmentExploreCard img,
+.premiumTreatmentsPage .premiumTreatmentCard img {
+  transition: transform 0.5s ease;
+}
+
+.premiumTreatmentsPage .premiumTreatmentExploreCard:hover img,
+.premiumTreatmentsPage .premiumTreatmentCard:hover img {
+  transform: scale(1.045);
+}
+
+/* Accessible motion settings */
+@media (prefers-reduced-motion: reduce) {
+  .premiumTreatmentsPage .premiumTreatmentWhyCard,
+  .premiumTreatmentsPage .premiumTreatmentExploreCard,
+  .premiumTreatmentsPage .premiumTreatmentStep {
+    animation: none !important;
+  }
+
+  .premiumTreatmentsPage img {
+    transition: none !important;
+  }
+}
+
+/* Scroll-triggered reveal */
+
+.premiumTreatmentsPage .premiumTreatmentWhyCard,
+.premiumTreatmentsPage .premiumTreatmentExploreCard,
+.premiumTreatmentsPage .premiumTreatmentStep,
+.premiumTreatmentsPage .premiumTreatmentFAQItem {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.65s ease,
+    transform 0.65s ease;
+}
+
+.premiumTreatmentsPage .premiumTreatmentWhyCard.is-visible,
+.premiumTreatmentsPage .premiumTreatmentExploreCard.is-visible,
+.premiumTreatmentsPage .premiumTreatmentStep.is-visible,
+.premiumTreatmentsPage .premiumTreatmentFAQItem.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .premiumTreatmentsPage .premiumTreatmentWhyCard,
+  .premiumTreatmentsPage .premiumTreatmentExploreCard,
+  .premiumTreatmentsPage .premiumTreatmentStep,
+  .premiumTreatmentsPage .premiumTreatmentFAQItem {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* NOVADENT Treatments — Scroll Reveal Animations */
+
+.premiumTreatmentsPage .premiumTreatmentWhyCard,
+.premiumTreatmentsPage .premiumTreatmentExploreCard,
+.premiumTreatmentsPage .premiumTreatmentStep,
+.premiumTreatmentsPage .premiumTreatmentFAQItem {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.premiumTreatmentsPage .premiumTreatmentWhyCard.is-visible,
+.premiumTreatmentsPage .premiumTreatmentExploreCard.is-visible,
+.premiumTreatmentsPage .premiumTreatmentStep.is-visible,
+.premiumTreatmentsPage .premiumTreatmentFAQItem.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .premiumTreatmentsPage .premiumTreatmentWhyCard,
+  .premiumTreatmentsPage .premiumTreatmentExploreCard,
+  .premiumTreatmentsPage .premiumTreatmentStep,
+  .premiumTreatmentsPage .premiumTreatmentFAQItem {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Treatment Cards — Premium Hover Effect */
+
+.premiumTreatmentItem {
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.premiumTreatmentImage {
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.premiumTreatmentImage img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.65s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.premiumTreatmentImage:hover img {
+  transform: scale(1.045);
+}
+
+.premiumTreatmentImageArrow {
+  transition: transform 0.3s ease;
+}
+
+.premiumTreatmentImage:hover .premiumTreatmentImageArrow {
+  transform: translate(3px, -3px);
+}
+
+.premiumTreatmentBookButton {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    gap 0.3s ease;
+}
+
+.premiumTreatmentBookButton:hover {
+  gap: 12px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .premiumTreatmentItem,
+  .premiumTreatmentImage img,
+  .premiumTreatmentImageArrow,
+  .premiumTreatmentBookButton {
+    transition: none;
+  }
+
+  .premiumTreatmentImage:hover img {
+    transform: none;
+  }
+}
+
+/* NOVADENT Treatments — Responsive Layout */
+
+.premiumTreatmentsPage {
+  width: 100%;
+  overflow-x: clip;
+}
+
+.premiumTreatmentIntro,
+.premiumTreatmentEditorial,
+.premiumTreatmentWhy,
+.premiumTreatmentExplore,
+.premiumTreatmentProcess,
+.premiumTreatmentFAQ,
+.premiumTreatmentCTA {
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+.premiumTreatmentItem,
+.premiumTreatmentExploreCard,
+.premiumTreatmentStep,
+.premiumTreatmentWhyCard {
+  min-width: 0;
+}
+
+.premiumTreatmentItem img,
+.premiumTreatmentExploreVisual img,
+.premiumTreatmentCTAImage img {
+  max-width: 100%;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .premiumTreatmentIntro,
+  .premiumTreatmentEditorial,
+  .premiumTreatmentWhy,
+  .premiumTreatmentExplore,
+  .premiumTreatmentProcess,
+  .premiumTreatmentFAQ,
+  .premiumTreatmentCTA {
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+
+  .premiumTreatmentIntroMain {
+    gap: 28px;
+  }
+
+  .premiumTreatmentSectionHeading {
+    gap: 24px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .premiumTreatmentIntro,
+  .premiumTreatmentEditorial,
+  .premiumTreatmentWhy,
+  .premiumTreatmentExplore,
+  .premiumTreatmentProcess,
+  .premiumTreatmentFAQ,
+  .premiumTreatmentCTA {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .premiumTreatmentHeroContent {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 22px;
+    padding-right: 22px;
+    box-sizing: border-box;
+  }
+
+  .premiumTreatmentHeroContent h1 {
+    font-size: clamp(2.25rem, 10vw, 3.5rem);
+    line-height: 1.08;
+    overflow-wrap: anywhere;
+  }
+
+  .premiumTreatmentHeroContent p {
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  .premiumTreatmentHeroActions {
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .premiumTreatmentIntroMain,
+  .premiumTreatmentSectionHeading,
+  .premiumTreatmentWhy,
+  .premiumTreatmentExploreHeading,
+  .premiumTreatmentProcessHeading,
+  .premiumTreatmentFAQ,
+  .premiumTreatmentCTA {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .premiumTreatmentIntroMain,
+  .premiumTreatmentSectionHeading {
+    display: grid;
+  }
+
+  .premiumTreatmentIntroMain h2,
+  .premiumTreatmentSectionHeading h2,
+  .premiumTreatmentWhyIntro h2,
+  .premiumTreatmentExploreHeading h2,
+  .premiumTreatmentProcessHeading h2,
+  .premiumTreatmentFAQIntro h2,
+  .premiumTreatmentCTAContent h2 {
+    font-size: clamp(1.9rem, 8vw, 2.7rem);
+    line-height: 1.15;
+  }
+
+  .premiumTreatmentIntroCopy,
+  .premiumTreatmentSectionHeading > p {
+    max-width: 100%;
+  }
+
+  .premiumTreatmentImage {
+    min-width: 0;
+  }
+
+  .premiumTreatmentImage img {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .premiumTreatmentPrice {
+    flex-wrap: wrap;
+    gap: 6px 12px;
+  }
+
+  .premiumTreatmentTags {
+    flex-wrap: wrap;
+  }
+
+  .premiumTreatmentBookButton {
+    width: 100%;
+    box-sizing: border-box;
+    justify-content: space-between;
+  }
+
+  .premiumTreatmentHeroIndex {
+    right: 18px;
+  }
+
+  .premiumTreatmentScroll {
+    left: 18px;
+  }
+}
+
+@media (max-width: 380px) {
+  .premiumTreatmentHeroContent {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .premiumTreatmentIntro,
+  .premiumTreatmentEditorial,
+  .premiumTreatmentWhy,
+  .premiumTreatmentExplore,
+  .premiumTreatmentProcess,
+  .premiumTreatmentFAQ,
+  .premiumTreatmentCTA {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .premiumTreatmentHeroActions > * {
+    max-width: 100%;
+  }
+}
+
+/* NOVADENT Treatments — Final Spacing Polish */
+
+.premiumTreatmentIntro,
+.premiumTreatmentEditorial,
+.premiumTreatmentWhy,
+.premiumTreatmentExplore,
+.premiumTreatmentProcess,
+.premiumTreatmentFAQ {
+  position: relative;
+  padding-top: clamp(64px, 7vw, 96px);
+  padding-bottom: clamp(64px, 7vw, 96px);
+}
+
+.premiumTreatmentSectionHeading,
+.premiumTreatmentExploreHeading,
+.premiumTreatmentProcessHeading,
+.premiumTreatmentFAQIntro {
+  margin-bottom: 34px;
+}
+
+.premiumTreatmentSectionKicker {
+  letter-spacing: 0.13em;
+  line-height: 1.6;
+}
+
+.premiumTreatmentIntroCopy p,
+.premiumTreatmentSectionHeading > p,
+.premiumTreatmentWhyIntro > p,
+.premiumTreatmentExploreHeading > p,
+.premiumTreatmentProcessHeading > p,
+.premiumTreatmentFAQIntro > p {
+  line-height: 1.8;
+}
+
+.premiumTreatmentList {
+  gap: 26px;
+}
+
+.premiumTreatmentItemBody {
+  padding: clamp(20px, 2.5vw, 30px);
+}
+
+.premiumTreatmentItemBody h3 {
+  line-height: 1.25;
+  margin-bottom: 12px;
+}
+
+.premiumTreatmentItemBody > p {
+  line-height: 1.75;
+}
+
+.premiumTreatmentWhyList,
+.premiumTreatmentExploreList,
+.premiumTreatmentSteps,
+.premiumTreatmentFAQList {
+  gap: 16px;
+}
+
+.premiumTreatmentWhyCard,
+.premiumTreatmentExploreCard,
+.premiumTreatmentStep,
+.premiumTreatmentFAQItem {
+  border-radius: 16px;
+}
+
+.premiumTreatmentPriceNote {
+  margin-top: 24px;
+  line-height: 1.7;
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.premiumTreatmentClosing {
+  padding: clamp(64px, 8vw, 100px) 24px;
+}
+
+.premiumTreatmentCTAContent {
+  padding: clamp(28px, 5vw, 64px);
+}
+
+@media (max-width: 640px) {
+  .premiumTreatmentIntro,
+  .premiumTreatmentEditorial,
+  .premiumTreatmentWhy,
+  .premiumTreatmentExplore,
+  .premiumTreatmentProcess,
+  .premiumTreatmentFAQ {
+    padding-top: 54px;
+    padding-bottom: 54px;
+  }
+
+  .premiumTreatmentSectionHeading,
+  .premiumTreatmentExploreHeading,
+  .premiumTreatmentProcessHeading,
+  .premiumTreatmentFAQIntro {
+    margin-bottom: 26px;
+  }
+
+  .premiumTreatmentList {
+    gap: 20px;
+  }
+
+  .premiumTreatmentItemBody {
+    padding: 20px;
+  }
+
+  .premiumTreatmentClosing {
+    padding: 58px 20px;
+  }
+
+  .premiumTreatmentCTAContent {
+    padding: 26px 20px;
+  }
+}
+
+/* NOVADENT — Treatment Cards Visual Refinement */
+
+.premiumTreatmentList {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 26px;
+}
+
+.premiumTreatmentItem {
+  min-width: 0;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 18px;
+  background: #ffffff;
+  border: 1px solid rgba(24, 75, 78, 0.12);
+  box-shadow: 0 8px 28px rgba(20, 56, 59, 0.06);
+}
+
+.premiumTreatmentImage {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 260px;
+  overflow: hidden;
+  background: #e8efed;
+}
+
+.premiumTreatmentImage img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.premiumTreatmentItemBody {
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 260px);
+  box-sizing: border-box;
+  padding: 26px;
+}
+
+.premiumTreatmentItemBody h3 {
+  margin: 16px 0 10px;
+  color: #173f42;
+  font-size: 23px;
+  line-height: 1.3;
+}
+
+.premiumTreatmentItemBody > p {
+  color: #627273;
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.premiumTreatmentPrice {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid #e5ecea;
+}
+
+.premiumTreatmentTags {
+  margin-top: 16px;
+  gap: 8px;
+}
+
+.premiumTreatmentBookButton {
+  margin-top: auto;
+  padding-top: 20px;
+}
+
+@media (max-width: 700px) {
+  .premiumTreatmentList {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 22px;
+  }
+
+  .premiumTreatmentImage {
+    height: 240px;
+  }
+
+  .premiumTreatmentItemBody {
+    height: auto;
+    padding: 22px;
+  }
+
+  .premiumTreatmentItemBody h3 {
+    font-size: 21px;
+  }
+}
+
+/* NOVADENT — Treatments Hero Visual Polish */
+
+.premiumTreatmentHero {
+  position: relative;
+  min-height: 580px;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.premiumTreatmentHeroContent {
+  position: relative;
+  z-index: 2;
+  width: min(100% - 64px, 1120px);
+  margin-inline: auto;
+  padding-block: 90px;
+  box-sizing: border-box;
+}
+
+.premiumTreatmentHeroContent h1 {
+  max-width: 760px;
+  margin: 22px 0;
+  font-size: clamp(42px, 5.2vw, 68px);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.premiumTreatmentHeroContent h1 em {
+  font-style: normal;
+}
+
+.premiumTreatmentHeroContent > p {
+  max-width: 560px;
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.premiumTreatmentHeroActions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px 24px;
+  margin-top: 28px;
+}
+
+.premiumTreatmentPrimaryBtn,
+.premiumTreatmentTextLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-sizing: border-box;
+}
+
+.premiumTreatmentHeroNote {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 34px;
+}
+
+.premiumTreatmentHeroNote small {
+  display: block;
+  margin-top: 4px;
+  line-height: 1.5;
+}
+
+@media (max-width: 700px) {
+  .premiumTreatmentHero {
+    min-height: 520px;
+  }
+
+  .premiumTreatmentHeroContent {
+    width: 100%;
+    padding: 76px 22px;
+  }
+
+  .premiumTreatmentHeroContent h1 {
+    font-size: clamp(36px, 9vw, 50px);
+    line-height: 1.12;
+  }
+
+  .premiumTreatmentHeroContent > p {
+    font-size: 14px;
+    line-height: 1.75;
+  }
+
+  .premiumTreatmentHeroActions {
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .premiumTreatmentHeroNote {
+    margin-top: 26px;
+  }
+}

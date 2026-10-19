@@ -1,0 +1,1369 @@
+
+/* NOVADENT — Premium Appointment Page */
+
+.novaAppointmentPage {
+  --appointment-navy: #102c46;
+  --appointment-blue: #245b7b;
+  --appointment-accent: #d7eaf1;
+  --appointment-text: #30465a;
+  --appointment-muted: #718191;
+  --appointment-line: #dce6ec;
+  background: #f7fafc;
+  color: var(--appointment-navy);
+  overflow: hidden;
+}
+
+.appointmentContainer {
+  width: min(1160px, calc(100% - 48px));
+  margin-inline: auto;
+}
+
+.novaAppointmentPage h1,
+.novaAppointmentPage h2,
+.novaAppointmentPage h3,
+.novaAppointmentPage p {
+  margin-top: 0;
+}
+
+.novaAppointmentPage h1,
+.novaAppointmentPage h2 {
+  letter-spacing: -0.045em;
+}
+
+.novaAppointmentPage em {
+  color: var(--appointment-blue);
+  font-style: normal;
+}
+
+.appointmentEyebrow,
+.appointmentOverline {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--appointment-blue);
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.appointmentHeroGrid {
+  display: grid;
+  grid-template-columns: 1fr 0.92fr;
+  align-items: center;
+  gap: 64px;
+  min-height: 490px;
+  padding-block: 64px;
+}
+
+.novaAppointmentHero {
+  position: relative;
+  background: linear-gradient(135deg, #f0f7fa, #ffffff 65%, #eaf4f8);
+}
+
+.appointmentHeroGlow {
+  position: absolute;
+  top: -160px;
+  right: -120px;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: #d9edf5;
+  filter: blur(80px);
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+.appointmentHeroContent,
+.appointmentHeroVisual {
+  position: relative;
+  min-width: 0;
+  animation: appointmentEnter 0.75s ease both;
+}
+
+.appointmentHeroContent h1 {
+  max-width: 590px;
+  margin: 23px 0 20px;
+  font-size: clamp(38px, 4.4vw, 59px);
+  font-weight: 650;
+  line-height: 1.08;
+}
+
+.appointmentHeroContent > p {
+  max-width: 480px;
+  margin-bottom: 27px;
+  color: var(--appointment-text);
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.appointmentTrustRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+}
+
+.appointmentTrustRow > div {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--appointment-text);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.appointmentTrustRow svg {
+  color: var(--appointment-blue);
+}
+
+.appointmentHeroImage {
+  position: relative;
+  height: 350px;
+  overflow: hidden;
+  border-radius: 18px;
+  background: #dce9ef;
+  box-shadow: 0 24px 65px #163b531c;
+}
+
+.appointmentHeroImage img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.7s ease;
+}
+
+.appointmentHeroImage:hover img {
+  transform: scale(1.035);
+}
+
+.appointmentImageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, #102c4612, transparent 60%);
+  pointer-events: none;
+}
+
+.appointmentFloatingCard {
+  position: absolute;
+  right: -15px;
+  bottom: 22px;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  max-width: calc(100% - 18px);
+  padding: 16px 20px;
+  border: 1px solid #ffffffc9;
+  border-radius: 13px;
+  background: #ffffffed;
+  box-shadow: 0 12px 35px #17374a17;
+  backdrop-filter: blur(12px);
+}
+
+.floatingIcon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 43px;
+  width: 43px;
+  height: 43px;
+  border-radius: 11px;
+  background: #e7f2f7;
+  color: var(--appointment-blue);
+}
+
+.appointmentFloatingCard strong,
+.appointmentFloatingCard span {
+  display: block;
+}
+
+.appointmentFloatingCard strong {
+  margin-bottom: 4px;
+  font-size: 13px;
+}
+
+.appointmentFloatingCard span {
+  color: var(--appointment-muted);
+  font-size: 11px;
+}
+
+.appointmentIntro {
+  padding-block: 78px;
+  border-bottom: 1px solid var(--appointment-line);
+  background: #ffffff;
+}
+
+.appointmentIntroGrid {
+  display: grid;
+  grid-template-columns: 0.9fr 1fr;
+  gap: 90px;
+}
+
+.appointmentIntroHeading small,
+.appointmentSectionHeading small {
+  display: block;
+  margin-top: 14px;
+  color: #8a9aa7;
+  font-size: 10px;
+  letter-spacing: 0.13em;
+}
+
+.appointmentIntroHeading h2,
+.appointmentSectionHeading h2 {
+  margin: 20px 0 17px;
+  font-size: clamp(30px, 3.3vw, 43px);
+  line-height: 1.16;
+  font-weight: 650;
+}
+
+.appointmentIntroLead,
+.appointmentSectionHeading > p {
+  color: var(--appointment-muted);
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.appointmentInfoCard {
+  display: flex;
+  gap: 18px;
+  padding: 19px 0;
+  border-bottom: 1px solid var(--appointment-line);
+}
+
+.appointmentInfoCard:first-child {
+  padding-top: 0;
+}
+
+.appointmentInfoNumber,
+.appointmentSideNumber {
+  color: #6e9bb3;
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+}
+
+.appointmentInfoCard h3 {
+  margin-bottom: 7px;
+  font-size: 15px;
+}
+
+.appointmentInfoCard p {
+  margin-bottom: 0;
+  color: var(--appointment-muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.appointmentFormSection {
+  padding-block: 85px;
+  background: #f4f8fa;
+}
+
+.appointmentSectionHeading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 32px;
+  margin-bottom: 35px;
+}
+
+.appointmentSectionHeading h2 {
+  margin-bottom: 0;
+}
+
+.appointmentSectionHeading > p {
+  max-width: 340px;
+  margin-bottom: 5px;
+}
+
+.appointmentFormLayout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(250px, 0.8fr);
+  align-items: start;
+  gap: 25px;
+}
+
+.appointmentFormCard {
+  min-width: 0;
+  padding: clamp(22px, 3.2vw, 38px);
+  border: 1px solid #e0e9ee;
+  border-radius: 17px;
+  background: #ffffff;
+  box-shadow: 0 15px 50px #163b5309;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 21px;
+}
+
+.formField {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  gap: 9px;
+  margin-bottom: 21px;
+}
+
+.formRow .formField {
+  margin-bottom: 0;
+}
+
+.formField label {
+  color: var(--appointment-navy);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.formField input,
+.formField select,
+.formField textarea {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid #dbe5eb;
+  border-radius: 9px;
+  outline: none;
+  background: #fbfdfe;
+  color: var(--appointment-navy);
+  font: inherit;
+  font-size: 13px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.formField input,
+.formField select {
+  min-height: 48px;
+  padding: 0 13px;
+}
+
+.formField textarea {
+  min-height: 125px;
+  padding: 13px;
+  resize: vertical;
+  line-height: 1.7;
+}
+
+.formField input::placeholder,
+.formField textarea::placeholder {
+  color: #9aa8b3;
+}
+
+.formField input:focus,
+.formField select:focus,
+.formField textarea:focus {
+  border-color: #6795ad;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px #dcecf4;
+}
+
+.appointmentSubmitBtn,
+.appointmentAgainBtn,
+.appointmentCTAButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  min-height: 51px;
+  padding: 0 21px;
+  border: 0;
+  border-radius: 9px;
+  background: var(--appointment-navy);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 650;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.appointmentSubmitBtn {
+  width: 100%;
+}
+
+.appointmentSubmitBtn:hover,
+.appointmentAgainBtn:hover,
+.appointmentCTAButton:hover {
+  transform: translateY(-2px);
+  background: var(--appointment-blue);
+}
+
+.appointmentSubmitBtn:disabled {
+  cursor: wait;
+  opacity: 0.65;
+  transform: none;
+}
+
+.appointmentFormNote {
+  margin: 15px 0 0;
+  color: var(--appointment-muted);
+  font-size: 11px;
+  line-height: 1.8;
+  text-align: center;
+}
+
+.appointmentSubmitError {
+  margin-bottom: 18px;
+  padding: 12px 14px;
+  border: 1px solid #f0c8c8;
+  border-radius: 8px;
+  background: #fff6f6;
+  color: #9c3030;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.appointmentSide {
+  display: grid;
+  gap: 15px;
+}
+
+.appointmentSideCard {
+  position: relative;
+  padding: 25px;
+  border: 1px solid #e0e9ee;
+  border-radius: 14px;
+  background: #ffffff;
+}
+
+.appointmentSideNumber {
+  position: absolute;
+  top: 24px;
+  right: 23px;
+}
+
+.appointmentSideCard > svg {
+  margin-bottom: 17px;
+  color: var(--appointment-blue);
+}
+
+.appointmentSideCard h3 {
+  margin-bottom: 11px;
+  font-size: 19px;
+  line-height: 1.45;
+}
+
+.appointmentSideCard p {
+  margin-bottom: 0;
+  color: var(--appointment-muted);
+  font-size: 12px;
+  line-height: 1.9;
+}
+
+.appointmentSideCard a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 16px;
+  color: var(--appointment-blue);
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.appointmentHighlight {
+  border-color: #d4e5ed;
+  background: linear-gradient(145deg, #eaf4f8, #ffffff);
+}
+
+.appointmentSuccess {
+  padding-block: 30px;
+  text-align: center;
+}
+
+.successIcon {
+  display: grid;
+  place-items: center;
+  width: 76px;
+  height: 76px;
+  margin: 0 auto 23px;
+  border-radius: 50%;
+  background: #e7f4ed;
+  color: #28784e;
+}
+
+.appointmentSuccess > span {
+  color: var(--appointment-blue);
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 0.15em;
+}
+
+.appointmentSuccess h3 {
+  margin: 15px 0;
+  font-size: 28px;
+}
+
+.appointmentSuccess p {
+  max-width: 460px;
+  margin: 0 auto 25px;
+  color: var(--appointment-muted);
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.appointmentFinalCTA {
+  padding-block: 55px 75px;
+  background: #ffffff;
+}
+
+.appointmentCTACard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  padding: clamp(27px, 4vw, 48px);
+  border-radius: 17px;
+  background: #eaf3f7;
+}
+
+.appointmentCTACard > div > span {
+  color: var(--appointment-blue);
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 0.14em;
+}
+
+.appointmentCTACard h2 {
+  max-width: 620px;
+  margin: 15px 0 10px;
+  font-size: clamp(27px, 3vw, 39px);
+  line-height: 1.2;
+}
+
+.appointmentCTACard p {
+  margin-bottom: 0;
+  color: var(--appointment-text);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.appointmentCTAButton {
+  flex-shrink: 0;
+  background: var(--appointment-navy);
+}
+
+@keyframes appointmentEnter {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 900px) {
+  .appointmentHeroGrid {
+    gap: 35px;
+  }
+
+  .appointmentIntroGrid {
+    gap: 45px;
+  }
+
+  .appointmentFormLayout {
+    grid-template-columns: minmax(0, 1fr) 260px;
+    gap: 18px;
+  }
+
+  .appointmentSideCard {
+    padding: 21px;
+  }
+}
+
+@media (max-width: 680px) {
+  .appointmentContainer {
+    width: min(100% - 34px, 520px);
+  }
+
+  .appointmentHeroGrid,
+  .appointmentIntroGrid,
+  .appointmentFormLayout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .appointmentHeroGrid {
+    min-height: 0;
+    gap: 32px;
+    padding-block: 48px 58px;
+  }
+
+  .appointmentHeroContent h1 {
+    margin-top: 19px;
+    font-size: clamp(36px, 10vw, 47px);
+  }
+
+  .appointmentHeroContent > p {
+    font-size: 14px;
+  }
+
+  .appointmentTrustRow {
+    gap: 12px 15px;
+  }
+
+  .appointmentHeroImage {
+    height: clamp(230px, 65vw, 320px);
+  }
+
+  .appointmentFloatingCard {
+    right: 10px;
+    bottom: 12px;
+    padding: 12px 14px;
+  }
+
+  .appointmentIntro,
+  .appointmentFormSection {
+    padding-block: 55px;
+  }
+
+  .appointmentIntroGrid {
+    gap: 27px;
+  }
+
+  .appointmentIntroHeading h2,
+  .appointmentSectionHeading h2 {
+    font-size: 32px;
+  }
+
+  .appointmentSectionHeading {
+    display: block;
+    margin-bottom: 25px;
+  }
+
+  .appointmentSectionHeading > p {
+    margin-top: 18px;
+  }
+
+  .formRow {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 21px;
+    margin-bottom: 21px;
+  }
+
+  .appointmentFormCard {
+    padding: 22px 17px;
+  }
+
+  .appointmentSide {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .appointmentCTACard {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 23px;
+  }
+
+  .appointmentFinalCTA {
+    padding-block: 35px 50px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .appointmentHeroContent,
+  .appointmentHeroVisual {
+    animation: none;
+  }
+
+  .appointmentHeroImage img,
+  .appointmentSubmitBtn,
+  .appointmentAgainBtn,
+  .appointmentCTAButton {
+    transition: none;
+  }
+}
+/* =========================================
+   NOVADENT APPOINTMENT — EXTRA POLISH
+   Add at the END of Appointment.css
+========================================= */
+
+.novaAppointmentPage {
+  scroll-behavior: smooth;
+}
+
+.novaAppointmentPage .appointmentIntro,
+.novaAppointmentPage .appointmentFormSection,
+.novaAppointmentPage .appointmentFinalCTA {
+  position: relative;
+  isolation: isolate;
+}
+
+.novaAppointmentPage .appointmentIntro::before,
+.novaAppointmentPage .appointmentFormSection::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: max(24px, calc((100% - 1160px) / 2));
+  width: 54px;
+  height: 2px;
+  background: #8ab7cb;
+  opacity: 0.8;
+}
+
+.novaAppointmentPage .appointmentHeroContent {
+  animation: appointmentSlideInLeft 0.8s cubic-bezier(.2,.7,.2,1) both;
+}
+
+.novaAppointmentPage .appointmentHeroVisual {
+  animation: appointmentSlideInRight 0.9s cubic-bezier(.2,.7,.2,1) both;
+}
+
+.novaAppointmentPage .appointmentEyebrow {
+  padding: 9px 13px;
+  border: 1px solid #d6e7ef;
+  border-radius: 100px;
+  background: #ffffffa8;
+}
+
+.novaAppointmentPage .appointmentHeroContent h1 em,
+.novaAppointmentPage .appointmentIntroHeading h2 em,
+.novaAppointmentPage .appointmentSectionHeading h2 em,
+.novaAppointmentPage .appointmentCTACard h2 em {
+  background: linear-gradient(100deg, #245b7b, #4c89a6);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.novaAppointmentPage .appointmentHeroImage {
+  border: 5px solid #ffffffb8;
+  box-shadow: 0 25px 70px #153b531c;
+}
+
+.novaAppointmentPage .appointmentFloatingCard {
+  animation: appointmentFloatIn 0.7s 0.3s ease both;
+}
+
+.novaAppointmentPage .appointmentInfoCard {
+  transition: padding-left 0.25s ease, background 0.25s ease;
+}
+
+.novaAppointmentPage .appointmentInfoCard:hover {
+  padding-left: 10px;
+  background: linear-gradient(90deg, #f1f7fa, transparent);
+}
+
+.novaAppointmentPage .appointmentInfoNumber,
+.novaAppointmentPage .appointmentSideNumber {
+  transition: color 0.25s ease;
+}
+
+.novaAppointmentPage .appointmentInfoCard:hover .appointmentInfoNumber {
+  color: #245b7b;
+}
+
+.novaAppointmentPage .appointmentFormCard {
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.novaAppointmentPage .appointmentFormCard:focus-within {
+  border-color: #c5dce7;
+  box-shadow: 0 18px 55px #163b5310;
+}
+
+.novaAppointmentPage .formField label span {
+  color: #8a9aa7;
+  font-size: 11px;
+  font-weight: 400;
+}
+
+.novaAppointmentPage .formField input:hover,
+.novaAppointmentPage .formField select:hover,
+.novaAppointmentPage .formField textarea:hover {
+  border-color: #b9ceda;
+}
+
+.novaAppointmentPage .appointmentSubmitBtn svg,
+.novaAppointmentPage .appointmentAgainBtn svg,
+.novaAppointmentPage .appointmentCTAButton svg,
+.novaAppointmentPage .appointmentSideCard a svg {
+  transition: transform 0.25s ease;
+}
+
+.novaAppointmentPage .appointmentSubmitBtn:hover svg,
+.novaAppointmentPage .appointmentAgainBtn:hover svg,
+.novaAppointmentPage .appointmentCTAButton:hover svg,
+.novaAppointmentPage .appointmentSideCard a:hover svg {
+  transform: translate(3px, -3px);
+}
+
+.novaAppointmentPage .appointmentSideCard {
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.novaAppointmentPage .appointmentSideCard:hover {
+  transform: translateY(-4px);
+  border-color: #c9dfe9;
+  box-shadow: 0 15px 35px #163b530d;
+}
+
+.novaAppointmentPage .appointmentSideCard::after {
+  content: "";
+  position: absolute;
+  right: -35px;
+  bottom: -48px;
+  width: 105px;
+  height: 105px;
+  border: 1px solid #dcebf1;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.novaAppointmentPage .appointmentHighlight::after {
+  border-color: #c8e0eb;
+}
+
+.novaAppointmentPage .appointmentCTACard {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #dcebf1;
+}
+
+.novaAppointmentPage .appointmentCTACard::after {
+  content: "";
+  position: absolute;
+  top: -100px;
+  right: 15%;
+  width: 230px;
+  height: 230px;
+  border: 1px solid #c9dfe9;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.novaAppointmentPage .appointmentCTACard > * {
+  position: relative;
+  z-index: 1;
+}
+
+.novaAppointmentPage .appointmentSuccess .successIcon {
+  animation: appointmentSuccessPop 0.45s ease both;
+}
+
+.novaAppointmentPage .appointmentSubmitError {
+  animation: appointmentEnter 0.25s ease both;
+}
+
+.novaAppointmentPage a:focus-visible,
+.novaAppointmentPage button:focus-visible {
+  outline: 3px solid #80b3ce;
+  outline-offset: 4px;
+}
+
+@keyframes appointmentSlideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes appointmentSlideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes appointmentFloatIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes appointmentSuccessPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  75% {
+    transform: scale(1.06);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 680px) {
+  .novaAppointmentPage .appointmentIntro::before,
+  .novaAppointmentPage .appointmentFormSection::before {
+    left: 17px;
+    width: 38px;
+  }
+
+  .novaAppointmentPage .appointmentHeroContent,
+  .novaAppointmentPage .appointmentHeroVisual {
+    animation-duration: 0.55s;
+  }
+
+  .novaAppointmentPage .appointmentInfoCard:hover {
+    padding-left: 0;
+  }
+
+  .novaAppointmentPage .appointmentSideCard:hover {
+    transform: none;
+  }
+
+  .novaAppointmentPage .appointmentCTACard::after {
+    right: -90px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .novaAppointmentPage *,
+  .novaAppointmentPage *::before,
+  .novaAppointmentPage *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* NOVADENT Appointment — Final Premium Polish */
+
+.appointment-page {
+  overflow: hidden;
+  background: #f7faff;
+  color: #102b4e;
+}
+
+.appointment-page section {
+  position: relative;
+}
+
+/* Smooth entrance */
+.appointment-page .appointment-hero,
+.appointment-page .appointment-form,
+.appointment-page .appointment-info-card {
+  animation: appointmentReveal 0.8s ease both;
+}
+
+.appointment-page .appointment-form {
+  animation-delay: 0.12s;
+}
+
+.appointment-page .appointment-info-card {
+  animation-delay: 0.2s;
+}
+
+@keyframes appointmentReveal {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Refined form fields */
+.appointment-page input,
+.appointment-page select,
+.appointment-page textarea {
+  width: 100%;
+  border: 1px solid #d8e3f0;
+  border-radius: 12px;
+  background: #fff;
+  color: #102b4e;
+  padding: 13px 15px;
+  font-size: 14px;
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+.appointment-page input:focus,
+.appointment-page select:focus,
+.appointment-page textarea:focus {
+  outline: none;
+  border-color: #3978b9;
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(57, 120, 185, 0.12);
+}
+
+.appointment-page input::placeholder,
+.appointment-page textarea::placeholder {
+  color: #8a9bb0;
+}
+
+/* Premium submit button */
+.appointment-page button[type="submit"] {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #12345a;
+  color: #fff;
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.appointment-page button[type="submit"]:hover {
+  background: #204e7c;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(18, 52, 90, 0.18);
+}
+
+.appointment-page button[type="submit"]:active {
+  transform: translateY(0);
+}
+
+/* Information cards */
+.appointment-page .appointment-info-card {
+  border: 1px solid rgba(195, 211, 230, 0.8);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 10px 30px rgba(16, 43, 78, 0.045);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.appointment-page .appointment-info-card:hover {
+  transform: translateY(-5px);
+  border-color: #b5cce5;
+  box-shadow: 0 18px 38px rgba(16, 43, 78, 0.09);
+}
+
+/* Clear success and error feedback */
+.appointment-page [role="status"] {
+  border-radius: 12px;
+  padding: 14px 16px;
+  animation: appointmentReveal 0.35s ease both;
+}
+
+.appointment-page [role="alert"] {
+  border-radius: 12px;
+  padding: 14px 16px;
+}
+
+/* Mobile spacing */
+@media (max-width: 768px) {
+  .appointment-page {
+    overflow-x: clip;
+  }
+
+  .appointment-page input,
+  .appointment-page select,
+  .appointment-page textarea {
+    font-size: 16px;
+  }
+
+  .appointment-page .appointment-info-card {
+    border-radius: 14px;
+  }
+
+  .appointment-page button[type="submit"] {
+    width: 100%;
+    min-height: 48px;
+  }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .appointment-page *,
+  .appointment-page *::before,
+  .appointment-page *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* NOVADENT — Appointment Page Extra Refinement */
+
+/* Consistent typography */
+.appointment-page h1,
+.appointment-page h2,
+.appointment-page h3 {
+  color: #12345a;
+  letter-spacing: -0.035em;
+  line-height: 1.15;
+}
+
+.appointment-page p {
+  line-height: 1.75;
+}
+
+/* Subtle section separation */
+.appointment-page section + section {
+  border-top: 1px solid rgba(33, 76, 120, 0.08);
+}
+
+/* Form layout */
+.appointment-page form {
+  display: grid;
+  gap: 20px;
+}
+
+.appointment-page form label {
+  display: block;
+  margin-bottom: 7px;
+  color: #294663;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Date and time controls */
+.appointment-page input[type="date"],
+.appointment-page input[type="time"] {
+  min-height: 46px;
+  cursor: pointer;
+}
+
+/* Service selector */
+.appointment-page select {
+  min-height: 48px;
+  cursor: pointer;
+}
+
+.appointment-page select option {
+  background: #fff;
+  color: #12345a;
+}
+
+/* Image treatment */
+.appointment-page img {
+  display: block;
+  max-width: 100%;
+}
+
+.appointment-page .appointment-hero img {
+  border-radius: 22px;
+  object-fit: cover;
+  object-position: center;
+  box-shadow: 0 20px 50px rgba(16, 43, 78, 0.12);
+  transition: transform 0.6s ease;
+}
+
+.appointment-page .appointment-hero img:hover {
+  transform: scale(1.015);
+}
+
+/* Links */
+.appointment-page a {
+  transition: color 0.25s ease;
+}
+
+.appointment-page a:focus-visible,
+.appointment-page button:focus-visible {
+  outline: 3px solid rgba(57, 120, 185, 0.45);
+  outline-offset: 3px;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .appointment-page .appointment-hero {
+    gap: 28px;
+  }
+
+  .appointment-page h1 {
+    font-size: clamp(2rem, 5vw, 3.25rem);
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .appointment-page h1 {
+    font-size: clamp(1.9rem, 8vw, 2.5rem);
+    line-height: 1.12;
+  }
+
+  .appointment-page h2 {
+    font-size: clamp(1.45rem, 6vw, 2rem);
+  }
+
+  .appointment-page p {
+    line-height: 1.65;
+  }
+
+  .appointment-page .appointment-hero img {
+    border-radius: 16px;
+  }
+
+  .appointment-page form {
+    gap: 16px;
+  }
+}
+
+/* Interactive appointment submit button */
+.appointment-page .appointment-submit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 52px;
+  padding: 14px 20px;
+  border: 0;
+  border-radius: 12px;
+  background: #12345a;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.appointment-page .appointment-submit-btn:hover:not(:disabled) {
+  background: #245787;
+  transform: translateY(-2px);
+}
+
+.appointment-page .appointment-submit-btn:disabled {
+  opacity: 0.75;
+  cursor: wait;
+}
+
+.appointment-spinner {
+  width: 17px;
+  height: 17px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: appointmentSpin 0.7s linear infinite;
+}
+
+@keyframes appointmentSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .appointment-spinner {
+    animation: none;
+  }
+}
+
+
+/* NOVADENT next upgrade: appointment form interaction + responsive polish */
+.novaAppointmentPage .appointmentSubmitBtn,
+.novaAppointmentPage .appointment-submit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 54px;
+  padding: 14px 20px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background: linear-gradient(120deg, #102c46, #245b7b);
+  color: #fff;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 10px 24px #102c4618;
+  transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
+}
+.novaAppointmentPage .appointmentSubmitBtn:hover:not(:disabled),
+.novaAppointmentPage .appointment-submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px #102c4626;
+}
+.novaAppointmentPage .appointmentSubmitBtn:focus-visible,
+.novaAppointmentPage .appointment-submit-btn:focus-visible,
+.novaAppointmentPage .appointmentAgainBtn:focus-visible,
+.novaAppointmentPage .appointmentCTAButton:focus-visible {
+  outline: 3px solid #80b9d2;
+  outline-offset: 3px;
+}
+.novaAppointmentPage .formField input:focus-visible,
+.novaAppointmentPage .formField select:focus-visible,
+.novaAppointmentPage .formField textarea:focus-visible {
+  outline: 2px solid #6795ad;
+  outline-offset: 2px;
+}
+.novaAppointmentPage .appointmentFormCard,
+.novaAppointmentPage .appointmentSideCard,
+.novaAppointmentPage .appointmentInfoCard {
+  overflow-wrap: anywhere;
+}
+.novaAppointmentPage .appointmentSideCard {
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+.novaAppointmentPage .appointmentSideCard:hover {
+  transform: translateY(-3px);
+  border-color: #c7dce7;
+  box-shadow: 0 14px 32px #163b530d;
+}
+@media (max-width: 900px) {
+  .appointmentContainer { width: min(100% - 40px, 720px); }
+  .appointmentFormLayout { grid-template-columns: minmax(0, 1fr); }
+  .appointmentSide { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .appointmentHighlight { grid-column: 1 / -1; }
+}
+@media (max-width: 600px) {
+  .appointmentContainer { width: calc(100% - 32px); }
+  .appointmentIntro, .appointmentFormSection { padding-block: 54px; }
+  .appointmentSectionHeading { align-items: flex-start; flex-direction: column; gap: 12px; }
+  .appointmentSectionHeading > p { margin: 0; }
+  .formRow { grid-template-columns: minmax(0, 1fr); gap: 16px; margin-bottom: 16px; }
+  .formField { margin-bottom: 16px; }
+  .appointmentSide { grid-template-columns: minmax(0, 1fr); }
+  .appointmentHighlight { grid-column: auto; }
+  .appointmentCTACard { align-items: flex-start; flex-direction: column; }
+  .appointmentCTAButton { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .novaAppointmentPage *, .novaAppointmentPage *::before, .novaAppointmentPage *::after {
+    scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important;
+  }
+}
+
+
+/* Appointment request clarity: distinguish a prepared WhatsApp message from a confirmed booking. */
+.novaAppointmentPage .appointmentRequestSummary{display:grid;gap:8px;margin:18px 0;padding:16px;border:1px solid #d7e8e8;border-radius:14px;background:#f7fbfa;color:#244d58;font-size:14px;line-height:1.5}
+.novaAppointmentPage .appointmentRequestSummary span{overflow-wrap:anywhere}
+.novaAppointmentPage .appointmentRequestSummary strong{color:#123d56}
+@media(max-width:480px){.novaAppointmentPage .appointmentRequestSummary{padding:13px;font-size:13px}}
+@media(prefers-reduced-motion:reduce){.novaAppointmentPage .appointmentSideCard,.novaAppointmentPage .appointmentSubmitBtn{transition:none!important}}
+
+/* Responsive booking form refinements; keeps the existing NOVADENT visual system. */
+@media (max-width: 760px) {
+  .appointmentContainer { width: min(100% - 32px, 620px); }
+  .appointmentHeroGrid, .appointmentIntroGrid, .appointmentFormLayout { grid-template-columns: minmax(0, 1fr); }
+  .appointmentHeroContent { order: 1; }
+  .appointmentHeroVisual { order: 0; min-width: 0; }
+  .appointmentHeroImage img { width: 100%; max-height: 340px; object-fit: cover; }
+  .appointmentSectionHeading { align-items: flex-start; flex-direction: column; gap: 12px; }
+  .appointmentFormCard { min-width: 0; padding: clamp(18px, 5vw, 28px); }
+  .formRow { grid-template-columns: minmax(0, 1fr); }
+  .appointmentSubmitBtn { width: 100%; justify-content: center; }
+  .appointmentRequestSummary { overflow-wrap: anywhere; }
+}
+@media (max-width: 420px) {
+  .appointmentContainer { width: calc(100% - 24px); }
+  .appointmentTrustRow { flex-wrap: wrap; gap: 10px; }
+  .appointmentFloatingCard { max-width: calc(100% - 20px); }
+  .appointmentFormCard input, .appointmentFormCard select, .appointmentFormCard textarea { font-size: 16px; }
+}

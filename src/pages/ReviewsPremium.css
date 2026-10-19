@@ -1,0 +1,3825 @@
+
+/* NOVADENT — REVIEWS PAGE */
+
+.novaReviewsPage {
+  --reviews-navy: #102b46;
+  --reviews-blue: #246b91;
+  --reviews-muted: #647587;
+  --reviews-border: #dce7ee;
+  --reviews-pale: #f2f7fa;
+  width: 100%;
+  overflow: clip;
+  color: var(--reviews-navy);
+  background: #fff;
+}
+
+.novaReviewsPage *,
+.novaReviewsPage *::before,
+.novaReviewsPage *::after {
+  box-sizing: border-box;
+}
+
+.novaReviewsPage a {
+  text-decoration: none;
+}
+
+.novaReviewsContainer {
+  width: min(1160px, calc(100% - 48px));
+  margin-inline: auto;
+}
+
+/* HERO */
+
+.novaReviewsHero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 400px;
+  padding: 76px 0;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 85% 15%, rgba(77, 151, 190, 0.2), transparent 38%),
+    linear-gradient(125deg, #edf5f9 0%, #f8fbfd 56%, #e7f1f7 100%);
+}
+
+.novaReviewsHero::after {
+  content: "";
+  position: absolute;
+  right: -90px;
+  bottom: -210px;
+  width: 440px;
+  height: 440px;
+  border: 1px solid rgba(36, 107, 145, 0.14);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 45px rgba(36, 107, 145, 0.035),
+    0 0 0 90px rgba(36, 107, 145, 0.025);
+  pointer-events: none;
+}
+
+.novaReviewsHeroGlow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 100%;
+  background: linear-gradient(#246b91, #9dc9df);
+}
+
+.novaReviewsHeroContent {
+  position: relative;
+  z-index: 1;
+  animation: novaReviewsEnter 0.7s ease both;
+}
+
+.novaReviewsEyebrow,
+.novaReviewsOverline {
+  display: block;
+  color: var(--reviews-blue);
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 2px;
+  line-height: 1.6;
+}
+
+.novaReviewsHero h1 {
+  max-width: 760px;
+  margin: 20px 0 16px;
+  font-size: clamp(38px, 5.1vw, 62px);
+  font-weight: 600;
+  letter-spacing: -2.5px;
+  line-height: 1.08;
+}
+
+.novaReviewsHero h1 em,
+.novaReviewsPage h2 em {
+  color: var(--reviews-blue);
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+}
+
+.novaReviewsHeroContent > p {
+  max-width: 580px;
+  margin: 0;
+  color: var(--reviews-muted);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.novaReviewsHeroLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 24px;
+  color: var(--reviews-navy);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.novaReviewsHeroLink svg,
+.novaReviewsCTAButton svg,
+.novaReviewCardView svg {
+  transition: transform 0.25s ease;
+}
+
+.novaReviewsHeroLink:hover svg,
+.novaReviewsCTAButton:hover svg,
+.novaReviewCardView:hover svg {
+  transform: translate(3px, -2px);
+}
+
+/* INTRO */
+
+.novaReviewsIntro {
+  padding: 66px 0;
+  border-bottom: 1px solid var(--reviews-border);
+}
+
+.novaReviewsIntroGrid {
+  display: grid;
+  grid-template-columns: 1fr 0.85fr;
+  align-items: center;
+  gap: 72px;
+}
+
+.novaReviewsNumber {
+  display: block;
+  margin-top: 12px;
+  color: #8a9baa;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.novaReviewsPage h2 {
+  margin: 14px 0 0;
+  font-size: clamp(29px, 3.2vw, 42px);
+  font-weight: 600;
+  letter-spacing: -1.3px;
+  line-height: 1.18;
+}
+
+.novaReviewsIntroText {
+  padding-left: 26px;
+  border-left: 2px solid #c8e0ed;
+}
+
+.novaReviewsIntroText p,
+.novaReviewsTrustGrid p,
+.novaReviewsCardsHeading p,
+.novaReviewsSectionHeading > p,
+.novaReviewsCTACard > p {
+  color: var(--reviews-muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.novaReviewsIntroText p {
+  margin: 0 0 12px;
+}
+
+.novaReviewsIntroText p:last-child {
+  margin-bottom: 0;
+}
+
+/* SHARED SECTION HEADINGS */
+
+.novaReviewsFeatured {
+  padding: 66px 0 56px;
+  scroll-margin-top: 90px;
+}
+
+.novaReviewsSectionHeading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 28px;
+  margin-bottom: 28px;
+}
+
+.novaReviewsSectionHeading h2 {
+  margin-top: 10px;
+}
+
+.novaReviewsSectionHeading > p {
+  max-width: 390px;
+  margin: 0 0 4px;
+}
+
+/* FEATURED REVIEW */
+
+.novaFeaturedReview {
+  position: relative;
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 24px;
+  padding: 34px;
+  border: 1px solid var(--reviews-border);
+  border-radius: 18px;
+  background: linear-gradient(120deg, #f6fafc, #fff);
+  box-shadow: 0 12px 38px rgba(16, 43, 70, 0.045);
+  animation: novaReviewsEnter 0.45s ease both;
+}
+
+.novaFeaturedQuote {
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 15px;
+  color: var(--reviews-blue);
+  background: #e3f0f7;
+}
+
+.novaReviewStars {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  flex-shrink: 0;
+  color: #d49a38;
+}
+
+.novaFeaturedContent blockquote {
+  max-width: 690px;
+  margin: 17px 0 23px;
+  color: var(--reviews-navy);
+  font-size: clamp(17px, 2vw, 23px);
+  font-weight: 450;
+  line-height: 1.65;
+}
+
+.novaFeaturedPerson {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.novaPersonAvatar,
+.novaReviewMiniAvatar {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--reviews-blue);
+  background: #e5f0f6;
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.novaPersonAvatar {
+  width: 42px;
+  height: 42px;
+}
+
+.novaFeaturedPerson strong,
+.novaFeaturedPerson span,
+.novaReviewCardPerson strong,
+.novaReviewCardPerson span {
+  display: block;
+}
+
+.novaFeaturedPerson strong,
+.novaReviewCardPerson strong {
+  color: var(--reviews-navy);
+  font-size: 13px;
+}
+
+.novaFeaturedPerson span,
+.novaReviewCardPerson span {
+  margin-top: 4px;
+  color: var(--reviews-muted);
+  font-size: 11px;
+}
+
+.novaFeaturedControls {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  align-self: stretch;
+  gap: 25px;
+  color: #7c8d9b;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.novaReviewButtons {
+  display: flex;
+  gap: 8px;
+}
+
+.novaReviewButtons button {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--reviews-border);
+  border-radius: 50%;
+  color: var(--reviews-navy);
+  background: #fff;
+  cursor: pointer;
+  transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.novaReviewButtons button:hover {
+  color: #fff;
+  border-color: var(--reviews-blue);
+  background: var(--reviews-blue);
+}
+
+.novaReviewDots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.novaReviewDots button {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 20px;
+  background: #d3e0e8;
+  cursor: pointer;
+  transition: width 0.25s ease, background 0.25s ease;
+}
+
+.novaReviewDots button.active {
+  width: 25px;
+  background: var(--reviews-blue);
+}
+
+/* TRUST SECTION */
+
+.novaReviewsTrust {
+  padding: 56px 0;
+  border-top: 1px solid var(--reviews-border);
+  border-bottom: 1px solid var(--reviews-border);
+  background: var(--reviews-pale);
+}
+
+.novaTrustHeading {
+  margin-bottom: 24px;
+}
+
+.novaReviewsTrustGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.novaReviewTrustCard {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  min-width: 0;
+  padding: 22px;
+  border: 1px solid #dce8ef;
+  border-radius: 13px;
+  background: rgba(255, 255, 255, 0.85);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.novaReviewTrustCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(16, 43, 70, 0.06);
+}
+
+.novaTrustIcon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 43px;
+  height: 43px;
+  border-radius: 12px;
+  color: var(--reviews-blue);
+  background: #e5f1f7;
+}
+
+.novaReviewTrustCard h3 {
+  margin: 2px 0 7px;
+  color: var(--reviews-navy);
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.novaReviewsTrustGrid p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.75;
+}
+
+/* REVIEW CARDS */
+
+.novaReviewsCardsSection {
+  padding: 66px 0 70px;
+}
+
+.novaReviewsCardsHeading {
+  margin-bottom: 27px;
+}
+
+.novaReviewsCardsHeading h2 {
+  margin-top: 10px;
+}
+
+.novaReviewsCardsHeading p {
+  margin: 10px 0 0;
+}
+
+.novaReviewsCardsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 20px;
+  margin-top: 28px;
+}
+
+.novaReviewsCardsGrid .novaReviewCard {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 13px;
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+  padding: 22px;
+  border: 1px solid var(--reviews-border);
+  border-radius: 15px;
+  background: #fff;
+  box-shadow: 0 7px 24px rgba(16, 43, 70, 0.035);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  animation: novaReviewsEnter 0.55s ease both;
+}
+
+.novaReviewsCardsGrid .novaReviewCard:nth-child(2) {
+  animation-delay: 80ms;
+}
+
+.novaReviewsCardsGrid .novaReviewCard:nth-child(3) {
+  animation-delay: 150ms;
+}
+
+.novaReviewsCardsGrid .novaReviewCard:nth-child(4) {
+  animation-delay: 220ms;
+}
+
+.novaReviewsCardsGrid .novaReviewCard:hover {
+  transform: translateY(-4px);
+  border-color: #b8d4e4;
+  box-shadow: 0 15px 32px rgba(16, 43, 70, 0.08);
+}
+
+.novaReviewCardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.novaReviewMiniAvatar {
+  width: 39px;
+  height: 39px;
+}
+
+.novaReviewCardQuote {
+  flex-shrink: 0;
+  color: #80adc7;
+}
+
+.novaReviewsCardsGrid .novaReviewCard > p {
+  margin: 0;
+  color: #536679;
+  font-size: 13px;
+  line-height: 1.75;
+  overflow-wrap: anywhere;
+}
+
+.novaReviewsCardsGrid .novaReviewCardPerson {
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid #e9eff3;
+}
+
+.novaReviewsCardsGrid .novaReviewCardView {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  margin-top: 2px;
+  padding: 11px 0 0;
+  border: 0;
+  border-top: 1px solid #e9eff3;
+  color: var(--reviews-blue);
+  background: transparent;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+}
+
+/* CTA */
+
+.novaReviewsCTA {
+  padding: 0 0 76px;
+}
+
+.novaReviewsCTACard {
+  position: relative;
+  overflow: hidden;
+  padding: 48px 36px;
+  border: 1px solid #d8e7f0;
+  border-radius: 20px;
+  background:
+    radial-gradient(circle at 95% 5%, rgba(117, 177, 208, 0.19), transparent 35%),
+    linear-gradient(120deg, #edf5f9, #f8fbfd);
+  text-align: center;
+}
+
+.novaReviewsCTABadge {
+  display: inline-block;
+  padding: 8px 12px;
+  border: 1px solid #d5e6ef;
+  border-radius: 30px;
+  color: var(--reviews-blue);
+  background: rgba(255, 255, 255, 0.65);
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 1.5px;
+}
+
+.novaReviewsCTACard h2 {
+  max-width: 720px;
+  margin: 20px auto 13px;
+  font-size: clamp(28px, 3.7vw, 43px);
+}
+
+.novaReviewsCTACard > p {
+  max-width: 570px;
+  margin: 0 auto;
+}
+
+.novaReviewsCTAButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 46px;
+  margin-top: 23px;
+  padding: 0 20px;
+  border: 1px solid var(--reviews-navy);
+  border-radius: 5px;
+  color: #fff;
+  background: var(--reviews-navy);
+  font-size: 13px;
+  font-weight: 700;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.novaReviewsCTAButton:hover {
+  transform: translateY(-2px);
+  background: var(--reviews-blue);
+}
+
+/* ANIMATION */
+
+@keyframes novaReviewsEnter {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+  .novaReviewsContainer {
+    width: min(100% - 36px, 720px);
+  }
+
+  .novaReviewsIntroGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .novaFeaturedReview {
+    grid-template-columns: 52px minmax(0, 1fr);
+    gap: 18px;
+    padding: 26px;
+  }
+
+  .novaFeaturedControls {
+    grid-column: 2;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+  }
+
+  .novaReviewsTrustGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .novaReviewsCardsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .novaReviewsCardsGrid .novaReviewCard {
+    padding: 19px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .novaReviewsContainer {
+    width: calc(100% - 36px);
+  }
+
+  .novaReviewsHero {
+    min-height: 340px;
+    padding: 58px 0;
+  }
+
+  .novaReviewsHero h1 {
+    margin-top: 16px;
+    font-size: clamp(35px, 10vw, 46px);
+    letter-spacing: -1.6px;
+  }
+
+  .novaReviewsHeroContent > p {
+    font-size: 13px;
+  }
+
+  .novaReviewsIntro,
+  .novaReviewsFeatured,
+  .novaReviewsTrust,
+  .novaReviewsCardsSection {
+    padding-top: 43px;
+    padding-bottom: 43px;
+  }
+
+  .novaReviewsIntroGrid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .novaReviewsPage h2 {
+    font-size: 30px;
+    letter-spacing: -0.8px;
+  }
+
+  .novaReviewsIntroText {
+    padding-left: 16px;
+  }
+
+  .novaReviewsSectionHeading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 22px;
+  }
+
+  .novaReviewsSectionHeading > p {
+    max-width: none;
+    margin: 0;
+    font-size: 13px;
+  }
+
+  .novaFeaturedReview {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 20px;
+    border-radius: 14px;
+  }
+
+  .novaFeaturedQuote {
+    width: 45px;
+    height: 45px;
+  }
+
+  .novaFeaturedContent blockquote {
+    margin: 13px 0 20px;
+    font-size: 17px;
+    line-height: 1.65;
+  }
+
+  .novaFeaturedControls {
+    grid-column: auto;
+  }
+
+  .novaReviewsTrustGrid,
+  .novaReviewsCardsGrid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .novaReviewTrustCard {
+    padding: 18px;
+  }
+
+  .novaReviewsCardsHeading {
+    margin-bottom: 23px;
+  }
+
+  .novaReviewsCardsGrid .novaReviewCard {
+    padding: 20px;
+  }
+
+  .novaReviewsCTA {
+    padding-bottom: 45px;
+  }
+
+  .novaReviewsCTACard {
+    padding: 34px 20px;
+    border-radius: 15px;
+  }
+
+  .novaReviewsCTACard h2 {
+    font-size: 29px;
+  }
+
+  .novaReviewsCTACard > p {
+    font-size: 13px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .novaReviewsPage *,
+  .novaReviewsPage *::before,
+  .novaReviewsPage *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* FIX — OUR COMMITMENT CARDS */
+
+.novaReviewsTrust .novaReviewsSectionHeading {
+  margin-bottom: 22px;
+}
+
+.novaReviewsTrust .novaReviewsTrustGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 16px;
+}
+
+.novaReviewsTrust .novaReviewTrustCard {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 12px;
+  min-height: 0;
+  padding: 18px;
+}
+
+.novaReviewsTrust .novaTrustIcon {
+  flex: 0 0 40px;
+  width: 40px;
+  height: 40px;
+}
+
+.novaReviewsTrust .novaReviewTrustCard > div {
+  flex: 1;
+  min-width: 0;
+}
+
+.novaReviewsTrust .novaReviewTrustCard h3 {
+  margin: 2px 0 6px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.novaReviewsTrust .novaReviewTrustCard p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+@media (max-width: 700px) {
+  .novaReviewsTrust .novaReviewsTrustGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =====================================================
+   NOVADENT REVIEWS — CINEMATIC STORYTELLING UPGRADE
+   Scoped to Reviews page only
+===================================================== */
+
+.novaReviewsPage {
+  --story-navy: #102b46;
+  --story-deep: #0b2036;
+  --story-blue: #246b91;
+  --story-sky: #e6f2f8;
+  --story-pale: #f3f8fb;
+  --story-white: #ffffff;
+  --story-text: #233e55;
+  --story-muted: #63798b;
+  --story-border: #dce8ef;
+  --story-gold: #c99b53;
+
+  color: var(--story-navy);
+  background: var(--story-white);
+  font-family: inherit;
+}
+
+.novaReviewsPage section {
+  position: relative;
+  isolation: isolate;
+}
+
+.novaReviewsPage h1,
+.novaReviewsPage h2,
+.novaReviewsPage h3,
+.novaReviewsPage p {
+  overflow-wrap: anywhere;
+}
+
+.novaReviewsPage h1,
+.novaReviewsPage h2 {
+  text-wrap: balance;
+}
+
+.novaReviewsPage p {
+  text-wrap: pretty;
+}
+
+/* STORY 01 — OPENING */
+
+.novaReviewsPage .novaReviewsHero {
+  min-height: 420px;
+  padding: 86px 0;
+  background:
+    radial-gradient(
+      circle at 90% 15%,
+      rgba(97, 166, 202, 0.2),
+      transparent 32%
+    ),
+    linear-gradient(125deg, #edf5fa 0%, #f9fcfe 55%, #e5f1f7 100%);
+}
+
+.novaReviewsPage .novaReviewsHeroGlow {
+  width: 5px;
+  background: linear-gradient(
+    180deg,
+    #246b91,
+    #86bbd5,
+    transparent
+  );
+}
+
+.novaReviewsPage .novaReviewsHeroContent {
+  animation: storyRise 0.9s cubic-bezier(.2,.7,.2,1) both;
+}
+
+.novaReviewsPage .novaReviewsEyebrow,
+.novaReviewsPage .novaReviewsOverline {
+  color: var(--story-blue);
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 2.2px;
+}
+
+.novaReviewsPage .novaReviewsHero h1 {
+  max-width: 790px;
+  margin: 22px 0 18px;
+  color: var(--story-navy);
+  font-size: clamp(42px, 5.5vw, 68px);
+  font-weight: 600;
+  letter-spacing: -2.8px;
+  line-height: 1.06;
+}
+
+.novaReviewsPage .novaReviewsHero h1 em {
+  color: var(--story-blue);
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+}
+
+.novaReviewsPage .novaReviewsHeroContent > p {
+  max-width: 570px;
+  color: var(--story-muted);
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.novaReviewsPage .novaReviewsHeroLink {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 22px;
+  padding-bottom: 7px;
+  border-bottom: 1px solid #a9cbdc;
+  color: var(--story-navy);
+  font-size: 13px;
+  font-weight: 700;
+  transition: color .25s ease, border-color .25s ease;
+}
+
+.novaReviewsPage .novaReviewsHeroLink:hover {
+  color: var(--story-blue);
+  border-color: var(--story-blue);
+}
+
+/* STORY 02 — INTRODUCTION */
+
+.novaReviewsPage .novaReviewsIntro {
+  padding: 76px 0;
+  background: #fff;
+  border-bottom: 1px solid var(--story-border);
+}
+
+.novaReviewsPage .novaReviewsIntroGrid {
+  align-items: center;
+  gap: clamp(30px, 7vw, 90px);
+}
+
+.novaReviewsPage .novaReviewsNumber {
+  margin-top: 13px;
+  color: #8b9baa;
+  font-size: 10px;
+  letter-spacing: 1.8px;
+}
+
+.novaReviewsPage .novaReviewsIntro h2,
+.novaReviewsPage .novaReviewsSectionHeading h2,
+.novaReviewsPage .novaReviewsCardsHeading h2 {
+  color: var(--story-navy);
+  font-size: clamp(30px, 3.5vw, 43px);
+  font-weight: 600;
+  letter-spacing: -1.5px;
+  line-height: 1.16;
+}
+
+.novaReviewsPage .novaReviewsIntro h2 em,
+.novaReviewsPage .novaReviewsSectionHeading h2 em,
+.novaReviewsPage .novaReviewsCardsHeading h2 em {
+  color: var(--story-blue);
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+}
+
+.novaReviewsPage .novaReviewsIntroText {
+  padding: 5px 0 5px 25px;
+  border-left: 2px solid #b9d7e7;
+}
+
+.novaReviewsPage .novaReviewsIntroText p {
+  color: var(--story-muted);
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+/* STORY 03 — FEATURED PATIENT STORY */
+
+.novaReviewsPage .novaReviewsFeatured {
+  padding: 78px 0 66px;
+  background:
+    radial-gradient(ellipse at 0% 10%, #f0f7fb 0%, transparent 45%),
+    #fff;
+  scroll-margin-top: 90px;
+}
+
+.novaReviewsPage .novaReviewsSectionHeading {
+  margin-bottom: 32px;
+}
+
+.novaReviewsPage .novaReviewsSectionHeading > p {
+  max-width: 370px;
+  color: var(--story-muted);
+  font-size: 13px;
+  line-height: 1.85;
+}
+
+.novaReviewsPage .novaFeaturedReview {
+  position: relative;
+  overflow: hidden;
+  grid-template-columns: 60px minmax(0, 1fr) auto;
+  gap: 25px;
+  padding: clamp(24px, 4vw, 43px);
+  border: 1px solid #d9e7ef;
+  border-radius: 20px;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(176, 213, 233, .23), transparent 35%),
+    linear-gradient(125deg, #f2f8fb, #ffffff 70%);
+  box-shadow: 0 15px 45px rgba(16, 43, 70, .055);
+  transition: box-shadow .3s ease, border-color .3s ease;
+}
+
+.novaReviewsPage .novaFeaturedReview:hover {
+  border-color: #c3dce9;
+  box-shadow: 0 22px 55px rgba(16, 43, 70, .09);
+}
+
+.novaReviewsPage .novaFeaturedQuote {
+  width: 56px;
+  height: 56px;
+  border: 1px solid #d3e6f0;
+  border-radius: 16px;
+  color: var(--story-blue);
+  background: #fff;
+}
+
+.novaReviewsPage .novaFeaturedContent blockquote {
+  color: var(--story-navy);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(18px, 2vw, 25px);
+  line-height: 1.7;
+  letter-spacing: -.25px;
+}
+
+.novaReviewsPage .novaPersonAvatar,
+.novaReviewsPage .novaReviewMiniAvatar {
+  border: 1px solid #d6e7f0;
+  color: var(--story-blue);
+  background: #eaf4f9;
+}
+
+.novaReviewsPage .novaFeaturedPerson strong,
+.novaReviewsPage .novaReviewCardPerson strong {
+  color: var(--story-navy);
+  font-size: 13px;
+  font-weight: 750;
+}
+
+.novaReviewsPage .novaFeaturedPerson span,
+.novaReviewsPage .novaReviewCardPerson span {
+  color: var(--story-muted);
+  font-size: 11px;
+}
+
+.novaReviewsPage .novaReviewButtons button {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #d4e4ed;
+  color: var(--story-navy);
+  background: #fff;
+  transition: transform .25s ease, color .25s ease, background .25s ease;
+}
+
+.novaReviewsPage .novaReviewButtons button:hover {
+  transform: translateY(-2px);
+  color: #fff;
+  background: var(--story-navy);
+  border-color: var(--story-navy);
+}
+
+.novaReviewsPage .novaReviewDots button {
+  transition: width .3s ease, background .3s ease;
+}
+
+.novaReviewsPage .novaReviewDots button.active {
+  background: var(--story-blue);
+}
+
+/* STORY 04 — OUR COMMITMENT */
+
+.novaReviewsPage .novaReviewsTrust {
+  padding: 70px 0;
+  border-top: 1px solid #dfeaf0;
+  border-bottom: 1px solid #dfeaf0;
+  background:
+    radial-gradient(circle at 95% 0%, rgba(173, 210, 230, .18), transparent 35%),
+    #f1f7fa;
+}
+
+.novaReviewsPage .novaTrustHeading {
+  margin-bottom: 28px;
+}
+
+.novaReviewsPage .novaReviewsTrustGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 18px;
+}
+
+.novaReviewsPage .novaReviewTrustCard {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 14px;
+  min-width: 0;
+  padding: 23px 20px;
+  border: 1px solid #dce8ef;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, .94);
+  box-shadow: 0 6px 22px rgba(16, 43, 70, .025);
+  transition:
+    transform .3s ease,
+    box-shadow .3s ease,
+    border-color .3s ease;
+}
+
+.novaReviewsPage .novaReviewTrustCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: var(--story-blue);
+  transition: width .3s ease;
+}
+
+.novaReviewsPage .novaReviewTrustCard:hover {
+  transform: translateY(-5px);
+  border-color: #c2dce9;
+  box-shadow: 0 16px 32px rgba(16, 43, 70, .075);
+}
+
+.novaReviewsPage .novaReviewTrustCard:hover::before {
+  width: 100%;
+}
+
+.novaReviewsPage .novaTrustIcon {
+  flex: 0 0 42px;
+  width: 42px;
+  height: 42px;
+  border: 1px solid #d8e9f2;
+  border-radius: 13px;
+  color: var(--story-blue);
+  background: #edf6fa;
+  transition: transform .3s ease, color .3s ease, background .3s ease;
+}
+
+.novaReviewsPage .novaReviewTrustCard:hover .novaTrustIcon {
+  transform: scale(1.05);
+  color: #fff;
+  background: var(--story-blue);
+}
+
+.novaReviewsPage .novaReviewTrustCard > div {
+  flex: 1;
+  min-width: 0;
+}
+
+.novaReviewsPage .novaReviewTrustCard h3 {
+  margin: 2px 0 8px;
+  color: var(--story-navy);
+  font-size: 14px;
+  font-weight: 750;
+  line-height: 1.45;
+}
+
+.novaReviewsPage .novaReviewTrustCard p {
+  margin: 0;
+  color: var(--story-muted);
+  font-size: 12px;
+  line-height: 1.75;
+}
+
+/* STORY 05 — OTHER PATIENT PERSPECTIVES */
+
+.novaReviewsPage .novaReviewsCardsSection {
+  padding: 78px 0 82px;
+  background: #fff;
+}
+
+.novaReviewsPage .novaReviewsCardsHeading {
+  margin-bottom: 30px;
+}
+
+.novaReviewsPage .novaReviewsCardsHeading > p {
+  color: var(--story-muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.novaReviewsPage .novaReviewsCardsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 20px;
+}
+
+.novaReviewsPage .novaReviewCard {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 14px;
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+  padding: 23px;
+  border: 1px solid #dce7ee;
+  border-radius: 16px;
+  background: linear-gradient(145deg, #fff, #f8fbfd);
+  box-shadow: 0 8px 26px rgba(16, 43, 70, .035);
+  transition:
+    transform .3s ease,
+    box-shadow .3s ease,
+    border-color .3s ease;
+  animation: storyRise .65s ease both;
+}
+
+.novaReviewsPage .novaReviewCard:nth-child(2) {
+  animation-delay: .08s;
+}
+
+.novaReviewsPage .novaReviewCard:nth-child(3) {
+  animation-delay: .16s;
+}
+
+.novaReviewsPage .novaReviewCard:nth-child(4) {
+  animation-delay: .24s;
+}
+
+.novaReviewsPage .novaReviewCard::after {
+  content: "";
+  position: absolute;
+  right: -30px;
+  bottom: -45px;
+  width: 100px;
+  height: 100px;
+  border: 1px solid rgba(36, 107, 145, .08);
+  border-radius: 50%;
+  pointer-events: none;
+  transition: transform .4s ease;
+}
+
+.novaReviewsPage .novaReviewCard:hover {
+  transform: translateY(-6px);
+  border-color: #bfd9e7;
+  box-shadow: 0 18px 38px rgba(16, 43, 70, .085);
+}
+
+.novaReviewsPage .novaReviewCard:hover::after {
+  transform: scale(1.35);
+}
+
+.novaReviewsPage .novaReviewCardTop {
+  gap: 10px;
+}
+
+.novaReviewsPage .novaReviewCardQuote {
+  color: #72a6c3;
+}
+
+.novaReviewsPage .novaReviewCard > p {
+  margin: 0;
+  color: var(--story-text);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.novaReviewsPage .novaReviewCardPerson {
+  margin-top: auto;
+  padding-top: 13px;
+  border-top: 1px solid #e5edf2;
+}
+
+.novaReviewsPage .novaReviewCardView {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  margin-top: 0;
+  padding: 12px 0 0;
+  border: 0;
+  border-top: 1px solid #e5edf2;
+  color: var(--story-blue);
+  background: transparent;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 750;
+  cursor: pointer;
+  transition: color .25s ease;
+}
+
+.novaReviewsPage .novaReviewCardView:hover {
+  color: var(--story-navy);
+}
+
+/* STORY 06 — APPOINTMENT CTA */
+
+.novaReviewsPage .novaReviewsCTA {
+  padding: 0 0 82px;
+  background: #fff;
+}
+
+.novaReviewsPage .novaReviewsCTACard {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(35px, 5vw, 60px) 28px;
+  border: 1px solid #d5e5ee;
+  border-radius: 21px;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(105, 164, 197, .22), transparent 38%),
+    linear-gradient(125deg, #edf5f9, #f9fcfe);
+  text-align: center;
+}
+
+.novaReviewsPage .novaReviewsCTABadge {
+  padding: 8px 13px;
+  border: 1px solid #d4e4ed;
+  border-radius: 30px;
+  color: var(--story-blue);
+  background: rgba(255, 255, 255, .8);
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 1.6px;
+}
+
+.novaReviewsPage .novaReviewsCTACard h2 {
+  max-width: 740px;
+  margin: 23px auto 14px;
+  color: var(--story-navy);
+  font-size: clamp(30px, 4vw, 46px);
+  font-weight: 600;
+  letter-spacing: -1.5px;
+  line-height: 1.18;
+}
+
+.novaReviewsPage .novaReviewsCTACard h2 em {
+  color: var(--story-blue);
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+}
+
+.novaReviewsPage .novaReviewsCTACard > p {
+  max-width: 560px;
+  margin: 0 auto;
+  color: var(--story-muted);
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.novaReviewsPage .novaReviewsCTAButton {
+  min-height: 48px;
+  margin-top: 25px;
+  padding: 0 22px;
+  border: 1px solid var(--story-navy);
+  border-radius: 5px;
+  color: #fff;
+  background: var(--story-navy);
+  font-size: 13px;
+  font-weight: 750;
+  transition:
+    transform .25s ease,
+    background .25s ease,
+    box-shadow .25s ease;
+}
+
+.novaReviewsPage .novaReviewsCTAButton:hover {
+  transform: translateY(-3px);
+  color: #fff;
+  background: var(--story-blue);
+  box-shadow: 0 9px 22px rgba(16, 43, 70, .17);
+}
+
+/* CINEMATIC MOTION */
+
+@keyframes storyRise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+  .novaReviewsPage .novaReviewsHero {
+    min-height: 370px;
+    padding: 68px 0;
+  }
+
+  .novaReviewsPage .novaReviewsIntroGrid {
+    gap: 30px;
+  }
+
+  .novaReviewsPage .novaFeaturedReview {
+    grid-template-columns: 48px minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  .novaReviewsPage .novaFeaturedControls {
+    grid-column: 2;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .novaReviewsPage .novaReviewsTrustGrid,
+  .novaReviewsPage .novaReviewsCardsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .novaReviewsPage .novaReviewTrustCard {
+    padding: 20px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .novaReviewsPage .novaReviewsContainer {
+    width: calc(100% - 36px);
+  }
+
+  .novaReviewsPage .novaReviewsHero {
+    min-height: 0;
+    padding: 62px 0;
+  }
+
+  .novaReviewsPage .novaReviewsHero h1 {
+    font-size: clamp(36px, 10vw, 47px);
+    letter-spacing: -1.7px;
+  }
+
+  .novaReviewsPage .novaReviewsHeroContent > p {
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+  .novaReviewsPage .novaReviewsIntro,
+  .novaReviewsPage .novaReviewsFeatured,
+  .novaReviewsPage .novaReviewsTrust,
+  .novaReviewsPage .novaReviewsCardsSection {
+    padding-top: 46px;
+    padding-bottom: 46px;
+  }
+
+  .novaReviewsPage .novaReviewsIntroGrid {
+    grid-template-columns: 1fr;
+    gap: 23px;
+  }
+
+  .novaReviewsPage .novaReviewsIntro h2,
+  .novaReviewsPage .novaReviewsSectionHeading h2,
+  .novaReviewsPage .novaReviewsCardsHeading h2 {
+    font-size: 31px;
+    letter-spacing: -.8px;
+  }
+
+  .novaReviewsPage .novaReviewsIntroText {
+    padding-left: 17px;
+  }
+
+  .novaReviewsPage .novaReviewsSectionHeading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .novaReviewsPage .novaFeaturedReview {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 21px;
+    border-radius: 15px;
+  }
+
+  .novaReviewsPage .novaFeaturedControls {
+    grid-column: auto;
+  }
+
+  .novaReviewsPage .novaReviewsTrustGrid,
+  .novaReviewsPage .novaReviewsCardsGrid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .novaReviewsPage .novaReviewTrustCard {
+    padding: 19px;
+  }
+
+  .novaReviewsPage .novaReviewCard {
+    padding: 21px;
+  }
+
+  .novaReviewsPage .novaReviewsCTACard {
+    padding: 37px 20px;
+    border-radius: 16px;
+  }
+
+  .novaReviewsPage .novaReviewsCTACard h2 {
+    font-size: 30px;
+    letter-spacing: -.7px;
+  }
+
+  .novaReviewsPage .novaReviewsCTACard > p {
+    font-size: 13px;
+  }
+
+  .novaReviewsPage .novaReviewsCTA {
+    padding-bottom: 46px;
+  }
+}
+
+/* ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+  .novaReviewsPage *,
+  .novaReviewsPage *::before,
+  .novaReviewsPage *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* HERO — PREMIUM NAVY + WHITE */
+
+.novaReviewsPage .novaReviewsHero {
+  background: linear-gradient(
+    120deg,
+    #0b2036 0%,
+    #123b5a 58%,
+    #1b5275 100%
+  );
+}
+
+.novaReviewsPage .novaReviewsHero::after {
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow:
+    0 0 0 45px rgba(255, 255, 255, 0.035),
+    0 0 0 90px rgba(255, 255, 255, 0.02);
+}
+
+.novaReviewsPage .novaReviewsHeroGlow {
+  background: linear-gradient(
+    180deg,
+    #8bd4f5,
+    #3b8fba,
+    transparent
+  );
+}
+
+.novaReviewsPage .novaReviewsHero .novaReviewsEyebrow {
+  color: #a9dff5;
+}
+
+.novaReviewsPage .novaReviewsHero h1 {
+  color: #ffffff;
+}
+
+.novaReviewsPage .novaReviewsHero h1 em {
+  color: #a9dff5;
+}
+
+.novaReviewsPage .novaReviewsHeroContent > p {
+  color: #e0ebf3;
+}
+
+.novaReviewsPage .novaReviewsHeroLink {
+  color: #ffffff;
+  border-color: #80c5e6;
+}
+
+.novaReviewsPage .novaReviewsHeroLink:hover {
+  color: #a9dff5;
+  border-color: #a9dff5;
+}
+
+/* CTA — NAVY PANEL + BRIGHT BUTTON */
+
+.novaReviewsPage .novaReviewsCTACard {
+  border: 1px solid #244e6d;
+  background:
+    radial-gradient(
+      circle at 90% 0%,
+      rgba(91, 170, 210, 0.25),
+      transparent 38%
+    ),
+    linear-gradient(125deg, #0b2036, #123b5a 70%, #174b6b);
+}
+
+.novaReviewsPage .novaReviewsCTABadge {
+  color: #bce8fb;
+  border-color: rgba(190, 230, 250, 0.3);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.novaReviewsPage .novaReviewsCTACard h2 {
+  color: #ffffff;
+}
+
+.novaReviewsPage .novaReviewsCTACard h2 em {
+  color: #a9dff5;
+}
+
+.novaReviewsPage .novaReviewsCTACard > p {
+  color: #e0ebf3;
+}
+
+.novaReviewsPage .novaReviewsCTAButton {
+  color: #102b46;
+  background: #bce8fb;
+  border-color: #bce8fb;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+.novaReviewsPage .novaReviewsCTAButton:hover {
+  color: #102b46;
+  background: #ffffff;
+  border-color: #ffffff;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== NOVADENT REVIEWS — CINEMATIC MOTION ===== */
+
+/* Smooth section reveal */
+.novaReviewsPage section {
+  animation: reviewsSectionIn 0.85s ease both;
+}
+
+@keyframes reviewsSectionIn {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hero animated glow */
+.novaReviewsPage .novaReviewsHero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background-size: 180% 180%;
+  animation: reviewsGradientFlow 12s ease infinite;
+}
+
+.novaReviewsPage .novaReviewsHero::before {
+  content: "";
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  top: -130px;
+  right: -70px;
+  border-radius: 50%;
+  background: rgba(139, 212, 245, 0.12);
+  filter: blur(4px);
+  pointer-events: none;
+  animation: reviewsOrbFloat 8s ease-in-out infinite alternate;
+}
+
+@keyframes reviewsGradientFlow {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes reviewsOrbFloat {
+  from { transform: translate3d(0, 0, 0) scale(0.9); }
+  to { transform: translate3d(-45px, 35px, 0) scale(1.15); }
+}
+
+/* Hero text entrance */
+.novaReviewsPage .novaReviewsHeroContent > * {
+  animation: reviewsTextIn 0.8s ease both;
+}
+
+.novaReviewsPage .novaReviewsHeroContent > *:nth-child(2) {
+  animation-delay: 0.12s;
+}
+
+.novaReviewsPage .novaReviewsHeroContent > *:nth-child(3) {
+  animation-delay: 0.24s;
+}
+
+@keyframes reviewsTextIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Featured review — elevated glass card */
+.novaReviewsPage .novaReviewsFeaturedCard {
+  transition:
+    transform 0.45s ease,
+    box-shadow 0.45s ease,
+    border-color 0.35s ease;
+  border: 1px solid rgba(72, 145, 185, 0.2);
+  box-shadow: 0 16px 42px rgba(15, 45, 70, 0.08);
+}
+
+.novaReviewsPage .novaReviewsFeaturedCard:hover {
+  transform: translateY(-6px);
+  border-color: rgba(72, 145, 185, 0.55);
+  box-shadow: 0 25px 55px rgba(15, 45, 70, 0.14);
+}
+
+/* Quote mark subtle motion */
+.novaReviewsPage .novaReviewsFeaturedCard blockquote {
+  transition: color 0.3s ease;
+}
+
+.novaReviewsPage .novaReviewsFeaturedCard:hover blockquote {
+  color: #174b6b;
+}
+
+/* Patient review cards */
+.novaReviewsPage .novaReviewsCard {
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.novaReviewsPage .novaReviewsCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #3b8fba, #a9dff5);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.novaReviewsPage .novaReviewsCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 42px rgba(15, 45, 70, 0.12);
+  border-color: rgba(59, 143, 186, 0.45);
+}
+
+.novaReviewsPage .novaReviewsCard:hover::before {
+  transform: scaleX(1);
+}
+
+/* Trust cards — icon motion */
+.novaReviewsPage .novaReviewsTrustCard {
+  transition:
+    transform 0.35s ease,
+    background 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.novaReviewsPage .novaReviewsTrustCard:hover {
+  transform: translateY(-5px);
+  background: #f2f9fd;
+  box-shadow: 0 14px 30px rgba(15, 45, 70, 0.08);
+}
+
+.novaReviewsPage .novaReviewsTrustCard svg {
+  transition: transform 0.35s ease;
+}
+
+.novaReviewsPage .novaReviewsTrustCard:hover svg {
+  transform: scale(1.12) rotate(-5deg);
+}
+
+/* Buttons — smooth premium interaction */
+.novaReviewsPage .novaReviewsPage button,
+.novaReviewsPage .novaReviewsCTAButton,
+.novaReviewsPage .novaReviewsHeroLink {
+  transition:
+    transform 0.25s ease,
+    background 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.novaReviewsPage button:hover,
+.novaReviewsPage .novaReviewsCTAButton:hover {
+  transform: translateY(-2px);
+}
+
+/* CTA background light sweep */
+.novaReviewsPage .novaReviewsCTACard {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.novaReviewsPage .novaReviewsCTACard::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -50%;
+  left: -70%;
+  width: 45%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.07);
+  transform: rotate(22deg);
+  transition: left 0.8s ease;
+  pointer-events: none;
+}
+
+.novaReviewsPage .novaReviewsCTACard:hover::before {
+  left: 130%;
+}
+
+/* Keyboard accessibility */
+.novaReviewsPage button:focus-visible,
+.novaReviewsPage a:focus-visible {
+  outline: 3px solid #68b8df;
+  outline-offset: 4px;
+}
+
+/* Mobile + reduced motion */
+@media (max-width: 768px) {
+  .novaReviewsPage .novaReviewsHero::before {
+    width: 210px;
+    height: 210px;
+  }
+
+  .novaReviewsPage .novaReviewsCard:hover,
+  .novaReviewsPage .novaReviewsTrustCard:hover,
+  .novaReviewsPage .novaReviewsFeaturedCard:hover {
+    transform: translateY(-3px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .novaReviewsPage *,
+  .novaReviewsPage *::before,
+  .novaReviewsPage *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ===== NOVADENT REVIEWS — PREMIUM UPGRADE ===== */
+
+/* Animated underline below headings */
+.novaReviewsPage h2 {
+  position: relative;
+  width: fit-content;
+  max-width: 100%;
+}
+
+.novaReviewsPage h2::after {
+  content: "";
+  display: block;
+  width: 54px;
+  height: 3px;
+  margin-top: 13px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #3b8fba, #a9dff5);
+  transition: width 0.4s ease;
+}
+
+.novaReviewsPage h2:hover::after {
+  width: 100px;
+}
+
+/* Elegant image-like light texture on review cards */
+.novaReviewsPage .novaReviewsCard {
+  background:
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(169, 223, 245, 0.18),
+      transparent 38%
+    ),
+    #ffffff;
+  border: 1px solid #e0ebf3;
+  border-radius: 20px;
+}
+
+/* Smooth lift and depth */
+.novaReviewsPage .novaReviewsCard:hover {
+  transform: translateY(-7px) scale(1.01);
+  box-shadow:
+    0 10px 25px rgba(11, 32, 54, 0.06),
+    0 25px 50px rgba(11, 32, 54, 0.10);
+}
+
+/* Featured review spotlight */
+.novaReviewsPage .novaReviewsFeaturedCard {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.novaReviewsPage .novaReviewsFeaturedCard::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 220px;
+  height: 220px;
+  right: -100px;
+  bottom: -120px;
+  border-radius: 50%;
+  background: rgba(105, 190, 225, 0.12);
+  transition: transform 0.6s ease;
+}
+
+.novaReviewsPage .novaReviewsFeaturedCard:hover::after {
+  transform: scale(1.7);
+}
+
+/* Rating stars subtle shimmer */
+.novaReviewsPage .novaReviewsPage svg {
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.novaReviewsPage .novaReviewsCard:hover svg {
+  transform: translateY(-2px);
+}
+
+/* Trust section separator */
+.novaReviewsPage .novaReviewsTrustGrid {
+  gap: 18px;
+}
+
+.novaReviewsPage .novaReviewsTrustCard {
+  border: 1px solid #e0ebf3;
+  border-radius: 16px;
+  padding: 22px;
+}
+
+/* CTA button shine */
+.novaReviewsPage .novaReviewsCTAButton {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.novaReviewsPage .novaReviewsCTAButton::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: linear-gradient(
+    110deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.65) 50%,
+    transparent 80%
+  );
+  transform: translateX(-120%);
+  transition: transform 0.65s ease;
+}
+
+.novaReviewsPage .novaReviewsCTAButton:hover::after {
+  transform: translateX(120%);
+}
+
+/* Section spacing feels more editorial */
+.novaReviewsPage .novaReviewsIntro,
+.novaReviewsPage .novaReviewsTrust,
+.novaReviewsPage .novaReviewsMore {
+  position: relative;
+}
+
+.novaReviewsPage .novaReviewsIntro::after,
+.novaReviewsPage .novaReviewsTrust::after {
+  content: "";
+  display: block;
+  width: min(100%, 1120px);
+  height: 1px;
+  margin: 60px auto 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #d5e6f0,
+    transparent
+  );
+}
+
+/* Touch devices: avoid sticky hover effects */
+@media (hover: none) {
+  .novaReviewsPage .novaReviewsCard:hover,
+  .novaReviewsPage .novaReviewsTrustCard:hover,
+  .novaReviewsPage .novaReviewsFeaturedCard:hover {
+    transform: none;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .novaReviewsPage *,
+  .novaReviewsPage *::before,
+  .novaReviewsPage *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* ===== NOVADENT — CINEMATIC FINISH ===== */
+
+/* Hero typography glow */
+.novaReviewsPage .novaReviewsHero h1 {
+  text-shadow: 0 8px 35px rgba(0, 0, 0, 0.16);
+  letter-spacing: -0.035em;
+}
+
+.novaReviewsPage .novaReviewsHero h1 em {
+  display: inline-block;
+  transition: transform 0.35s ease, text-shadow 0.35s ease;
+}
+
+.novaReviewsPage .novaReviewsHero h1 em:hover {
+  transform: translateY(-3px);
+  text-shadow: 0 0 24px rgba(169, 223, 245, 0.35);
+}
+
+/* Intro section editorial styling */
+.novaReviewsPage .novaReviewsIntro {
+  padding-top: clamp(60px, 8vw, 110px);
+  padding-bottom: clamp(55px, 7vw, 95px);
+}
+
+.novaReviewsPage .novaReviewsIntro p {
+  line-height: 1.9;
+  color: #536b7d;
+}
+
+/* Featured review cinematic border */
+.novaReviewsPage .novaReviewsFeaturedCard {
+  border-radius: 24px;
+  background:
+    linear-gradient(#ffffff, #ffffff) padding-box,
+    linear-gradient(135deg, #8bd4f5, #dcecf5, #3b8fba) border-box;
+  border: 1px solid transparent;
+  transition: box-shadow 0.4s ease, transform 0.4s ease;
+}
+
+.novaReviewsPage .novaReviewsFeaturedCard:hover {
+  box-shadow: 0 24px 65px rgba(11, 32, 54, 0.14);
+}
+
+/* Review cards: subtle entrance-ready styling */
+.novaReviewsPage .novaReviewsCard {
+  border-radius: 20px;
+  transition:
+    transform 0.35s cubic-bezier(.2,.7,.2,1),
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.novaReviewsPage .novaReviewsCard:hover {
+  transform: translateY(-6px);
+  border-color: #9bd5ef;
+}
+
+/* Card headings */
+.novaReviewsPage .novaReviewsCard h3 {
+  color: #123b5a;
+  transition: color 0.3s ease;
+}
+
+.novaReviewsPage .novaReviewsCard:hover h3 {
+  color: #287eaa;
+}
+
+/* Trust cards — cleaner hierarchy */
+.novaReviewsPage .novaReviewsTrustCard {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-height: 110px;
+  background: linear-gradient(145deg, #ffffff, #f4faff);
+  box-shadow: 0 5px 18px rgba(11, 32, 54, 0.035);
+}
+
+.novaReviewsPage .novaReviewsTrustCard:hover {
+  box-shadow: 0 14px 30px rgba(11, 32, 54, 0.09);
+}
+
+/* CTA cinematic depth */
+.novaReviewsPage .novaReviewsCTACard {
+  border-radius: 28px;
+  box-shadow: 0 22px 60px rgba(11, 32, 54, 0.16);
+  transition: box-shadow 0.4s ease, transform 0.4s ease;
+}
+
+.novaReviewsPage .novaReviewsCTACard:hover {
+  box-shadow: 0 30px 75px rgba(11, 32, 54, 0.22);
+}
+
+/* Buttons */
+.novaReviewsPage .novaReviewsCTAButton {
+  border-radius: 999px;
+  font-weight: 650;
+  letter-spacing: 0.01em;
+}
+
+.novaReviewsPage .novaReviewsCTAButton:hover {
+  transform: translateY(-3px);
+}
+
+/* Elegant section spacing */
+.novaReviewsPage .novaReviewsMore {
+  padding-top: clamp(55px, 7vw, 90px);
+  padding-bottom: clamp(55px, 7vw, 90px);
+}
+
+/* Responsive refinement */
+@media (max-width: 768px) {
+  .novaReviewsPage .novaReviewsIntro {
+    padding-top: 52px;
+    padding-bottom: 48px;
+  }
+
+  .novaReviewsPage .novaReviewsCard:hover,
+  .novaReviewsPage .novaReviewsCTACard:hover {
+    transform: none;
+  }
+
+  .novaReviewsPage .novaReviewsTrustCard {
+    min-height: auto;
+    padding: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .novaReviewsPage *,
+  .novaReviewsPage *::before,
+  .novaReviewsPage *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* ===== REVIEWS — CINEMATIC SCROLL POLISH ===== */
+
+/* Smooth anchor navigation */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Editorial section separators */
+.novaReviewsPage .novaReviewsIntro::before,
+.novaReviewsPage .novaReviewsTrust::before,
+.novaReviewsPage .novaReviewsMore::before {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  margin: 0 auto 28px;
+  background: linear-gradient(90deg, #3b8fba, #a9dff5);
+  animation: reviewsLineGrow 1.1s ease forwards;
+}
+
+@keyframes reviewsLineGrow {
+  to { width: min(110px, 25vw); }
+}
+
+/* Refined typography */
+.novaReviewsPage h2 {
+  letter-spacing: -0.035em;
+  line-height: 1.12;
+  text-wrap: balance;
+}
+
+.novaReviewsPage p {
+  text-wrap: pretty;
+}
+
+/* Hover depth for all interactive cards */
+.novaReviewsPage .novaReviewsCard,
+.novaReviewsPage .novaReviewsTrustCard,
+.novaReviewsPage .novaReviewsFeaturedCard {
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
+/* Featured quote accent */
+.novaReviewsPage .novaReviewsFeaturedCard blockquote {
+  position: relative;
+  line-height: 1.85;
+}
+
+.novaReviewsPage .novaReviewsFeaturedCard blockquote::selection,
+.novaReviewsPage .novaReviewsCard p::selection {
+  background: #c7eafa;
+  color: #0b2036;
+}
+
+/* CTA text hierarchy */
+.novaReviewsPage .novaReviewsCTACard h2 {
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+}
+
+.novaReviewsPage .novaReviewsCTACard > p {
+  line-height: 1.85;
+  max-width: 560px;
+}
+
+/* Focus and keyboard navigation */
+.novaReviewsPage a,
+.novaReviewsPage button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.novaReviewsPage a:focus-visible,
+.novaReviewsPage button:focus-visible {
+  outline: 3px solid #80c5e6;
+  outline-offset: 4px;
+}
+
+/* Mobile polish */
+@media (max-width: 600px) {
+  .novaReviewsPage h2 {
+    letter-spacing: -0.025em;
+  }
+
+  .novaReviewsPage .novaReviewsCTACard {
+    border-radius: 20px;
+  }
+
+  .novaReviewsPage .novaReviewsCard,
+  .novaReviewsPage .novaReviewsTrustCard {
+    border-radius: 16px;
+  }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .novaReviewsPage *,
+  .novaReviewsPage *::before,
+  .novaReviewsPage *::after {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+/* ===== NOVADENT REVIEWS — FINAL VISUAL DETAILS ===== */
+
+/* Premium card surface */
+.novaReviewsPage .novaReviewsCard,
+.novaReviewsPage .novaReviewsTrustCard {
+  background-color: #ffffff;
+  border: 1px solid rgba(59, 143, 186, 0.18);
+  box-shadow: 0 8px 28px rgba(11, 32, 54, 0.055);
+}
+
+/* Animated top accent */
+.novaReviewsPage .novaReviewsCard {
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.novaReviewsPage .novaReviewsCard::before {
+  height: 3px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.45s ease;
+}
+
+.novaReviewsPage .novaReviewsCard:hover::before {
+  transform: scaleX(1);
+}
+
+/* Typography refinement */
+.novaReviewsPage .novaReviewsCard p,
+.novaReviewsPage .novaReviewsFeaturedCard blockquote {
+  line-height: 1.85;
+  color: #4c6274;
+}
+
+.novaReviewsPage .novaReviewsCard h3 {
+  letter-spacing: -0.02em;
+  line-height: 1.35;
+}
+
+/* Interactive focus state */
+.novaReviewsPage .novaReviewsCard:focus-within,
+.novaReviewsPage .novaReviewsTrustCard:focus-within {
+  outline: 2px solid #80c5e6;
+  outline-offset: 3px;
+}
+
+/* Hero background detail */
+.novaReviewsPage .novaReviewsHero {
+  isolation: isolate;
+}
+
+.novaReviewsPage .novaReviewsHeroContent {
+  position: relative;
+  z-index: 1;
+}
+
+/* CTA hover depth */
+.novaReviewsPage .novaReviewsCTAButton {
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
+}
+
+.novaReviewsPage .novaReviewsCTAButton:hover {
+  box-shadow: 0 13px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive spacing */
+@media (max-width: 768px) {
+  .novaReviewsPage .novaReviewsCard,
+  .novaReviewsPage .novaReviewsTrustCard {
+    box-shadow: 0 5px 18px rgba(11, 32, 54, 0.05);
+  }
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .novaReviewsPage *,
+  .novaReviewsPage *::before,
+  .novaReviewsPage *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* ==========================================
+   NOVADENT REVIEWS — CINEMATIC ANIMATIONS
+========================================== */
+
+/* Scroll-triggered reveal */
+.novaReviewsPage .novaReveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.75s ease,
+    transform 0.75s cubic-bezier(.2, .7, .2, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.novaReviewsPage .novaReveal.novaRevealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Editorial intro motion */
+.novaReviewsPage .novaReviewsIntroGrid.novaReveal {
+  transform: translateX(-24px);
+}
+
+.novaReviewsPage .novaReviewsIntroGrid.novaReveal.novaRevealed {
+  transform: translateX(0);
+}
+
+/* Staggered cards */
+.novaReviewsPage .novaReviewCard.novaReveal,
+.novaReviewsPage .novaReviewTrustCard.novaReveal {
+  transform: translateY(24px) scale(.98);
+}
+
+.novaReviewsPage .novaReviewCard.novaReveal.novaRevealed,
+.novaReviewsPage .novaReviewTrustCard.novaReveal.novaRevealed {
+  transform: translateY(0) scale(1);
+}
+
+/* Featured review transition */
+.novaReviewsPage .novaFeaturedReviewAnimated {
+  animation: novaReviewEnter .65s cubic-bezier(.2, .7, .2, 1) both;
+  transform-origin: center;
+}
+
+@keyframes novaReviewEnter {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(.985);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+.novaReviewsPage .novaFeaturedReviewAnimated blockquote {
+  animation: novaQuoteEnter .6s ease both;
+  animation-delay: .1s;
+}
+
+@keyframes novaQuoteEnter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.novaReviewsPage .novaFeaturedReviewAnimated .novaFeaturedPerson {
+  animation: novaPersonEnter .5s ease both;
+  animation-delay: .2s;
+}
+
+@keyframes novaPersonEnter {
+  from {
+    opacity: 0;
+    transform: translateX(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Hero motion */
+.novaReviewsPage .novaReviewsHero {
+  isolation: isolate;
+  overflow: hidden;
+  position: relative;
+  background-size: 180% 180%;
+  animation: novaHeroGradient 12s ease infinite;
+}
+
+.novaReviewsPage .novaReviewsHeroGlow {
+  animation: novaHeroGlow 7s ease-in-out infinite alternate;
+}
+
+@keyframes novaHeroGradient {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes novaHeroGlow {
+  from { transform: translate3d(-8px, 0, 0) scale(.96); }
+  to { transform: translate3d(12px, 10px, 0) scale(1.06); }
+}
+
+/* Card interaction */
+.novaReviewsPage .novaReviewCard,
+.novaReviewsPage .novaReviewTrustCard {
+  transition:
+    transform .35s ease,
+    box-shadow .35s ease,
+    border-color .35s ease;
+  backface-visibility: hidden;
+}
+
+.novaReviewsPage .novaReviewCard:hover,
+.novaReviewsPage .novaReviewTrustCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 42px rgba(11, 32, 54, .11);
+  border-color: rgba(59, 143, 186, .45);
+}
+
+/* Review-card accent line */
+.novaReviewsPage .novaReviewCard {
+  position: relative;
+  overflow: hidden;
+}
+
+.novaReviewsPage .novaReviewCard::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #3b8fba, #a9dff5);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .4s ease;
+}
+
+.novaReviewsPage .novaReviewCard:hover::before {
+  transform: scaleX(1);
+}
+
+/* Trust icon animation */
+.novaReviewsPage .novaTrustIcon {
+  transition: transform .35s ease, background .35s ease;
+}
+
+.novaReviewsPage .novaReviewTrustCard:hover .novaTrustIcon {
+  transform: scale(1.08) rotate(-4deg);
+}
+
+/* Slider buttons */
+.novaReviewsPage .novaReviewButtons button {
+  transition:
+    transform .25s ease,
+    background .25s ease,
+    color .25s ease,
+    border-color .25s ease;
+}
+
+.novaReviewsPage .novaReviewButtons button:hover {
+  transform: translateY(-2px);
+}
+
+/* Slider dots */
+.novaReviewsPage .novaReviewDots button {
+  transition:
+    width .3s ease,
+    background-color .3s ease,
+    transform .3s ease;
+}
+
+.novaReviewsPage .novaReviewDots button:hover {
+  transform: scale(1.15);
+}
+
+/* Read story interaction */
+.novaReviewsPage .novaReviewCardView {
+  transition: gap .25s ease, color .25s ease;
+}
+
+.novaReviewsPage .novaReviewCardView:hover {
+  gap: 10px;
+  color: #287eaa;
+}
+
+/* CTA shine */
+.novaReviewsPage .novaReviewsCTACard {
+  isolation: isolate;
+  overflow: hidden;
+  position: relative;
+}
+
+.novaReviewsPage .novaReviewsCTAButton {
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform .3s ease,
+    box-shadow .3s ease,
+    background .3s ease;
+}
+
+.novaReviewsPage .novaReviewsCTAButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, .18);
+}
+
+/* Keyboard focus */
+.novaReviewsPage a:focus-visible,
+.novaReviewsPage button:focus-visible {
+  outline: 3px solid #80c5e6;
+  outline-offset: 4px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .novaReviewsPage .novaReviewsIntroGrid.novaReveal {
+    transform: translateY(20px);
+  }
+
+  .novaReviewsPage .novaReviewCard:hover,
+  .novaReviewsPage .novaReviewTrustCard:hover {
+    transform: translateY(-2px);
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .novaReviewsPage .novaReveal,
+  .novaReviewsPage .novaReveal.novaRevealed,
+  .novaReviewsPage .novaFeaturedReviewAnimated,
+  .novaReviewsPage .novaFeaturedReviewAnimated blockquote,
+  .novaReviewsPage .novaFeaturedReviewAnimated .novaFeaturedPerson,
+  .novaReviewsPage .novaReviewsHero,
+  .novaReviewsPage .novaReviewsHeroGlow {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none !important;
+  }
+}
+
+/* =====================================
+   REVIEWS PAGE — FINAL LAYOUT FIX
+===================================== */
+
+/* 1. OUR COMMITMENT — FIX BLUE CIRCLE */
+.novaReviewsPage .novaReviewTrustCard {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  min-width: 0;
+  padding: 24px 20px;
+  background: #ffffff;
+  border: 1px solid #e0ebf3;
+  border-radius: 18px;
+}
+
+/* Disable decorative circle/glow that overlaps text */
+.novaReviewsPage .novaReviewTrustCard::before,
+.novaReviewsPage .novaReviewTrustCard::after {
+  content: none !important;
+  display: none !important;
+}
+
+.novaReviewsPage .novaReviewTrustCard .novaTrustIcon {
+  position: relative;
+  z-index: 1;
+  flex: 0 0 42px;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: #eaf6fc;
+  color: #246b91;
+  box-shadow: none;
+}
+
+.novaReviewsPage .novaReviewTrustCard > div {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  min-width: 0;
+}
+
+.novaReviewsPage .novaReviewTrustCard h3 {
+  margin: 0 0 8px;
+  color: #123b5a;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.novaReviewsPage .novaReviewTrustCard p {
+  margin: 0;
+  color: #526879;
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+/* 2. FOUR PATIENT CARDS IN ONE ROW */
+.novaReviewsPage .novaReviewsCardsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  align-items: stretch;
+}
+
+.novaReviewsPage .novaReviewCard {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 22px 18px;
+  border: 1px solid #e0ebf3;
+  border-radius: 18px;
+  background: #ffffff;
+}
+
+.novaReviewsPage .novaReviewCardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.novaReviewsPage .novaReviewCard p {
+  font-size: 13px;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+
+.novaReviewsPage .novaReviewCardPerson {
+  margin-top: auto;
+  padding-top: 16px;
+}
+
+.novaReviewsPage .novaReviewCardView {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+  font-size: 12px;
+}
+
+/* 3. CTA — COMPACT AND NEAT */
+.novaReviewsPage .novaReviewsCTA {
+  padding-top: 42px;
+  padding-bottom: 48px;
+}
+
+.novaReviewsPage .novaReviewsCTACard {
+  max-width: 1000px;
+  margin-inline: auto;
+  padding: clamp(28px, 4vw, 46px);
+  border-radius: 22px;
+}
+
+.novaReviewsPage .novaReviewsCTABadge {
+  margin-bottom: 14px;
+  font-size: 10px;
+  letter-spacing: 0.13em;
+}
+
+.novaReviewsPage .novaReviewsCTACard h2 {
+  max-width: 700px;
+  margin: 0 0 14px;
+  font-size: clamp(26px, 3.2vw, 40px);
+  line-height: 1.2;
+}
+
+.novaReviewsPage .novaReviewsCTACard > p {
+  max-width: 600px;
+  margin: 0 0 22px;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.novaReviewsPage .novaReviewsCTAButton {
+  min-height: 44px;
+  padding: 12px 20px;
+  font-size: 13px;
+  border-radius: 999px;
+}
+
+/* 4. TABLET */
+@media (max-width: 1100px) {
+  .novaReviewsPage .novaReviewsCardsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .novaReviewsPage .novaReviewsTrustGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* 5. MOBILE */
+@media (max-width: 600px) {
+  .novaReviewsPage .novaReviewsCardsGrid,
+  .novaReviewsPage .novaReviewsTrustGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .novaReviewsPage .novaReviewCard {
+    padding: 20px;
+  }
+
+  .novaReviewsPage .novaReviewsTrustCard {
+    padding: 18px;
+  }
+
+  .novaReviewsPage .novaReviewsCTA {
+    padding-top: 28px;
+    padding-bottom: 32px;
+  }
+
+  .novaReviewsPage .novaReviewsCTACard {
+    padding: 26px 22px;
+    border-radius: 18px;
+  }
+
+  .novaReviewsPage .novaReviewsCTACard h2 {
+    font-size: 27px;
+  }
+}
+
+/* REVIEWS CTA — COMPACT PREMIUM DESIGN */
+
+.novaReviewsPage .novaReviewsCTA {
+  padding: 30px 20px 40px;
+}
+
+.novaReviewsPage .novaReviewsCTACard {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 30px 34px;
+  border-radius: 20px;
+  background: linear-gradient(120deg, #0b2942, #124c70);
+  text-align: center;
+  box-shadow: 0 14px 35px rgba(11, 41, 66, 0.14);
+}
+
+.novaReviewsPage .novaReviewsCTABadge {
+  display: inline-block;
+  margin-bottom: 10px;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+}
+
+.novaReviewsPage .novaReviewsCTACard h2 {
+  max-width: 600px;
+  margin: 0 auto 10px;
+  font-size: clamp(22px, 2.5vw, 32px);
+  line-height: 1.25;
+  letter-spacing: -0.5px;
+}
+
+.novaReviewsPage .novaReviewsCTACard > p {
+  max-width: 480px;
+  margin: 0 auto 18px;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.novaReviewsPage .novaReviewsCTAButton {
+  min-height: 40px;
+  padding: 10px 19px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 999px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.novaReviewsPage .novaReviewsCTAButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 18px rgba(0, 0, 0, 0.16);
+}
+
+@media (max-width: 600px) {
+  .novaReviewsPage .novaReviewsCTA {
+    padding: 22px 16px 30px;
+  }
+
+  .novaReviewsPage .novaReviewsCTACard {
+    padding: 25px 20px;
+    border-radius: 17px;
+  }
+
+  .novaReviewsPage .novaReviewsCTACard h2 {
+    font-size: 24px;
+  }
+
+  .novaReviewsPage .novaReviewsCTACard > p {
+    font-size: 12px;
+  }
+}
+
+/* CTA — REDUCE HEIGHT ONLY */
+
+.novaReviewsPage .novaReviewsCTACard {
+  max-width: 1000px !important;
+  width: 100% !important;
+  min-height: 0 !important;
+  padding: 18px 30px !important;
+}
+
+.novaReviewsPage .novaReviewsCTABadge {
+  margin-bottom: 6px !important;
+}
+
+.novaReviewsPage .novaReviewsCTACard h2 {
+  margin-bottom: 6px !important;
+  font-size: 26px !important;
+  line-height: 1.2 !important;
+}
+
+.novaReviewsPage .novaReviewsCTACard > p {
+  margin-bottom: 12px !important;
+  font-size: 13px !important;
+  line-height: 1.5 !important;
+}
+
+.novaReviewsPage .novaReviewsCTAButton {
+  min-height: 36px !important;
+  padding: 8px 18px !important;
+}
+
+.novaReviewsPage .novaReviewsCTA {
+  padding-top: 24px !important;
+  padding-bottom: 28px !important;
+}
+
+@media (max-width: 600px) {
+  .novaReviewsPage .novaReviewsCTACard {
+    padding: 18px 20px !important;
+  }
+
+  .novaReviewsPage .novaReviewsCTACard h2 {
+    font-size: 22px !important;
+  }
+}
+
+/* CTA — RESTORE NORMAL HEIGHT AND TEXT */
+
+.novaReviewsPage .novaReviewsCTACard {
+  width: 100% !important;
+  max-width: 1000px !important;
+  min-height: unset !important;
+  padding: 42px 40px !important;
+}
+
+.novaReviewsPage .novaReviewsCTABadge {
+  margin-bottom: 14px !important;
+  font-size: 11px !important;
+}
+
+.novaReviewsPage .novaReviewsCTACard h2 {
+  font-size: clamp(28px, 3.2vw, 40px) !important;
+  line-height: 1.25 !important;
+  margin-bottom: 14px !important;
+}
+
+.novaReviewsPage .novaReviewsCTACard > p {
+  font-size: 15px !important;
+  line-height: 1.8 !important;
+  margin-bottom: 22px !important;
+}
+
+.novaReviewsPage .novaReviewsCTAButton {
+  min-height: 44px !important;
+  padding: 12px 22px !important;
+  font-size: 14px !important;
+}
+
+.novaReviewsPage .novaReviewsCTA {
+  padding-top: 42px !important;
+  padding-bottom: 48px !important;
+}
+
+@media (max-width: 600px) {
+  .novaReviewsPage .novaReviewsCTACard {
+    padding: 30px 22px !important;
+  }
+
+  .novaReviewsPage .novaReviewsCTACard h2 {
+    font-size: 28px !important;
+  }
+
+  .novaReviewsPage .novaReviewsCTACard > p {
+    font-size: 14px !important;
+  }
+}
+
+/* REVIEWS CTA — TEXT STRUCTURE */
+
+.novaReviewsPage .novaReviewsCTACard {
+  text-align: center;
+  padding: 36px 32px !important;
+}
+
+.novaReviewsPage .novaReviewsCTABadge {
+  display: block;
+  margin: 0 auto 12px !important;
+  font-size: 10px !important;
+  letter-spacing: 2px;
+  line-height: 1.5;
+}
+
+.novaReviewsPage .novaReviewsCTACard h2 {
+  max-width: 650px;
+  margin: 0 auto 14px !important;
+  font-size: clamp(28px, 3vw, 38px) !important;
+  line-height: 1.25 !important;
+  letter-spacing: -0.6px;
+  text-wrap: balance;
+}
+
+.novaReviewsPage .novaReviewsCTACard > p {
+  max-width: 520px;
+  margin: 0 auto 22px !important;
+  font-size: 14px !important;
+  line-height: 1.75 !important;
+}
+
+.novaReviewsPage .novaReviewsCTAButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px !important;
+  padding: 12px 22px !important;
+  font-size: 13px !important;
+  font-weight: 600;
+  border-radius: 999px;
+}
+
+@media (max-width: 600px) {
+  .novaReviewsPage .novaReviewsCTACard {
+    padding: 28px 20px !important;
+  }
+
+  .novaReviewsPage .novaReviewsCTACard h2 {
+    font-size: 27px !important;
+  }
+
+  .novaReviewsPage .novaReviewsCTACard > p {
+    font-size: 13px !important;
+  }
+}
+
+.novaReviewsPage .novaReviewsCTACard {
+  padding: 30px 36px !important;
+}
+
+.novaReviewsPage .novaReviewsCTAContent {
+  display: grid;
+  grid-template-columns: 0.7fr 1.3fr;
+  align-items: center;
+  gap: 28px;
+  text-align: left;
+}
+
+.novaReviewsPage .novaReviewsCTALeft {
+  align-self: start;
+}
+
+.novaReviewsPage .novaReviewsCTABadge {
+  display: inline-block;
+  margin: 0 !important;
+}
+
+.novaReviewsPage .novaReviewsCTARight h2 {
+  margin: 0 0 10px !important;
+  font-size: clamp(24px, 2.5vw, 32px) !important;
+  line-height: 1.3 !important;
+}
+
+.novaReviewsPage .novaReviewsCTARight h2 span {
+  display: inline;
+}
+
+.novaReviewsPage .novaReviewsCTARight p {
+  margin: 0 0 16px !important;
+  font-size: 13px !important;
+  line-height: 1.7 !important;
+}
+
+@media (max-width: 600px) {
+  .novaReviewsPage .novaReviewsCTAContent {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .novaReviewsPage .novaReviewsCTACard {
+    padding: 24px 20px !important;
+  }
+}
+
+/* CTA — REFINED TWO-COLUMN LAYOUT */
+
+.novaReviewsPage .novaReviewsCTA {
+  padding: 38px 20px 46px;
+}
+
+.novaReviewsPage .novaReviewsCTACard {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 34px 38px !important;
+  border-radius: 20px;
+  box-sizing: border-box;
+}
+
+.novaReviewsPage .novaReviewsCTAContent {
+  display: grid;
+  grid-template-columns: 0.75fr 1.25fr;
+  align-items: center;
+  gap: 34px;
+  text-align: left;
+}
+
+.novaReviewsPage .novaReviewsCTALeft {
+  padding-right: 20px;
+  border-right: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.novaReviewsPage .novaReviewsCTABadge {
+  display: inline-block;
+  max-width: 180px;
+  font-size: 10px !important;
+  line-height: 1.8;
+  letter-spacing: 1.8px;
+  margin: 0 !important;
+}
+
+.novaReviewsPage .novaReviewsCTARight h2 {
+  font-size: clamp(25px, 2.6vw, 34px) !important;
+  line-height: 1.3 !important;
+  margin: 0 0 12px !important;
+}
+
+.novaReviewsPage .novaReviewsCTARight h2 span {
+  display: inline;
+}
+
+.novaReviewsPage .novaReviewsCTARight p {
+  max-width: 500px;
+  font-size: 13px !important;
+  line-height: 1.75 !important;
+  margin: 0 0 18px !important;
+}
+
+.novaReviewsPage .novaReviewsCTAButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 11px 20px;
+  font-size: 12px;
+  border-radius: 999px;
+}
+
+@media (max-width: 600px) {
+  .novaReviewsPage .novaReviewsCTA {
+    padding: 24px 16px 32px;
+  }
+
+  .novaReviewsPage .novaReviewsCTACard {
+    padding: 24px 20px !important;
+  }
+
+  .novaReviewsPage .novaReviewsCTAContent {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .novaReviewsPage .novaReviewsCTALeft {
+    padding: 0 0 12px;
+    border-right: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+  }
+
+  .novaReviewsPage .novaReviewsCTARight h2 {
+    font-size: 25px !important;
+  }
+}
+
+/* CTA — FINAL POLISH */
+
+.novaReviewsPage .novaReviewsCTACard {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 12px 32px rgba(9, 42, 66, 0.12);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.novaReviewsPage .novaReviewsCTACard:hover {
+  box-shadow: 0 18px 40px rgba(9, 42, 66, 0.18);
+  transform: translateY(-3px);
+}
+
+.novaReviewsPage .novaReviewsCTALeft {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+}
+
+.novaReviewsPage .novaReviewsCTABadge {
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.novaReviewsPage .novaReviewsCTARight h2 {
+  letter-spacing: -0.7px;
+  text-wrap: balance;
+}
+
+.novaReviewsPage .novaReviewsCTARight p {
+  opacity: 0.92;
+}
+
+.novaReviewsPage .novaReviewsCTAButton {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.novaReviewsPage .novaReviewsCTAButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .novaReviewsPage .novaReviewsCTACard,
+  .novaReviewsPage .novaReviewsCTAButton {
+    transition: none;
+  }
+
+  .novaReviewsPage .novaReviewsCTACard:hover,
+  .novaReviewsPage .novaReviewsCTAButton:hover {
+    transform: none;
+  }
+}
+
+/* =========================================
+   NOVADENT REVIEWS — CINEMATIC STORYTELLING
+========================================= */
+
+.novaReviewsPage {
+  overflow: clip;
+}
+
+/* 1. HERO — CINEMATIC ENTRANCE */
+.novaReviewsPage .novaReviewsHero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.novaReviewsPage .novaReviewsHero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(
+    115deg,
+    rgba(7, 34, 55, 0.2),
+    transparent 65%
+  );
+}
+
+.novaReviewsPage .novaReviewsHeroContent {
+  animation: novaReviewHeroEnter 1s cubic-bezier(.2,.7,.2,1) both;
+}
+
+@keyframes novaReviewHeroEnter {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 2. STORY SECTIONS — SCROLL REVEAL */
+.novaReviewsPage .novaReveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.75s ease,
+    transform 0.75s cubic-bezier(.2,.7,.2,1);
+}
+
+.novaReviewsPage .novaReveal.novaRevealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 3. INTRO — EDITORIAL PRESENTATION */
+.novaReviewsPage .novaReviewsIntro {
+  position: relative;
+}
+
+.novaReviewsPage .novaReviewsIntroGrid {
+  gap: clamp(24px, 4vw, 56px);
+}
+
+.novaReviewsPage .novaReviewsIntroGrid > * {
+  min-width: 0;
+}
+
+.novaReviewsPage .novaReviewsIntroGrid h2,
+.novaReviewsPage .novaReviewsIntroGrid h3 {
+  text-wrap: balance;
+}
+
+/* 4. FEATURED PATIENT STORY */
+.novaReviewsPage .novaFeaturedReview {
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.novaReviewsPage .novaFeaturedReview::before {
+  content: "“";
+  position: absolute;
+  top: 8px;
+  right: 22px;
+  font-family: Georgia, serif;
+  font-size: clamp(70px, 9vw, 120px);
+  line-height: 1;
+  opacity: 0.07;
+  pointer-events: none;
+}
+
+.novaReviewsPage .novaFeaturedReview:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 42px rgba(10, 45, 70, 0.12);
+}
+
+/* 5. TRUST CARDS — STAGGERED REVEAL */
+.novaReviewsPage .novaReviewsTrustGrid {
+  align-items: stretch;
+}
+
+.novaReviewsPage .novaReviewTrustCard {
+  height: 100%;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.novaReviewsPage .novaReviewTrustCard:hover {
+  transform: translateY(-6px);
+  border-color: #a9d6e9;
+  box-shadow: 0 14px 30px rgba(12, 65, 94, 0.09);
+}
+
+.novaReviewsPage .novaReviewTrustCard .novaTrustIcon {
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.novaReviewsPage .novaReviewTrustCard:hover .novaTrustIcon {
+  transform: scale(1.06);
+  background-color: #d8eff9;
+}
+
+/* 6. PATIENT REVIEW CARDS */
+.novaReviewsPage .novaReviewCard {
+  height: 100%;
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.novaReviewsPage .novaReviewCard:hover {
+  transform: translateY(-6px);
+  border-color: #b6dbea;
+  box-shadow: 0 16px 34px rgba(12, 54, 80, 0.1);
+}
+
+.novaReviewsPage .novaReviewCardTop {
+  gap: 10px;
+}
+
+.novaReviewsPage .novaReviewCardPerson {
+  transition: transform 0.3s ease;
+}
+
+.novaReviewsPage .novaReviewCard:hover .novaReviewCardPerson {
+  transform: translateX(3px);
+}
+
+/* 7. SECTION HEADINGS */
+.novaReviewsPage .novaReviewsSectionHeading,
+.novaReviewsPage .novaReviewsCardsHeading {
+  text-wrap: balance;
+}
+
+.novaReviewsPage .novaReviewsSectionHeading::after,
+.novaReviewsPage .novaReviewsCardsHeading::after {
+  content: "";
+  display: block;
+  width: 46px;
+  height: 2px;
+  margin: 14px auto 0;
+  border-radius: 2px;
+  background: #58a9ce;
+  transform-origin: center;
+  transition: width 0.35s ease;
+}
+
+.novaReviewsPage .novaReviewsSectionHeading:hover::after,
+.novaReviewsPage .novaReviewsCardsHeading:hover::after {
+  width: 76px;
+}
+
+/* 8. CTA — STORY ENDING */
+.novaReviewsPage .novaReviewsCTACard {
+  transition:
+    box-shadow 0.35s ease,
+    transform 0.35s ease;
+}
+
+.novaReviewsPage .novaReviewsCTARight h2 {
+  text-wrap: balance;
+}
+
+.novaReviewsPage .novaReviewsCTAButton {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.novaReviewsPage .novaReviewsCTAButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.14);
+}
+
+/* 9. CAROUSEL DOTS */
+.novaReviewsPage .novaReviewDots button {
+  transition:
+    width 0.25s ease,
+    background-color 0.25s ease,
+    opacity 0.25s ease;
+}
+
+/* 10. MOBILE & ACCESSIBILITY */
+@media (max-width: 768px) {
+  .novaReviewsPage .novaReviewsHeroContent {
+    animation-duration: 0.7s;
+  }
+
+  .novaReviewsPage .novaReviewCard:hover,
+  .novaReviewsPage .novaReviewTrustCard:hover,
+  .novaReviewsPage .novaFeaturedReview:hover {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .novaReviewsPage *,
+  .novaReviewsPage *::before,
+  .novaReviewsPage *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .novaReviewsPage .novaReveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ==========================================
+   NOVADENT REVIEWS — STORYTELLING ENHANCEMENT
+========================================== */
+
+/* Smooth section rhythm */
+.novaReviewsPage .novaReviewsIntro,
+.novaReviewsPage .novaReviewsFeatured,
+.novaReviewsPage .novaReviewsTrust,
+.novaReviewsPage .novaReviewsCardsSection,
+.novaReviewsPage .novaReviewsCTA {
+  position: relative;
+  isolation: isolate;
+}
+
+/* Subtle section separators */
+.novaReviewsPage .novaReviewsIntro::after,
+.novaReviewsPage .novaReviewsTrust::after,
+.novaReviewsPage .novaReviewsCardsSection::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: min(84%, 1000px);
+  height: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(69, 153, 191, 0.28),
+    transparent
+  );
+  pointer-events: none;
+}
+
+/* Reveal content from alternating directions */
+.novaReviewsPage .novaReviewsIntroGrid.novaRevealed > :first-child {
+  animation: novaReviewFromLeft 0.8s ease both;
+}
+
+.novaReviewsPage .novaReviewsIntroGrid.novaRevealed > :last-child {
+  animation: novaReviewFromRight 0.8s ease both;
+  animation-delay: 0.12s;
+}
+
+@keyframes novaReviewFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes novaReviewFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Animated review-card entry */
+.novaReviewsPage .novaReviewsCardsGrid .novaReviewCard {
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.novaReviewsPage .novaReviewsCardsGrid.novaRevealed .novaReviewCard {
+  animation: novaReviewCardEnter 0.65s cubic-bezier(.2,.7,.2,1) both;
+}
+
+.novaReviewsPage .novaReviewsCardsGrid.novaRevealed .novaReviewCard:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.novaReviewsPage .novaReviewsCardsGrid.novaRevealed .novaReviewCard:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.novaReviewsPage .novaReviewsCardsGrid.novaRevealed .novaReviewCard:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+@keyframes novaReviewCardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Elegant review quote styling */
+.novaReviewsPage .novaFeaturedReview blockquote {
+  position: relative;
+  z-index: 1;
+  line-height: 1.9;
+  text-wrap: pretty;
+}
+
+.novaReviewsPage .novaFeaturedReview blockquote::selection,
+.novaReviewsPage .novaReviewCard p::selection {
+  background: #d9eff8;
+  color: #123b5a;
+}
+
+/* Star detail */
+.novaReviewsPage .novaReviewCard svg {
+  transition: transform 0.25s ease;
+}
+
+.novaReviewsPage .novaReviewCard:hover svg {
+  transform: scale(1.06);
+}
+
+/* Trust-card icon motion */
+.novaReviewsPage .novaReviewTrustCard .novaTrustIcon {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.novaReviewsPage .novaReviewTrustCard:hover .novaTrustIcon {
+  transform: translateY(-2px) rotate(-3deg);
+  box-shadow: 0 6px 14px rgba(24, 103, 145, 0.1);
+}
+
+/* CTA content entrance */
+.novaReviewsPage .novaReviewsCTACard.novaRevealed
+.novaReviewsCTAContent {
+  animation: novaReviewCTAEnter 0.8s ease both;
+}
+
+@keyframes novaReviewCTAEnter {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Keyboard accessibility */
+.novaReviewsPage a:focus-visible,
+.novaReviewsPage button:focus-visible {
+  outline: 2px solid #55acd1;
+  outline-offset: 4px;
+}
+
+/* Reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .novaReviewsPage .novaReviewsIntroGrid.novaRevealed > *,
+  .novaReviewsPage .novaReviewsCardsGrid.novaRevealed .novaReviewCard,
+  .novaReviewsPage .novaReviewsCTACard.novaRevealed
+  .novaReviewsCTAContent {
+    animation: none !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .novaReviewsPage .novaReviewsIntroGrid.novaRevealed > :first-child,
+  .novaReviewsPage .novaReviewsIntroGrid.novaRevealed > :last-child {
+    animation-name: novaReviewCardEnter;
+  }
+}
+
+/* NOVADENT REVIEWS — FINAL CINEMATIC POLISH */
+
+/* Section content spacing */
+.novaReviewsPage .novaReviewsIntro,
+.novaReviewsPage .novaReviewsFeatured,
+.novaReviewsPage .novaReviewsTrust,
+.novaReviewsPage .novaReviewsCardsSection {
+  scroll-margin-top: 90px;
+}
+
+/* Featured story — elegant panel */
+.novaReviewsPage .novaFeaturedReview {
+  border: 1px solid rgba(110, 173, 202, 0.22);
+  border-radius: 24px;
+  box-shadow: 0 12px 35px rgba(12, 48, 72, 0.07);
+}
+
+.novaReviewsPage .novaFeaturedReview blockquote {
+  max-width: 760px;
+  margin-inline: auto;
+  font-size: clamp(17px, 2vw, 22px);
+  line-height: 1.85;
+}
+
+/* Review cards — consistent visual rhythm */
+.novaReviewsPage .novaReviewsCardsGrid {
+  align-items: stretch;
+  gap: 20px;
+}
+
+.novaReviewsPage .novaReviewCard {
+  border-radius: 20px;
+  background: linear-gradient(160deg, #ffffff, #f7fbfd);
+  box-shadow: 0 5px 18px rgba(14, 57, 82, 0.045);
+}
+
+.novaReviewsPage .novaReviewCard p {
+  line-height: 1.85;
+}
+
+/* Trust cards — subtle blue accent */
+.novaReviewsPage .novaReviewTrustCard {
+  border-radius: 18px;
+  border-top: 2px solid #c4e5f2;
+}
+
+/* Section titles */
+.novaReviewsPage .novaReviewsSectionHeading,
+.novaReviewsPage .novaReviewsCardsHeading {
+  letter-spacing: -0.45px;
+  line-height: 1.25;
+}
+
+/* CTA — refined visual finish */
+.novaReviewsPage .novaReviewsCTACard {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 18px 42px rgba(7, 34, 55, 0.16);
+}
+
+.novaReviewsPage .novaReviewsCTALeft {
+  min-width: 0;
+}
+
+.novaReviewsPage .novaReviewsCTARight {
+  min-width: 0;
+}
+
+.novaReviewsPage .novaReviewsCTAButton:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 4px;
+}
+
+/* Responsive consistency */
+@media (max-width: 768px) {
+  .novaReviewsPage .novaReviewsCardsGrid {
+    gap: 16px;
+  }
+
+  .novaReviewsPage .novaFeaturedReview {
+    border-radius: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .novaReviewsPage .novaFeaturedReview,
+  .novaReviewsPage .novaReviewCard,
+  .novaReviewsPage .novaReviewTrustCard {
+    transition: none !important;
+  }
+}
+
+/* REVIEWS — FINAL INTERACTION POLISH */
+
+.novaReviewsPage .novaReviewCard,
+.novaReviewsPage .novaReviewTrustCard,
+.novaReviewsPage .novaFeaturedReview,
+.novaReviewsPage .novaReviewsCTACard {
+  transition:
+    transform 0.45s ease,
+    box-shadow 0.45s ease,
+    border-color 0.45s ease;
+}
+
+.novaReviewsPage .novaReviewCard:hover,
+.novaReviewsPage .novaReviewTrustCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 38px rgba(15, 35, 60, 0.10);
+}
+
+.novaReviewsPage .novaReviewCard:focus-within,
+.novaReviewsPage .novaReviewsCTAButton:focus-visible {
+  outline: 2px solid #5c9dba;
+  outline-offset: 4px;
+}
+
+.novaReviewsPage .novaReviewsCTAButton {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.novaReviewsPage .novaReviewsCTAButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(10, 30, 55, 0.18);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .novaReviewsPage *,
+  .novaReviewsPage *::before,
+  .novaReviewsPage *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* REVIEWS — RESPONSIVE FINISHING TOUCHES */
+
+.novaReviewsPage .novaReviewsCardsGrid {
+  align-items: stretch;
+}
+
+.novaReviewsPage .novaReviewCard {
+  height: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.novaReviewsPage .novaReviewCard:hover {
+  transform: translateY(-5px);
+}
+
+.novaReviewsPage .novaReviewCard p,
+.novaReviewsPage .novaFeaturedReview blockquote {
+  overflow-wrap: anywhere;
+}
+
+.novaReviewsPage .novaReviewsSectionHeading {
+  text-wrap: balance;
+}
+
+.novaReviewsPage .novaReviewsCTAContent {
+  min-width: 0;
+}
+
+.novaReviewsPage .novaReviewsCTARight {
+  min-width: 0;
+}
+
+@media (max-width: 768px) {
+  .novaReviewsPage .novaReviewsCardsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .novaReviewsPage .novaReviewsCTAContent {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .novaReviewsPage .novaReviewsCardsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .novaReviewsPage .novaReviewsCTAContent {
+    grid-template-columns: 1fr;
+  }
+
+  .novaReviewsPage .novaReviewCard {
+    width: 100%;
+  }
+}

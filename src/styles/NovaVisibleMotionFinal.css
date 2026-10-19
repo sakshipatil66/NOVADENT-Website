@@ -1,0 +1,118 @@
+/* NOVADENT final visible motion pass: clear but refined, with accessible fallbacks. */
+@keyframes novaFinalHeroContentIn {
+  0% { opacity: 0; transform: translate3d(0, 34px, 0); filter: blur(7px); }
+  70% { opacity: 1; filter: blur(0); }
+  100% { opacity: 1; transform: translate3d(0, 0, 0); filter: blur(0); }
+}
+@keyframes novaFinalHeroLineIn {
+  0% { opacity: 0; transform: translate3d(0, 28px, 0); clip-path: inset(0 0 100% 0); }
+  100% { opacity: 1; transform: translate3d(0, 0, 0); clip-path: inset(0 0 0 0); }
+}
+@keyframes novaFinalMediaDrift {
+  from { transform: scale(1.045) translate3d(0, 0, 0); }
+  to { transform: scale(1.095) translate3d(-.6%, 0, 0); }
+}
+@keyframes novaFinalEyebrowIn {
+  from { opacity: 0; transform: translateX(-22px); letter-spacing: .24em; }
+  to { opacity: 1; transform: translateX(0); letter-spacing: .14em; }
+}
+
+/* Home hero: noticeable first-entry movement and gentle background drift. */
+.homePage.premiumHome .novaHeroContent { animation: novaFinalHeroContentIn 1.05s cubic-bezier(.2,.75,.25,1) .12s both; }
+.homePage.premiumHome .novaHeroEyebrow { animation: novaFinalEyebrowIn .75s cubic-bezier(.2,.75,.25,1) .25s both; }
+.homePage.premiumHome .novaHeroTitle > span,
+.homePage.premiumHome .novaHeroTitle .novaHeroAccent { animation: novaFinalHeroLineIn .9s cubic-bezier(.2,.75,.25,1) .32s both; }
+.homePage.premiumHome .novaHeroTitle .novaHeroAccent { animation-delay: .48s; }
+.homePage.premiumHome .novaHeroActions { animation: novaFinalHeroContentIn .85s cubic-bezier(.2,.75,.25,1) .65s both; }
+.homePage.premiumHome .novaHeroVideo { animation: novaFinalMediaDrift 24s ease-in-out infinite alternate; }
+
+/* About hero: animate content on route entry, independently of scroll observers. */
+.novaAbout .aboutHeroContent { animation: novaFinalHeroContentIn 1s cubic-bezier(.2,.75,.25,1) .1s both !important; }
+.novaAbout .aboutHeroEyebrow { animation: novaFinalEyebrowIn .7s ease .15s both; }
+.novaAbout .aboutHeroTitlePrimary { display: block; animation: novaFinalHeroLineIn .82s cubic-bezier(.2,.75,.25,1) .28s both; }
+.novaAbout .aboutHeroTitleAccent { display: block; animation: novaFinalHeroLineIn .92s cubic-bezier(.2,.75,.25,1) .45s both; }
+.novaAbout .aboutHeroDescription { animation: novaFinalHeroContentIn .85s cubic-bezier(.2,.75,.25,1) .58s both; }
+.novaAbout .aboutHeroTrustPoints { animation: novaFinalHeroContentIn .85s cubic-bezier(.2,.75,.25,1) .72s both; }
+.novaAbout .aboutHeroImage { animation: novaFinalMediaDrift 25s ease-in-out infinite alternate !important; }
+
+/* Stronger scroll reveal. The existing observers add the visible classes. */
+.novaAbout .about-motion-target,
+.novaAbout .nova-motion-item {
+  opacity: 0;
+  transform: translate3d(0, 42px, 0) scale(.99);
+  filter: blur(4px);
+  transition: opacity .95s cubic-bezier(.2,.75,.25,1), transform 1s cubic-bezier(.2,.75,.25,1), filter .9s ease;
+  transition-delay: var(--nova-motion-delay, 0ms);
+  will-change: opacity, transform, filter;
+}
+.novaAbout .about-motion-target.about-is-visible,
+.novaAbout .nova-motion-item.nova-motion-visible {
+  opacity: 1 !important;
+  transform: translate3d(0, 0, 0) scale(1) !important;
+  filter: blur(0) !important;
+}
+.novaAbout .aboutValueCard:nth-child(2),
+.novaAbout .aboutJourneyStep:nth-child(2),
+.novaAbout .aboutGalleryItem:nth-child(2) { transition-delay: 110ms; }
+.novaAbout .aboutValueCard:nth-child(3),
+.novaAbout .aboutJourneyStep:nth-child(3),
+.novaAbout .aboutGalleryItem:nth-child(3) { transition-delay: 220ms; }
+.novaAbout .aboutValueCard:nth-child(4),
+.novaAbout .aboutJourneyStep:nth-child(4) { transition-delay: 330ms; }
+
+/* Home scroll reveals: clear distance and stagger without hiding content if IO is unavailable. */
+.homePage.premiumHome [data-reveal] {
+  transition: opacity .9s cubic-bezier(.2,.75,.25,1), transform .95s cubic-bezier(.2,.75,.25,1), filter .85s ease;
+  transition-delay: var(--nova-reveal-delay, 0ms);
+}
+.homePage.premiumHome [data-reveal]:not(.is-visible) {
+  opacity: 0;
+  transform: translate3d(0, 38px, 0);
+  filter: blur(4px);
+}
+.homePage.premiumHome [data-reveal].reveal-left:not(.is-visible) { transform: translate3d(-48px, 16px, 0); }
+.homePage.premiumHome [data-reveal].reveal-right:not(.is-visible) { transform: translate3d(48px, 16px, 0); }
+.homePage.premiumHome [data-reveal].is-visible { opacity: 1; transform: translate3d(0,0,0); filter: blur(0); }
+
+/* Image/card motion that remains visible even without scroll. */
+.novaAbout .aboutStoryImageMain img,
+.novaAbout .aboutStoryImageSmall img,
+.novaAbout .aboutGalleryItem img,
+.novaAbout .aboutIntroImage img { transition: transform 1.1s cubic-bezier(.2,.75,.25,1), filter .7s ease; }
+.novaAbout .aboutStoryImageMain:hover img,
+.novaAbout .aboutStoryImageSmall:hover img,
+.novaAbout .aboutGalleryItem:hover img,
+.novaAbout .aboutIntroImage:hover img { transform: scale(1.055); }
+.novaAbout .aboutValueCard,
+.novaAbout .aboutJourneyStep,
+.novaAbout .aboutIntroHighlights > div { transition: transform .32s ease, box-shadow .32s ease, border-color .32s ease; }
+.novaAbout .aboutValueCard:hover,
+.novaAbout .aboutJourneyStep:hover,
+.novaAbout .aboutIntroHighlights > div:hover { transform: translateY(-6px); box-shadow: 0 22px 44px rgba(9,44,75,.13); }
+
+@media (max-width: 640px) {
+  .homePage.premiumHome .novaHeroContent,
+  .novaAbout .aboutHeroContent { animation-duration: .8s; }
+  .homePage.premiumHome [data-reveal]:not(.is-visible) { transform: translate3d(0, 24px, 0); }
+  .homePage.premiumHome [data-reveal].reveal-left:not(.is-visible),
+  .homePage.premiumHome [data-reveal].reveal-right:not(.is-visible) { transform: translate3d(0, 24px, 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .homePage.premiumHome .novaHeroContent,
+  .homePage.premiumHome .novaHeroEyebrow,
+  .homePage.premiumHome .novaHeroTitle > span,
+  .homePage.premiumHome .novaHeroTitle .novaHeroAccent,
+  .homePage.premiumHome .novaHeroActions,
+  .homePage.premiumHome .novaHeroVideo,
+  .novaAbout .aboutHeroContent,
+  .novaAbout .aboutHeroEyebrow,
+  .novaAbout .aboutHeroTitlePrimary,
+  .novaAbout .aboutHeroTitleAccent,
+  .novaAbout .aboutHeroDescription,
+  .novaAbout .aboutHeroTrustPoints,
+  .novaAbout .aboutHeroImage { animation: none !important; }
+  .homePage.premiumHome [data-reveal],
+  .homePage.premiumHome [data-reveal]:not(.is-visible),
+  .novaAbout .about-motion-target,
+  .novaAbout .nova-motion-item { opacity: 1 !important; transform: none !important; filter: none !important; }
+}

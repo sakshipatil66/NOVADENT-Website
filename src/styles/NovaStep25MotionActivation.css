@@ -1,0 +1,38 @@
+/* Step 25 — activate motion using the actual NOVADENT component class names. */
+@keyframes novaStep25HeroRise {
+  from { opacity: 0; transform: translate3d(0, 30px, 0); filter: blur(5px); }
+  to { opacity: 1; transform: translate3d(0, 0, 0); filter: blur(0); }
+}
+@keyframes novaStep25HeroLine {
+  from { opacity: 0; transform: translate3d(0, 24px, 0); clip-path: inset(0 0 90% 0); }
+  to { opacity: 1; transform: translate3d(0, 0, 0); clip-path: inset(0 0 0 0); }
+}
+@keyframes novaStep25VideoDrift {
+  from { transform: scale(1.02); }
+  to { transform: scale(1.085); }
+}
+
+/* Home Hero component uses .novaHero, not a separate .novaHeroContent wrapper class on root. */
+.homePage.premiumHome .novaHero .novaHeroTopLabel { animation: novaStep25HeroRise .75s ease-out .08s both; }
+.homePage.premiumHome .novaHero .novaHeroContent { animation: novaStep25HeroRise .95s cubic-bezier(.2,.75,.25,1) .16s both; }
+.homePage.premiumHome .novaHero .novaHeroEyebrow { animation: novaStep25HeroRise .72s ease-out .24s both; }
+.homePage.premiumHome .novaHero .novaHeroTitle > span:first-child { animation: novaStep25HeroLine .82s cubic-bezier(.2,.75,.25,1) .3s both; }
+.homePage.premiumHome .novaHero .novaHeroTitle > .novaHeroAccent { animation: novaStep25HeroLine .9s cubic-bezier(.2,.75,.25,1) .46s both; }
+.homePage.premiumHome .novaHero .novaHeroDescription { animation: novaStep25HeroRise .82s ease-out .56s both; }
+.homePage.premiumHome .novaHero .novaHeroActions { animation: novaStep25HeroRise .82s ease-out .68s both; }
+.homePage.premiumHome .novaHero .novaHeroVideo { animation: novaStep25VideoDrift 22s ease-in-out infinite alternate; }
+.homePage.premiumHome .novaHero .novaHeroInfo { animation: novaStep25HeroRise .85s ease-out .78s both; }
+
+/* Explicit route-entry animation for About. */
+html body #root main.novaAbout > section.aboutHero .aboutHeroEyebrow { animation: novaStep25HeroRise .72s ease-out .12s both; }
+html body #root main.novaAbout > section.aboutHero .aboutHeroTitlePrimary { animation: novaStep25HeroLine .82s cubic-bezier(.2,.75,.25,1) .24s both; }
+html body #root main.novaAbout > section.aboutHero .aboutHeroTitleAccent { animation: novaStep25HeroLine .9s cubic-bezier(.2,.75,.25,1) .4s both; }
+html body #root main.novaAbout > section.aboutHero .aboutHeroDescription { animation: novaStep25HeroRise .82s ease-out .54s both; }
+html body #root main.novaAbout > section.aboutHero .aboutHeroTrustPoints { animation: novaStep25HeroRise .82s ease-out .66s both; }
+html body #root main.novaAbout > section.aboutHero .aboutHeroImage { animation: novaStep25VideoDrift 25s ease-in-out infinite alternate; }
+
+/* Make motion visible but never leave content hidden if JS/IntersectionObserver is unavailable. */
+@media (prefers-reduced-motion: reduce) {
+  .homePage.premiumHome .novaHero *,
+  html body #root main.novaAbout > section.aboutHero * { animation: none !important; transition-duration: .01ms !important; }
+}

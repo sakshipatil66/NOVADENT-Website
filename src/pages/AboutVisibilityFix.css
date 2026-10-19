@@ -1,0 +1,20 @@
+/* Fix: prevent About page sections from staying invisible when the reveal observer misses a tall section. */
+.novaAbout [data-about-reveal],
+.novaAbout [data-about-reveal="left"],
+.novaAbout [data-about-reveal="right"],
+.novaAbout [data-about-reveal="scale"],
+.novaAbout .aboutFinalIntro,
+.novaAbout .aboutFinalIntro .aboutEyebrow,
+.novaAbout .aboutFinalIntro h2,
+.novaAbout .aboutFinalIntro h2 span,
+.novaAbout .aboutFinalIntro p {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+  filter: none !important;
+}
+.novaAbout .aboutFinalVideoFrame video {
+  filter: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
