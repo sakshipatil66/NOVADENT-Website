@@ -18,5 +18,8 @@
     "resend": "^6.32.0",
     "twilio": "^6.1.2",
     "vite": "latest"
+  },
+  "devDependencies": {
+    "netlify-cli": "^27.13.0"
   }
 }

@@ -65,6 +65,8 @@ export default function Appointment() {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState("");
+  const [whatsappConsent, setWhatsappConsent] = useState(false);
+  const [whatsappSent, setWhatsappSent] = useState(false);
 
   const today = getToday();
 
@@ -79,7 +81,7 @@ export default function Appointment() {
     if (submitError) setSubmitError("");
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitError("");
 
@@ -99,44 +101,41 @@ export default function Appointment() {
       setSubmitError("Please select a dental service, preferred date, and preferred time.");
       return;
     }
-
-    const request = {
-      id: `NOVA-${Date.now()}`,
-      name: form.name.trim(), email: form.email.trim(), phone: form.phone.trim(),
-      doctor: selectedDoctor || "Any available doctor", service: form.service,
-      date: form.date, time: form.time, message: form.message.trim(),
-      status: "Pending", createdAt: new Date().toISOString(),
-    };
-    // Local convenience copy only. This does not sync across devices or replace a secure server database.
-    try {
-      const saved = JSON.parse(window.localStorage.getItem("novadent_appointment_requests") || "[]");
-      window.localStorage.setItem("novadent_appointment_requests", JSON.stringify([request, ...saved].slice(0, 100)));
-    } catch { /* Continue with WhatsApp even when browser storage is unavailable. */ }
-
-    const message = [
-      "Hello NOVADENT Dental Care, I'd like to request an appointment.",
-      "",
-      `Name: ${form.name}`,
-      `Email: ${form.email || "Not provided"}`,
-      `Phone: ${form.phone}`,
-      `Doctor: ${selectedDoctor || "Any available doctor"}`,
-      `Service: ${form.service}`,
-      `Preferred date: ${form.date}`,
-      `Preferred time: ${form.time || "Flexible"}`,
-      `Additional notes: ${form.message || "None"}`,
-    ].join("\n");
-
-    const whatsappNumber = "917507559161";
-    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-    const whatsappWindow = window.open(whatsappURL, "_blank");
-    if (!whatsappWindow) {
-      setSubmitError("Your browser blocked the WhatsApp window. Please allow pop-ups and submit again.");
+    if (!whatsappConsent) {
+      setSubmitError("Please consent to receive appointment updates on WhatsApp.");
       return;
     }
-    if (whatsappWindow) whatsappWindow.opener = null;
+
+    const request = {
+      name: form.name.trim(),
+      email: form.email.trim(),
+      phone: form.phone.trim(),
+      doctor: selectedDoctor || "Any available doctor",
+      service: form.service,
+      date: form.date,
+      time: form.time,
+      message: form.message.trim(),
+      whatsappConsent,
+    };
+
     setSubmitting(true);
-    setSubmitted(true);
-    setSubmitting(false);
+    try {
+      const response = await fetch("/.netlify/functions/appointment", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(request),
+      });
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || "Unable to submit your appointment. Please try again.");
+      }
+      setWhatsappSent(Boolean(result.whatsappSent));
+      setSubmitted(true);
+    } catch (error) {
+      setSubmitError(error.message || "Unable to submit your appointment. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const handleNewAppointment = () => {
@@ -144,6 +143,8 @@ export default function Appointment() {
     setSubmitted(false);
     setSubmitting(false);
     setSubmitError("");
+    setWhatsappConsent(false);
+    setWhatsappSent(false);
   };
 
   return (
@@ -324,7 +325,7 @@ export default function Appointment() {
                         value={form.phone}
                         onChange={handleChange}
                         maxLength={16}
-                        pattern="[+0-9() .-]{10,20}"
+                     
                         title="Enter a valid phone number"
                         required
                       />
@@ -414,6 +415,22 @@ export default function Appointment() {
                     />
                   </div>
 
+                  <div className="formField appointmentWhatsAppConsent">
+                    <label className="appointmentConsentLabel" htmlFor="appointment-whatsapp-consent">
+                      <input
+                        id="appointment-whatsapp-consent"
+                        type="checkbox"
+                        checked={whatsappConsent}
+                        onChange={(e) => {
+                          setWhatsappConsent(e.target.checked);
+                          if (submitError) setSubmitError("");
+                        }}
+                        required
+                      />
+                      <span>I agree to receive appointment-related WhatsApp messages on the phone number provided above.</span>
+                    </label>
+                  </div>
+
                   {submitError && (
                     <div className="appointmentSubmitError" role="alert" aria-live="assertive">
                       {submitError}
@@ -452,7 +469,9 @@ export default function Appointment() {
                   <h3>Thank you, {form.name}!</h3>
 
                   <p>
-                    Your WhatsApp message is ready to send. Please press <strong>Send</strong> in WhatsApp to share your request with NOVADENT. Your appointment is not confirmed until the clinic contacts you.
+                    {whatsappSent
+                      ? "Your appointment request was sent to the clinic, and a WhatsApp confirmation was sent to your phone number. Your appointment is not confirmed until the clinic confirms the date and time."
+                      : "Your appointment request was sent to the clinic, but the WhatsApp message could not be sent automatically. Please contact the clinic to verify your request. Your appointment is not confirmed until the clinic confirms the date and time."}
                   </p>
                   <div className="appointmentRequestSummary" aria-label="Appointment request summary">
                     <span><strong>Service:</strong> {form.service}</span>

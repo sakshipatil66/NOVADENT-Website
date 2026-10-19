@@ -25,7 +25,12 @@ export default function VisitPrepChecklist() {
         <div className="visitPrepIntro">
           <span className="storyKicker">YOUR FIRST VISIT, MADE SIMPLER</span>
           <span className="storyIndex">A SMALL CHECKLIST</span>
-          <h2 id="visit-prep-title">A little preparation.<br /><em>A more confident visit.</em></h2>
+          
+<h2 id="visit-prep-title">
+  A little preparation.
+  <em>A more confident visit.</em>
+</h2>
+
           <p>Use this optional checklist to help you prepare for a conversation with your dental team. You can tick items off as you get ready.</p>
           <div className="visitPrepNote"><ClipboardList size={18} aria-hidden="true" /><span>This checklist is a guide, not medical advice. Your clinic may recommend other items for your visit.</span></div>
         </div>

@@ -10,7 +10,7 @@
  display:inline-flex !important; align-items:center; justify-content:center; gap:9px;
  min-height:48px; padding:13px 20px !important; border-radius:999px !important;
  font-weight:750 !important; text-decoration:none !important; letter-spacing:.01em;
- transition:transform .2s ease, box-shadow .2s ease, background .2s ease !important;
+transition: transform .2s ease, box-shadow .2s ease, background .2s ease !important;
 }
 .novaDoctorsPage .novaDoctorProfileLink,
 .doctorProfilePage .doctorProfileBook {
@@ -42,4 +42,135 @@
  .novaDoctorsPage .novaDoctorCardActions { flex-direction:column; }
  .novaDoctorsPage .novaDoctorProfileLink,.novaDoctorsPage .novaDoctorCardLink { width:100%; }
  .novaReviewsPage .novaReviewsHero,.novaContactPage .novaContactHero,.novaAppointmentPage .novaAppointmentHero { border-radius:0 0 26px 26px; }
+}
+
+/* NOVADENT — Premium Background Refinement */
+
+.novaReviewsPage,
+.novaContactPage,
+.novaAppointmentPage {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      ellipse at 8% 5%,
+      rgba(18, 184, 176, 0.10),
+      transparent 35%
+    ),
+    radial-gradient(
+      ellipse at 92% 75%,
+      rgba(8, 127, 140, 0.08),
+      transparent 38%
+    ),
+    linear-gradient(
+      145deg,
+      #f3fbfc 0%,
+      #ffffff 48%,
+      #edf8f7 100%
+    ) !important;
+}
+
+.novaReviewsPage .novaReviewsHero,
+.novaContactPage .novaContactHero,
+.novaAppointmentPage .novaAppointmentHero {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 85% 15%,
+      rgba(255, 255, 255, 0.15),
+      transparent 32%
+    ),
+    linear-gradient(
+      125deg,
+      #10394d 0%,
+      #087f8c 58%,
+      #16a7a2 100%
+    ) !important;
+  box-shadow: 0 14px 35px rgba(13, 69, 84, 0.10);
+}
+
+.novaReviewsPage .novaReviewCard,
+.novaReviewsPage .novaReviewTrustCard,
+.novaReviewsPage .novaReviewsCTACard,
+.novaContactPage .contactInfoCard,
+.novaContactPage .contactFormCard,
+.novaContactPage .contactSideCard,
+.novaContactPage .contactCTACard,
+.novaAppointmentPage .appointmentFormCard,
+.novaAppointmentPage .appointmentSideCard,
+.novaAppointmentPage .appointmentInfoCard {
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(14, 130, 145, 0.14);
+  box-shadow: 0 16px 42px rgba(13, 69, 84, 0.08);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.novaReviewsPage .novaReviewCard:hover,
+.novaContactPage .contactInfoCard:hover,
+.novaAppointmentPage .appointmentInfoCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 22px 48px rgba(13, 69, 84, 0.13);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .novaReviewsPage *,
+  .novaContactPage *,
+  .novaAppointmentPage * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* NOVADENT — Doctors Page Background Refinement */
+
+.novaDoctorsPage {
+  background:
+    radial-gradient(
+      ellipse at 10% 8%,
+      rgba(18, 184, 176, 0.10),
+      transparent 34%
+    ),
+    linear-gradient(
+      145deg,
+      #f0f9fb 0%,
+      #ffffff 52%,
+      #e9f6f5 100%
+    ) !important;
+}
+
+.novaDoctorsPage .novaDoctorsHero {
+  background:
+    radial-gradient(
+      circle at 85% 20%,
+      rgba(255, 255, 255, 0.14),
+      transparent 32%
+    ),
+    linear-gradient(
+      125deg,
+      #10394d 0%,
+      #087f8c 58%,
+      #16a7a2 100%
+    );
+}
+
+.novaDoctorsPage .novaDoctorCard {
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(14, 130, 145, 0.14);
+  box-shadow: 0 16px 42px rgba(13, 69, 84, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.novaDoctorsPage .novaDoctorCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 48px rgba(13, 69, 84, 0.13);
+}
+
+@media (max-width: 700px) {
+  .novaDoctorsPage .novaDoctorsHero {
+    border-radius: 0 0 26px 26px;
+  }
 }

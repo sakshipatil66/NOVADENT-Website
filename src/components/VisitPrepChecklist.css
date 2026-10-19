@@ -48,3 +48,33 @@
   .visitPrepItem, .visitPrepProgressTrack span, .visitPrepCheck,
   .visitPrepReset, .visitPrepBook { transition: none !important; }
 }
+
+/* Keep preparation heading at its existing font size */
+.visitPrepIntro h2 {
+  max-width: 700px;
+  width: 100%;
+  text-wrap: balance;
+}
+
+.visitPrepIntro h2 em {
+  font-size: inherit !important;
+  line-height: inherit !important;
+}
+/* Visit preparation heading — force a clean two-line layout */
+.visitPrepIntro h2#visit-prep-title {
+  width: 100% !important;
+  max-width: none !important;
+  font-size: clamp(28px, 3vw, 38px) !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.03em;
+  text-wrap: initial !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+}
+
+.visitPrepIntro h2#visit-prep-title em {
+  display: block !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+  white-space: nowrap;
+}

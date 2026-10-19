@@ -192458,3 +192458,33 @@ body:has(.novaNavbar) .novaNavbar { position: sticky; top: 0; z-index: 1000; }
 .nova-gallery a:hover img, .nova-gallery button:hover img { transform: scale(1.045); }
 @media (max-width: 760px) { .novaHeroContent, .novaHeroMedia, .novaHeroVideo { animation-duration: .65s; } :where(.service-card, .serviceCard, .novaServiceCard, .treatment-card, .treatmentCard, .doctor-card, .doctorCard, .testimonial-card, .review-card):hover { transform: none; } }
 @media (prefers-reduced-motion: reduce) { .novaHeroContent, .novaHeroMedia, .novaHeroVideo { animation: none !important; } .reveal { opacity: 1; transform: none; transition: none; } }
+/* Consistent website typography */
+:root {
+  --body-font-size: 16px;
+}
+
+body {
+  font-size: var(--body-font-size);
+  line-height: 1.6;
+}
+
+p,
+li {
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+@media (max-width: 768px) {
+  body,
+  p,
+  li {
+    font-size: 15px;
+  }
+}

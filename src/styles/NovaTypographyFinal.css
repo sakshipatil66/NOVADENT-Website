@@ -1,0 +1,394 @@
+
+/* NOVADENT — consistent typography */
+:root {
+  --nova-body-size: 16px;
+  --nova-heading-size: clamp(30px, 3vw, 40px);
+}
+
+body {
+  font-size: var(--nova-body-size);
+  line-height: 1.6;
+}
+
+main section:not(.hero) h2 {
+  font-size: var(--nova-heading-size);
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+main section:not(.hero) h3 {
+  font-size: 21px;
+  line-height: 1.35;
+  text-wrap: balance;
+}
+
+main section:not(.hero) p {
+  font-size: var(--nova-body-size);
+  line-height: 1.65;
+}
+
+@media (max-width: 600px) {
+  main section:not(.hero) h2 {
+    font-size: 29px;
+    line-height: 1.2;
+  }
+
+  main section:not(.hero) h3 {
+    font-size: 19px;
+  }
+
+  main section:not(.hero) p {
+    font-size: 15px;
+  }
+}
+/* NOVADENT — balanced headings across all pages */
+main section:not(.hero) h2,
+main section:not(.hero) h3 {
+  max-width: 100%;
+  text-wrap: balance;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+main section:not(.hero) h2 {
+  line-height: 1.15;
+}
+
+main section:not(.hero) h3 {
+  line-height: 1.3;
+}
+
+/* Fix: Meet the heart behind NOVADENT heading */
+.novaAbout h2,
+.novaAbout .aboutHeroTitle {
+  text-wrap: balance;
+}
+
+.novaAbout h2 {
+  font-size: clamp(27px, 2.5vw, 34px) !important;
+  line-height: 1.15 !important;
+  max-width: 700px;
+}
+
+@media (max-width: 600px) {
+  .novaAbout h2 {
+    font-size: 27px !important;
+    line-height: 1.2 !important;
+  }
+}
+
+/* NOVADENT — Founder heading fix */
+.founderHeading h2 {
+  font-size: clamp(28px, 2.7vw, 36px) !important;
+  line-height: 1.15 !important;
+  max-width: 520px !important;
+  text-wrap: balance !important;
+}
+
+.founderHeading h2 em {
+  display: inline;
+  font-size: inherit !important;
+  line-height: inherit !important;
+}
+
+@media (max-width: 600px) {
+  .founderHeading h2 {
+    font-size: 27px !important;
+    line-height: 1.2 !important;
+  }
+}
+
+/* Founder heading — force compact 2-line layout */
+.founderHeading {
+  width: 100% !important;
+  max-width: 560px !important;
+}
+
+.founderHeading h2 {
+  width: 100% !important;
+  max-width: 560px !important;
+  font-size: 30px !important;
+  line-height: 1.15 !important;
+  letter-spacing: -0.8px !important;
+  font-weight: 600 !important;
+  text-wrap: initial !important;
+}
+
+.founderHeading h2 em {
+  display: inline !important;
+  font-size: inherit !important;
+  font-weight: inherit !important;
+  letter-spacing: inherit !important;
+}
+
+@media (max-width: 600px) {
+  .founderHeading {
+    max-width: 100% !important;
+  }
+
+  .founderHeading h2 {
+    font-size: 25px !important;
+    line-height: 1.2 !important;
+    letter-spacing: -0.5px !important;
+  }
+}
+
+/* Final founder heading size reduction */
+.founderHeading h2,
+.founderHeading h2 em {
+  font-size: 22px !important;
+  line-height: 1.25 !important;
+  letter-spacing: -0.3px !important;
+  font-weight: 500 !important;
+}
+
+@media (max-width: 600px) {
+  .founderHeading h2,
+  .founderHeading h2 em {
+    font-size: 21px !important;
+    line-height: 1.3 !important;
+  }
+}
+
+/* Founder heading — same size, uniform text, 2-line layout */
+.founderHeading {
+  width: 100% !important;
+  max-width: 650px !important;
+}
+
+.founderHeading h2,
+.founderHeading h2 em {
+  font-size: 32px !important;
+  line-height: 1.2 !important;
+  font-weight: 600 !important;
+  letter-spacing: normal !important;
+  text-transform: none !important;
+}
+
+.founderHeading h2 {
+  max-width: 650px !important;
+  text-wrap: balance !important;
+}
+
+@media (max-width: 600px) {
+  .founderHeading h2,
+  .founderHeading h2 em {
+    font-size: 27px !important;
+    line-height: 1.25 !important;
+  }
+}
+
+/* Treatment heading — consistent size and two-line wrapping */
+.founderHeading h2,
+.founderHeading h2 em,
+h2:has(em) {
+  font-size: 32px !important;
+  line-height: 1.2 !important;
+  font-weight: 600 !important;
+  letter-spacing: normal !important;
+}
+
+h2:has(em) {
+  max-width: 650px;
+  text-wrap: balance;
+}
+
+@media (max-width: 600px) {
+  .founderHeading h2,
+  .founderHeading h2 em,
+  h2:has(em) {
+    font-size: 27px !important;
+    line-height: 1.25 !important;
+  }
+}
+
+/* Care heading: match existing heading size, wrap into 2 lines */
+.careStoryContent h2 {
+  font-size: var(--nova-heading-size) !important;
+  line-height: 1.2 !important;
+  letter-spacing: inherit !important;
+  font-weight: inherit !important;
+  max-width: 620px !important;
+  text-wrap: balance !important;
+}
+
+.careStoryContent h2 em {
+  font-size: inherit !important;
+  line-height: inherit !important;
+  letter-spacing: inherit !important;
+  font-weight: inherit !important;
+}
+
+@media (max-width: 600px) {
+  .careStoryContent h2 {
+    font-size: var(--nova-heading-size) !important;
+  }
+}
+
+/* NOVADENT — consistent heading sizes across the website */
+:root {
+  --nova-unified-heading-size: clamp(28px, 2.8vw, 36px);
+}
+
+main h2,
+main h2 em {
+  font-size: var(--nova-unified-heading-size) !important;
+  line-height: 1.2 !important;
+  font-weight: 600 !important;
+  letter-spacing: normal !important;
+}
+
+main h3,
+main h3 em {
+  font-size: 21px !important;
+  line-height: 1.35 !important;
+  font-weight: 600 !important;
+  letter-spacing: normal !important;
+}
+
+@media (max-width: 600px) {
+  main h2,
+  main h2 em {
+    font-size: 27px !important;
+    line-height: 1.25 !important;
+  }
+
+  main h3,
+  main h3 em {
+    font-size: 19px !important;
+  }
+}
+
+/* FAQ section heading — 2 lines */
+.faq-section h2,
+.faqSection h2,
+section h2 {
+  font-size: clamp(28px, 2.8vw, 36px);
+  line-height: 1.2;
+  letter-spacing: normal;
+}
+
+@media (max-width: 600px) {
+  .faq-section h2,
+  .faqSection h2,
+  section h2 {
+    font-size: 27px;
+    line-height: 1.25;
+  }
+}
+
+/* FAQ heading: consistent size, maximum 2 lines */
+.homePage.premiumHome .novaPatientFaqIntro #nova-faq-title {
+  font-size: clamp(28px, 2.8vw, 36px) !important;
+  line-height: 1.2 !important;
+  letter-spacing: normal !important;
+  max-width: 620px !important;
+  width: 100%;
+  text-wrap: balance;
+}
+
+.homePage.premiumHome .novaPatientFaqIntro #nova-faq-title em {
+  font-size: inherit !important;
+  line-height: inherit !important;
+  font-weight: inherit !important;
+}
+
+@media (max-width: 600px) {
+  .homePage.premiumHome .novaPatientFaqIntro #nova-faq-title {
+    font-size: 27px !important;
+    line-height: 1.25 !important;
+  }
+}
+/* Keep preparation heading size unchanged */
+.homePage.premiumHome h2 {
+  text-wrap: balance;
+}
+/* Preparation heading — keep current font size */
+.homePage.premiumHome h2 {
+  width: 100%;
+  max-width: 750px;
+  text-wrap: balance;
+}
+/* =========================================
+   NOVADENT — GLOBAL TYPOGRAPHY SYSTEM
+   ========================================= */
+
+:root {
+  --nova-h1-size: clamp(36px, 4vw, 52px);
+  --nova-h2-size: clamp(30px, 3vw, 40px);
+  --nova-h3-size: 22px;
+  --nova-body-size: 16px;
+  --nova-small-size: 14px;
+
+  --nova-heading-line-height: 1.2;
+  --nova-body-line-height: 1.7;
+}
+
+/* Main headings */
+h1 {
+  font-size: var(--nova-h1-size);
+  line-height: var(--nova-heading-line-height);
+}
+
+/* All section headings */
+h2 {
+  font-size: var(--nova-h2-size);
+  line-height: var(--nova-heading-line-height);
+}
+
+/* Card and subsection headings */
+h3 {
+  font-size: var(--nova-h3-size);
+  line-height: 1.35;
+}
+
+/* Keep emphasized heading text the same size */
+h1 em,
+h2 em,
+h3 em,
+h1 strong,
+h2 strong,
+h3 strong {
+  font-size: inherit;
+  line-height: inherit;
+}
+
+/* Paragraphs */
+p {
+  font-size: var(--nova-body-size);
+  line-height: var(--nova-body-line-height);
+}
+
+/* Lists */
+li {
+  font-size: var(--nova-body-size);
+  line-height: var(--nova-body-line-height);
+}
+
+/* Buttons and form controls */
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+button {
+  font-size: 15px;
+}
+
+/* Small supporting text */
+small {
+  font-size: var(--nova-small-size);
+}
+
+/* Mobile typography */
+@media (max-width: 768px) {
+  :root {
+    --nova-h1-size: 34px;
+    --nova-h2-size: 29px;
+    --nova-h3-size: 20px;
+    --nova-body-size: 15px;
+    --nova-small-size: 13px;
+  }
+}
