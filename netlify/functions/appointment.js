@@ -1,3 +1,5 @@
+import twilio from "twilio";
+
 export default async (req) => {
   const json = (body, status = 200) =>
     new Response(JSON.stringify(body), {
@@ -38,20 +40,16 @@ export default async (req) => {
       );
     }
 
+    // 1. Send appointment email
     const apiKey = process.env.RESEND_API_KEY;
     const toEmail = process.env.APPOINTMENT_TO_EMAIL;
     const fromEmail = process.env.APPOINTMENT_FROM_EMAIL;
 
     if (!apiKey || !toEmail || !fromEmail) {
-      console.error(
-        "Missing Resend environment variables."
-      );
-
       return json(
         {
           success: false,
-          message:
-            "Appointment email is not configured. Please contact the clinic.",
+          message: "Appointment email is not configured.",
         },
         500
       );
@@ -87,27 +85,90 @@ export default async (req) => {
 
     if (!emailResponse.ok) {
       const details = await emailResponse.text();
-
       console.error("Resend API error:", details);
 
       return json(
         {
           success: false,
-          message:
-            "Email could not be sent. Please try again later.",
+          message: "Appointment email could not be sent.",
         },
         502
       );
     }
 
-    const emailResult = await emailResponse.json();
+    // 2. Send WhatsApp messages
+    let patientWhatsAppSent = false;
+    let clinicWhatsAppSent = false;
+
+    try {
+      const sid = process.env.TWILIO_ACCOUNT_SID;
+      const token = process.env.TWILIO_AUTH_TOKEN;
+      const from = process.env.TWILIO_WHATSAPP_FROM;
+      const clinicTo = process.env.CLINIC_WHATSAPP_TO;
+
+      if (!sid || !token || !from) {
+        throw new Error("Twilio environment variables are missing.");
+      }
+
+      const client = twilio(sid, token);
+
+      const appointmentText = [
+        "NOVADENT Dental Care - Appointment Request",
+        "",
+        `Name: ${name}`,
+        `Phone: ${phone}`,
+        `Doctor: ${doctor}`,
+        `Service: ${service}`,
+        `Date: ${date}`,
+        `Time: ${time}`,
+        `Message: ${message || "None"}`,
+        "",
+        "This is a request, not a confirmed appointment.",
+      ].join("\n");
+
+      const toWhatsApp = (value) => {
+        const number = String(value || "").trim();
+
+        if (!number) return "";
+
+        return number.startsWith("whatsapp:")
+          ? number
+          : `whatsapp:${number}`;
+      };
+
+      const patientTo = toWhatsApp(phone);
+      const clinicNumber = toWhatsApp(clinicTo);
+
+      if (patientTo) {
+        await client.messages.create({
+          from,
+          to: patientTo,
+          body: appointmentText,
+        });
+        patientWhatsAppSent = true;
+      }
+
+      if (clinicNumber) {
+        await client.messages.create({
+          from,
+          to: clinicNumber,
+          body: appointmentText,
+        });
+        clinicWhatsAppSent = true;
+      }
+    } catch (whatsappError) {
+      console.error(
+        "Twilio WhatsApp error:",
+        whatsappError.message
+      );
+    }
 
     return json({
       success: true,
       message: "Appointment request submitted successfully.",
       emailSent: true,
-      whatsappSent: false,
-      emailId: emailResult.id,
+      patientWhatsAppSent,
+      clinicWhatsAppSent,
     });
   } catch (error) {
     console.error("Appointment function error:", error);

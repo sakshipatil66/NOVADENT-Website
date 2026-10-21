@@ -12,11 +12,12 @@
   "dependencies": {
     "@vitejs/plugin-react": "latest",
     "lucide-react": "latest",
+    "nodemailer": "^10.1.7",
     "react": "latest",
     "react-dom": "latest",
     "react-router-dom": "latest",
     "resend": "^6.32.0",
-    "twilio": "^6.1.2",
+    "twilio": "^6.2.0",
     "vite": "latest"
   },
   "devDependencies": {
