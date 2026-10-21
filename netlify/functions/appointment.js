@@ -156,12 +156,14 @@ export default async (req) => {
         });
         clinicWhatsAppSent = true;
       }
-    } catch (whatsappError) {
-      console.error(
-        "Twilio WhatsApp error:",
-        whatsappError.message
-      );
-    }
+   } catch (whatsappError) {
+  console.error("Twilio WhatsApp error details:", {
+    message: whatsappError.message,
+    code: whatsappError.code,
+    status: whatsappError.status,
+    moreInfo: whatsappError.moreInfo,
+  });
+}
 
     return json({
       success: true,
