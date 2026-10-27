@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import observeElementsOnce from "../utils/observeElementsOnce";
 import "./GalleryPremiumStory.css";
 
 import gallery01 from "../assets/gallery/gallery-01.jpg";
@@ -57,28 +58,10 @@ function Gallery() {
 
     const elements = root.querySelectorAll("[data-gallery-reveal]");
 
-    if (!("IntersectionObserver" in window)) {
-      elements.forEach((element) =>
-        element.classList.add("gallery-revealed")
-      );
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("gallery-revealed");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.12 }
-    );
-
-    elements.forEach((element) => observer.observe(element));
-
-    return () => observer.disconnect();
+    return observeElementsOnce(elements, (element) => element.classList.add("gallery-revealed"), {
+      threshold: 0.08,
+      rootMargin: "0px 0px 280px 0px",
+    });
   }, []);
 
   useEffect(() => {

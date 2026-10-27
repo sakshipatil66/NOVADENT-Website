@@ -43,7 +43,7 @@
 .novaAbout .aboutVideoReworked .aboutFinalVideoFrame {
   min-height:560px !important;
   border-radius:34px 0 0 34px !important;
-  overflow:hidden !important;
+  overflow:visible !important;
   position:relative !important;
   background:#020c12 !important;
   box-shadow:0 35px 90px rgba(0,0,0,.35) !important;
@@ -606,8 +606,8 @@
 }
 .novaAbout .aboutVideoReworked .aboutFinalVideoFrame,
 .novaAbout .aboutVideoReworked .aboutFinalVideoCopy {
-  min-height:430px !important;
-  height:430px !important;
+  min-height:0 !important;
+  height:auto !important;
   margin:0 !important;
 }
 .novaAbout .aboutVideoReworked .aboutFinalVideoFrame {
@@ -732,13 +732,13 @@
 
 @media(max-width:900px){
   .novaAbout .aboutVideoReworked .aboutFinalVideoGrid { grid-template-columns:1fr !important; }
-  .novaAbout .aboutVideoReworked .aboutFinalVideoFrame,
-  .novaAbout .aboutVideoReworked .aboutFinalVideoCopy { height:auto !important; min-height:340px !important; }
+  .novaAbout .aboutVideoReworked .aboutFinalVideoFrame { height:340px !important; min-height:340px !important; }
+  .novaAbout .aboutVideoReworked .aboutFinalVideoCopy { height:auto !important; min-height:0 !important; }
 }
 @media(max-width:640px){
   .novaAbout .aboutFinalVideo.aboutVideoReworked { padding:52px 0 58px !important; }
   .novaAbout .aboutVideoReworked .aboutFinalVideoFrame { min-height:270px !important; }
-  .novaAbout .aboutVideoReworked .aboutFinalVideoCopy { min-height:300px !important; padding:28px 23px !important; }
+  .novaAbout .aboutVideoReworked .aboutFinalVideoCopy { min-height:0 !important; padding:28px 23px !important; }
   .novaAbout .aboutVideoReworked .aboutFinalVideoCopy h2 { font-size:28px !important; }
   .novaAbout .aboutCtaReworked { min-height:0 !important; padding:48px 14px !important; }
   .novaAbout .aboutCtaReworked .aboutClosingContent { padding:34px 22px !important; }

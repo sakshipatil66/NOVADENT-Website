@@ -55,6 +55,15 @@ import "./styles/NovaStorytellingChapterUpgrade.css";
 import "./styles/NovaPatientFAQ.css";
 
 import "./styles/NovaTypographyFinal.css";
+import "./styles/NovaResponsiveRefinements.css";
+
+// Load the final page-level fixes after the global responsive rules above.
+import "./pages/AboutResponsiveFinal.css";
+import "./pages/DoctorsResponsiveFinal.css";
+import "./pages/TreatmentsResponsiveFinal.css";
+import "./styles/NovaSitewideResponsiveFinish.css";
+import "./styles/NovaPremiumReferencePass.css";
+
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>

@@ -1,0 +1,298 @@
+/* Premium consistency pass: retain each page's layout and brand palette. */
+#root main {
+  --nova-ink: #173b45;
+  --nova-muted: #5d7378;
+  --nova-teal: #438f89;
+  --nova-line: #dce8e8;
+  --nova-card-shadow: 0 16px 42px rgba(19, 53, 61, 0.09);
+}
+
+#root main h1 {
+  font-size: clamp(2.35rem, 4.3vw, 3.65rem);
+  line-height: 1.08;
+  text-wrap: balance;
+}
+
+#root main section:not(.hero) h2 {
+  font-size: clamp(1.85rem, 3vw, 2.5rem);
+  line-height: 1.16;
+  text-wrap: balance;
+}
+
+#root main h3 {
+  text-wrap: balance;
+}
+
+#root main p {
+  text-wrap: pretty;
+}
+
+/* Correct the low-contrast contact cards seen in the supplied screenshot. */
+.novaContactPage .contactSideCard,
+.novaContactPage .contactInfoCard,
+.novaContactPage .contactFormCard {
+  color: var(--nova-ink);
+}
+
+.novaContactPage .contactSideCard > span,
+.novaContactPage .contactSideCard h3,
+.novaContactPage .contactSideCard p,
+.novaContactPage .contactSideCard h3 em {
+  opacity: 1;
+}
+
+.novaContactPage .contactAppointmentCard > span,
+.novaContactPage .contactAppointmentCard p {
+  color: #f1f5f9;
+}
+
+.novaContactPage .contactAppointmentCard h3,
+.novaContactPage .contactAppointmentCard h3 em {
+  color: #ffffff;
+}
+
+.novaContactPage .contactEmailSubmitBtn {
+  display: inline-flex;
+  min-height: 52px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 12px;
+  border: 1px solid #c8dada;
+  border-radius: 12px;
+  background: #fff;
+  color: #173b45;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .22s ease, background-color .22s ease, border-color .22s ease;
+}
+
+.novaContactPage .contactEmailSubmitBtn:hover {
+  transform: translateY(-2px);
+  border-color: #438f89;
+  background: #f2fbf9;
+}
+
+.novaContactPage .contactEmailSubmitBtn:focus-visible,
+#root main a:focus-visible,
+#root main button:focus-visible {
+  outline: 3px solid #61b5a9;
+  outline-offset: 3px;
+}
+
+.novaContactPage .contactFormNote {
+  color: #526c70;
+}
+
+.novaContactPage .contactCTACard {
+  color: #173b45;
+}
+
+.novaContactPage .contactCTACard h2,
+.novaContactPage .contactCTACard p,
+.novaContactPage .contactCTACard span {
+  color: #173b45;
+  opacity: 1;
+}
+
+.novaContactPage .contactCTACard p {
+  color: #526c70;
+}
+
+.novaContactPage .contactCTACard h2 em {
+  color: #438f89;
+}
+
+.novaContactPage .contactCTACard .contactCTASecondary {
+  color: #173b45;
+}
+
+/* Shared card and image polish, with existing card sizes and composition intact. */
+.novaReviewCard,
+.novaReviewTrustCard,
+.novaFeaturedReview,
+.nova-gallery-item-pro,
+.nova-gallery-space-card,
+.novaDoctorCard,
+.novaDoctorMiniCard,
+.novaDoctorsValueCard,
+.aboutFinalChapter,
+.aboutValueCinematicCard,
+.premiumTreatmentItem,
+.premiumTreatmentExploreCard,
+.premiumTreatmentWhyCard,
+.premiumTreatmentStep,
+.appointmentInfoCard,
+.appointmentSideCard,
+.contactInfoCard,
+.contactFormCard,
+.contactSideCard {
+  transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+}
+
+.novaReviewCard:hover,
+.novaReviewTrustCard:hover,
+.nova-gallery-item-pro:hover,
+.nova-gallery-space-card:hover,
+.novaDoctorCard:hover,
+.novaDoctorMiniCard:hover,
+.novaDoctorsValueCard:hover,
+.aboutFinalChapter:hover,
+.aboutValueCinematicCard:hover,
+.premiumTreatmentItem:hover,
+.premiumTreatmentExploreCard:hover,
+.premiumTreatmentWhyCard:hover,
+.premiumTreatmentStep:hover,
+.appointmentInfoCard:hover,
+.contactInfoCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--nova-card-shadow);
+}
+
+.nova-gallery-item-pro img,
+.nova-gallery-space-image img,
+.nova-gallery-story-image img,
+.novaDoctorCard img,
+.novaDoctorMiniCard img,
+.novaDoctorImage img,
+.premiumTreatmentImage img,
+.aboutFinalChapterImage img,
+.aboutTeamFilmCard img,
+.novaWelcomeMainImage img,
+.novaWelcomeSecondImage img,
+.careStoryMainImage img,
+.careStorySmallImage img,
+.founderEditorialImage img,
+.smileJourneyImage img,
+.novaDoctorPhoto img,
+.doctorProfilePhoto img,
+.novaContactPage .contactHeroImage img {
+  transition: transform .65s cubic-bezier(.2,.7,.2,1), filter .35s ease;
+}
+
+.nova-gallery-item-pro:hover img,
+.nova-gallery-space-card:hover img,
+.nova-gallery-story-image:hover img,
+.novaDoctorCard:hover img,
+.novaDoctorMiniCard:hover img,
+.novaDoctorImage:hover img,
+.premiumTreatmentImage:hover img,
+.aboutFinalChapterImage:hover img,
+.aboutTeamFilmCard:hover img,
+.novaWelcomeVisual:hover img,
+.careStoryVisual:hover img,
+.founderEditorialVisual:hover img,
+.smileJourneyImage:hover img,
+.novaDoctorPhoto:hover img,
+.doctorProfilePhoto:hover img,
+.novaContactPage .contactHeroVisual:hover img {
+  transform: scale(1.035);
+}
+
+.novaReviewsPage .novaReviewCard,
+.novaReviewsPage .novaReviewTrustCard,
+.novaReviewsPage .novaFeaturedReview,
+.nova-gallery .nova-gallery-item-pro,
+.nova-gallery .nova-gallery-space-card {
+  border-color: var(--nova-line);
+}
+
+.novaReviewsPage .novaReviewCard:hover,
+.novaReviewsPage .novaReviewTrustCard:hover,
+.nova-gallery .nova-gallery-item-pro:hover,
+.nova-gallery .nova-gallery-space-card:hover {
+  border-color: #b5d5d0;
+}
+
+.novaContactPage .contactField input,
+.novaContactPage .contactField textarea,
+.novaAppointmentPage .formField input,
+.novaAppointmentPage .formField select,
+.novaAppointmentPage .formField textarea {
+  min-width: 0;
+  max-width: 100%;
+  color: #203e4b;
+}
+
+.novaContactPage .contactField input::placeholder,
+.novaContactPage .contactField textarea::placeholder,
+.novaAppointmentPage .formField input::placeholder,
+.novaAppointmentPage .formField textarea::placeholder {
+  color: #718898;
+  opacity: 1;
+}
+
+.appointmentFallbackActions {
+  display: grid;
+  gap: 9px;
+  margin-top: 12px;
+  color: #51343a;
+}
+
+.appointmentFallbackActions p,
+.appointmentFallbackActions small {
+  margin: 0;
+}
+
+.appointmentFallbackActions a {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 7px;
+  color: #173b45;
+  font-weight: 750;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.appointmentFallbackActions small {
+  color: #5d7378;
+  font-weight: 500;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .novaReviewCard:hover,
+  .novaReviewTrustCard:hover,
+  .nova-gallery-item-pro:hover,
+  .nova-gallery-space-card:hover,
+  .novaDoctorCard:hover,
+  .novaDoctorMiniCard:hover,
+  .novaDoctorsValueCard:hover,
+  .aboutFinalChapter:hover,
+  .aboutValueCinematicCard:hover,
+  .premiumTreatmentItem:hover,
+  .premiumTreatmentExploreCard:hover,
+  .premiumTreatmentWhyCard:hover,
+  .premiumTreatmentStep:hover,
+  .appointmentInfoCard:hover,
+  .contactInfoCard:hover {
+    transform: translateY(-4px);
+  }
+}
+
+@media (max-width: 640px) {
+  #root main h1 {
+    font-size: clamp(2rem, 8vw, 2.65rem);
+  }
+
+  #root main section:not(.hero) h2 {
+    font-size: clamp(1.65rem, 7vw, 2rem);
+  }
+
+  .novaContactPage .contactEmailSubmitBtn {
+    min-height: 48px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #root main *,
+  #root main *::before,
+  #root main *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}

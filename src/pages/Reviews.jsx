@@ -11,6 +11,7 @@ import {
   MessageCircle,
 } from "lucide-react";
 import "./ReviewsPremium.css";
+import observeElementsOnce from "../utils/observeElementsOnce";
 
 const reviews = [
   {
@@ -82,31 +83,10 @@ function useScrollReveal() {
       ".novaReviewsPage .novaReveal"
     );
 
-    if (!("IntersectionObserver" in window)) {
-      elements.forEach((element) =>
-        element.classList.add("novaRevealed")
-      );
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("novaRevealed");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        threshold: 0.12,
-        rootMargin: "0px 0px -35px 0px",
-      }
-    );
-
-    elements.forEach((element) => observer.observe(element));
-
-    return () => observer.disconnect();
+    return observeElementsOnce(elements, (element) => element.classList.add("novaRevealed"), {
+      threshold: 0.08,
+      rootMargin: "0px 0px 280px 0px",
+    });
   }, []);
 }
 

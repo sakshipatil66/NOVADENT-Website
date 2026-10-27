@@ -1,10 +1,9 @@
-# Environment secrets
+node_modules/
+.npm-cache/
+dist/
 .env
 .env.*
 !.env.example
-
-# Dependencies
-node_modules/
-
-# Netlify local files
-.netlify
+.netlify/
+.vite/
+npm-debug.log*

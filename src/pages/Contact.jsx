@@ -13,51 +13,43 @@ import {
   Sparkles,
 } from "lucide-react";
 import { useEffect, useState } from "react";
+import {
+  CLINIC_PUBLIC_EMAIL,
+  createEmailDraftUrl,
+  createWhatsAppUrl,
+} from "../config/clinicContact";
 import "./ContactPremium.css";
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
+  const [formError, setFormError] = useState("");
 
-  // Reveal contact sections as they enter the viewport.
+  // Keep every contact card available while preserving its entrance transition.
   useEffect(() => {
     const elements = document.querySelectorAll(
       ".novaContactPage .contactInfoCard, " +
         ".novaContactPage .contactFormCard, " +
         ".novaContactPage .contactSideCard, " +
+        ".novaContactPage .contactLocationGrid, " +
         ".novaContactPage .contactMapVisual, " +
         ".novaContactPage .contactCTACard"
     );
 
-    if (!("IntersectionObserver" in window)) {
-      elements.forEach((element) =>
-        element.classList.add("contactVisible")
-      );
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("contactVisible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.12 }
-    );
-
     elements.forEach((element) => {
       element.classList.add("contactReveal");
-      observer.observe(element);
     });
 
-    return () => observer.disconnect();
+    const frame = window.requestAnimationFrame(() => {
+      elements.forEach((element) => element.classList.add("contactVisible"));
+    });
+
+    return () => window.cancelAnimationFrame(frame);
   }, []);
 
   // Validate the form and prepare the enquiry in WhatsApp.
   const handleSubmit = (e) => {
     e.preventDefault();
+    setFormError("");
 
     const form = e.currentTarget;
 
@@ -81,10 +73,10 @@ export default function Contact() {
       return;
     }
 
-    const digits = phone.replace(/\D/g, "");
+    const normalizedPhone = phone.replace(/[\s().-]/g, "");
 
-    if (digits.length < 10 || digits.length > 15) {
-      alert("Please enter a valid phone number.");
+    if (!/^\+[1-9]\d{7,14}$/.test(normalizedPhone)) {
+      setFormError("Please enter a valid phone number, including its country code.");
       return;
     }
 
@@ -100,13 +92,7 @@ export default function Contact() {
       `Message: ${message}`,
     ].join("\n");
 
-    // IMPORTANT: Replace this demo number with the real clinic number.
-    // Use country code + number, without +, spaces or hyphens.
-    const whatsappNumber = "917507559161";
-
-    const whatsappURL =
-      `https://api.whatsapp.com/send?phone=${whatsappNumber}` +
-      `&text=${encodeURIComponent(whatsappMessage)}`;
+    const whatsappURL = createWhatsAppUrl(whatsappMessage);
 
     // Open WhatsApp from the user's submit action.
     const whatsappWindow = window.open(whatsappURL, "_blank");
@@ -116,11 +102,28 @@ export default function Contact() {
       whatsappWindow.opener = null;
       setSubmitted(true);
     } else {
-      alert(
-        "Your browser blocked the WhatsApp window. " +
-          "Please allow pop-ups for this website and try again."
-      );
+      setFormError("Your browser blocked WhatsApp. Allow pop-ups for this website and try again.");
     }
+  };
+
+  const handleEmailSubmit = (e) => {
+    e.preventDefault();
+    setFormError("");
+    const form = document.querySelector("#contactForm form");
+    if (!form?.reportValidity()) return;
+    const values = new FormData(form);
+    const subject = String(values.get("subject") || "NOVADENT enquiry").trim();
+    const body = [
+      "Hello NOVADENT Dental Care,",
+      "",
+      `Name: ${String(values.get("name") || "").trim()}`,
+      `Email: ${String(values.get("email") || "").trim()}`,
+      `Phone: ${String(values.get("phone") || "").trim()}`,
+      `Subject: ${subject}`,
+      "",
+      String(values.get("message") || "").trim(),
+    ].join("\n");
+    window.location.href = createEmailDraftUrl(subject, body);
   };
 
   return (
@@ -199,18 +202,20 @@ export default function Contact() {
 
           <div className="contactInfoGrid">
             <a
-              href="tel:+919000012345"
+              href={createWhatsAppUrl()}
+              target="_blank"
+              rel="noopener noreferrer"
               className="contactInfoCard"
-              aria-label="Call NOVADENT"
+              aria-label="Message NOVADENT on WhatsApp"
             >
               <span className="contactInfoNumber">01</span>
 
               <div className="contactInfoIcon">
-                <Phone size={22} aria-hidden="true" />
+                <MessageSquare size={22} aria-hidden="true" />
               </div>
 
               <div className="contactInfoContent">
-                <span>CALL US</span>
+                <span>CHAT ON WHATSAPP</span>
                 <h3>+91 90000 12345</h3>
                 <p>Speak directly with our clinic team.</p>
                 <span className="contactInlineWhatsApp">
@@ -227,7 +232,7 @@ export default function Contact() {
             </a>
 
             <a
-              href="mailto:info@novadentcare.com"
+              href={`mailto:${CLINIC_PUBLIC_EMAIL}`}
               className="contactInfoCard"
               aria-label="Email NOVADENT"
             >
@@ -296,14 +301,14 @@ export default function Contact() {
             </h2>
 
             <p>
-              Fill in the form to prepare your enquiry for WhatsApp.
+              Fill in the form and choose WhatsApp or email to send your enquiry.
             </p>
           </div>
 
           <div className="contactFormLayout">
             <div className="contactFormCard">
               {!submitted ? (
-                <form onSubmit={handleSubmit}>
+                <form id="contact-enquiry-form" onSubmit={handleSubmit}>
                   <div className="contactFormRow">
                     <div className="contactField">
                       <label htmlFor="contact-name">Name</label>
@@ -379,9 +384,15 @@ export default function Contact() {
                     <Send size={17} aria-hidden="true" />
                   </button>
 
+                  <button type="button" className="contactEmailSubmitBtn" onClick={handleEmailSubmit}>
+                    <span>Continue with Email</span>
+                    <Mail size={17} aria-hidden="true" />
+                  </button>
+
+                  {formError && <p className="contactFormError" role="alert">{formError}</p>}
+
                   <p className="contactFormNote">
-                    WhatsApp will open with your enquiry prepared.
-                    You must press Send in WhatsApp to submit it.
+                    WhatsApp or your email app will open with the enquiry prepared. Press Send in that app to submit it.
                   </p>
                 </form>
               ) : (
@@ -481,10 +492,10 @@ export default function Contact() {
                 </p>
 
                 <a
-                  href="mailto:info@novadentcare.com"
+                  href={`mailto:${CLINIC_PUBLIC_EMAIL}`}
                   className="contactSideEmail"
                 >
-                  info@novadentcare.com
+                  {CLINIC_PUBLIC_EMAIL}
                   <ArrowUpRight size={16} aria-hidden="true" />
                 </a>
               </div>

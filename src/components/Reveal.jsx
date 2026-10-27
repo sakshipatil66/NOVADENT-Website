@@ -1,5 +1,6 @@
 
 import { useEffect, useRef, useState } from "react";
+import observeElementsOnce from "../utils/observeElementsOnce";
 
 export default function Reveal({
   children,
@@ -14,18 +15,7 @@ export default function Reveal({
     const element = ref.current;
     if (!element) return;
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.unobserve(element);
-        }
-      },
-      { threshold: 0.12 }
-    );
-
-    observer.observe(element);
-    return () => observer.disconnect();
+    return observeElementsOnce([element], () => setVisible(true), { threshold: 0.08 });
   }, []);
 
   return (

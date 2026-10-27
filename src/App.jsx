@@ -2,7 +2,6 @@ import { Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import FloatingContactActions from "./components/FloatingContactActions";
 import NovaInnerPageMotion from "./components/NovaInnerPageMotion";
 
 import Home from "./pages/Home";
@@ -48,7 +47,6 @@ export default function App() {
       </Routes>
 
       <Footer />
-      <FloatingContactActions />
       <VoiceAssistant />
       <BackToTop />
     </>

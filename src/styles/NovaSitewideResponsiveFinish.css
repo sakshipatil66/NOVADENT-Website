@@ -1,0 +1,74 @@
+/* Small-screen finishing fixes for shared controls and secondary routes. */
+
+.doctorProfilePage,
+.novaAdminPage,
+.novaNotFound {
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+.doctorProfileContainer,
+.novaAdminWrap,
+.novaNotFoundCard {
+  min-width: 0;
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  /* Keep the floating controls clear of the fixed quick-navigation bar. */
+  .novaMobileBar {
+    bottom: max(10px, env(safe-area-inset-bottom)) !important;
+  }
+
+  .novaVoiceAssistant {
+    bottom: calc(84px + env(safe-area-inset-bottom));
+  }
+
+  .novaVoicePanel {
+    max-height: calc(100dvh - 170px - env(safe-area-inset-bottom));
+  }
+
+  .nova-back-to-top {
+    bottom: calc(148px + env(safe-area-inset-bottom));
+  }
+
+  /* Preserve the footer background while leaving its last links above the bar. */
+  .novaFooter {
+    padding-bottom: calc(70px + env(safe-area-inset-bottom));
+  }
+
+  .doctorProfilePage {
+    padding-inline: clamp(14px, 4vw, 24px);
+  }
+
+  .doctorProfileContainer,
+  .novaAdminWrap {
+    width: 100%;
+  }
+
+  .novaAdminTableWrap {
+    width: 100%;
+    max-width: 100%;
+    overscroll-behavior-x: contain;
+  }
+}
+
+@media (max-width: 420px) {
+  .novaFooterBottomInner > * {
+    min-width: 0;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  .doctorProfilePage h1,
+  .doctorProfilePage h2,
+  .doctorProfilePage p,
+  .doctorProfilePage a {
+    overflow-wrap: anywhere;
+  }
+
+  .novaAdminHeader h1 {
+    overflow-wrap: anywhere;
+  }
+}

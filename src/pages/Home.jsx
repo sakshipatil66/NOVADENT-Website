@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
 import {
@@ -19,6 +19,7 @@ import {
 import Hero from "../components/Hero";
 import SmileGoalExplorer from "../components/SmileGoalExplorer";
 import VisitPrepChecklist from "../components/VisitPrepChecklist";
+import observeElementsOnce from "../utils/observeElementsOnce";
 import novaLogo from "../assets/logo.svg";
 
 import gallery01 from "../assets/gallery/gallery-01.jpg";
@@ -201,26 +202,10 @@ function useRevealAnimations() {
 
     if (!elements.length) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        });
-      },
-      {
-        threshold: 0.08,
-        rootMargin: "0px 0px -40px 0px",
-      }
-    );
-
-    elements.forEach((element) => {
-      observer.observe(element);
+    return observeElementsOnce(elements, (element) => element.classList.add("is-visible"), {
+      threshold: 0.08,
+      rootMargin: "0px 0px 280px 0px",
     });
-
-    return () => observer.disconnect();
   }, []);
 }
 
@@ -229,12 +214,28 @@ function useRevealAnimations() {
 ========================================================= */
 
 function AnimatedNumber({ value, suffix = "" }) {
+  const numberRef = useRef(null);
   const [count, setCount] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const node = numberRef.current;
+    if (!node) return undefined;
+    if (!("IntersectionObserver" in window)) {
+      setIsVisible(true);
+      return undefined;
+    }
+
+    return observeElementsOnce([node], () => setIsVisible(true), {
+      threshold: 0.08,
+      rootMargin: "0px 0px 280px 0px",
+    });
+  }, []);
 
   useEffect(() => {
     const end = Number(value);
 
-    if (!end) return;
+    if (!end || !isVisible) return undefined;
 
     const isDecimal = !Number.isInteger(end);
     let current = 0;
@@ -262,13 +263,13 @@ function AnimatedNumber({ value, suffix = "" }) {
     }, 28);
 
     return () => clearInterval(timer);
-  }, [value]);
+  }, [isVisible, value]);
 
   return (
-    <>
-      {count}
+    <span ref={numberRef}>
+      {new Intl.NumberFormat("en-US", { maximumFractionDigits: 1 }).format(count)}
       {suffix}
-    </>
+    </span>
   );
 }
 
@@ -572,27 +573,15 @@ useEffect(() => {
 
       <div className="heroRunningLine">
         <div className="heroRunningTrack">
-
-          <span>
-            NOVADENT DENTAL CARE
-          </span>
-
-          <span>
-            PRECISION · COMFORT · CONFIDENCE
-          </span>
-
-          <span>
-            MODERN DENTISTRY · PERSONALIZED CARE
-          </span>
-
-          <span>
-            NOVADENT DENTAL CARE
-          </span>
-
-          <span>
-            PRECISION · COMFORT · CONFIDENCE
-          </span>
-
+          {[0, 1].map((copy) => (
+            <div className="heroRunningGroup" key={copy} aria-hidden={copy === 1 ? "true" : undefined}>
+              <span>NOVADENT DENTAL CARE</span>
+              <span>PRECISION · COMFORT · CONFIDENCE</span>
+              <span>MODERN DENTISTRY · PERSONALIZED CARE</span>
+              <span>NOVADENT DENTAL CARE</span>
+              <span>PRECISION · COMFORT · CONFIDENCE</span>
+            </div>
+          ))}
         </div>
       </div>
 
@@ -1087,15 +1076,17 @@ useEffect(() => {
               data-reveal
             >
 
-              <span className="miniLabel">
+              <div className="sectionStoryLabel">
+              <span className="miniLabel storyKicker">
                 CARE &amp; DIAGNOSIS
               </span>
+              <span className="storyIndex">03 / CARE &amp; DIAGNOSIS</span>
+              </div>
 
               <h2>
                 Understanding your care
-                <em>
-                  before treatment begins.
-                </em>
+                <br />
+                <em>before treatment begins.</em>
               </h2>
 
               <p className="careStoryIntro">
@@ -1258,9 +1249,12 @@ useEffect(() => {
 
             <div className="founderHeading">
 
-              <span className="miniLabel">
+              <div className="sectionStoryLabel">
+              <span className="miniLabel storyKicker">
                 OUR FOUNDER
               </span>
+              <span className="storyIndex">04 / THE VISION</span>
+              </div>
 
               <h2>
                 Meet the heart
@@ -1270,10 +1264,6 @@ useEffect(() => {
               </h2>
 
             </div>
-
-            <span className="storyIndex">
-              03 / THE VISION
-            </span>
 
             <p className="storyLead">
               Dr. Rohan Mehta leads NOVADENT with a patient-first
@@ -1460,9 +1450,10 @@ useEffect(() => {
 
           <div className="statsIntro">
 
-            <span className="statsKicker">
-              NOVADENT / AT A GLANCE
-            </span>
+            <div className="sectionStoryLabel">
+              <span className="statsKicker storyKicker">NOVADENT / AT A GLANCE</span>
+              <span className="storyIndex">05 / THE NOVADENT STORY</span>
+            </div>
 
             <h2>
               Experience that
@@ -1509,7 +1500,7 @@ useEffect(() => {
               <strong>
 
                 <AnimatedNumber
-                  value="5000"
+                  value="25000"
                   suffix="+"
                 />
 
@@ -1590,7 +1581,9 @@ useEffect(() => {
 
             <div className="differenceHeading">
 
-              <div className="differenceSectionLabel">
+              <div className="sectionStoryLabel">
+
+              <div className="differenceSectionLabel storyKicker">
 
                 <span className="differenceLabelLine"></span>
 
@@ -1600,9 +1593,10 @@ useEffect(() => {
 
               </div>
 
-              <span className="differenceSectionIndex">
-                04 / THE NOVADENT STANDARD
+              <span className="differenceSectionIndex storyIndex">
+                06 / THE NOVADENT STANDARD
               </span>
+              </div>
 
               <h2>
                 Designed around
@@ -1802,7 +1796,8 @@ useEffect(() => {
 
             <div>
 
-              <span className="smileJourneyEyebrow">
+              <div className="sectionStoryLabel">
+              <span className="smileJourneyEyebrow storyKicker">
 
                 <i></i>
 
@@ -1810,9 +1805,10 @@ useEffect(() => {
 
               </span>
 
-              <span className="smileJourneyIndex">
-                05 / FROM FIRST VISIT TO CONFIDENT SMILE
+              <span className="smileJourneyIndex storyIndex">
+                07 / FROM FIRST VISIT TO CONFIDENT SMILE
               </span>
+              </div>
 
               <h2>
                 Every smile has 
@@ -1869,6 +1865,7 @@ useEffect(() => {
 
                 <h3>
                   It starts with
+                  {" "}
                   <em>
                     understanding.
                   </em>
@@ -1919,6 +1916,7 @@ useEffect(() => {
 
                 <h3>
                   Find the right
+                  {" "}
                   <em>
                     approach.
                   </em>
@@ -1969,6 +1967,7 @@ useEffect(() => {
 
                 <h3>
                   Your smile,
+                  {" "}
                   <em>
                     your confidence.
                   </em>
@@ -2049,7 +2048,8 @@ useEffect(() => {
 
             <div className="novaPhilosophyTitle">
 
-              <div className="novaPhilosophyLabel">
+              <div className="sectionStoryLabel">
+              <div className="novaPhilosophyLabel storyKicker">
 
                 <span></span>
 
@@ -2057,9 +2057,10 @@ useEffect(() => {
 
               </div>
 
-              <span className="novaPhilosophyIndex">
-                04 / THE NOVADENT WAY
+              <span className="novaPhilosophyIndex storyIndex">
+                08 / THE NOVADENT WAY
               </span>
+              </div>
 
               <h2>
                 Dentistry should feel

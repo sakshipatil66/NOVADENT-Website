@@ -47,11 +47,32 @@ transition: transform .2s ease, box-shadow .2s ease, background .2s ease !import
 /* NOVADENT — Premium Background Refinement */
 
 .novaReviewsPage,
-.novaContactPage,
 .novaAppointmentPage {
   position: relative;
   isolation: isolate;
   overflow: hidden;
+  background:
+    radial-gradient(
+      ellipse at 8% 5%,
+      rgba(18, 184, 176, 0.10),
+      transparent 35%
+    ),
+    radial-gradient(
+      ellipse at 92% 75%,
+      rgba(8, 127, 140, 0.08),
+      transparent 38%
+    ),
+    linear-gradient(
+      145deg,
+      #f3fbfc 0%,
+      #ffffff 48%,
+      #edf8f7 100%
+    ) !important;
+}
+
+.novaContactPage {
+  position: relative;
+  isolation: isolate;
   background:
     radial-gradient(
       ellipse at 8% 5%,
@@ -96,8 +117,7 @@ transition: transform .2s ease, box-shadow .2s ease, background .2s ease !import
 .novaReviewsPage .novaReviewsCTACard,
 .novaContactPage .contactInfoCard,
 .novaContactPage .contactFormCard,
-.novaContactPage .contactSideCard,
-.novaContactPage .contactCTACard,
+.novaContactPage .contactSideCard:not(.contactAppointmentCard),
 .novaAppointmentPage .appointmentFormCard,
 .novaAppointmentPage .appointmentSideCard,
 .novaAppointmentPage .appointmentInfoCard {

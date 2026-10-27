@@ -14,6 +14,8 @@ import {
 } from "lucide-react";
 
 import "./DoctorsPremium.css";
+import "./DoctorsResponsiveFinal.css";
+import observeElementsOnce from "../utils/observeElementsOnce";
 
 const doctors = [
   {
@@ -217,24 +219,10 @@ useEffect(() => {
     );
   });
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("doctors-motion-visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    {
-      threshold: 0.12,
-      rootMargin: "0px 0px -30px 0px",
-    }
-  );
-
-  elements.forEach((element) => observer.observe(element));
-
-  return () => observer.disconnect();
+  return observeElementsOnce(elements, (element) => element.classList.add("doctors-motion-visible"), {
+    threshold: 0.08,
+    rootMargin: "0px 0px 280px 0px",
+  });
 }, []);
 
   return (
@@ -246,13 +234,13 @@ useEffect(() => {
           <div className="novaDoctorsHeroContent" data-doctors-reveal>
             <span className="novaDoctorsEyebrow">
               <span className="novaDoctorsEyebrowDot" />
-              THE PEOPLE BEHIND YOUR SMILE
+              PEOPLE BEHIND THE CARE
             </span>
 
             <h1>
-              Care that begins
+              Meet the team
               <br />
-              <span>with people.</span>
+              <span>behind your smile.</span>
             </h1>
 
             <p>

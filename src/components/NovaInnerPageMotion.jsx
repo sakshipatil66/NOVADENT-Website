@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import observeElementsOnce from "../utils/observeElementsOnce";
 
 /** Scroll-triggered motion for existing inner-page content; no page content is removed. */
 export default function NovaInnerPageMotion() {
@@ -47,36 +48,21 @@ export default function NovaInnerPageMotion() {
       ".appointmentFormCard",
       ".appointmentSideCard",
       ".appointmentCTACard",
-      ".contactInfoCard",
-      ".contactFormCard",
-      ".contactSideCard",
-      ".contactLocationGrid",
-      ".contactCTACard",
+      ".doctorProfilePhoto",
+      ".doctorProfileContent",
+      ".doctorProfileNote",
     ];
     const nodes = document.querySelectorAll(selectors.join(","));
     if (!nodes.length) return undefined;
-
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduceMotion || !("IntersectionObserver" in window)) {
-      nodes.forEach((node) => node.classList.add("nova-motion-visible"));
-      return undefined;
-    }
 
     nodes.forEach((node, index) => {
       node.classList.add("nova-motion-item");
       node.style.setProperty("--nova-motion-delay", `${Math.min(index % 4, 3) * 85}ms`);
     });
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add("nova-motion-visible");
-        observer.unobserve(entry.target);
-      });
-    }, { threshold: 0.12, rootMargin: "0px 0px -32px 0px" });
-
-    nodes.forEach((node) => observer.observe(node));
-    return () => observer.disconnect();
+    return observeElementsOnce(nodes, (node) => node.classList.add("nova-motion-visible"), {
+      threshold: 0.08,
+      rootMargin: "0px 0px 280px 0px",
+    });
   }, [location.pathname]);
 
   return null;

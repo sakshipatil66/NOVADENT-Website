@@ -2,7 +2,8 @@
 /* NOVADENT CONTACT — CINEMATIC POLISH */
 
 .novaContactPage {
-  overflow: hidden;
+  overflow-x: clip;
+  overflow-y: visible;
 }
 
 .novaContactPage .contactHeroContent,
@@ -35,6 +36,8 @@
 .novaContactPage .contactHeroImage {
   overflow: hidden;
   border-radius: inherit;
+  width: 100%;
+  max-width: 100%;
 }
 
 .novaContactPage .contactHeroImage img {
@@ -43,6 +46,14 @@
   height: 100%;
   object-fit: cover;
   transition: transform 0.8s ease;
+}
+
+.novaContactPage .contactFormError {
+  margin: 12px 0 0;
+  color: #a52d35;
+  font-size: 13px;
+  font-weight: 650;
+  line-height: 1.5;
 }
 
 .novaContactPage .contactHeroVisual:hover .contactHeroImage img {
@@ -113,7 +124,8 @@
 /* NOVADENT CONTACT — ANIMATION AND INTERACTION POLISH */
 
 .novaContactPage {
-  overflow: clip;
+  overflow-x: clip;
+  overflow-y: visible;
 }
 
 .novaContactPage .contactHeroContent,
@@ -137,6 +149,7 @@
 .novaContactPage .contactReveal.contactVisible {
   opacity: 1;
   transform: translateY(0);
+  filter: none;
 }
 
 .novaContactPage .contactInfoCard,
@@ -247,6 +260,7 @@
 .novaContactPage {
   width: 100%;
   overflow-x: clip;
+  overflow-y: visible;
   background: #f7fafc;
   color: #17334b;
 }
@@ -527,7 +541,7 @@
 
 /* Card depth and borders */
 .novaContactPage .contactInfoCard,
-.novaContactPage .contactSideCard,
+.novaContactPage .contactSideCard:not(.contactAppointmentCard),
 .novaContactPage .contactFormCard {
   border: 1px solid rgba(86, 137, 168, 0.16);
   border-radius: 18px;

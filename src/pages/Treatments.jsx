@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import observeElementsOnce from "../utils/observeElementsOnce";
 
 import { Link } from "react-router-dom";
 
@@ -52,6 +53,7 @@ import "./TreatmentsVisualFix.css";
 
 import "./TreatmentsImageFix.css";
 import "./TreatmentExplorer.css";
+import "./TreatmentsResponsiveFinal.css";
 
 const treatments = [
 
@@ -465,20 +467,10 @@ export default function Treatments() {
       ".premiumTreatmentsPage .premiumTreatmentFAQItem"
     );
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.12, rootMargin: "0px 0px -30px 0px" }
-    );
-
-    elements.forEach((element) => observer.observe(element));
-    return () => observer.disconnect();
+    return observeElementsOnce(elements, (element) => element.classList.add("is-visible"), {
+      threshold: 0.08,
+      rootMargin: "0px 0px 280px 0px",
+    });
   }, []);
 
   return (
@@ -658,7 +650,7 @@ export default function Treatments() {
         <div className="treatmentExplorerTools" aria-label="Find a dental treatment">
           <label className="treatmentSearchBox">
             <Search size={18} aria-hidden="true" />
-            <span className="sr-only">Search treatments</span>
+            <span className="treatmentSearchLabel">Search treatments</span>
             <input value={treatmentQuery} onChange={(event) => setTreatmentQuery(event.target.value)} placeholder="Search treatments, concerns or services…" />
             {treatmentQuery && <button type="button" onClick={() => setTreatmentQuery("")} aria-label="Clear treatment search"><X size={16} /></button>}
           </label>

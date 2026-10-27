@@ -9,6 +9,7 @@ const routeMeta = [
   { test: /^\/gallery\/?$/, title: "Clinic Gallery | NOVADENT Dental Care", description: "Take a look inside NOVADENT Dental Care and its clinic environment." },
   { test: /^\/reviews\/?$/, title: "Patient Reviews | NOVADENT Dental Care", description: "Read patient feedback about their NOVADENT dental care experience." },
   { test: /^\/appointment\/?$/, title: "Book an Appointment | NOVADENT Dental Care", description: "Request a dental appointment with NOVADENT Dental Care." },
+  { test: /^\/admin\/appointments\/?$/, title: "Appointment Dashboard | NOVADENT Dental Care", description: "Manage appointment requests saved in this browser." },
   { test: /^\/contact\/?$/, title: "Contact NOVADENT | Dental Care in Pune", description: "Contact NOVADENT Dental Care in Kharadi, Pune, for help and appointment enquiries." },
 ];
 

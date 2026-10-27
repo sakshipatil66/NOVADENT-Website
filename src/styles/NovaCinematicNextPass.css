@@ -95,11 +95,11 @@ html { scroll-behavior: smooth; }
 .homePage.premiumHome .founderEditorialImage:hover img { transform: scale(1.045); }
 
 /* Real left/right entrances: the founder visual and text arrive from opposite sides. */
-.homePage.premiumHome [data-reveal] { will-change: opacity, transform, filter; }
-.homePage.premiumHome .founderEditorialVisual:not(.is-visible) { opacity: 0; transform: translate3d(-64px,12px,0); filter: blur(3px); }
-.homePage.premiumHome .founderEditorialContent:not(.is-visible) { opacity: 0; transform: translate3d(64px,12px,0); filter: blur(3px); }
+.homePage.premiumHome [data-reveal] { will-change: auto; }
+.homePage.premiumHome .founderEditorialVisual:not(.is-visible) { opacity: 0; transform: translate3d(-64px,12px,0); }
+.homePage.premiumHome .founderEditorialContent:not(.is-visible) { opacity: 0; transform: translate3d(64px,12px,0); }
 .homePage.premiumHome .founderEditorialVisual.is-visible,
-.homePage.premiumHome .founderEditorialContent.is-visible { opacity: 1; transform: translate3d(0,0,0); filter: blur(0); transition: opacity .9s ease, transform 1s var(--nova-motion), filter .9s ease; }
+.homePage.premiumHome .founderEditorialContent.is-visible { opacity: 1; transform: translate3d(0,0,0); transition: opacity .72s ease, transform .82s var(--nova-motion); }
 .homePage.premiumHome .welcomeStory .storyContainer > :first-child,
 .homePage.premiumHome .clinicStory .storyContainer > :first-child { transition-delay: 80ms; }
 .homePage.premiumHome .welcomeStory .storyContainer > :last-child,

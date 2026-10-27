@@ -7,6 +7,8 @@ import './AboutVisualRework.css';
 import './AboutProfessionalColorPass.css';
 import './AboutVisibilityFix.css';
 import './AboutBelowHeroPolish.css';
+import './AboutResponsiveFinal.css';
+import observeElementsOnce from '../utils/observeElementsOnce';
 
 const chapters=[
  {n:'01',label:'ARRIVE',title:'A clinic that feels considered.',text:'From the first welcome to the final follow-up, NOVADENT is designed to make modern dental care feel calm, clear and human.',image:'/images/gallery/gallery-01.jpg'},
@@ -26,11 +28,7 @@ export default function About(){
   const root=aboutRef.current;
   if(!root) return;
   const items=root.querySelectorAll('[data-about-reveal]');
-  const observer=new IntersectionObserver((entries)=>{
-   entries.forEach((entry)=>{ if(entry.isIntersecting){ entry.target.classList.add('is-visible'); observer.unobserve(entry.target); } });
-  },{threshold:.16,rootMargin:'0px 0px -8% 0px'});
-  items.forEach((item)=>observer.observe(item));
-  return ()=>observer.disconnect();
+  return observeElementsOnce(items,(item)=>item.classList.add('is-visible'),{threshold:.08,rootMargin:'0px 0px 280px 0px'});
  },[]);
  const [videoPlaying,setVideoPlaying]=useState(false);
  const toggleVideo=()=>{ const v=videoRef.current; if(!v) return; if(v.paused){v.play();setVideoPlaying(true)}else{v.pause();setVideoPlaying(false)} };

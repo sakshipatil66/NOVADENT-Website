@@ -13,7 +13,7 @@
 .novaAbout .aboutFinalClinic .aboutFinalClinicImages img.small{height:245px!important;margin:0!important}
 .novaAbout .aboutFinalTeam .aboutTeamFilm{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:22px!important;align-items:stretch!important}
 .novaAbout .aboutFinalTeam .aboutTeamFilmCard{position:relative!important;display:flex!important;flex-direction:column!important;min-width:0!important;height:auto!important;min-height:0!important;overflow:hidden!important;border-radius:16px!important}
-.novaAbout .aboutFinalTeam .aboutTeamFilmCard img{display:block!important;width:100%!important;height:330px!important;min-height:0!important;max-height:none!important;object-fit:cover!important;object-position:center top!important;margin:0!important;transition:transform .45s ease!important}
+.novaAbout .aboutFinalTeam .aboutTeamFilmCard img{display:block!important;width:100%!important;height:330px!important;min-height:0!important;max-height:none!important;object-fit:contain!important;object-position:center center!important;background:#e9efed!important;margin:0!important;transition:transform .45s ease!important}
 .novaAbout .aboutFinalTeam .aboutTeamFilmCard:hover img{transform:scale(1.025)!important}
 .novaAbout .aboutFinalTeam .aboutTeamFilmCard>div{padding:20px!important}
 .novaAbout .aboutFinalTeam .aboutTeamFilmCard h3{line-height:1.25!important}

@@ -1,0 +1,42 @@
+/* Loaded last on Doctors so the intro and team sections meet cleanly. */
+.novaDoctorsPage .novaDoctorsIntro {
+  margin: 0 !important;
+  padding-bottom: 30px !important;
+  border-bottom: 0 !important;
+}
+
+.novaDoctorsPage .novaDoctorsIntro + .novaDoctorsTeam {
+  margin: 0 !important;
+  padding-top: 34px !important;
+  border-top: 0 !important;
+  background: #f8fbfa !important;
+}
+
+.novaDoctorsPage .novaDoctorsIntro + .novaDoctorsTeam::before,
+.novaDoctorsPage .novaDoctorsIntro + .novaDoctorsTeam::after {
+  content: none !important;
+  display: none !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: none !important;
+}
+
+/* Keep the full doctor portrait visible instead of cropping the face. */
+.novaDoctorsPage .novaDoctorImage {
+  height: 330px !important;
+  background: #e9efed !important;
+}
+
+.novaDoctorsPage .novaDoctorImage img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+}
+
+@media (max-width: 760px) {
+  .novaDoctorsPage .novaDoctorsIntro { padding-bottom: 22px !important; }
+  .novaDoctorsPage .novaDoctorsIntro + .novaDoctorsTeam { padding-top: 28px !important; }
+  .novaDoctorsPage .novaDoctorImage { height: clamp(280px, 78vw, 340px) !important; }
+}

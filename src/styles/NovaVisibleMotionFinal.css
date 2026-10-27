@@ -40,16 +40,13 @@
 .novaAbout .nova-motion-item {
   opacity: 0;
   transform: translate3d(0, 42px, 0) scale(.99);
-  filter: blur(4px);
-  transition: opacity .95s cubic-bezier(.2,.75,.25,1), transform 1s cubic-bezier(.2,.75,.25,1), filter .9s ease;
+  transition: opacity .72s cubic-bezier(.2,.75,.25,1), transform .82s cubic-bezier(.2,.75,.25,1);
   transition-delay: var(--nova-motion-delay, 0ms);
-  will-change: opacity, transform, filter;
 }
 .novaAbout .about-motion-target.about-is-visible,
 .novaAbout .nova-motion-item.nova-motion-visible {
   opacity: 1 !important;
   transform: translate3d(0, 0, 0) scale(1) !important;
-  filter: blur(0) !important;
 }
 .novaAbout .aboutValueCard:nth-child(2),
 .novaAbout .aboutJourneyStep:nth-child(2),
@@ -62,17 +59,16 @@
 
 /* Home scroll reveals: clear distance and stagger without hiding content if IO is unavailable. */
 .homePage.premiumHome [data-reveal] {
-  transition: opacity .9s cubic-bezier(.2,.75,.25,1), transform .95s cubic-bezier(.2,.75,.25,1), filter .85s ease;
+  transition: opacity .72s cubic-bezier(.2,.75,.25,1), transform .82s cubic-bezier(.2,.75,.25,1);
   transition-delay: var(--nova-reveal-delay, 0ms);
 }
 .homePage.premiumHome [data-reveal]:not(.is-visible) {
   opacity: 0;
   transform: translate3d(0, 38px, 0);
-  filter: blur(4px);
 }
 .homePage.premiumHome [data-reveal].reveal-left:not(.is-visible) { transform: translate3d(-48px, 16px, 0); }
 .homePage.premiumHome [data-reveal].reveal-right:not(.is-visible) { transform: translate3d(48px, 16px, 0); }
-.homePage.premiumHome [data-reveal].is-visible { opacity: 1; transform: translate3d(0,0,0); filter: blur(0); }
+.homePage.premiumHome [data-reveal].is-visible { opacity: 1; transform: translate3d(0,0,0); }
 
 /* Image/card motion that remains visible even without scroll. */
 .novaAbout .aboutStoryImageMain img,

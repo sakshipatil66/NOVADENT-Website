@@ -1,0 +1,363 @@
+/* Loaded after every Treatment stylesheet to keep content inside phone widths. */
+@media (max-width: 760px) {
+  .premiumTreatmentsPage,
+  .premiumTreatmentsPage * {
+    box-sizing: border-box;
+  }
+
+  .premiumTreatmentsPage { width: 100%; min-width: 0; overflow-x: clip; }
+
+  .premiumTreatmentsPage .premiumTreatmentEditorial {
+    width: 100%;
+    max-width: 100%;
+    padding-inline: 16px !important;
+  }
+
+  .premiumTreatmentsPage .premiumTreatmentSectionHeading {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 12px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .premiumTreatmentsPage .treatmentExplorerTools {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 22px 0 20px !important;
+    padding: 14px !important;
+    gap: 12px !important;
+  }
+
+  .premiumTreatmentsPage .treatmentSearchBox {
+    display: grid !important;
+    grid-template-columns: auto minmax(0, 1fr) !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    padding-inline: 12px !important;
+  }
+
+  .premiumTreatmentsPage .treatmentCategoryFilters {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    gap: 8px !important;
+  }
+
+  .premiumTreatmentsPage .treatmentCategoryFilters button {
+    width: 100% !important;
+    min-width: 0 !important;
+    padding-inline: 8px !important;
+    white-space: normal !important;
+  }
+
+  .premiumTreatmentsPage .premiumTreatmentList {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    width: 100% !important;
+    max-width: 620px !important;
+    margin-inline: auto !important;
+    gap: 18px !important;
+  }
+
+  .premiumTreatmentsPage .premiumTreatmentItem {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .premiumTreatmentsPage .premiumTreatmentItem > *,
+  .premiumTreatmentsPage .premiumTreatmentImage,
+  .premiumTreatmentsPage .premiumTreatmentImage img,
+  .premiumTreatmentsPage .premiumTreatmentItemBody {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .premiumTreatmentsPage .premiumTreatmentImage,
+  .premiumTreatmentsPage .premiumTreatmentImage img {
+    height: clamp(220px, 58vw, 300px) !important;
+    min-height: clamp(220px, 58vw, 300px) !important;
+  }
+
+  .premiumTreatmentsPage .premiumTreatmentItemBody { padding: 22px !important; }
+}
+
+/* Main treatment cards: give every image one clean, responsive 4:3 frame.
+   Earlier page styles alternated between contain/cover and fixed heights,
+   which left blank bands on some images and inconsistent crops on others. */
+.premiumTreatmentsPage .premiumTreatmentItem > .premiumTreatmentImage {
+  position: relative !important;
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  aspect-ratio: 4 / 3 !important;
+  flex: none !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  border-radius: 14px !important;
+  background: transparent !important;
+}
+
+.premiumTreatmentsPage .premiumTreatmentItem > .premiumTreatmentImage img {
+  position: absolute !important;
+  inset: 0 !important;
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  border: 0 !important;
+  border-radius: inherit !important;
+}
+
+/* Shared page gutters align the hero, copy, filters and treatment cards. */
+.premiumTreatmentsPage {
+  --treatment-page-gutter: max(clamp(20px, 3.5vw, 64px), calc(50% - 850px));
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  overflow-x: clip !important;
+}
+
+.premiumTreatmentsPage,
+.premiumTreatmentsPage * { box-sizing: border-box; }
+
+.premiumTreatmentsPage .premiumTreatmentHero,
+.premiumTreatmentsPage .premiumTreatmentIntro,
+.premiumTreatmentsPage .premiumTreatmentEditorial,
+.premiumTreatmentsPage .premiumTreatmentWhy,
+.premiumTreatmentsPage .premiumTreatmentExplore,
+.premiumTreatmentsPage .premiumTreatmentClosing,
+.premiumTreatmentsPage .premiumTreatmentProcess,
+.premiumTreatmentsPage .premiumTreatmentFAQ {
+  min-width: 0 !important;
+  padding-inline: var(--treatment-page-gutter) !important;
+}
+
+.premiumTreatmentsPage .premiumTreatmentHero { padding-block: clamp(96px, 10vh, 140px) !important; }
+
+.premiumTreatmentsPage .premiumTreatmentIntro,
+.premiumTreatmentsPage .premiumTreatmentEditorial,
+.premiumTreatmentsPage .premiumTreatmentWhy,
+.premiumTreatmentsPage .premiumTreatmentExplore,
+.premiumTreatmentsPage .premiumTreatmentClosing,
+.premiumTreatmentsPage .premiumTreatmentProcess,
+.premiumTreatmentsPage .premiumTreatmentFAQ {
+  padding-block: clamp(48px, 5vw, 80px) !important;
+}
+
+.premiumTreatmentsPage .premiumTreatmentHeroContent,
+.premiumTreatmentsPage .premiumTreatmentIntroMain,
+.premiumTreatmentsPage .premiumTreatmentSectionHeading,
+.premiumTreatmentsPage .treatmentExplorerTools,
+.premiumTreatmentsPage .premiumTreatmentList,
+.premiumTreatmentsPage .premiumTreatmentPriceNote,
+.premiumTreatmentsPage .premiumTreatmentWhyIntro,
+.premiumTreatmentsPage .premiumTreatmentWhyList,
+.premiumTreatmentsPage .premiumTreatmentExploreHeading,
+.premiumTreatmentsPage .premiumTreatmentExploreList,
+.premiumTreatmentsPage .premiumTreatmentProcessHeading,
+.premiumTreatmentsPage .premiumTreatmentSteps,
+.premiumTreatmentsPage .premiumTreatmentFAQIntro,
+.premiumTreatmentsPage .premiumTreatmentFAQList {
+  min-width: 0 !important;
+  max-width: 1700px !important;
+  margin-inline: auto !important;
+}
+
+.premiumTreatmentsPage .premiumTreatmentHeroContent { padding-inline: 0 !important; }
+
+.premiumTreatmentsPage .premiumTreatmentSectionHeading,
+.premiumTreatmentsPage .treatmentExplorerTools,
+.premiumTreatmentsPage .premiumTreatmentList,
+.premiumTreatmentsPage .premiumTreatmentPriceNote,
+.premiumTreatmentsPage .premiumTreatmentExploreHeading,
+.premiumTreatmentsPage .premiumTreatmentExploreList,
+.premiumTreatmentsPage .premiumTreatmentSteps,
+.premiumTreatmentsPage .premiumTreatmentFAQIntro,
+.premiumTreatmentsPage .premiumTreatmentFAQList { width: 100% !important; }
+
+.premiumTreatmentsPage .premiumTreatmentList {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  align-items: stretch !important;
+  gap: clamp(14px, 1.4vw, 22px) !important;
+}
+
+.premiumTreatmentsPage .premiumTreatmentItem { min-width: 0 !important; max-width: 100% !important; }
+.premiumTreatmentsPage .premiumTreatmentPriceNote { margin-top: 18px !important; }
+.premiumTreatmentsPage .premiumTreatmentCTA {
+  width: min(1700px, calc(100% - var(--treatment-page-gutter) - var(--treatment-page-gutter))) !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  margin: clamp(32px, 5vw, 64px) auto !important;
+}
+
+@media (min-width: 1025px) and (max-width: 1199px) {
+  .premiumTreatmentsPage .premiumTreatmentList { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .premiumTreatmentsPage .premiumTreatmentList { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  .premiumTreatmentsPage .treatmentExplorerTools { grid-template-columns: minmax(0, 1fr) !important; }
+  .premiumTreatmentsPage .treatmentSearchBox,
+  .premiumTreatmentsPage .treatmentCategoryFilters,
+  .premiumTreatmentsPage .treatmentResultsCount { grid-column: 1 !important; grid-row: auto !important; }
+  .premiumTreatmentsPage .treatmentCategoryFilters { display: flex !important; flex-wrap: wrap !important; min-width: 0 !important; }
+}
+
+@media (max-width: 767px) {
+  .premiumTreatmentsPage .premiumTreatmentList { grid-template-columns: minmax(0, 1fr) !important; gap: 18px !important; }
+  .premiumTreatmentsPage .premiumTreatmentSectionHeading {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    align-items: start !important;
+    gap: 12px !important;
+    margin-bottom: 24px !important;
+  }
+  .premiumTreatmentsPage .premiumTreatmentSectionHeading > p { max-width: 100% !important; }
+  .premiumTreatmentsPage .treatmentExplorerTools {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 12px !important;
+    margin: 20px auto !important;
+    padding: 12px !important;
+  }
+  .premiumTreatmentsPage .treatmentSearchBox {
+    display: grid !important;
+    grid-template-columns: auto minmax(0, 1fr) auto !important;
+    grid-column: 1 !important;
+    grid-row: auto !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    padding-inline: 11px !important;
+  }
+  .premiumTreatmentsPage .treatmentSearchBox input { min-width: 0 !important; font-size: 16px !important; }
+  .premiumTreatmentsPage .treatmentCategoryFilters {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    grid-column: 1 !important;
+    grid-row: auto !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    gap: 8px !important;
+  }
+  .premiumTreatmentsPage .treatmentCategoryFilters button {
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 40px !important;
+    padding: 8px 6px !important;
+    white-space: normal !important;
+    line-height: 1.25 !important;
+  }
+  .premiumTreatmentsPage .premiumTreatmentItemBody { min-width: 0 !important; padding: clamp(16px, 5vw, 22px) !important; }
+  .premiumTreatmentsPage .treatmentResultsCount { grid-column: 1 !important; grid-row: auto !important; }
+  .premiumTreatmentsPage .premiumTreatmentCTA {
+    width: calc(100% - var(--treatment-page-gutter) - var(--treatment-page-gutter)) !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+}
+
+/* Final rhythm and controls pass for the Treatments options section. */
+.premiumTreatmentsPage .premiumTreatmentIntro {
+  padding-bottom: clamp(24px, 2.4vw, 36px) !important;
+}
+
+.premiumTreatmentsPage .premiumTreatmentEditorial {
+  padding-top: clamp(20px, 2vw, 32px) !important;
+}
+
+.premiumTreatmentsPage .premiumTreatmentSectionHeading {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr) !important;
+  align-items: end !important;
+  gap: clamp(24px, 4vw, 64px) !important;
+  margin-bottom: clamp(22px, 2.4vw, 34px) !important;
+}
+
+.premiumTreatmentsPage .premiumTreatmentSectionHeading > p {
+  width: 100% !important;
+  max-width: 540px !important;
+  justify-self: end !important;
+  margin: 0 0 4px !important;
+}
+
+.premiumTreatmentsPage .treatmentSearchBox {
+  display: grid !important;
+  grid-template-columns: auto max-content minmax(0, 1fr) auto !important;
+  align-items: center !important;
+  gap: 10px !important;
+  min-width: 0 !important;
+}
+
+.premiumTreatmentsPage .treatmentSearchLabel {
+  color: #287b7e !important;
+  font-size: 0.75rem !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  white-space: nowrap !important;
+}
+
+.premiumTreatmentsPage .treatmentSearchBox input {
+  display: block !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  padding: 0 !important;
+  white-space: nowrap !important;
+}
+
+.premiumTreatmentsPage .premiumTreatmentItemBody {
+  display: flex !important;
+  flex: 1 1 auto !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  min-width: 0 !important;
+}
+
+.premiumTreatmentsPage .premiumTreatmentBookButton {
+  margin-top: auto !important;
+}
+
+@media (max-width: 767px) {
+  .premiumTreatmentsPage .premiumTreatmentIntro {
+    padding-bottom: 20px !important;
+  }
+
+  .premiumTreatmentsPage .premiumTreatmentEditorial {
+    padding-top: 20px !important;
+  }
+
+  .premiumTreatmentsPage .premiumTreatmentSectionHeading {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 10px !important;
+    margin-bottom: 22px !important;
+  }
+
+  .premiumTreatmentsPage .premiumTreatmentSectionHeading > p {
+    justify-self: start !important;
+  }
+
+  .premiumTreatmentsPage .treatmentSearchBox {
+    grid-template-columns: auto minmax(0, 1fr) auto !important;
+    gap: 8px !important;
+    padding-inline: 10px !important;
+  }
+
+  .premiumTreatmentsPage .treatmentSearchLabel {
+    display: none !important;
+  }
+}

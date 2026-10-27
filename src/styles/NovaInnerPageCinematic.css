@@ -9,16 +9,13 @@
 .nova-motion-item {
   opacity: 0;
   transform: translate3d(0, 26px, 0);
-  filter: blur(3px);
-  transition: opacity .72s var(--nova-motion-ease),
-    transform .82s var(--nova-motion-ease), filter .72s ease;
+  transition: opacity .68s var(--nova-motion-ease),
+    transform .76s var(--nova-motion-ease);
   transition-delay: var(--nova-motion-delay, 0ms);
-  will-change: opacity, transform;
 }
 .nova-motion-item.nova-motion-visible {
   opacity: 1;
   transform: translate3d(0, 0, 0);
-  filter: blur(0);
 }
 
 /* About page: premium image movement and editorial rhythm. */
@@ -116,7 +113,7 @@
 }
 
 @media (max-width: 767px) {
-  .nova-motion-item { transform: translate3d(0, 16px, 0); filter: blur(1.5px); }
+  .nova-motion-item { transform: translate3d(0, 16px, 0); }
   .novaAbout .aboutStoryImages:hover img,
   .novaAbout .aboutGalleryItem:hover img,
   .novaDoctorsPage .novaDoctorCard:hover .novaDoctorImage img,

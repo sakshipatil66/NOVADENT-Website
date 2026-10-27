@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   ArrowRight,
   ArrowUpRight,
@@ -36,27 +36,53 @@ const heroSlides = [
 export default function Hero() {
   const [activeSlide, setActiveSlide] = useState(0);
   const [isChanging, setIsChanging] = useState(false);
+  const [isPointerInside, setIsPointerInside] = useState(false);
+  const [hasFocus, setHasFocus] = useState(false);
+  const transitionTimer = useRef(null);
+  const isPaused = isPointerInside || hasFocus;
 
   useEffect(() => {
-    // Respect visitors who prefer reduced motion and clean up both timers.
+    // Keep the carousel still for reduced-motion visitors and while they interact.
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       return undefined;
     }
+    if (isPaused) return undefined;
 
-    let transitionTimer;
     const intervalTimer = window.setInterval(() => {
       setIsChanging(true);
-      transitionTimer = window.setTimeout(() => {
+      transitionTimer.current = window.setTimeout(() => {
         setActiveSlide((previous) => (previous + 1) % heroSlides.length);
         setIsChanging(false);
+        transitionTimer.current = null;
       }, 350);
     }, 5600);
 
     return () => {
       window.clearInterval(intervalTimer);
-      window.clearTimeout(transitionTimer);
     };
-  }, []);
+  }, [isPaused]);
+
+  useEffect(() => () => window.clearTimeout(transitionTimer.current), []);
+
+  const selectSlide = (index) => {
+    window.clearTimeout(transitionTimer.current);
+    transitionTimer.current = null;
+
+    if (index === activeSlide) return;
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setActiveSlide(index);
+      setIsChanging(false);
+      return;
+    }
+
+    setIsChanging(true);
+    transitionTimer.current = window.setTimeout(() => {
+      setActiveSlide(index);
+      setIsChanging(false);
+      transitionTimer.current = null;
+    }, 220);
+  };
 
   const slide = heroSlides[activeSlide];
 
@@ -64,6 +90,18 @@ export default function Hero() {
     <section
       className="novaHero"
       aria-label="NOVADENT Dental Care"
+      onPointerEnter={(event) => {
+        if (event.pointerType === "mouse") setIsPointerInside(true);
+      }}
+      onPointerLeave={(event) => {
+        if (event.pointerType === "mouse") setIsPointerInside(false);
+      }}
+      onFocusCapture={() => setHasFocus(true)}
+      onBlurCapture={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget)) {
+          setHasFocus(false);
+        }
+      }}
     >
       {/* =================================================
           BACKGROUND VIDEO
@@ -76,7 +114,7 @@ export default function Hero() {
           muted
           loop
           playsInline
-          preload="auto"
+          preload="metadata"
           poster="/images/gallery/gallery-01.jpg"
         >
           <source
@@ -291,12 +329,9 @@ export default function Hero() {
                 : ""
             }
             onClick={() => {
-              setIsChanging(true);
-              window.setTimeout(() => {
-                setActiveSlide(index);
-                setIsChanging(false);
-              }, 180);
+              selectSlide(index);
             }}
+            aria-pressed={activeSlide === index}
             aria-label={`Go to slide ${
               index + 1
             }`}
