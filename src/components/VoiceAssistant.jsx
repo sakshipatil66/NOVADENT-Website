@@ -141,6 +141,14 @@ export default function VoiceAssistant() {
     if ("speechSynthesis" in window) window.speechSynthesis.cancel();
   }, []);
 
+  // The mobile quick bar owns the launcher on small screens so it never floats
+  // over page copy or form controls. Keep the desktop launcher unchanged.
+  useEffect(() => {
+    const openAssistant = () => setOpen(true);
+    window.addEventListener("nova:open-assistant", openAssistant);
+    return () => window.removeEventListener("nova:open-assistant", openAssistant);
+  }, []);
+
   // Keep the greeting relevant to the page the visitor is currently viewing.
   useEffect(() => {
     if (!open) return;

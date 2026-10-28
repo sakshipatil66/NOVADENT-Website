@@ -63,6 +63,7 @@ import "./pages/DoctorsResponsiveFinal.css";
 import "./pages/TreatmentsResponsiveFinal.css";
 import "./styles/NovaSitewideResponsiveFinish.css";
 import "./styles/NovaPremiumReferencePass.css";
+import "./styles/NovaMobileOverlayFix.css";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>

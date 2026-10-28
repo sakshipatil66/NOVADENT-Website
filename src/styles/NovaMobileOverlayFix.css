@@ -1,43 +1,218 @@
-/* Keep the fixed phone controls from covering the hosted-site badge or page text. */
+/* Final phone layout: keep shared controls clear of page content and each other. */
 @media (max-width: 768px) {
-  .novaMobileBar {
-    bottom: calc(58px + env(safe-area-inset-bottom)) !important;
+  /* Keep the Home hero's primary action above the fixed quick bar. */
+  .homePage.premiumHome .novaHeroContainer {
+    align-items: flex-start !important;
+    box-sizing: border-box;
+    padding-top: 28px;
   }
 
-  /* The Netlify badge occupies the lower-right corner on the hosted site.
-     Move the voice launcher to the opposite side and keep it above the bar. */
+  .homePage.premiumHome .novaHeroContent {
+    min-height: 0 !important;
+    padding: 0 !important;
+    position: relative;
+    top: -38px !important;
+  }
+
+  .homePage.premiumHome .novaHeroEyebrow {
+    margin-bottom: 8px !important;
+  }
+
+  .homePage.premiumHome .novaHeroTitle {
+    font-size: clamp(36px, 11vw, 42px) !important;
+    line-height: 1 !important;
+  }
+
+  .homePage.premiumHome .novaHeroDescription {
+    max-width: 100%;
+    margin-top: 10px !important;
+    font-size: 12px !important;
+    line-height: 1.45 !important;
+  }
+
+  .homePage.premiumHome .novaHeroActions {
+    gap: 8px;
+    margin-top: 10px !important;
+  }
+
+  .homePage.premiumHome .novaHeroSecondary {
+    display: none !important;
+  }
+
+  .homePage.premiumHome .novaHeroPrimary {
+    min-height: 42px;
+  }
+
+  .novaMobileBar {
+    left: max(8px, env(safe-area-inset-left)) !important;
+    right: max(8px, env(safe-area-inset-right)) !important;
+    bottom: max(8px, env(safe-area-inset-bottom)) !important;
+    z-index: 9998 !important;
+    gap: 0;
+  }
+
+  .novaMobileBar a,
+  .novaMobileAssistant {
+    flex: 1 1 0;
+    min-width: 0;
+    min-height: 45px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    padding: 2px 1px;
+    color: #16434c !important;
+    font: inherit;
+    font-size: 10px;
+    font-weight: 800;
+    line-height: 1.1;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .novaMobileAssistant {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative;
+    z-index: 1;
+    border: 1px solid #d5e8e5;
+    border-radius: 12px;
+    background: #e8f4f2 !important;
+    color: #16434c !important;
+    cursor: pointer;
+  }
+
+  .novaMobileAssistant span {
+    display: block !important;
+    color: #16434c !important;
+  }
+
+  .novaMobileAssistant svg {
+    color: #0f7275 !important;
+    flex: 0 0 auto;
+  }
+
+  .novaMobileAssistant:focus-visible,
+  .novaMobileBar a:focus-visible {
+    outline: 3px solid #f2c879;
+    outline-offset: -2px;
+  }
+
+  /* The hosted Netlify badge otherwise sits on top of the Contact tab. */
+  #nl-badge-frame {
+    display: none !important;
+  }
+
+  /* NOVA is launched from the quick bar instead of covering page copy. */
   .novaVoiceAssistant {
-    left: max(14px, env(safe-area-inset-left)) !important;
-    right: auto !important;
-    bottom: calc(128px + env(safe-area-inset-bottom)) !important;
+    position: fixed !important;
+    left: 10px !important;
+    right: 10px !important;
+    bottom: calc(74px + env(safe-area-inset-bottom)) !important;
+    z-index: 10000 !important;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    pointer-events: none;
+  }
+
+  .novaVoiceLauncher {
+    display: none !important;
   }
 
   .novaVoicePanel {
-    max-height: calc(100dvh - 210px - env(safe-area-inset-bottom));
+    width: 100% !important;
+    max-height: calc(100dvh - 94px - env(safe-area-inset-bottom)) !important;
+    margin: 0 !important;
+    overflow-y: auto;
+    pointer-events: auto;
   }
 
+  .novaVoicePanel * {
+    min-width: 0;
+  }
+
+  /* Back-to-top is redundant with the persistent Home tab and competed with NOVA. */
   .nova-back-to-top {
-    bottom: calc(128px + env(safe-area-inset-bottom)) !important;
+    display: none !important;
   }
 
+  /* Keep the footer's last links and legal text scrollable above the quick bar. */
   .novaFooter {
-    padding-bottom: calc(142px + env(safe-area-inset-bottom)) !important;
+    padding-bottom: calc(82px + env(safe-area-inset-bottom)) !important;
+  }
+
+  .novaFooterBottomInner > * {
+    min-width: 0;
+    max-width: 100%;
+    overflow-wrap: anywhere;
   }
 }
 
 @media (max-width: 380px) {
-  .novaMobileBar {
-    left: 8px !important;
-    right: 8px !important;
-    width: auto !important;
+  .novaMobileBar a,
+  .novaMobileAssistant {
+    font-size: 9px;
+    gap: 2px;
   }
 
-  .novaMobileBar a {
-    min-width: 0 !important;
-    padding-inline: 4px !important;
+  .novaMobileBar svg,
+  .novaMobileAssistant svg {
+    width: 15px;
+    height: 15px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .novaVoicePanel {
+    animation: none !important;
+  }
+}
+
+/* Mobile corrections found during the all-pages review. */
+@media (max-width: 768px) {
+  /* The Doctors hero was fixed to 500px while its stacked mobile content needs more room. */
+  .novaDoctorsPage .novaDoctorsHero {
+    height: auto !important;
+    min-height: 0 !important;
+    align-items: stretch !important;
+    padding: 88px 0 44px !important;
   }
 
-  .novaMobileBar a span {
-    font-size: 10px !important;
+  .novaDoctorsPage .novaDoctorsHeroGrid {
+    align-items: stretch !important;
+  }
+
+  /* Contact hero also needs natural height for its stacked image and heading. */
+  .novaContactPage .novaContactHero {
+    height: auto !important;
+    min-height: 0 !important;
+    align-items: stretch !important;
+    padding: 20px 0 28px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Allow the stacked Doctors hero to grow instead of centering its tall content out of view. */
+  .novaDoctorsPage .novaDoctorsHero {
+    max-height: none !important;
+    justify-content: flex-start !important;
+  }
+
+  .novaDoctorsPage .novaDoctorsHeroGrid {
+    flex: 0 0 auto !important;
+  }
+}
+
+@media (max-width: 380px) {
+  /* Shorten the stacked Contact visual so its intro copy clears the fixed bottom bar. */
+  .novaContactPage .contactHeroVisual,
+  .novaContactPage .contactHeroImage,
+  .novaContactPage .contactHeroImage img,
+  .novaContactPage .contactHeroImageOverlay {
+    height: 280px !important;
   }
 }

@@ -12,6 +12,7 @@ import {
   Star,
   Phone,
   ChevronRight,
+  MessageCircle,
 } from "lucide-react";
 
 const navItems = [
@@ -237,6 +238,25 @@ export default function Navbar() {
           <CalendarDays size={17} />
           <span>Book</span>
         </Link>
+
+        <span
+          className="novaBarDivider"
+          aria-hidden="true"
+        />
+
+        <button
+          type="button"
+          className="novaMobileAssistant"
+          aria-label="Open NOVA assistant"
+          title="Ask NOVA"
+          onClick={() => {
+            closeMenu();
+            window.dispatchEvent(new CustomEvent("nova:open-assistant"));
+          }}
+        >
+          <MessageCircle size={17} />
+          <span>Ask</span>
+        </button>
 
         <span
           className="novaBarDivider"
