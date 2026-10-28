@@ -155,13 +155,11 @@ html body #root main.homePage .premiumStats .statsGrid .statItem .statLabel {
 .smileJourneyItem .smileJourneyImage img { width: 100%; transform: none !important; filter: none !important; }
 .smileJourneyItem .smileJourneyCopy { flex: 1; }
 .smileJourneyItem .smileJourneyCopy h3 { text-wrap: balance; }
-.smileJourneyItem .smileJourneyCopy p { line-height: 1.7; }
 .homePage.premiumHome .smileJourneyItem { text-align: center; }
 .homePage.premiumHome .smileJourneyMeta { justify-content: center; gap: 10px; }
 .homePage.premiumHome .smileJourneyMeta span,
 .homePage.premiumHome .smileJourneyMeta small,
-.homePage.premiumHome .smileJourneyCopy h3,
-.homePage.premiumHome .smileJourneyCopy p { text-align: center; }
+.homePage.premiumHome .smileJourneyCopy h3 { text-align: center; }
 .homePage.premiumHome .smileJourneyMeta div { flex: 0 0 30px; }
 
 @media (min-width: 981px) {
@@ -796,4 +794,12 @@ html body #root main.homePage .premiumStats .statsGrid .statItem .statLabel {
   .premiumTreatmentsPage .treatmentResultsCount {
     overflow-wrap: anywhere !important;
   }
+}
+
+.homePage.premiumHome .smileJourneyCopy p {
+  width: min(100%, 315px);
+  margin: 0 auto;
+  line-height: 1.7;
+  text-align: justify;
+  text-align-last: left;
 }
