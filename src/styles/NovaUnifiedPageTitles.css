@@ -1,0 +1,23 @@
+/* Keep the main page titles consistent across the NOVADENT site. */
+#root main h1 {
+  font-size: clamp(2.3rem, 5vw, 4.25rem) !important;
+  line-height: 1.04 !important;
+}
+
+/* Give the requested home care heading more presence while retaining its hierarchy. */
+#root .homePage .careStoryContent h2 {
+  font-size: clamp(2.1rem, 4.3vw, 3.55rem) !important;
+  line-height: 1.06 !important;
+}
+
+@media (max-width: 700px) {
+  #root main h1 {
+    font-size: clamp(2rem, 8vw, 3rem) !important;
+    line-height: 1.06 !important;
+  }
+
+  #root .homePage .careStoryContent h2 {
+    font-size: clamp(1.85rem, 7.2vw, 2.65rem) !important;
+    line-height: 1.08 !important;
+  }
+}

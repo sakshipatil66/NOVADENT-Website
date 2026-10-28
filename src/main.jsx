@@ -64,6 +64,7 @@ import "./pages/TreatmentsResponsiveFinal.css";
 import "./styles/NovaSitewideResponsiveFinish.css";
 import "./styles/NovaPremiumReferencePass.css";
 import "./styles/NovaMobileOverlayFix.css";
+import "./styles/NovaUnifiedPageTitles.css";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
