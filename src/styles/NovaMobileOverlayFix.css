@@ -1,0 +1,43 @@
+/* Keep the fixed phone controls from covering the hosted-site badge or page text. */
+@media (max-width: 768px) {
+  .novaMobileBar {
+    bottom: calc(58px + env(safe-area-inset-bottom)) !important;
+  }
+
+  /* The Netlify badge occupies the lower-right corner on the hosted site.
+     Move the voice launcher to the opposite side and keep it above the bar. */
+  .novaVoiceAssistant {
+    left: max(14px, env(safe-area-inset-left)) !important;
+    right: auto !important;
+    bottom: calc(128px + env(safe-area-inset-bottom)) !important;
+  }
+
+  .novaVoicePanel {
+    max-height: calc(100dvh - 210px - env(safe-area-inset-bottom));
+  }
+
+  .nova-back-to-top {
+    bottom: calc(128px + env(safe-area-inset-bottom)) !important;
+  }
+
+  .novaFooter {
+    padding-bottom: calc(142px + env(safe-area-inset-bottom)) !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .novaMobileBar {
+    left: 8px !important;
+    right: 8px !important;
+    width: auto !important;
+  }
+
+  .novaMobileBar a {
+    min-width: 0 !important;
+    padding-inline: 4px !important;
+  }
+
+  .novaMobileBar a span {
+    font-size: 10px !important;
+  }
+}
