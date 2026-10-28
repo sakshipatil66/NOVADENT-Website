@@ -171855,15 +171855,15 @@ body{background:#fff;color:var(--nova-ink)}
 }
 
 @media (max-width: 600px) {
-  .smileJourneyItem:nth-child(1) .smileJourneyImage {
+  .smileJourneyItem:not(.is-visible):nth-child(1) .smileJourneyImage {
     transform: translate3d(-65px, 20px, 0);
   }
 
-  .smileJourneyItem:nth-child(2) .smileJourneyImage {
+  .smileJourneyItem:not(.is-visible):nth-child(2) .smileJourneyImage {
     transform: translate3d(65px, 20px, 0);
   }
 
-  .smileJourneyItem:nth-child(3) .smileJourneyImage {
+  .smileJourneyItem:not(.is-visible):nth-child(3) .smileJourneyImage {
     transform: translate3d(-65px, 20px, 0);
   }
 }

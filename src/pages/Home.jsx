@@ -1258,6 +1258,7 @@ useEffect(() => {
 
               <h2>
                 Meet the heart
+                {" "}
                 <em>
                   behind NOVADENT.
                 </em>
@@ -1811,9 +1812,10 @@ useEffect(() => {
               </div>
 
               <h2>
-                Every smile has 
+                Every smile has
+                {" "}
                 <em>
-                   a story.
+                  a story.
                 </em>
               </h2>
 
