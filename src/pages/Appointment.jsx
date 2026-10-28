@@ -9,13 +9,9 @@ import {
   CheckCircle,
   ShieldCheck,
   Sparkles,
+  Clock3,
 } from "lucide-react";
 import "./Appointment.css";
-import {
-  CLINIC_PUBLIC_EMAIL,
-  createEmailDraftUrl,
-  createWhatsAppUrl,
-} from "../config/clinicContact";
 
 const services = [
   "General Dental Care",
@@ -41,29 +37,6 @@ const timeSlots = [
   "05:00 PM",
 ];
 
-const getToday = () => {
-  const date = new Date();
-  const offset = date.getTimezoneOffset();
-
-  return new Date(date.getTime() - offset * 60 * 1000)
-    .toISOString()
-    .slice(0, 10);
-};
-
-const formatAppointmentDate = (dateString) => {
-  if (!dateString) return "Not specified";
-
-  const date = new Date(`${dateString}T00:00:00`);
-
-  if (Number.isNaN(date.getTime())) return dateString;
-
-  return date.toLocaleDateString("en-IN", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  });
-};
-
 const initialForm = {
   name: "",
   email: "",
@@ -74,23 +47,40 @@ const initialForm = {
   message: "",
 };
 
-const getRequestMessage = (request) =>
-  [
-    "Hello NOVADENT Dental Care, I would like to request an appointment.",
-    "",
-    `Patient Name: ${request.name}`,
-    `Phone: ${request.phone}`,
-    `Email: ${request.email}`,
-    `Treatment: ${request.service}`,
-    `Preferred Date: ${formatAppointmentDate(request.date)}`,
-    `Preferred Time: ${request.time}`,
-    `Preferred Doctor: ${request.doctor}`,
-    `Additional Message: ${request.message || "None"}`,
-    "",
-    "Kindly confirm my appointment and let me know if any further information is required.",
-    "",
-    "Thank you.",
-  ].join("\n");
+const getToday = () => {
+  const date = new Date();
+
+  return new Date(
+    date.getTime() - date.getTimezoneOffset() * 60000
+  )
+    .toISOString()
+    .slice(0, 10);
+};
+
+function formatDate(value) {
+  if (!value) return "Not selected";
+
+  const date = new Date(`${value}T12:00:00`);
+
+  return Number.isNaN(date.getTime())
+    ? value
+    : new Intl.DateTimeFormat("en-IN", {
+        day: "2-digit",
+        month: "long",
+        year: "numeric",
+      }).format(date);
+}
+
+function getNotificationErrors(notifications) {
+  if (!notifications) return [];
+
+  return Object.entries(notifications)
+    .filter(
+      ([key, value]) =>
+        key.endsWith("Error") && Boolean(value)
+    )
+    .map(([, value]) => value);
+}
 
 export default function Appointment() {
   const location = useLocation();
@@ -101,9 +91,7 @@ export default function Appointment() {
 
   const initialService = services.includes(selectedTreatment)
     ? selectedTreatment
-    : selectedTreatment === "Braces & Aligners"
-      ? "Braces & Aligners"
-      : "";
+    : "";
 
   const [form, setForm] = useState(() => ({
     ...initialForm,
@@ -113,37 +101,36 @@ export default function Appointment() {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState("");
-  const [whatsappConsent, setWhatsappConsent] = useState(false);
-  const [notificationResults, setNotificationResults] = useState(null);
-  const [fallbackRequest, setFallbackRequest] = useState(null);
+  const [notificationStatus, setNotificationStatus] = useState(null);
 
   const today = getToday();
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
+  const handleChange = (event) => {
+    const { name, value } = event.target;
 
-    setForm((prev) => ({
-      ...prev,
+    setForm((previous) => ({
+      ...previous,
       [name]: value,
     }));
 
-    if (submitError) setSubmitError("");
-    setFallbackRequest(null);
+    if (submitError) {
+      setSubmitError("");
+    }
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async (event) => {
+    event.preventDefault();
     setSubmitError("");
 
-    const formElement = e.currentTarget;
+    if (!event.currentTarget.reportValidity()) {
+      return;
+    }
 
-    if (!formElement.reportValidity()) return;
+    const digits = form.phone.replace(/\D/g, "");
 
-    const phoneE164 = form.phone.replace(/[\s().-]/g, "");
-
-    if (!/^\+[1-9]\d{7,14}$/.test(phoneE164)) {
+    if (digits.length < 10 || digits.length > 15) {
       setSubmitError(
-        "Enter a valid phone number with its country code, for example +91 98765 43210."
+        "Please enter a valid phone number, including your country code."
       );
       return;
     }
@@ -155,61 +142,95 @@ export default function Appointment() {
       return;
     }
 
-    if (!form.service || !form.date || !form.time) {
-      setSubmitError(
-        "Please select a dental service, preferred date, and preferred time."
-      );
-      return;
-    }
-
-    if (!whatsappConsent) {
-      setSubmitError(
-        "Please consent to receive appointment updates on WhatsApp."
-      );
-      return;
-    }
-
     const request = {
       name: form.name.trim(),
-      email: form.email.trim(),
-      phone: phoneE164,
+      email: form.email.trim().toLowerCase(),
+      phone: form.phone.trim(),
       doctor: selectedDoctor || "Any available doctor",
       service: form.service,
       date: form.date,
       time: form.time,
       message: form.message.trim(),
-      whatsappConsent,
+
+      // Kept for compatibility with the existing backend.
+      // This does not trigger a WhatsApp message by itself.
+      whatsappConsent: true,
     };
 
     setSubmitting(true);
 
     try {
-      const response = await fetch("/.netlify/functions/appointment", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(request),
-      });
+      const response = await fetch(
+        "/.netlify/functions/appointment",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(request),
+        }
+      );
 
       const result = await response.json().catch(() => ({}));
 
-      if (!response.ok || !result.success) {
+      if (
+        !response.ok ||
+        result.requestAccepted !== true
+      ) {
+        const notificationErrors = getNotificationErrors(
+          result.notifications
+        );
+
         throw new Error(
           result.message ||
-            "Unable to submit your appointment. Please try again."
+            notificationErrors[0] ||
+            "We couldn't submit your request. Please try again."
         );
       }
 
-      setFallbackRequest(request);
-      setNotificationResults(result.notifications || null);
+      setNotificationStatus(result.notifications || null);
+
+      // Optional local copy for this browser.
+      // The server remains responsible for processing notifications.
+      try {
+        const stored = JSON.parse(
+          window.localStorage.getItem(
+            "novadent_appointment_requests"
+          ) || "[]"
+        );
+
+        const safeStored = Array.isArray(stored) ? stored : [];
+
+        window.localStorage.setItem(
+          "novadent_appointment_requests",
+          JSON.stringify(
+            [
+              {
+                ...request,
+                id: `NOVA-${Date.now()}`,
+                createdAt: new Date().toISOString(),
+                status: "Pending",
+              },
+              ...safeStored,
+            ].slice(0, 100)
+          )
+        );
+      } catch (storageError) {
+        console.warn(
+          "Could not save the local appointment copy:",
+          storageError
+        );
+      }
+
       setSubmitted(true);
     } catch (error) {
-      setFallbackRequest(request);
+      console.error("Appointment submission failed:", error);
 
       setSubmitError(
-        error.message ||
-          "Unable to submit your appointment. Please try again."
+        error instanceof TypeError
+          ? "Unable to connect to the appointment server. Please run the site with Netlify Dev and try again."
+          : error.message ||
+              "Something went wrong. Please try again."
       );
     } finally {
       setSubmitting(false);
@@ -225,52 +246,22 @@ export default function Appointment() {
     setSubmitted(false);
     setSubmitting(false);
     setSubmitError("");
-    setWhatsappConsent(false);
-    setNotificationResults(null);
-    setFallbackRequest(null);
-  };
+    setNotificationStatus(null);
 
-  const renderFallbackActions = (request, showIntro = false) => {
-    if (!request) return null;
-
-    return (
-      <div className="appointmentFallbackActions">
-        {showIntro && (
-          <p>
-            You can send your appointment details directly to our clinic:
-          </p>
-        )}
-
-        <a
-          href={createWhatsAppUrl(getRequestMessage(request))}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Continue with WhatsApp
-          <ArrowUpRight size={17} aria-hidden="true" />
-        </a>
-
-        <a
-          href={createEmailDraftUrl(
-            "NOVADENT Appointment Request",
-            getRequestMessage(request)
-          )}
-        >
-          Email {CLINIC_PUBLIC_EMAIL}
-          <ArrowUpRight size={17} aria-hidden="true" />
-        </a>
-
-        <small>
-          Your WhatsApp or email app will open with the appointment
-          details ready. Press Send in that app to contact the clinic.
-        </small>
-      </div>
-    );
+    window.setTimeout(() => {
+      document
+        .getElementById("appointment-form-title")
+        ?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+    }, 0);
   };
 
   return (
     <main className="novaAppointmentPage">
-      {/* HERO */}
+      {/* APPOINTMENT HERO */}
+
       <section
         className="novaAppointmentHero"
         aria-labelledby="appointment-hero-title"
@@ -285,22 +276,14 @@ export default function Appointment() {
             </span>
 
             <h1 id="appointment-hero-title">
-              Your smile
-              <em> deserves better care.</em>
+              Your smile <em>deserves better care.</em>
             </h1>
 
             <p>
-              Schedule a consultation with our dental team and take
-              the first step toward a healthier, more confident smile.
+              Take the first step toward a healthier, more confident
+              smile. Send us your preferred appointment details and
+              our team can follow up to discuss availability.
             </p>
-
-            <a
-              className="appointmentHeroCTA"
-              href="#appointmentForm"
-            >
-              Request an appointment
-              <ArrowUpRight size={18} aria-hidden="true" />
-            </a>
 
             <div className="appointmentTrustRow">
               <div>
@@ -315,7 +298,7 @@ export default function Appointment() {
 
               <div>
                 <Sparkles size={17} aria-hidden="true" />
-                <span>Modern Care</span>
+                <span>Personalized Care</span>
               </div>
             </div>
           </div>
@@ -324,7 +307,7 @@ export default function Appointment() {
             <div className="appointmentHeroImage">
               <img
                 src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=90"
-                alt="Modern dental clinic interior"
+                alt="Modern dental care interior"
               />
 
               <div className="appointmentImageOverlay" />
@@ -337,14 +320,15 @@ export default function Appointment() {
 
               <div>
                 <strong>Flexible Scheduling</strong>
-                <span>Choose a convenient time</span>
+                <span>Choose your preferred time</span>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* INTRO */}
+      {/* INTRODUCTION */}
+
       <section className="appointmentIntro">
         <div className="appointmentContainer appointmentIntroGrid">
           <div className="appointmentIntroHeading">
@@ -355,13 +339,12 @@ export default function Appointment() {
             <small>01 / APPOINTMENT</small>
 
             <h2>
-              Simple booking.
-              <em> Comfortable care.</em>
+              Simple booking. <em>Comfortable care.</em>
             </h2>
 
             <p className="appointmentIntroLead">
-              Plan your visit with NOVADENT and take the first step
-              toward a healthier, more confident smile.
+              Share your preferences and take the next step toward
+              the smile you deserve.
             </p>
           </div>
 
@@ -389,10 +372,9 @@ export default function Appointment() {
 
               <div>
                 <h3>Personalized Care</h3>
-
                 <p>
-                  Our team will help you choose a suitable appointment
-                  and treatment.
+                  Tell us which service you need and when you would
+                  prefer to visit.
                 </p>
               </div>
             </div>
@@ -401,6 +383,7 @@ export default function Appointment() {
       </section>
 
       {/* APPOINTMENT FORM */}
+
       <section
         id="appointmentForm"
         className="appointmentFormSection"
@@ -416,14 +399,13 @@ export default function Appointment() {
               <small>02 / YOUR DETAILS</small>
 
               <h2 id="appointment-form-title">
-                Let's plan your
-                <em> next visit.</em>
+                Let's plan your <em>next visit.</em>
               </h2>
             </div>
 
             <p>
-              Fill in the details below. Our team will review your
-              preferred appointment date and time.
+              Complete the form with your contact details and
+              preferred appointment time.
             </p>
           </div>
 
@@ -436,7 +418,7 @@ export default function Appointment() {
                 >
                   <strong>
                     {selectedDoctor
-                      ? `Booking with ${selectedDoctor}`
+                      ? `Preferred doctor: ${selectedDoctor}`
                       : "Your treatment enquiry"}
                   </strong>
 
@@ -444,8 +426,7 @@ export default function Appointment() {
                     {selectedTreatment
                       ? `Selected treatment: ${selectedTreatment}. `
                       : ""}
-                    You can change the service below before sending
-                    your request.
+                    You can update the service below if needed.
                   </span>
                 </div>
               )}
@@ -462,7 +443,7 @@ export default function Appointment() {
                         id="appointment-name"
                         type="text"
                         name="name"
-                        placeholder="Enter your name"
+                        placeholder="Enter your full name"
                         autoComplete="name"
                         value={form.name}
                         onChange={handleChange}
@@ -485,8 +466,9 @@ export default function Appointment() {
                         autoComplete="tel"
                         value={form.phone}
                         onChange={handleChange}
-                        maxLength={16}
-                        title="Include the country code, for example +91 98765 43210"
+                        maxLength={20}
+                        pattern="[0-9+(). -]{10,20}"
+                        title="Enter a valid phone number, including country code"
                         required
                       />
                     </div>
@@ -584,35 +566,26 @@ export default function Appointment() {
                       id="appointment-message"
                       name="message"
                       rows={5}
-                      placeholder="Tell us anything we should know..."
+                      placeholder="Share any additional information..."
                       value={form.message}
                       onChange={handleChange}
                       maxLength={1000}
                     />
                   </div>
 
-                  <div className="formField appointmentWhatsAppConsent">
-                    <label
-                      className="appointmentConsentLabel"
-                      htmlFor="appointment-whatsapp-consent"
+                  <div className="appointmentConsent">
+                    <span
+                      className="appointmentConsentIcon"
+                      aria-hidden="true"
                     >
-                      <input
-                        id="appointment-whatsapp-consent"
-                        type="checkbox"
-                        checked={whatsappConsent}
-                        onChange={(e) => {
-                          setWhatsappConsent(e.target.checked);
+                      <ShieldCheck size={18} />
+                    </span>
 
-                          if (submitError) setSubmitError("");
-                        }}
-                        required
-                      />
-
-                      <span>
-                        I agree to receive appointment-related WhatsApp
-                        messages on the phone number provided above.
-                      </span>
-                    </label>
+                    <span>
+                      Your preferred date and time are requests only.
+                      An appointment is confirmed only after availability
+                      has been checked and confirmation has been provided.
+                    </span>
                   </div>
 
                   {submitError && (
@@ -621,10 +594,7 @@ export default function Appointment() {
                       role="alert"
                       aria-live="assertive"
                     >
-                      <p>{submitError}</p>
-
-                      {fallbackRequest &&
-                        renderFallbackActions(fallbackRequest, true)}
+                      {submitError}
                     </div>
                   )}
 
@@ -636,7 +606,7 @@ export default function Appointment() {
                   >
                     <span>
                       {submitting
-                        ? "Submitting Request..."
+                        ? "Submitting your request..."
                         : "Request an Appointment"}
                     </span>
 
@@ -646,166 +616,136 @@ export default function Appointment() {
                         aria-hidden="true"
                       />
                     ) : (
-                      <ArrowUpRight
-                        size={19}
-                        aria-hidden="true"
-                      />
+                      <ArrowUpRight size={19} aria-hidden="true" />
                     )}
                   </button>
 
                   <p className="appointmentFormNote">
-                    Your requested date and time are not confirmed
-                    until our clinic contacts you. By submitting,
-                    you agree to receive appointment-related messages
-                    on WhatsApp as selected above.
+                    Please wait for confirmation before treating your
+                    preferred date and time as a confirmed appointment.
                   </p>
                 </form>
               ) : (
-                /* SUCCESS MESSAGE */
-                <div
-                  className="appointmentSuccess"
-                  role="status"
-                  aria-live="polite"
-                >
+                /* SUCCESS PAGE */
+
+                <div className="appointmentSuccess" role="status">
                   <div className="successIcon">
                     <CheckCircle size={42} aria-hidden="true" />
                   </div>
 
-                  <span className="appointmentSuccessEyebrow">
-                    APPOINTMENT · REQUEST RECEIVED
-                  </span>
+                  <span>APPOINTMENT · REQUEST RECEIVED</span>
 
                   <h3>
                     Thank You, {form.name.trim()}!
                   </h3>
 
-                  <p className="appointmentSuccessMessage">
-                    Your appointment request has been submitted
-                    successfully to NOVADENT Dental Care. Our team
-                    will contact you to confirm your preferred date
-                    and time.
+                  <p>
+                    Your appointment request has been received.
+                    Please wait for confirmation of your preferred
+                    date and time.
                   </p>
 
                   <div
                     className="appointmentRequestSummary"
-                    aria-label="Appointment request summary"
+                    aria-label="Appointment details"
                   >
-                    <h4>Your Appointment Details</h4>
+                    <h3>Your Appointment Details</h3>
 
-                    <span>
+                    <div className="appointmentSummaryRow">
                       <strong>Treatment</strong>
                       <span>{form.service}</span>
-                    </span>
+                    </div>
 
-                    <span>
+                    <div className="appointmentSummaryRow">
                       <strong>Preferred Date</strong>
-                      <span>
-                        {formatAppointmentDate(form.date)}
-                      </span>
-                    </span>
+                      <span>{formatDate(form.date)}</span>
+                    </div>
 
-                    <span>
+                    <div className="appointmentSummaryRow">
                       <strong>Preferred Time</strong>
                       <span>{form.time}</span>
-                    </span>
+                    </div>
 
-                    <span>
+                    <div className="appointmentSummaryRow">
                       <strong>Preferred Doctor</strong>
                       <span>
                         {selectedDoctor || "Any Available Doctor"}
                       </span>
-                    </span>
+                    </div>
 
-                    <span>
+                    <div className="appointmentSummaryRow">
                       <strong>Contact Number</strong>
                       <span>{form.phone}</span>
-                    </span>
+                    </div>
+
+                    <div className="appointmentSummaryRow">
+                      <strong>Email Address</strong>
+                      <span>{form.email}</span>
+                    </div>
                   </div>
 
                   <div className="appointmentConfirmationNote">
-                    <ShieldCheck
-                      size={22}
-                      aria-hidden="true"
-                    />
+                    <ShieldCheck size={21} aria-hidden="true" />
 
-                    <p>
-                      <strong>Please Note</strong>
-                      Your appointment is not confirmed until our
-                      clinic contacts you and confirms the date
-                      and time.
-                    </p>
+                    <div>
+                      <strong>What happens next?</strong>
+
+                      <p>
+                        Your requested time is not yet confirmed.
+                        Please wait for the appointment confirmation
+                        before planning your visit.
+                      </p>
+                    </div>
                   </div>
 
-                  {notificationResults && (
-                    <div className="appointmentNotificationPanel">
-                      <h4>Notification Status</h4>
+                  {notificationStatus && (
+                    <div
+                      className="appointmentNotificationStatus"
+                      aria-label="Email notification status"
+                    >
+                      <h3>Email Notification Status</h3>
 
-                      <ul
-                        className="appointmentNotificationResults"
-                        aria-label="Notification results"
-                      >
+                      <ul>
                         <li>
-                          <strong>Patient Email:</strong>{" "}
-                          {notificationResults.patientEmailAccepted
+                          <span>Patient Email:</span>{" "}
+                          {notificationStatus.patientEmailAccepted
                             ? "Accepted for sending"
                             : "Not accepted or not configured"}
                         </li>
 
                         <li>
-                          <strong>Clinic Email:</strong>{" "}
-                          {notificationResults.clinicEmailAccepted
+                          <span>Appointment Team Email:</span>{" "}
+                          {notificationStatus.clinicEmailAccepted
                             ? "Accepted for sending"
-                            : "Not accepted or not configured"}
-                        </li>
-
-                        <li>
-                          <strong>Patient WhatsApp:</strong>{" "}
-                          {notificationResults.patientWhatsAppQueued
-                            ? "Accepted for processing; delivery not confirmed"
-                            : "Not accepted or not configured"}
-                        </li>
-
-                        <li>
-                          <strong>Clinic WhatsApp:</strong>{" "}
-                          {notificationResults.clinicWhatsAppQueued
-                            ? "Accepted for processing; delivery not confirmed"
                             : "Not accepted or not configured"}
                         </li>
                       </ul>
 
-                      <small>
-                        Email acceptance does not guarantee inbox
-                        delivery. WhatsApp processing does not
-                        guarantee message delivery.
-                      </small>
+                      <p>
+                        Email acceptance does not guarantee delivery
+                        to the recipient's inbox.
+                      </p>
                     </div>
                   )}
-
-                  {fallbackRequest &&
-                    notificationResults?.clinicWhatsAppQueued !== true &&
-                    renderFallbackActions(fallbackRequest)}
 
                   <button
                     type="button"
                     onClick={handleNewAppointment}
                     className="appointmentAgainBtn"
                   >
-                    Book Another Appointment
-                    <ArrowUpRight
-                      size={18}
-                      aria-hidden="true"
-                    />
+                    Request Another Appointment
+                    <ArrowUpRight size={18} aria-hidden="true" />
                   </button>
 
                   <p className="appointmentSuccessFooter">
                     Thank you for choosing NOVADENT Dental Care.
-                    We look forward to taking care of your smile!
                   </p>
                 </div>
               )}
             </div>
 
-            {/* SIDE INFORMATION */}
+            {/* SIDEBAR */}
+
             <aside className="appointmentSide">
               <div className="appointmentSideCard appointmentHighlight">
                 <span className="appointmentSideNumber">01</span>
@@ -819,30 +759,23 @@ export default function Appointment() {
                 </h3>
 
                 <p>
-                  Choose your preferred date and time. We will confirm
-                  availability with you.
+                  Select your preferred date and time when submitting
+                  your appointment request.
                 </p>
               </div>
 
               <div className="appointmentSideCard">
                 <span className="appointmentSideNumber">02</span>
 
-                <Phone size={24} aria-hidden="true" />
+                <Clock3 size={24} aria-hidden="true" />
 
-                <h3>Prefer to call?</h3>
+                <h3>Clinic Hours</h3>
 
                 <p>
-                  Our team can help you schedule your visit over the
-                  phone.
+                  Monday – Sunday
+                  <br />
+                  10:00 AM – 7:00 PM
                 </p>
-
-                <a
-                  href="tel:+919000012345"
-                  aria-label="Call NOVADENT"
-                >
-                  +91 90000 12345
-                  <ArrowUpRight size={16} aria-hidden="true" />
-                </a>
               </div>
 
               <div className="appointmentSideCard">
@@ -850,16 +783,12 @@ export default function Appointment() {
 
                 <Mail size={24} aria-hidden="true" />
 
-                <h3>Have a question?</h3>
+                <h3>Email Updates</h3>
 
                 <p>
-                  Email us with your dental care questions.
+                  Appointment updates depend on the configured email
+                  service and successful notification processing.
                 </p>
-
-                <a href={`mailto:${CLINIC_PUBLIC_EMAIL}`}>
-                  {CLINIC_PUBLIC_EMAIL}
-                  <ArrowUpRight size={16} aria-hidden="true" />
-                </a>
               </div>
             </aside>
           </div>
@@ -867,6 +796,7 @@ export default function Appointment() {
       </section>
 
       {/* FINAL CTA */}
+
       <section
         className="appointmentFinalCTA"
         aria-labelledby="appointment-cta-title"
@@ -877,12 +807,11 @@ export default function Appointment() {
               <span>YOUR SMILE · OUR PRIORITY</span>
 
               <h2 id="appointment-cta-title">
-                Ready to make your
-                <em> next smile move?</em>
+                Ready for your <em>next smile move?</em>
               </h2>
 
               <p>
-                Start with a consultation at NOVADENT.
+                Explore our services and learn more about NOVADENT.
               </p>
             </div>
 
@@ -891,11 +820,8 @@ export default function Appointment() {
               className="appointmentCTAButton"
               aria-label="Contact NOVADENT Dental Care"
             >
-              Contact NOVADENT
-              <ArrowUpRight
-                size={19}
-                aria-hidden="true"
-              />
+              Contact Us
+              <ArrowUpRight size={19} aria-hidden="true" />
             </Link>
           </div>
         </div>
