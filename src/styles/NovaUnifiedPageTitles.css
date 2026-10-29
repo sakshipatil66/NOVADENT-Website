@@ -1,41 +1,4 @@
 /* Keep the main page titles consistent across the NOVADENT site. */
-#root main h1 {
-  font-size: clamp(2.3rem, 5vw, 4.25rem) !important;
-  line-height: 1.04 !important;
-}
-
-/* Give the requested home care heading more presence while retaining its hierarchy. */
-#root .homePage .careStoryContent h2 {
-  /* The heading already has an explicit break; keep each phrase on one line
-     at desktop widths instead of letting the large display size wrap it. */
-  font-size: clamp(2rem, 3vw, 2.7rem) !important;
-  line-height: 1.12 !important;
-  max-width: 100% !important;
-}
-
-/* Preserve the two authored title lines on wider desktop layouts. */
-@media (min-width: 1100px) {
-  #root .homePage .careStoryContent h2 {
-    white-space: nowrap !important;
-  }
-}
-
-@media (max-width: 700px) {
-  #root .novaAbout .aboutFinalHero { padding-top: 36px !important; }
-
-  #root main h1 {
-    font-size: clamp(2rem, 8vw, 3rem) !important;
-    line-height: 1.06 !important;
-  }
-
-  #root .homePage .careStoryContent h2 {
-    font-size: clamp(1.5rem, 6.2vw, 2rem) !important;
-    line-height: 1.08 !important;
-  }
-}
-
-/* Enforce one shared size for each public page's main title. The more specific
-   route selectors win over legacy page-level title rules imported earlier. */
 #root main h1,
 #root main.homePage h1,
 #root main.novaAbout .aboutFinalHeroCopy h1,
@@ -51,7 +14,29 @@
   line-height: 1.04 !important;
 }
 
+/* Home: larger care heading with exactly two authored lines. */
+#root .homePage .careStoryContent h2 {
+  font-size: clamp(2rem, 3vw, 2.7rem) !important;
+  line-height: 1.12 !important;
+  max-width: 100% !important;
+  white-space: normal !important;
+  overflow-wrap: normal !important;
+  word-break: normal !important;
+}
+
+/* Keep each authored line intact on desktop. */
+@media (min-width: 1100px) {
+  #root .homePage .careStoryContent h2 {
+    white-space: nowrap !important;
+  }
+}
+
+/* Mobile typography and spacing. */
 @media (max-width: 700px) {
+  #root .novaAbout .aboutFinalHero {
+    padding-top: 36px !important;
+  }
+
   #root main h1,
   #root main.homePage h1,
   #root main.novaAbout .aboutFinalHeroCopy h1,
@@ -65,6 +50,12 @@
   #root main.novaNotFound h1 {
     font-size: clamp(2rem, 8vw, 3rem) !important;
     line-height: 1.06 !important;
+  }
+
+  #root .homePage .careStoryContent h2 {
+    font-size: clamp(1.6rem, 6.5vw, 2rem) !important;
+    line-height: 1.15 !important;
+    white-space: normal !important;
   }
 }
 
