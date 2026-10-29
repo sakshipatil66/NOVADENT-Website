@@ -160,6 +160,112 @@
   }
 }
 
+@media (max-width: 620px) {
+  .homePage.premiumHome .novaHero {
+    height: clamp(520px, 66svh, 580px) !important;
+    min-height: 0 !important;
+  }
+
+  .homePage.premiumHome .novaHeroVideo {
+    filter: brightness(0.72) saturate(0.92) contrast(1.05) !important;
+  }
+
+  .homePage.premiumHome .novaHeroOverlay {
+    background: linear-gradient(
+      180deg,
+      rgba(2, 15, 24, 0.58) 0%,
+      rgba(3, 25, 36, 0.18) 38%,
+      rgba(3, 20, 30, 0.3) 62%,
+      rgba(2, 12, 20, 0.76) 100%
+    ) !important;
+  }
+
+  .homePage.premiumHome .novaHeroVignette {
+    background: radial-gradient(
+      ellipse at center,
+      transparent 42%,
+      rgba(0, 7, 13, 0.34) 100%
+    ) !important;
+  }
+
+  .homePage.premiumHome .novaHeroContent {
+    top: 0 !important;
+    width: calc(100% - 36px) !important;
+  }
+
+  .homePage.premiumHome .novaHeroEyebrow {
+    margin-bottom: 12px !important;
+  }
+
+  .homePage.premiumHome .novaHeroTitle {
+    max-width: 13ch !important;
+    font-size: clamp(34px, 9.5vw, 40px) !important;
+    line-height: 1.04 !important;
+  }
+
+  .homePage.premiumHome .novaHeroDescription {
+    max-width: 36ch !important;
+    margin-top: 10px !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+  }
+
+  .homePage.premiumHome .novaHeroActions {
+    width: min(100%, 360px) !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    gap: 8px !important;
+    margin-top: 14px !important;
+  }
+
+  .homePage.premiumHome .novaHeroInfo {
+    bottom: 18px !important;
+  }
+
+  .homePage.premiumHome .novaHeroPrimary,
+  .homePage.premiumHome .novaHeroSecondary {
+    display: inline-flex !important;
+    flex: 1 1 0 !important;
+    min-width: 0 !important;
+    min-height: 46px !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    padding: 0 10px !important;
+    font-size: 11px !important;
+    white-space: nowrap;
+  }
+
+  .homePage.premiumHome .novaHeroIndicators {
+    top: 12px !important;
+    right: 12px !important;
+    bottom: auto !important;
+    left: auto !important;
+    width: auto !important;
+    height: auto !important;
+    flex-direction: row !important;
+    gap: 4px !important;
+    transform: none !important;
+  }
+
+  .homePage.premiumHome .novaHeroIndicators button {
+    min-width: 28px;
+    min-height: 28px;
+  }
+}
+
+@media (max-width: 380px) {
+  .homePage.premiumHome .novaHeroActions {
+    width: min(100%, 310px) !important;
+    flex-direction: column !important;
+  }
+
+  .homePage.premiumHome .novaHeroPrimary,
+  .homePage.premiumHome .novaHeroSecondary {
+    flex: 0 0 auto !important;
+    width: 100% !important;
+  }
+}
+
 @media (min-width: 981px) and (max-width: 1100px) {
   .novaNavbar .novaNavbarInner {
     width: calc(100% - 24px);
@@ -305,6 +411,27 @@
   justify-content: center;
 }
 
+.novaDoctorsPage .novaDoctorsGrid .novaDoctorImage {
+  height: 330px !important;
+  background: #e9efed !important;
+}
+
+.novaDoctorsPage .novaDoctorsGrid .novaDoctorImage img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+}
+
+.doctorProfilePage .doctorProfilePhoto {
+  background: #eaf4f3;
+}
+
+.doctorProfilePage .doctorProfilePhoto img {
+  object-fit: contain !important;
+  object-position: center center !important;
+}
+
 @media (max-width: 900px) {
   .novaFooterGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -318,12 +445,12 @@
 
 @media (max-width: 600px) {
   .novaFooterGrid {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 26px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px 14px;
   }
 
   .novaFooterBrand {
-    grid-column: auto;
+    grid-column: 1 / -1;
   }
 
   .novaFooterSocials a {
@@ -334,5 +461,94 @@
   .novaFooterContactList > a,
   .novaFooterBookLink {
     min-height: 44px;
+  }
+
+  .novaFooterGrid > .novaFooterColumn:nth-child(2) {
+    grid-column: 1 / -1;
+  }
+
+  .novaFooterColumnTitle {
+    margin-bottom: 12px !important;
+  }
+
+  .novaFooterLinks {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 4px 8px;
+  }
+
+  .novaFooterLinks a {
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 44px;
+    gap: 4px;
+    font-size: 12px;
+  }
+
+  .novaFooterLinks a svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  .novaFooterContactList {
+    gap: 12px;
+  }
+
+  .novaFooterContactList > a,
+  .novaFooterHours {
+    gap: 8px;
+  }
+
+  .novaFooterContactIcon,
+  .novaFooterHoursIcon {
+    flex-basis: 30px;
+    width: 30px;
+    height: 30px;
+  }
+
+  .novaFooterHours > div:last-child {
+    gap: 8px;
+  }
+
+  .novaFooterMain {
+    padding: 40px 0 28px;
+  }
+
+  .novaFooterBottomInner {
+    gap: 8px;
+    padding: 16px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .novaMobileBar {
+    height: 52px !important;
+    min-height: 52px !important;
+    padding: 2px 6px !important;
+  }
+
+  .novaMobileBar a,
+  .novaMobileAssistant {
+    min-height: 45px !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .doctorProfilePage .doctorProfilePhoto {
+    max-height: none !important;
+    aspect-ratio: 4 / 5 !important;
+  }
+
+  #root .novaDoctorsPage .novaDoctorsGrid {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  #root .novaDoctorsPage .novaDoctorsGrid .novaDoctorImage {
+    height: clamp(280px, 78vw, 330px) !important;
+    max-height: none !important;
+  }
+
+  #root .novaDoctorsPage .novaDoctorsGrid .novaDoctorImage img {
+    object-fit: contain !important;
   }
 }
