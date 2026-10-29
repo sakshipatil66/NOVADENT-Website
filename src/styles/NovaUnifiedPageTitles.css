@@ -6,18 +6,100 @@
 
 /* Give the requested home care heading more presence while retaining its hierarchy. */
 #root .homePage .careStoryContent h2 {
-  font-size: clamp(2.1rem, 4.3vw, 3.55rem) !important;
-  line-height: 1.06 !important;
+  /* The heading already has an explicit break; keep each phrase on one line
+     at desktop widths instead of letting the large display size wrap it. */
+  font-size: clamp(2rem, 3vw, 2.7rem) !important;
+  line-height: 1.12 !important;
+  max-width: 100% !important;
+}
+
+/* Preserve the two authored title lines on wider desktop layouts. */
+@media (min-width: 1100px) {
+  #root .homePage .careStoryContent h2 {
+    white-space: nowrap !important;
+  }
 }
 
 @media (max-width: 700px) {
+  #root .novaAbout .aboutFinalHero { padding-top: 36px !important; }
+
   #root main h1 {
     font-size: clamp(2rem, 8vw, 3rem) !important;
     line-height: 1.06 !important;
   }
 
   #root .homePage .careStoryContent h2 {
-    font-size: clamp(1.85rem, 7.2vw, 2.65rem) !important;
+    font-size: clamp(1.5rem, 6.2vw, 2rem) !important;
     line-height: 1.08 !important;
+  }
+}
+
+/* Enforce one shared size for each public page's main title. The more specific
+   route selectors win over legacy page-level title rules imported earlier. */
+#root main h1,
+#root main.homePage h1,
+#root main.novaAbout .aboutFinalHeroCopy h1,
+#root main.novaDoctorsPage h1,
+#root main.premiumTreatmentsPage h1,
+#root main.nova-gallery h1,
+#root main.novaReviewsPage h1,
+#root main.novaAppointmentPage h1,
+#root main.novaContactPage h1,
+#root main.doctorProfilePage h1,
+#root main.novaNotFound h1 {
+  font-size: clamp(2.3rem, 5vw, 4.25rem) !important;
+  line-height: 1.04 !important;
+}
+
+@media (max-width: 700px) {
+  #root main h1,
+  #root main.homePage h1,
+  #root main.novaAbout .aboutFinalHeroCopy h1,
+  #root main.novaDoctorsPage h1,
+  #root main.premiumTreatmentsPage h1,
+  #root main.nova-gallery h1,
+  #root main.novaReviewsPage h1,
+  #root main.novaAppointmentPage h1,
+  #root main.novaContactPage h1,
+  #root main.doctorProfilePage h1,
+  #root main.novaNotFound h1 {
+    font-size: clamp(2rem, 8vw, 3rem) !important;
+    line-height: 1.06 !important;
+  }
+}
+
+/* Keep the Doctors hero's second title line clear over its dark mobile artwork. */
+@media (max-width: 700px) {
+  #root .novaDoctorsPage .novaDoctorsHeroContent h1 span {
+    color: #c9f5ea !important;
+    text-shadow: 0 1px 14px rgba(0, 0, 0, 0.35) !important;
+  }
+}
+
+/* Keep the Contact page headline visible before the mobile image and quick-nav. */
+@media (max-width: 700px) {
+  #root .novaContactPage .novaContactHero {
+    min-height: 0 !important;
+    padding: 24px 0 40px !important;
+  }
+
+  #root .novaContactPage .novaContactHero .contactHeroGrid {
+    grid-template-columns: minmax(0, 1fr) !important;
+    min-height: 0 !important;
+    gap: 22px !important;
+    padding: 0 14px !important;
+  }
+
+  #root .novaContactPage .contactHeroContent {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    animation: none !important;
+    transform: none !important;
+  }
+
+  #root .novaContactPage .contactHeroVisual {
+    order: 1 !important;
+    grid-row: 2 !important;
   }
 }
