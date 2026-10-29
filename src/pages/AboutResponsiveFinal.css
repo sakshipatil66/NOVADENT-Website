@@ -1,36 +1,21 @@
-/* Final, About-only framing for the three team portraits. The source files
-   have different aspect ratios, so one fixed-height cover frame plus
-   per-photo focal points keeps the cards aligned without stretching. */
+/* Keep the different source portraits intact inside a consistent card frame. */
 .novaAbout .aboutFinalTeam .aboutTeamFilmCard img {
   position: relative !important;
   inset: auto !important;
   display: block !important;
   width: 100% !important;
-  height: 270px !important;
+  height: 320px !important;
   min-height: 0 !important;
   max-height: none !important;
-  flex: 0 0 270px !important;
-  object-fit: cover !important;
-  object-position: center 20% !important;
+  flex: 0 0 320px !important;
+  object-fit: contain !important;
+  object-position: center !important;
   opacity: 1 !important;
   z-index: 0 !important;
   background: #e9efed !important;
   transform: none !important;
   margin: 0 !important;
   transition: filter .45s ease !important;
-}
-
-/* Rohan's portrait is tall, so anchor it at the top to retain his full head.
-   Ananya's wider source works best centered; Priya's square portrait needs a
-   slightly higher focal point to show her face and upper body together. */
-.novaAbout .aboutFinalTeam .aboutTeamFilmCard:nth-child(1) img {
-  object-position: center 4% !important;
-}
-.novaAbout .aboutFinalTeam .aboutTeamFilmCard:nth-child(2) img {
-  object-position: center 50% !important;
-}
-.novaAbout .aboutFinalTeam .aboutTeamFilmCard:nth-child(3) img {
-  object-position: center -5% !important;
 }
 
 .novaAbout .aboutFinalTeam .aboutTeamFilmCard:hover img {
@@ -42,6 +27,7 @@
   position: relative !important;
   display: flex !important;
   flex-direction: column !important;
+  justify-content: flex-start !important;
   align-items: stretch !important;
   min-width: 0 !important;
   min-height: 0 !important;
@@ -65,15 +51,15 @@
 
 @media (max-width: 900px) {
   .novaAbout .aboutFinalTeam .aboutTeamFilmCard img {
-    height: 290px !important;
-    flex-basis: 290px !important;
+    height: 320px !important;
+    flex-basis: 320px !important;
   }
 }
 
 @media (max-width: 600px) {
   .novaAbout .aboutFinalTeam .aboutTeamFilmCard img {
-    height: 300px !important;
-    flex-basis: 300px !important;
+    height: clamp(270px, 80vw, 320px) !important;
+    flex-basis: clamp(270px, 80vw, 320px) !important;
   }
   .novaAbout .aboutFinalTeam .aboutTeamFilmCard > div {
     min-width: 0 !important;

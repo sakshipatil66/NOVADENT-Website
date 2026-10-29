@@ -1,0 +1,338 @@
+/* Keep the Home appointment photo decorative instead of in the content flow. */
+.homePage.premiumHome .cinematicAppointment {
+  position: relative;
+  isolation: isolate;
+  display: block !important;
+  overflow: hidden;
+}
+
+.homePage.premiumHome .cinematicAppointmentSmile {
+  position: absolute !important;
+  top: 50% !important;
+  right: clamp(24px, 6vw, 88px) !important;
+  bottom: auto !important;
+  z-index: 0 !important;
+  margin: 0 !important;
+  transform: translateY(-50%) !important;
+  pointer-events: none;
+}
+
+.homePage.premiumHome .cinematicAppointmentInner {
+  position: relative;
+  z-index: 2;
+  min-width: 0;
+}
+
+.homePage.premiumHome .cinematicAppointmentCopy,
+.homePage.premiumHome .cinematicAppointmentActions {
+  min-width: 0;
+}
+
+.homePage.premiumHome .cinematicAppointmentActions {
+  z-index: 3 !important;
+}
+
+@media (min-width: 901px) {
+  .homePage.premiumHome section.cinematicAppointment > .storyContainer.cinematicAppointmentInner {
+    box-sizing: border-box !important;
+    width: calc(60vw - 80px) !important;
+    max-width: 760px !important;
+    min-width: 0 !important;
+  }
+
+  .homePage.premiumHome .cinematicAppointmentInner {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    margin-left: max(32px, 9vw) !important;
+    margin-right: auto !important;
+  }
+
+  .homePage.premiumHome .cinematicAppointmentCopy,
+  .homePage.premiumHome .cinematicAppointmentActions {
+    grid-column: 1;
+    width: 100%;
+    max-width: 100% !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .homePage.premiumHome .cinematicAppointment {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    box-sizing: border-box;
+    min-height: 0 !important;
+    padding: clamp(64px, 8vw, 84px) clamp(22px, 5vw, 40px) !important;
+  }
+
+  .homePage.premiumHome .cinematicAppointmentSmile {
+    position: relative !important;
+    order: 2;
+    top: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    width: clamp(190px, 32vw, 260px) !important;
+    height: 260px !important;
+    min-height: 0 !important;
+    margin: 24px auto 0 !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .homePage.premiumHome .cinematicAppointmentInner {
+    order: 1;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 16px !important;
+    width: min(100%, 760px) !important;
+    max-width: 100% !important;
+    margin-inline: auto !important;
+    padding: 0 !important;
+  }
+
+  .homePage.premiumHome .cinematicAppointmentNumber {
+    display: none !important;
+  }
+
+  .homePage.premiumHome .appointmentTrustNote,
+  .homePage.premiumHome .cinematicAppointmentCopy,
+  .homePage.premiumHome .cinematicAppointmentActions {
+    grid-column: 1;
+    width: 100%;
+    max-width: 100% !important;
+  }
+
+  .homePage.premiumHome .appointmentTrustNote {
+    flex-wrap: wrap;
+    margin: 0 0 4px !important;
+  }
+
+  .homePage.premiumHome .cinematicAppointmentCopy h2 {
+    max-width: 18ch !important;
+  }
+
+  .homePage.premiumHome .cinematicAppointmentCopy p {
+    max-width: 58ch;
+  }
+
+  .homePage.premiumHome .cinematicAppointmentActions {
+    display: flex !important;
+    flex-direction: row;
+    align-items: center !important;
+    flex-wrap: wrap;
+    gap: 14px 22px;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .homePage.premiumHome .cinematicAppointmentActions > a {
+    min-height: 48px;
+    max-width: 100%;
+    white-space: normal;
+  }
+}
+
+@media (max-width: 600px) {
+  .homePage.premiumHome .cinematicAppointment {
+    padding: 64px 22px !important;
+  }
+
+  .homePage.premiumHome .cinematicAppointmentSmile {
+    width: min(80vw, 260px) !important;
+    height: 220px !important;
+    margin-top: 20px !important;
+  }
+
+  .homePage.premiumHome .cinematicAppointmentCopy h2 {
+    font-size: clamp(32px, 8.5vw, 42px) !important;
+    line-height: 1.1 !important;
+  }
+
+  .homePage.premiumHome .cinematicAppointmentActions {
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 10px;
+  }
+
+  .homePage.premiumHome .cinematicAppointmentActions .lightStoryButton {
+    width: fit-content;
+    min-height: 52px;
+  }
+}
+
+@media (min-width: 981px) and (max-width: 1100px) {
+  .novaNavbar .novaNavbarInner {
+    width: calc(100% - 24px);
+    gap: 12px;
+    justify-content: space-between;
+    padding-inline: 16px;
+  }
+
+  .novaNavbar .novaNavigation {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 12px;
+    left: 12px;
+    display: block;
+    width: min(420px, calc(100vw - 48px));
+    max-height: calc(100svh - 100px);
+    padding: 14px;
+    overflow-y: auto;
+    border: 1px solid rgba(11, 37, 69, 0.08);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 25px 65px rgba(11, 37, 69, 0.17);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-14px) scale(0.97);
+    transform-origin: top;
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+  }
+
+  .novaNavbar .novaNavigation.isOpen {
+    display: flex !important;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+  }
+
+  .novaNavbar .novaNavLinks {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .novaNavbar .novaNavLink {
+    min-height: 44px;
+    justify-content: flex-start;
+    padding: 10px 12px;
+    white-space: normal;
+  }
+
+  .novaNavbar .novaDesktopCTA {
+    display: none !important;
+  }
+
+  .novaNavbar .novaMobileAppointment {
+    display: flex !important;
+    margin-top: 0;
+  }
+
+  .novaNavbar .novaMenuButton {
+    display: flex !important;
+    flex: 0 0 42px;
+  }
+}
+
+/* Let each About portrait retain its full source framing and natural card height. */
+.novaAbout.novaAboutCinematic.novaAboutFinal .aboutFinalTeam .aboutTeamFilmCard {
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  justify-content: flex-start !important;
+}
+
+.novaAbout.novaAboutCinematic.novaAboutFinal .aboutFinalTeam .aboutTeamFilmCard img {
+  position: relative !important;
+  inset: auto !important;
+  top: 0 !important;
+  left: 0 !important;
+  flex: 0 0 320px !important;
+  width: 100% !important;
+  height: 320px !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  object-fit: contain !important;
+  object-position: center !important;
+}
+
+.novaAbout.novaAboutCinematic.novaAboutFinal .aboutFinalTeam .aboutTeamFilmCard > div {
+  flex: 0 0 auto !important;
+  min-height: 135px !important;
+}
+
+@media (max-width: 900px) {
+  .novaAbout.novaAboutCinematic.novaAboutFinal .aboutFinalTeam .aboutTeamFilmCard img {
+    flex-basis: 320px !important;
+    height: 320px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .novaAbout.novaAboutCinematic.novaAboutFinal .aboutFinalTeam .aboutTeamFilmCard img {
+    flex-basis: clamp(270px, 80vw, 320px) !important;
+    height: clamp(270px, 80vw, 320px) !important;
+  }
+}
+
+/* Bound footer content to its columns so long contact details can wrap safely. */
+.novaFooter .novaFooterContainer,
+.novaFooterGrid > *,
+.novaFooterContactList > a > span:last-child,
+.novaFooterHours > div:last-child {
+  min-width: 0;
+}
+
+.novaFooterContactList strong,
+.novaFooterBottomInner > * {
+  overflow-wrap: anywhere;
+}
+
+.novaFooterCTAButton {
+  max-width: 100%;
+  white-space: normal;
+  text-align: center;
+}
+
+.novaFooterLinks a {
+  max-width: 100%;
+  min-height: 44px;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.novaFooterLinks a svg {
+  position: static !important;
+  flex: 0 0 auto;
+  margin-left: 0 !important;
+}
+
+.novaFooterBottomLinks {
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media (max-width: 900px) {
+  .novaFooterGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 30px 24px;
+  }
+
+  .novaFooterBrand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 600px) {
+  .novaFooterGrid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 26px;
+  }
+
+  .novaFooterBrand {
+    grid-column: auto;
+  }
+
+  .novaFooterSocials a {
+    width: 44px;
+    height: 44px;
+  }
+
+  .novaFooterContactList > a,
+  .novaFooterBookLink {
+    min-height: 44px;
+  }
+}
