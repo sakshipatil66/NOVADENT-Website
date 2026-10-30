@@ -1,4 +1,5 @@
-import { Routes, Route } from "react-router-dom";
+
+import { Routes, Route, useLocation } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -23,6 +24,23 @@ import "./styles/NovaRequestedFixes.css";
 import StoryProgressBar from "./components/StoryProgressBar";
 
 export default function App() {
+  const location = useLocation();
+
+  const isAdminRoute = location.pathname.startsWith("/admin");
+
+  if (isAdminRoute) {
+    return (
+      <Routes>
+        <Route path="/admin" element={<AdminDashboard />} />
+        <Route
+          path="/admin/appointments"
+          element={<AdminDashboard />}
+        />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    );
+  }
+
   return (
     <>
       <SiteSEO />
@@ -40,9 +58,7 @@ export default function App() {
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/reviews" element={<Reviews />} />
         <Route path="/appointment" element={<Appointment />} />
-        <Route path="/admin/appointments" element={<AdminDashboard />} />
         <Route path="/contact" element={<Contact />} />
-
         <Route path="*" element={<NotFound />} />
       </Routes>
 

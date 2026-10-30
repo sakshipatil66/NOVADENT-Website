@@ -1,4 +1,3 @@
-
 const REQUEST_TIMEOUT_MS = 10000;
 
 const json = (body, status = 200) =>
@@ -27,6 +26,88 @@ const normalizePhone = (value) =>
 const isValidPhone = (value) =>
   /^\+[1-9]\d{7,14}$/.test(value);
 
+/* ---------------- SUPABASE ---------------- */
+
+async function saveAppointmentToSupabase(appointment) {
+  const supabaseUrl = String(
+    process.env.SUPABASE_URL || ""
+  ).trim().replace(/\/+$/, "");
+
+  const supabaseKey = String(
+    process.env.SUPABASE_SECRET_KEY || ""
+  ).trim();
+
+  if (!supabaseUrl || !supabaseKey) {
+    console.error("Supabase environment variables are missing.");
+    return { success: false };
+  }
+
+  const appointmentId = `NOVA-${Date.now()}`;
+
+  const record = {
+    appointment_id: appointmentId,
+    patient_name: appointment.name,
+    phone: appointment.phone,
+    email: appointment.email,
+    service: appointment.service,
+    doctor: appointment.doctor,
+    appointment_date: appointment.date,
+    appointment_time: appointment.time,
+    message: appointment.message || null,
+    status: "Pending",
+  };
+
+  const controller = new AbortController();
+  const timer = setTimeout(
+    () => controller.abort(),
+    REQUEST_TIMEOUT_MS
+  );
+
+  try {
+    const response = await fetch(
+      `${supabaseUrl}/rest/v1/appointments`,
+      {
+        method: "POST",
+        headers: {
+          apikey: supabaseKey,
+          Authorization: `Bearer ${supabaseKey}`,
+          "Content-Type": "application/json",
+          Prefer: "return=minimal",
+        },
+        body: JSON.stringify(record),
+        signal: controller.signal,
+      }
+    );
+
+    if (!response.ok) {
+      const errorText = await response.text();
+
+      console.error("Supabase insert failed:", {
+        status: response.status,
+        message: errorText,
+      });
+
+      return { success: false };
+    }
+
+    return {
+      success: true,
+      appointmentId,
+    };
+  } catch (error) {
+    console.error(
+      "Supabase request failed:",
+      error.message
+    );
+
+    return { success: false };
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+/* ---------------- RESEND EMAIL ---------------- */
+
 async function sendResendEmail({
   apiKey,
   from,
@@ -43,6 +124,7 @@ async function sendResendEmail({
   }
 
   const controller = new AbortController();
+
   const timer = setTimeout(
     () => controller.abort(),
     REQUEST_TIMEOUT_MS
@@ -100,10 +182,15 @@ async function sendResendEmail({
   }
 }
 
+/* ---------------- APPOINTMENT HANDLER ---------------- */
+
 export default async (req) => {
   if (req.method !== "POST") {
     return json(
-      { success: false, message: "Method not allowed." },
+      {
+        success: false,
+        message: "Method not allowed.",
+      },
       405
     );
   }
@@ -123,7 +210,11 @@ export default async (req) => {
     );
   }
 
-  if (!data || typeof data !== "object" || Array.isArray(data)) {
+  if (
+    !data ||
+    typeof data !== "object" ||
+    Array.isArray(data)
+  ) {
     return json(
       {
         success: false,
@@ -135,16 +226,29 @@ export default async (req) => {
   }
 
   const name = String(data.name ?? "").trim();
-  const email = String(data.email ?? "").trim().toLowerCase();
+
+  const email = String(data.email ?? "")
+    .trim()
+    .toLowerCase();
+
   const phone = normalizePhone(data.phone);
+
   const doctor = cleanLine(
     data.doctor || "Any available doctor",
     150
   );
+
   const service = cleanLine(data.service, 120);
+
   const date = String(data.date ?? "").trim();
+
   const time = cleanLine(data.time, 80);
-  const message = String(data.message ?? "").trim().slice(0, 1000);
+
+  const message = String(data.message ?? "")
+    .trim()
+    .slice(0, 1000);
+
+  /* Validate required fields */
 
   if (
     !name ||
@@ -166,6 +270,8 @@ export default async (req) => {
       400
     );
   }
+
+  /* Validate appointment date */
 
   if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) {
     return json(
@@ -212,6 +318,33 @@ export default async (req) => {
     );
   }
 
+  /* Save appointment to Supabase first */
+
+  const databaseResult = await saveAppointmentToSupabase({
+    name,
+    phone,
+    email,
+    doctor,
+    service,
+    date,
+    time,
+    message,
+  });
+
+  if (!databaseResult.success) {
+    return json(
+      {
+        success: false,
+        requestAccepted: false,
+        message:
+          "We couldn't save your appointment request. Please try again later.",
+      },
+      503
+    );
+  }
+
+  /* Email configuration */
+
   const clinicEmail = String(
     process.env.APPOINTMENT_TO_EMAIL || ""
   ).trim();
@@ -224,21 +357,34 @@ export default async (req) => {
     process.env.RESEND_API_KEY || ""
   ).trim();
 
-  if (!clinicEmail || !fromEmail || !resendKey) {
-    console.error("Appointment email environment variables are missing.");
+  /*
+   * The appointment is already safely stored in Supabase.
+   * Missing email configuration should not erase that request.
+   */
 
-    return json(
-      {
-        success: false,
-        requestAccepted: false,
-        message:
-          "Appointment notifications are not configured yet. Please try again later.",
-      },
-      503
+  if (!clinicEmail || !fromEmail || !resendKey) {
+    console.error(
+      "Appointment saved, but email environment variables are missing."
     );
+
+    return json({
+      success: true,
+      requestAccepted: true,
+      appointmentId: databaseResult.appointmentId,
+      message:
+        "Your appointment request has been received. The team will contact you to confirm availability.",
+      notifications: {
+        clinicEmailAccepted: false,
+        patientEmailAccepted: false,
+        error: "Email notifications are not configured.",
+      },
+    });
   }
 
+  /* Appointment details for the clinic email */
+
   const appointmentDetails = [
+    `Appointment ID: ${databaseResult.appointmentId}`,
     `Patient: ${name}`,
     `Email: ${email}`,
     `Phone: ${phone}`,
@@ -248,6 +394,8 @@ export default async (req) => {
     `Requested time: ${time}`,
     `Additional note: ${message || "None"}`,
   ].join("\n");
+
+  /* Send emails to the clinic and patient */
 
   const [clinicResult, patientResult] = await Promise.all([
     sendResendEmail({
@@ -274,8 +422,9 @@ export default async (req) => {
         `Hello ${name},`,
         "",
         "Thank you for contacting NOVADENT Dental Care.",
-        "We have received your appointment request with the following details:",
+        "We have received your appointment request.",
         "",
+        `Appointment ID: ${databaseResult.appointmentId}`,
         `Treatment: ${service}`,
         `Preferred doctor: ${doctor}`,
         `Requested date: ${date}`,
@@ -294,6 +443,7 @@ export default async (req) => {
     clinicEmailError: clinicResult.accepted
       ? null
       : clinicResult.error,
+
     patientEmailAccepted: patientResult.accepted,
     patientEmailError: patientResult.accepted
       ? null
@@ -301,30 +451,16 @@ export default async (req) => {
   };
 
   /*
-   * Do not show success unless the clinic's email provider
-   * has accepted the appointment request email.
+   * The appointment is already saved in Supabase.
+   * Return the saved request even if an email fails.
    */
-  if (!clinicResult.accepted) {
-    return json(
-      {
-        success: false,
-        requestAccepted: false,
-        message:
-          "We could not forward your request to the appointment team. Please try again later.",
-        notifications,
-      },
-      502
-    );
-  }
 
-  return json(
-    {
-      success: true,
-      requestAccepted: true,
-      message:
-        "Your appointment request has been received. The team will contact you to confirm availability.",
-      notifications,
-    },
-    200
-  );
+  return json({
+    success: true,
+    requestAccepted: true,
+    appointmentId: databaseResult.appointmentId,
+    message:
+      "Your appointment request has been received. The team will contact you to confirm availability.",
+    notifications,
+  });
 };

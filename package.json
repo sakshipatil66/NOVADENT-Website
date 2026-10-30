@@ -10,8 +10,9 @@
     "dev:netlify": "netlify dev"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.118.0",
     "@vitejs/plugin-react": "latest",
-    "lucide-react": "latest",
+    "lucide-react": "^1.65.0",
     "nodemailer": "^10.1.7",
     "react": "latest",
     "react-dom": "latest",
